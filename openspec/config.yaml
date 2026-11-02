@@ -1,0 +1,32 @@
+schema: spec-driven
+
+context: |
+  Language: pt-BR
+  All artifacts must be written in pt-BR.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Produto: aplicativo para Windows (nome de trabalho "COTW Companion") para jogadores de
+  theHunter: Call of the Wild (PC/Steam). Lê o save do próprio usuário e os arquivos do jogo
+  instalado e mostra tudo o que ajuda na carreira: mapa de zonas de necessidade e rotas dos
+  grupos, missões, conquistas, contagem de abates, pelagens, build de habilidades. Versão
+  gratuita inclui liberar as zonas de necessidade que os grupos do usuário usam, com
+  horários. Versão premium edita os animais do mapa (pontuação, peso, sexo, Great One,
+  pelagem).
+
+  Conhecimento técnico: toda a engenharia reversa está na skill
+  `.claude/skills/cotw-save-knowledge/SKILL.md` e no código de referência em
+  `research/reference/`. Consulte antes de propor qualquer leitura ou escrita de arquivo.
+
+  Regras que toda proposta deve respeitar:
+  - Backup completo e automático da pasta do save antes de qualquer escrita; nunca apagar backups.
+  - Nunca escrever com o jogo aberto (processo theHunterCotW_F).
+  - Só dados de single-player; nada de multiplayer, nada de automação do cliente do jogo.
+  - Mostrar o que existe e o que vai mudar antes de aplicar; o usuário confirma.
+  - Preferir edições do mesmo tamanho; qualquer edição que muda o tamanho de um ADF reconstrói
+    offsets e a cadeia de relocação, e é verificada relendo o arquivo.
+  - Nunca distribuir arquivos do jogo; o app lê a instalação do usuário em tempo de execução.
+  - Interface em português do Brasil primeiro, preparada para outros idiomas.
+
+  Stack proposta (ver change bootstrap-app-foundation/design.md): Tauri 2 (Rust no backend
+  para arquivos, processos e backups) + TypeScript na interface, reaproveitando os
+  parsers JS já provados.

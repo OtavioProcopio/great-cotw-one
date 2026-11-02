@@ -1,0 +1,18 @@
+# nunca versionar saves, backups ou arquivos do jogo
+fixtures/
+backups/
+*.arc
+*.tab
+*_adf
+animal_population_*
+*.bin
+*.gfx
+*.blo
+*.ddsc
+UserGameStats*
+# build
+node_modules/
+target/
+dist/
+src-tauri/target/
+.DS_Store
