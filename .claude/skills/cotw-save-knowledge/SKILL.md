@@ -61,7 +61,7 @@ Every non-null array/pointer field is a 16-byte header `{u32 offset, u32 next, u
 - `AnimalGroupData` (48 B): `SpawnAreadId@0, NeedZonePathGuids[]@8 (u32 area keys = the group's daily route, in order, cyclic), Animals[]@24, Id@40`. UI group number = index+1.
 - `AnimalData` (32 B): `Gender u8@0 (1 male, 2 female), Weight f32@4, Score f32@8, FeatureModifiers u8@12 (bit0 = Great One), IsScripted u8@13, VisualVariationSeed u32@16 (fur), Id u32@20 (0 in current saves), MapPosition vec2@24 (always 0 — positions are NOT stored; use routes)`.
 - Species of a population: majority species of its route area keys (spawn maps, §4.1). `NameHashId` alone is incomplete.
-- **Safe edits (same size):** gender, weight, score, GO bit, fur seed. Diamond = male with score ≥ species diamond `score_low` (see §4.3). One diamond per group without touching population worked in game.
+- **Safe edits (same size):** gender, weight, score, GO bit, fur seed. Diamond = male with score ≥ species diamond `score_low` (see §4.4). One diamond per group without touching population worked in game.
 - **Creating animals** = insert 32-byte records in a group's `Animals` array (clone one from the same group) + full §2.3 rebuild + cap group size at the species' max observed group size. Bigger groups / broken chain crashed the game. Treat as experimental and verify.
 
 ### 3.2 `found_need_zones_adf` (discovered need zones, all reserves)
