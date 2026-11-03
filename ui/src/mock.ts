@@ -1,6 +1,7 @@
 // Dados de exemplo para ver a interface no navegador (`npm run dev` + `?mock`). Não vão para o app.
 import { mockIPC } from '@tauri-apps/api/mocks';
 
+import { mockAnimals, mockMapReserves, mockMissions, mockProfile, terrainArt } from './mock-data';
 import type { Diagnostics, HistoryItem, ReserveMap } from './types';
 
 const diagnostics: Diagnostics = {
@@ -26,8 +27,11 @@ const diagnostics: Diagnostics = {
   },
   reserves: [
     { id: 0, name: 'Hirschfelden' },
+    { id: 1, name: 'Layton Lake' },
     { id: 2, name: 'Medved-Taiga' },
-    { id: 99, name: 'Reserva 99' },
+    { id: 8, name: 'Cuatro Colinas' },
+    { id: 16, name: 'Emerald Coast' },
+    { id: 17, name: 'Sundarpatan' },
   ],
   files: [
     { name: 'animal_population_0', size: 105_074, kind: 'population', reserve: 0, state: 'ok' },
@@ -69,14 +73,15 @@ function mockMap(): ReserveMap {
     { id: 'reindeer', name: 'Rena' },
   ];
   const zones: ReserveMap['zones'] = [];
-  for (let i = 0; i < 90; i += 1) {
-    const kind = (i % 3) + 1;
+  for (let i = 0; i < 260; i += 1) {
+    const angle = i * 2.39996;
+    const radius = 600 + (i % 37) * 175;
     zones.push({
-      x: -12000 + (i % 10) * 640 + (i % 7) * 40,
-      z: -12000 + Math.floor(i / 10) * 700 + (i % 5) * 60,
-      kind,
+      x: -8192 + Math.cos(angle) * radius * 1.1,
+      z: -8192 + Math.sin(angle) * radius,
+      kind: (i % 3) + 1,
       species: i % 3,
-      pending: i % 4 === 0,
+      pending: i % 5 === 0,
       start: [4, 8, 12, 16, 20][i % 5] ?? 4,
       end: [8, 12, 16, 20, 0][i % 5] ?? 8,
     });
@@ -85,14 +90,14 @@ function mockMap(): ReserveMap {
     {
       number: 1,
       species: 1,
-      stops: [1, 4, 7, 10, 13, 16],
+      stops: [1, 4, 7, 10, 13, 16, 22],
       animals: [
         { male: true, weight: 560, score: 210, greatOne: true },
         { male: false, weight: 410, score: 0, greatOne: false },
       ],
     },
   ];
-  return { id: 2, name: 'Medved-Taiga', image: null, x0: -16384, z0: -16384, span: 16384, approximate: false, species, zones, groups };
+  return { id: 2, name: 'Medved-Taiga', image: terrainArt(), x0: -16384, z0: -16384, span: 16384, approximate: false, species, zones, groups };
 }
 
 export function installMock(): void {
@@ -103,59 +108,13 @@ export function installMock(): void {
       case 'history':
         return history;
       case 'animals':
-        return [
-          {
-            id: 2,
-            name: 'Medved-Taiga',
-            cover: null,
-            played: true,
-            species: [
-              { id: 'moose', name: 'Alce', areas: 1200, living: { groups: 3, animals: 9, males: 4, females: 5, greatOnes: 1, bestScore: 312, heaviest: 640 }, harvests: [{ score: 301, medal: 3, at: 1622753604 }] },
-              { id: 'brown_bear', name: 'Urso-pardo', areas: 800, living: null, harvests: [] },
-            ],
-          },
-        ];
+        return mockAnimals();
       case 'profile':
-        return {
-          steamId: '76561198125950350',
-          level: 60,
-          xp: 293_384,
-          cash: 300_618,
-          shotsFired: 4_120,
-          shotsMissed: 910,
-          totalKills: 612,
-          oneShotKills: 301,
-          recordScore: 900,
-          furthestShot: 412,
-          trophies: 26,
-          reserves: 14,
-          hasAchievements: true,
-          achievements: [
-            { id: 'ach_001', name: 'A milha', description: 'Viaje 1 milha (1,609 quilômetro) a pé.', hidden: false, unlocked: true },
-            { id: 'ach_002', name: 'Maratona', description: 'Viaje 26,2 milhas a pé.', hidden: false, unlocked: false },
-          ],
-        };
+        return mockProfile();
       case 'missions':
-        return [
-          {
-            id: 2,
-            name: 'Medved-Taiga',
-            total: 92,
-            done: 17,
-            active: 6,
-            mainTotal: 40,
-            mainDone: 12,
-            missions: [
-              { id: 273, text: 'Fotografe um alce no Lago Zhizni.', state: 'active', main: true, objectives: [{ done: 1, required: 3 }] },
-              { id: 306, text: 'Abata e recolha um lince.', state: 'done', main: true, objectives: [{ done: 1, required: 1 }] },
-            ],
-          },
-        ];
+        return mockMissions();
       case 'map_reserves':
-        return [
-          { id: 2, name: 'Medved-Taiga', cover: null },
-          { id: 0, name: 'Hirschfelden', cover: null },
-        ];
+        return mockMapReserves();
       case 'reserve_map':
         return mockMap();
       case 'zones_preview':

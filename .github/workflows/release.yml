@@ -1,0 +1,31 @@
+name: Release
+
+# Publica o instalador para download quando uma versão é marcada:
+#   git tag v0.1.0 && git push origin v0.1.0
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  installer:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+      - run: npm --prefix ui ci
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Instalador (NSIS)
+        run: ui/node_modules/.bin/tauri build
+      - name: Publicar na página de Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          files: target/release/bundle/nsis/*.exe
+          generate_release_notes: true

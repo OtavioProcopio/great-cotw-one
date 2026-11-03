@@ -1,0 +1,165 @@
+// Dados e artes de exemplo para ver a interface (e tirar prints) sem o jogo. Nada aqui vem do jogo:
+// as capas e o mapa são desenhos simples feitos em SVG. Só em desenvolvimento.
+import type { AnimalReserve, MapReserve, Profile, ReserveMissions } from './types';
+
+function svgUrl(svg: string): string {
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+}
+
+/** Capa de reserva: céu em degradê, montanhas e sol, na cor (matiz) pedida. */
+export function coverArt(hue: number): string {
+  return svgUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 160">
+    <defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="hsl(${String(hue)} 60% 62%)"/><stop offset="1" stop-color="hsl(${String((hue + 40) % 360)} 70% 82%)"/>
+    </linearGradient></defs>
+    <rect width="250" height="160" fill="url(#s)"/>
+    <circle cx="190" cy="42" r="18" fill="hsl(${String((hue + 40) % 360)} 90% 92%)" opacity=".9"/>
+    <path d="M0 120 L50 70 L90 105 L140 55 L200 110 L250 80 V160 H0Z" fill="hsl(${String(hue)} 35% 38%)"/>
+    <path d="M0 140 L60 105 L120 135 L180 100 L250 138 V160 H0Z" fill="hsl(${String(hue)} 40% 26%)"/>
+  </svg>`);
+}
+
+/** "Mapa" desenhado: terreno verde, relevo e lagos, só para o fundo do mapa de exemplo. */
+export function terrainArt(): string {
+  return svgUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+    <defs><radialGradient id="g" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#6f8f55"/><stop offset="1" stop-color="#3d5a3a"/></radialGradient>
+    <filter id="b"><feGaussianBlur stdDeviation="14"/></filter></defs>
+    <rect width="1024" height="1024" fill="#16231a"/>
+    <rect x="40" y="40" width="944" height="944" rx="120" fill="url(#g)"/>
+    <g filter="url(#b)" opacity=".55"><ellipse cx="320" cy="360" rx="190" ry="120" fill="#a8946a"/><ellipse cx="700" cy="640" rx="210" ry="150" fill="#8b7c58"/><ellipse cx="560" cy="250" rx="130" ry="90" fill="#9db27a"/></g>
+    <path d="M120 600 C300 520 420 700 620 620 S900 560 940 640" stroke="#5aa4c8" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <ellipse cx="760" cy="300" rx="90" ry="60" fill="#5aa4c8"/><ellipse cx="260" cy="800" rx="70" ry="44" fill="#5aa4c8"/>
+  </svg>`);
+}
+
+const NAMES: [number, string, number][] = [
+  [2, 'Medved-Taiga', 205],
+  [0, 'Hirschfelden', 110],
+  [1, 'Layton Lake', 150],
+  [8, 'Cuatro Colinas', 38],
+  [16, 'Emerald Coast', 175],
+  [17, 'Sundarpatan', 280],
+];
+
+export function mockMapReserves(): MapReserve[] {
+  return NAMES.map(([id, name, hue]) => ({ id, name, cover: coverArt(hue) }));
+}
+
+const ACHIEVEMENTS: [string, string, boolean, boolean][] = [
+  ['A milha', 'Viaje 1 milha a pé.', false, true],
+  ['Maratona', 'Viaje 42 quilômetros a pé.', false, true],
+  ['Primeiro troféu', 'Pendure o seu primeiro troféu no salão.', false, true],
+  ['Tiro certeiro', 'Abata um animal a mais de 300 metros.', false, true],
+  ['Fotógrafo', 'Fotografe 10 espécies diferentes.', false, true],
+  ['Caçador de lendas', 'Abata um animal Great One.', false, false],
+  ['Colecionador', 'Tenha 50 troféus no salão.', false, false],
+  ['Conquista secreta', '', true, false],
+  ['Explorador', 'Descubra todas as zonas de uma reserva.', false, false],
+  ['Mestre dos rifles', 'Chegue ao nível máximo de rifles.', false, true],
+];
+
+export function mockProfile(): Profile {
+  return {
+    steamId: '76561198000000000',
+    level: 60,
+    xp: 293_384,
+    cash: 300_618,
+    shotsFired: 4_120,
+    shotsMissed: 910,
+    totalKills: 612,
+    oneShotKills: 301,
+    recordScore: 900,
+    furthestShot: 412,
+    trophies: 26,
+    reserves: 14,
+    hasAchievements: true,
+    achievements: ACHIEVEMENTS.map(([name, description, hidden, unlocked], i) => ({
+      id: `ach_${String(i + 1).padStart(3, '0')}`,
+      name,
+      description,
+      hidden,
+      unlocked,
+    })),
+  };
+}
+
+export function mockMissions(): ReserveMissions[] {
+  const texts = [
+    'Crie pressão de caça perto do Lago Zhizni.',
+    'Fotografe um alce na margem do rio.',
+    'Abata e recolha um lince nas Terras de Lesnye.',
+    'Encontre as pegadas de um urso-pardo.',
+    'Vá até a cabana abandonada.',
+    'Identifique os rastros de uma rena.',
+    'Abata um javali a mais de 150 metros.',
+    'Fotografe três espécies diferentes.',
+  ];
+  const states = ['done', 'done', 'active', 'active', 'active', 'locked', 'locked', 'locked'] as const;
+  const build = (id: number, name: string, total: number, done: number, active: number): ReserveMissions => ({
+    id,
+    name,
+    total,
+    done,
+    active,
+    mainTotal: Math.round(total * 0.6),
+    mainDone: Math.round(done * 0.7),
+    missions: texts.map((text, i) => ({
+      id: id * 100 + i,
+      text,
+      state: states[i] ?? 'locked',
+      main: i % 3 !== 2,
+      objectives:
+        states[i] === 'locked'
+          ? [{ done: 0, required: 2 }]
+          : [
+              { done: states[i] === 'done' ? 2 : 1, required: 2 },
+              { done: states[i] === 'done' ? 1 : 0, required: 1 },
+            ],
+    })),
+  });
+  return [build(2, 'Medved-Taiga', 92, 51, 6), build(0, 'Hirschfelden', 124, 118, 6), build(8, 'Cuatro Colinas', 76, 7, 5)];
+}
+
+const SPECIES: [string, string][] = [
+  ['moose', 'Alce'],
+  ['brown_bear', 'Urso-pardo'],
+  ['reindeer', 'Rena'],
+  ['wild_boar', 'Javali'],
+  ['eurasian_lynx', 'Lince-euroasiático'],
+  ['gray_wolf', 'Lobo-cinzento'],
+  ['musk_deer', 'Cervo-almiscarado'],
+  ['capercaillie', 'Tetraz-grande'],
+];
+
+export function mockAnimals(): AnimalReserve[] {
+  return NAMES.map(([id, name, hue], r) => ({
+    id,
+    name,
+    cover: coverArt(hue),
+    played: r < 4,
+    species: SPECIES.map(([sid, sname], i) => ({
+      id: sid,
+      name: sname,
+      areas: 300 + ((i * 137 + r * 41) % 900),
+      living:
+        r < 4 && i % 3 !== 2
+          ? {
+              groups: 2 + ((i + r) % 5),
+              animals: 6 + ((i * 7 + r) % 30),
+              males: 3 + (i % 9),
+              females: 3 + ((i + r) % 12),
+              greatOnes: i % 4 === 0 ? 1 : 0,
+              bestScore: 180 + i * 23,
+              heaviest: 90 + i * 70,
+            }
+          : null,
+      harvests:
+        i % 2 === 0
+          ? [
+              { score: 280 - i * 9, medal: 3, at: 1_790_000_000 },
+              { score: 210 - i * 7, medal: 1, at: 1_788_000_000 },
+            ]
+          : [],
+    })),
+  }));
+}
