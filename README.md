@@ -27,7 +27,7 @@ openspec/
   config.yaml          contexto do projeto (lido pelos agentes)
   specs/               specs vigentes (preenchidas ao arquivar changes)
   changes/             propostas em andamento
-    bootstrap-app-foundation/          base: descoberta, leitura, escrita segura (concluída)
+    archive/2026-11-02-bootstrap-app-foundation/  base concluída e arquivada (specs em openspec/specs)
     add-reserve-map-and-zone-unlock/   mapa, rastreador e liberar zonas (free; falta o teste no jogo)
     add-player-profile-and-animal-wiki/ perfil, conquistas e wiki de animais (free; entregue em grande parte)
     add-career-guide/                  missões, conquistas, pelagens, build (free; missões por reserva entregues)
@@ -40,7 +40,7 @@ Abas prontas: **Início**, **Perfil** (marcas de caça e conquistas da Steam), *
 
 Fluxo com Claude Code (comandos já instalados em `.claude/`): `/opsx:explore` → `/opsx:propose <ideia>` → `/opsx:apply <change>` → `/opsx:archive <change>`. Validar: `npx @fission-ai/openspec validate --all`.
 
-A base (`bootstrap-app-foundation`) está concluída; as outras dependem dela.
+A base (`bootstrap-app-foundation`) está concluída e arquivada; suas specs vivem em `openspec/specs/`. As outras changes dependem dela.
 
 ## Conhecimento do jogo
 
