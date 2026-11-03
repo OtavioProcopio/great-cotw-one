@@ -1,5 +1,20 @@
 ## ADDED Requirements
 
+### Requirement: Missões por reserva
+O app SHALL listar as missões de cada reserva do jogo que tenha campanha no save, com o texto do próprio jogo, o estado (concluída, em andamento, bloqueada), a marca de história principal, o andamento de cada objetivo e o total concluído, e SHALL permitir filtrar por estado.
+
+#### Scenario: Reserva em andamento
+- **WHEN** o usuário abre Medved-Taiga na aba Missões
+- **THEN** o app mostra o anel de progresso da reserva, quantas missões da história principal estão feitas e a lista das missões em andamento
+
+#### Scenario: Reserva de expansão nova
+- **WHEN** o jogo traz uma reserva cujo arquivo de missões é indicado pela configuração dela
+- **THEN** as missões dela aparecem sem mudança no app
+
+#### Scenario: Missão sem texto
+- **WHEN** o jogo não traz o texto de uma missão
+- **THEN** o app a mostra como "Missão" seguida do número
+
 ### Requirement: Missões por cadeia
 O app SHALL listar as missões de cada reserva agrupadas pela cadeia (com o nome de quem dá a missão), na ordem do jogo, com estado (feita, em andamento, bloqueada) e cada objetivo com marcação de feito.
 

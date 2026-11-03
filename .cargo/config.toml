@@ -1,0 +1,6 @@
+# Atalhos: `cargo lint`, `cargo fmt-check`, `cargo cov`, `cargo cov-html`.
+[alias]
+lint = "clippy --workspace --all-targets -- -D warnings"
+fmt-check = "fmt --all -- --check"
+cov = "llvm-cov --workspace --summary-only"
+cov-html = "llvm-cov --workspace --html"

@@ -7,6 +7,7 @@ O que mais trava o jogador é achar os animais: o jogo só mostra uma zona de ne
 - Mapa da reserva com as zonas de necessidade (comer, beber, descansar) do save, inclusive as ainda não descobertas que algum grupo usa.
 - Filtro por espécie, por tipo de necessidade e por horário; rastreador de grupo junto do filtro de espécie, com a rota do dia, os horários de cada parada e onde o grupo deve estar na hora escolhida.
 - Lista de animais de cada grupo (sexo, peso, pontuação, marca de diamante e Great One) — somente leitura na versão gratuita.
+- Reservas reconhecidas sozinhas a partir do save e do jogo, com a capa de cada uma, e imagem do mapa do próprio jogo por baixo das zonas.
 - Função gratuita "Liberar zonas": grava no save as zonas que os grupos atuais usam e o usuário ainda não descobriu, com posição, altura e horário calculados.
 
 ## Capabilities

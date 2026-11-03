@@ -35,3 +35,29 @@ O app SHALL listar os animais de cada grupo com sexo, peso, pontuação e indica
 #### Scenario: Grupo com Great One
 - **WHEN** um grupo tem um animal com a marca de Great One
 - **THEN** o grupo aparece no topo da lista com a marca ⭐
+
+### Requirement: Reconhecer as reservas do jogador
+O app SHALL montar a lista de reservas a partir do que existe no computador do jogador (reservas com dados no save e mapas no jogo instalado), com a foto de capa do próprio jogo, sem depender de uma lista fixa de reservas.
+
+#### Scenario: Reserva de qualquer expansão
+- **WHEN** o save e o jogo têm dados de uma reserva
+- **THEN** ela aparece na faixa de reservas do mapa e na tela inicial, com a capa e o nome
+
+#### Scenario: Escolher pela tela inicial
+- **WHEN** o usuário toca numa reserva da tela inicial
+- **THEN** o app abre o mapa dessa reserva
+
+### Requirement: Imagem de fundo do mapa
+O app SHALL desenhar as zonas sobre a imagem do mapa do próprio jogo instalado quando ela existir, e SHALL avisar quando o alinhamento da imagem tiver sido calculado pelas zonas em vez de vir de um retângulo conhecido.
+
+#### Scenario: Reserva com retângulo conhecido
+- **WHEN** a reserva tem imagem e retângulo conhecidos
+- **THEN** o mapa mostra a imagem alinhada com as coordenadas do jogo, sem aviso
+
+#### Scenario: Reserva nova com alinhamento calculado
+- **WHEN** a reserva tem imagem mas não tem retângulo conhecido
+- **THEN** o app alinha o centro da parte iluminada da imagem com o centro das zonas e avisa que a imagem pode estar deslocada algumas centenas de metros
+
+#### Scenario: Reserva sem imagem
+- **WHEN** o jogo não tem a imagem do mapa da reserva
+- **THEN** as zonas aparecem sobre fundo liso com a grade de 1 km e um aviso

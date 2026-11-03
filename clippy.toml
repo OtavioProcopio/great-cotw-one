@@ -1,0 +1,4 @@
+# unwrap/expect/panic são aceitáveis em testes, não no código de produção.
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-panic-in-tests = true

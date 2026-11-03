@@ -1,4 +1,4 @@
-# COTW Companion (nome de trabalho)
+# Great COTW One
 
 App para Windows que lê o seu save do **theHunter: Call of the Wild** e os arquivos do jogo instalado e mostra tudo o que ajuda na carreira.
 
@@ -27,15 +27,20 @@ openspec/
   config.yaml          contexto do projeto (lido pelos agentes)
   specs/               specs vigentes (preenchidas ao arquivar changes)
   changes/             propostas em andamento
-    bootstrap-app-foundation/          base: descoberta, leitura, escrita segura
-    add-reserve-map-and-zone-unlock/   mapa, rastreador e liberar zonas (free)
-    add-career-guide/                  missões, conquistas, pelagens, build (free)
+    bootstrap-app-foundation/          base: descoberta, leitura, escrita segura (concluída)
+    add-reserve-map-and-zone-unlock/   mapa, rastreador e liberar zonas (free; falta o teste no jogo)
+    add-player-profile-and-animal-wiki/ perfil, conquistas e wiki de animais (free; entregue em grande parte)
+    add-career-guide/                  missões, conquistas, pelagens, build (free; missões por reserva entregues)
     add-premium-animal-editor/         editor de animais + licença (premium)
 ```
 
+## Estado atual
+
+Abas prontas: **Início**, **Perfil** (marcas de caça e conquistas da Steam), **Animais** (wiki por reserva), **Mapa** (zonas, rastreador de grupos), **Missões** (andamento por reserva), **Liberar mapa**, **Backups** e **Ajustes**. Tudo é montado com o save e o jogo de cada pessoa, em português. Veja `docs/DEVELOPMENT.md` e as tarefas de cada change em `openspec/changes/`.
+
 Fluxo com Claude Code (comandos já instalados em `.claude/`): `/opsx:explore` → `/opsx:propose <ideia>` → `/opsx:apply <change>` → `/opsx:archive <change>`. Validar: `npx @fission-ai/openspec validate --all`.
 
-Comece pela change `bootstrap-app-foundation`; as outras dependem dela.
+A base (`bootstrap-app-foundation`) está concluída; as outras dependem dela.
 
 ## Conhecimento do jogo
 

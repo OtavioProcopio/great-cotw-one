@@ -1,0 +1,238 @@
+// Espelha os dados enviados pelo Rust (`cotw-core`), em camelCase.
+
+export interface GameDiagnostic {
+  found: boolean;
+  root: string | null;
+  archives: string | null;
+  tabFiles: number;
+  buildId: string | null;
+  manual: boolean;
+}
+
+export interface AccountDiagnostic {
+  steamId: string;
+  path: string;
+  /** Segundos desde 1970. */
+  lastModified: number | null;
+}
+
+export type SaveStatus = 'found' | 'choose' | 'notFound';
+
+export interface SaveDiagnostic {
+  status: SaveStatus;
+  account: AccountDiagnostic | null;
+  accounts: AccountDiagnostic[];
+  searched: string[];
+  manual: boolean;
+}
+
+export type FileState = 'ok' | 'unreadable' | 'unrecognized';
+export type FileKind = 'population' | 'foundIcons' | 'fogOfWar' | 'known' | 'unrecognized';
+
+export interface FileDiagnostic {
+  name: string;
+  size: number;
+  kind: FileKind;
+  reserve: number | null;
+  state: FileState;
+}
+
+export interface ReserveDiagnostic {
+  id: number;
+  name: string;
+}
+
+export interface Diagnostics {
+  game: GameDiagnostic;
+  save: SaveDiagnostic;
+  reserves: ReserveDiagnostic[];
+  files: FileDiagnostic[];
+  limitedMode: boolean;
+}
+
+export interface HistoryItem {
+  id: number;
+  /** `2026-11-02_15-30-00`. */
+  at: string;
+  kind: 'change' | 'restore';
+  function: string;
+  summary: string;
+  files: string[];
+  backup: string;
+  backupMissing: boolean;
+}
+
+export interface RewriteResult {
+  backup: string;
+  oldSize: number;
+  newSize: number;
+}
+
+export type ReserveState = 'ready' | 'nothingToDo' | 'needsDiscovery' | 'noData';
+
+export interface ReserveSummary {
+  id: number;
+  name: string;
+  state: ReserveState;
+  newZones: number;
+  /** Zonas com horário estimado (o jogo corrige quando o jogador passa por lá). */
+  estimated: number;
+  /** Zonas que não puderam ser calculadas. */
+  skipped: number;
+}
+
+export interface ZonesPreview {
+  reserves: ReserveSummary[];
+  total: number;
+}
+
+export interface UnlockResult {
+  zonesAdded: number;
+  reserves: number;
+  backup: string;
+}
+
+export interface Living {
+  groups: number;
+  animals: number;
+  males: number;
+  females: number;
+  greatOnes: number;
+  bestScore: number;
+  heaviest: number;
+}
+
+export interface Harvest {
+  score: number;
+  medal: number;
+  at: number;
+}
+
+export interface SpeciesEntry {
+  id: string;
+  name: string;
+  areas: number;
+  living: Living | null;
+  harvests: Harvest[];
+}
+
+export interface AnimalReserve {
+  id: number;
+  name: string;
+  cover: string | null;
+  played: boolean;
+  species: SpeciesEntry[];
+}
+
+export interface Achievement {
+  id: string;
+  name: string;
+  description: string;
+  hidden: boolean;
+  unlocked: boolean;
+}
+
+export interface Profile {
+  steamId: string;
+  level: number;
+  xp: number;
+  cash: number;
+  shotsFired: number;
+  shotsMissed: number;
+  totalKills: number;
+  oneShotKills: number;
+  recordScore: number;
+  furthestShot: number;
+  trophies: number;
+  reserves: number;
+  achievements: Achievement[];
+  hasAchievements: boolean;
+}
+
+export interface MissionObjective {
+  done: number;
+  required: number;
+}
+
+export interface Mission {
+  id: number;
+  text: string;
+  state: 'done' | 'active' | 'locked';
+  main: boolean;
+  objectives: MissionObjective[];
+}
+
+export interface ReserveMissions {
+  id: number;
+  name: string;
+  total: number;
+  done: number;
+  active: number;
+  mainTotal: number;
+  mainDone: number;
+  missions: Mission[];
+}
+
+export interface MapReserve {
+  id: number;
+  name: string;
+  /** Foto de capa do jogo (`data:image/jpeg;base64,...`), se houver. */
+  cover: string | null;
+}
+
+export interface MapSpecies {
+  id: string;
+  name: string;
+}
+
+export interface MapZone {
+  x: number;
+  z: number;
+  /** 1 comer, 2 beber, 3 descansar. */
+  kind: number;
+  /** Índice em `species`; -1 se desconhecida. */
+  species: number;
+  /** Ainda não está no save. */
+  pending: boolean;
+  start: number;
+  end: number;
+}
+
+export interface MapAnimal {
+  male: boolean;
+  weight: number;
+  score: number;
+  greatOne: boolean;
+}
+
+export interface MapGroup {
+  number: number;
+  species: number;
+  /** Índices em `zones`, na ordem da rota. */
+  stops: number[];
+  animals: MapAnimal[];
+}
+
+export interface ReserveMap {
+  id: number;
+  name: string;
+  /** `data:image/jpeg;base64,...` */
+  image: string | null;
+  x0: number;
+  z0: number;
+  span: number;
+  approximate: boolean;
+  species: MapSpecies[];
+  zones: MapZone[];
+  groups: MapGroup[];
+}
+
+export interface RestoreResult {
+  safetyBackup: string;
+}
+
+/** Erro devolvido pelos comandos: `code` é estável e traduzível. */
+export interface CommandError {
+  code: string;
+  message: string;
+}

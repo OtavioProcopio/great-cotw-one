@@ -8,6 +8,10 @@ Platinar o jogo exige saber o que falta: quais missões estão abertas em cada c
 - Guia de pelagens: chance real de cada pelagem por espécie e sexo, raridade, Great One, diamantes por reserva no save.
 - Planejador de build: árvores de habilidades e vantagens na posição do jogo, com as regras de desbloqueio, carregando a build do save; gravar a build é opcional e passa pela escrita segura.
 
+## Estado
+
+Já entregue (ver `add-player-profile-and-animal-wiki` para o perfil): aba Missões com o andamento por reserva (estado de cada missão, objetivos e texto do jogo) e conquistas da Steam com status na aba Perfil. Pendentes: cadeias com o nome de quem dá a missão, progresso detalhado e "o que falta" de cada conquista, vitórias rápidas, pelagens e build de habilidades.
+
 ## Capabilities
 
 ### New Capabilities

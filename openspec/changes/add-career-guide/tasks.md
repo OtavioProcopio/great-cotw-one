@@ -1,11 +1,11 @@
 ## 1. Missões e conquistas
 
-- [ ] 1.1 Ler definições de missões por reserva e textos (`missions.stringlookup`), doadores por `hashlittle("nome_sobrenome")`
-- [ ] 1.2 Ler `missions_missiondata_adf` e montar cadeias, etapas e objetivos
-- [ ] 1.3 Ler o cache de estatísticas da Steam e o schema para status das conquistas
+- [x] 1.1 Ler definições de missões por reserva e textos (arquivo indicado pela configuração da reserva, texto por `missions_N.stringlookup`, chave = 32 bits baixos do hash da descrição); falta o nome de quem dá a missão
+- [x] 1.2 Ler `missions_missiondata_adf` e montar cadeias, etapas e objetivos (aba Missões, por reserva, com filtro por estado)
+- [x] 1.3 Ler o cache de estatísticas da Steam e o schema para status das conquistas (aba Perfil, em português)
 - [ ] 1.4 Mapear conquista → missão de conquista e calcular progresso por tipo
 - [ ] 1.5 Itens que faltam: condições dos objetivos e `ValueOccurrences`
-- [ ] 1.6 Telas: visão geral, conquistas, cadeias, contagens e vitórias rápidas
+- [ ] 1.6 Telas: visão geral e conquistas (feitas nas abas Perfil e Missões); faltam cadeias, contagens e vitórias rápidas
 
 ## 2. Pelagens
 

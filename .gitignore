@@ -10,9 +10,19 @@ animal_population_*
 *.blo
 *.ddsc
 UserGameStats*
+# cobertura
+lcov.info
+coverage/
+*.profraw
 # build
 node_modules/
 target/
 dist/
 src-tauri/target/
 .DS_Store
+
+# frontend e Tauri
+ui/node_modules/
+ui/dist/
+ui/coverage/
+src-tauri/gen/
