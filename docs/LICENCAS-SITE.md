@@ -1,67 +1,92 @@
-# Licenças no site: como ligar pagamento, chave e e-mail
+# Venda e licenças: Mercado Pago + servidor na VPS
 
-O app confere a licença **sem internet** (assinatura Ed25519, chave pública embutida). Então o
-site só precisa fazer uma coisa: **depois do pagamento aprovado, assinar uma chave e mandar ao
-comprador**. Tudo o mais (ativar, vencer, avisar 30 dias antes) já está no app.
+O app confere a licença **sem internet** (assinatura Ed25519, chave pública embutida). Para vender
+é preciso um servidor seu que, **depois do pagamento aprovado, assine uma chave e entregue ao app**.
+Ele fica em `tools/license-server` (Node 20+, sem dependências) e usa o emissor de `tools/license-issuer`.
 
-## O fluxo
+## Como funciona
 
 ```
-Comprador ──paga──▶ Plataforma de pagamento ──webhook──▶ Servidor do site (função)
-                                                              │ 1. confere a assinatura do webhook
-                                                              │ 2. descobre e-mail e plano (R$ 15 mês / R$ 75 ano)
-                                                              │ 3. issueLicense(...)  ← chave privada (segredo)
-                                                              ▼
-                                            E-mail com a chave GCO1.… ──▶ Comprador cola em Premium → Ativar
+App (Premium → Assinar)                     Servidor (VPS)                    Mercado Pago
+  gera um CÓDIGO secreto aleatório
+  POST /v1/checkout {plano, código} ───────▶ cria a preferência ─────────────▶ checkout
+  ◀──────────── link do checkout ◀───────────
+  abre o link no navegador ───────────────────────────────────────────────────▶ jogador paga (Pix/cartão)
+                                             ◀──── webhook "pagamento" ────────
+                                             1. confere a assinatura do webhook
+                                             2. CONSULTA o pagamento na API (não confia no aviso)
+                                             3. confere status, valor do plano e o código
+                                             4. assina a chave com a chave privada
+  GET /v1/claim/<código> (a cada poucos s) ─▶ devolve a chave quando existe
+  ativa o Premium sozinho
 ```
 
-## O que já existe
+Pontos de segurança:
+- A **chave privada** só existe na VPS (variável de ambiente). Nunca vai para o app nem para o GitHub.
+- Só quem tem o **código** gerado pelo app busca a chave; saber o e-mail do comprador não basta.
+- O servidor **não confia no aviso** do Mercado Pago: confere a assinatura do webhook, consulta o
+  pagamento na API e exige `approved` e o valor do plano (um pagamento de R$ 1 não vira anual).
+- Aviso repetido não emite outra chave (idempotente pelo id do pagamento).
 
-- `tools/license-issuer/issuer.mjs`: `issueLicense({ privateKey, email, plan })` devolve a chave.
-  Só usa WebCrypto, então roda em Node 20+, Cloudflare Workers, Deno e Bun.
-- `tools/license-issuer/cli.mjs`: o mesmo, pela linha de comando (para emitir à mão).
-- O teste `issuer.test.mjs` e o teste `accepts_the_key_issued_by_the_website_issuer` (em
-  `license.rs`) travam o formato nos dois lados com o mesmo vetor. Se alguém mexer no formato,
-  os dois testes quebram.
+## Instalar na VPS
 
-## O que falta (precisa de decisões e contas suas)
+1. **Mercado Pago** → Seu negócio → Configurações → Credenciais (ou developers): crie uma aplicação
+   de *Checkout Pro* e pegue o **Access Token de produção**. Em *Webhooks*, cadastre a URL
+   `https://SEU-DOMINIO/v1/webhook/mercadopago` com o evento **Pagamentos** e copie a **chave
+   secreta** da assinatura. Para testar antes de vender, use as credenciais de teste.
+2. **Domínio com HTTPS** apontando para a VPS (o Mercado Pago exige HTTPS). O mais simples é o
+   Caddy, que gera o certificado sozinho:
+   ```
+   licencas.seudominio.com {
+       reverse_proxy 127.0.0.1:8787
+   }
+   ```
+3. **Código na VPS** (precisa de Node 20 ou mais novo): copie as pastas `tools/license-issuer` e
+   `tools/license-server` (ou clone o repositório).
+4. **Variáveis** em `/etc/great-cotw-license.env` (permissão `600`, dono do serviço):
+   ```
+   PUBLIC_URL=https://licencas.seudominio.com
+   MP_ACCESS_TOKEN=<access token do Mercado Pago>
+   MP_WEBHOOK_SECRET=<chave secreta do webhook>
+   LICENSE_PRIVATE_KEY=<conteúdo do private.key, em uma linha>
+   DATA_FILE=/var/lib/great-cotw/orders.json
+   ```
+5. **Serviço** (`/etc/systemd/system/great-cotw-license.service`):
+   ```
+   [Unit]
+   Description=Great COTW One license server
+   After=network.target
 
-1. **Plataforma de pagamento** (com Pix e cartão). Candidatas: Kiwify, Hotmart ou Mercado Pago.
-   O que importa: ter **webhook** de "pagamento aprovado" e "assinatura renovada" com o e-mail
-   do comprador, e a taxa por venda.
-2. **Onde roda a função**: Cloudflare Workers (grátis para esse volume), Vercel ou Netlify.
-   A chave privada entra como **variável secreta** (`LICENSE_PRIVATE_KEY` = conteúdo do
-   `private.key`). Nunca no repositório, nunca em página estática.
-3. **Envio do e-mail**: Resend, Brevo ou o próprio e-mail da plataforma.
-4. **Renovação do plano mensal.** A licença é offline e vence em 31 dias; a cada renovação paga,
-   o servidor emite **uma chave nova** e manda por e-mail, e o comprador cola de novo. Para o
-   mensal isso é um atrito real. Alternativa (mais trabalho): o app pedir a chave nova ao
-   servidor com o e-mail e um código, quando houver internet. Decidir depois das primeiras vendas.
-5. **Reembolso e fraude**: a chave já emitida continua valendo até vencer. Se for um problema,
-   usar o plano mensal como padrão e o anual só com pagamento confirmado.
-6. **Dados**: guarde só e-mail, plano e data (para reenviar a chave). Isso é dado pessoal:
-   política de privacidade no site.
+   [Service]
+   EnvironmentFile=/etc/great-cotw-license.env
+   ExecStart=/usr/bin/node /opt/great-cotw/tools/license-server/main.mjs
+   Restart=always
+   User=great-cotw
+   StateDirectory=great-cotw
 
-## Esqueleto da função (Cloudflare Workers)
+   [Install]
+   WantedBy=multi-user.target
+   ```
+   `systemctl enable --now great-cotw-license` e confira `https://licencas.seudominio.com/health`.
+6. **Faça backup de `orders.json`** (é o registro das vendas) e do `private.key`.
+7. No app, preencha `LICENSE_SERVER` em `ui/src/config.ts` com a URL do servidor.
 
-```js
-import { issueLicense } from './issuer.mjs';
+## Testar ponta a ponta antes de vender
 
-export default {
-  async fetch(request, env) {
-    // 1. CONFIRA a assinatura/segredo do webhook da plataforma antes de qualquer coisa.
-    const order = await request.json();            // formato depende da plataforma
-    const plan = order.valor >= 75 ? 'yearly' : 'monthly';
-    const key = await issueLicense({ privateKey: env.LICENSE_PRIVATE_KEY, email: order.email, plan });
-    // 2. Mande `key` por e-mail (Resend/Brevo) e responda 200 à plataforma.
-    return new Response('ok');
-  },
-};
-```
+Com as credenciais de **teste** do Mercado Pago: Premium → Assinar → pagar com um usuário e cartão
+de teste → o app deve ativar sozinho. Depois troque para as credenciais de produção e faça uma
+compra real pequena (pode reembolsar).
 
-## Antes de vender
+## Decisões que ficaram
 
-- Faça **uma cópia segura** de `private.key` (gerenciador de senhas). Perdê-la = não emitir mais.
-- Trocar o par de chaves invalida todas as licenças já vendidas.
-- Teste ponta a ponta com uma compra de R$ 1 (ou modo de teste da plataforma): pagar → receber o
-  e-mail → colar no app → Premium ativo.
+- **Plano mensal:** a licença vence em 31 dias. A cada renovação paga, o servidor emite outra
+  chave; o app precisa de um novo código para buscá-la (renovação automática exige o app
+  consultar o servidor ao abrir; ficou para depois das primeiras vendas).
+- **Reembolso/chargeback:** a chave já emitida vale até vencer.
+- **Privacidade:** o servidor guarda e-mail do pagamento, plano e data. Publique uma política de
+  privacidade e fale de reembolso na página do Premium.
+- **Troca do par de chaves** invalida todas as licenças já vendidas.
+
+## Emitir à mão (suporte)
+
+`node tools/license-issuer/cli.mjs <private.key> <e-mail> monthly|yearly` (ou `gco-license issue`).

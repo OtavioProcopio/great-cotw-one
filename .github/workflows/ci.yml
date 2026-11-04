@@ -84,9 +84,9 @@ jobs:
           cache: npm
           cache-dependency-path: ui/package-lock.json
       - run: npm ci
-      - name: Emissor de licenças do site
+      - name: Servidor e emissor de licenças
         working-directory: .
-        run: node --test tools/license-issuer/issuer.test.mjs
+        run: node --test tools/license-issuer/issuer.test.mjs tools/license-server/server.test.mjs
       - run: npm run typecheck
       - run: npm run lint
       - name: Tests e cobertura (limites em vite.config.ts)
