@@ -1,0 +1,21 @@
+[package]
+name = "license-tool"
+description = "Ferramenta do vendedor: gera o par de chaves e emite as licenças anuais do Great COTW One"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "gco-license"
+path = "src/main.rs"
+
+[dependencies]
+base64 = "0.22.1"
+cotw-core = { path = "../cotw-core" }
+ed25519-dalek = { version = "2.2.0", features = ["rand_core"] }
+rand_core = { version = "0.6.4", features = ["getrandom"] }

@@ -79,6 +79,7 @@ export interface ReserveSummary {
   estimated: number;
   /** Zonas que não puderam ser calculadas. */
   skipped: number;
+  species: SpeciesNeeds[];
 }
 
 export interface ZonesPreview {
@@ -90,6 +91,86 @@ export interface UnlockResult {
   zonesAdded: number;
   reserves: number;
   backup: string;
+}
+
+export interface SpeciesNeeds {
+  id: string;
+  name: string;
+  /** Zonas a liberar de comer, beber e descansar. */
+  needs: [number, number, number];
+}
+
+export interface Limits {
+  minWeight: number;
+  maxWeight: number;
+  minScore: number;
+  maxScore: number;
+  typicalWeight: number;
+  typicalScore: number;
+}
+
+export interface SexLimits {
+  male: Limits;
+  female: Limits;
+}
+
+export interface EditableAnimal {
+  index: number;
+  male: boolean;
+  weight: number;
+  score: number;
+  greatOne: boolean;
+}
+
+export interface EditableGroup {
+  number: number;
+  animals: EditableAnimal[];
+}
+
+export interface SpeciesEditor {
+  reserve: number;
+  reserveName: string;
+  species: string;
+  name: string;
+  greatOneAllowed: boolean;
+  limits: SexLimits;
+  groups: EditableGroup[];
+}
+
+export interface AnimalChange {
+  group: number;
+  index: number;
+  male?: boolean;
+  weight?: number;
+  score?: number;
+  greatOne?: boolean;
+}
+
+export interface EditRequest {
+  reserve: number;
+  species: string;
+  changes: AnimalChange[];
+}
+
+export interface EditResult {
+  animals: number;
+  backup: string;
+}
+
+export interface License {
+  premium: boolean;
+  state: 'free' | 'active' | 'expiring' | 'expired';
+  email: string | null;
+  /** Vencimento, em segundos desde 1970. */
+  expires: number | null;
+  daysLeft: number | null;
+  plan: 'monthly' | 'yearly' | null;
+}
+
+export interface UnlockRequest {
+  reserves: number[];
+  species: string[] | null;
+  needs: number[] | null;
 }
 
 export interface Living {

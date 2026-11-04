@@ -8,6 +8,7 @@
 
 use std::path::PathBuf;
 
+use cotw_core::language::Language;
 use cotw_core::mapview::{build, reserves};
 use cotw_formats::archive::GameArchives;
 
@@ -49,7 +50,7 @@ fn a_reserve_map_has_image_zones_groups_and_species() {
     let Some((saves, archives)) = setup() else {
         return;
     };
-    let map = build(&saves, &archives, 2).unwrap();
+    let map = build(&saves, &archives, 2, Language::PtBr).unwrap();
     assert_eq!(map.name, "Medved-Taiga");
     assert!(
         map.image
@@ -80,7 +81,7 @@ fn a_reserve_without_data_is_an_error_not_a_panic() {
     let Some((saves, archives)) = setup() else {
         return;
     };
-    assert!(build(&saves, &archives, 99).is_err());
+    assert!(build(&saves, &archives, 99, Language::PtBr).is_err());
 }
 
 #[test]
@@ -90,7 +91,7 @@ fn the_inferred_placement_matches_the_known_one_on_reserves_that_have_both() {
     };
     let mut worst = 0.0_f64;
     for reserve in reserves(&saves, &archives).unwrap() {
-        let map = build(&saves, &archives, reserve.id).unwrap();
+        let map = build(&saves, &archives, reserve.id, Language::PtBr).unwrap();
         let Some(known) = cotw_formats::spawn_map::map_rect(reserve.id) else {
             continue;
         };

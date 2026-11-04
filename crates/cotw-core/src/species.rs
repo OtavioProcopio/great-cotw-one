@@ -1,128 +1,477 @@
-//! Nomes das espécies em português, indexados pelo nome que o jogo usa nos arquivos.
+//! Nomes das espécies em português, inglês e espanhol, indexados pelo nome que o jogo usa nos arquivos.
 
-/// (`id` do jogo, nome para exibir), em ordem alfabética do `id`.
-const NAMES: &[(&str, &str)] = &[
-    ("american_alligator", "Jacaré-americano"),
-    ("antelope_jackrabbit", "Lebre-antílope"),
-    ("axis_deer", "Cervo-áxis"),
-    ("banteng", "Banteng"),
-    ("barasingha", "Barasingha"),
-    ("bean_goose", "Ganso-campestre"),
-    ("bear", "Urso-negro"),
-    ("beceite_ibex", "Íbex de Beceite"),
-    ("bengal_tiger", "Tigre-de-bengala"),
-    ("bighorn_sheep", "Carneiro-selvagem"),
-    ("bison_upper", "Bisão-europeu"),
-    ("black_bear", "Urso-negro"),
-    ("black_grouse", "Galo-lira"),
-    ("blackbuck", "Antílope-indiano"),
-    ("blacktail", "Cervo-de-cauda-preta"),
-    ("blacktail_deer", "Veado-de-cauda-preta"),
-    ("blue_sheep", "Bharal"),
-    ("blue_wildebeest", "Gnu-azul"),
-    ("boar", "Javali"),
-    ("bobcat", "Lince-pardo"),
-    ("brown_bear", "Urso-pardo"),
-    ("canada_goose", "Ganso-do-canadá"),
-    ("cape_buffalo", "Búfalo-africano"),
-    ("capercaillie", "Tetraz-grande"),
-    ("caribou", "Caribu"),
-    ("cinnamon_teal", "Marreca-canela"),
-    ("collared_peccary", "Cateto"),
-    ("coyote", "Coiote"),
-    ("eastern_cottontail_rabbit", "Coelho-de-cauda-de-algodão"),
-    ("eastern_grey_kangaroo", "Canguru-cinzento"),
-    ("eastern_wild_turkey", "Peru-selvagem oriental"),
-    ("elk", "Alce-americano"),
-    ("eu_rabbit", "Coelho-europeu"),
-    ("eurasian_teal", "Marrequinha"),
-    ("eurasian_wigeon", "Piadeira"),
-    ("european_bison", "Bisão-europeu"),
-    ("european_hare", "Lebre-europeia"),
-    ("fallow", "Gamo"),
-    ("fallow_deer", "Gamo"),
-    ("feral_goat", "Cabra-selvagem"),
-    ("feral_pig", "Porco-selvagem"),
-    ("fox", "Raposa-vermelha"),
-    ("gemsbok", "Órix"),
-    ("goldeneye", "Olho-dourado"),
-    ("gray_fox", "Raposa-cinzenta"),
-    ("gray_wolf", "Lobo-cinzento"),
-    ("gredos_ibex", "Íbex de Gredos"),
-    ("green_wing_teal", "Marreca-de-asa-verde"),
-    ("grey_fox", "Raposa-cinzenta"),
-    ("greylag_goose", "Ganso-bravo"),
-    ("grizzly_bear", "Urso-pardo (grizzly)"),
-    ("harlequin_duck", "Pato-arlequim"),
-    ("hazel_grouse", "Galinha-do-mato"),
-    ("hog_deer", "Cervo-porco"),
-    ("iberian_mouflon", "Muflão-ibérico"),
-    ("iberian_wolf", "Lobo-ibérico"),
-    ("jackal", "Chacal"),
-    ("jackrabbit", "Lebre-americana"),
-    ("javan_rusa", "Rusa-de-java"),
-    ("lesser_kudu", "Cudo-menor"),
-    ("lion", "Leão"),
-    ("lynx", "Lince-euroasiático"),
-    ("magpie_goose", "Ganso-pega"),
-    ("mallard", "Pato-real"),
-    ("moose", "Alce"),
-    ("mountain_goat", "Cabra-das-rochosas"),
-    ("mountain_hare", "Lebre-variável"),
-    ("mule_deer", "Veado-mula"),
-    ("musk_deer", "Almiscareiro-siberiano"),
-    ("nilgai", "Nilgai"),
-    ("northern_bobwhite_quail", "Codorna-colinus"),
-    ("northern_red_muntjac", "Muntíaco"),
-    ("peccary", "Caititu"),
-    ("pheasant", "Faisão"),
-    ("plains_bison", "Bisão-das-planícies"),
-    ("pronghorn", "Antilocapra"),
-    ("puma", "Puma"),
-    ("raccoon", "Guaxinim"),
-    ("raccoon_dog", "Cão-guaxinim"),
-    ("red_deer", "Cervo-vermelho"),
-    ("red_fox", "Raposa-vermelha"),
-    ("reindeer", "Rena"),
-    ("rio_grande_turkey", "Peru Rio Grande"),
-    ("rock_ptarmigan", "Lagópode-branco"),
-    ("rocky_mountain_elk", "Uapiti-das-rochosas"),
-    ("rockymountain_elk", "Alce-das-montanhas-rochosas"),
-    ("roe", "Corço"),
-    ("roe_deer", "Corço"),
-    ("ronda_ibex", "Íbex de Ronda"),
-    ("roosevelt_elk", "Uapiti-de-roosevelt"),
-    ("saltwater_crocodile", "Crocodilo-de-água-salgada"),
-    ("sambar", "Sambar"),
-    ("scrub_hare", "Lebre-do-mato"),
-    ("siberian_musk_deer", "Cervo-almiscarado"),
-    ("side_striped_jackal", "Chacal-listrado"),
-    ("snow_leopard", "Leopardo-das-neves"),
-    ("southeastern_ibex", "Íbex-do-sudeste"),
-    ("southeastern_spanish_ibex", "Íbex do sudeste"),
-    ("springbok", "Springbok"),
-    ("stubble_quail", "Codorniz-australiana"),
-    ("tahr", "Tahr-do-himalaia"),
-    ("tibetan_fox", "Raposa-tibetana"),
-    ("tufted_duck", "Zarro-negrinha"),
-    ("warthog", "Javali-africano"),
-    ("water_buffalo", "Búfalo-asiático"),
-    ("western_capercaillie", "Tetraz-grande"),
-    ("whitetail", "Cervo-de-cauda-branca"),
-    ("whitetail_deer", "Veado-de-cauda-branca"),
-    ("wild_boar", "Javali"),
-    ("wild_turkey", "Peru-selvagem"),
-    ("wild_yak", "Iaque-selvagem"),
-    ("wildhog", "Porco-selvagem"),
-    ("willow_ptarmigan", "Lagópode-escocês"),
-    ("woolly_hare", "Lebre-lanosa"),
+use crate::language::Language;
+
+/// (`id` do jogo, nome em português, em inglês e em espanhol), em ordem alfabética do `id`.
+const NAMES: &[(&str, &str, &str, &str)] = &[
+    (
+        "american_alligator",
+        "Jacaré-americano",
+        "American Alligator",
+        "Aligátor americano",
+    ),
+    (
+        "antelope_jackrabbit",
+        "Lebre-antílope",
+        "Antelope Jackrabbit",
+        "Liebre antílope",
+    ),
+    ("axis_deer", "Cervo-áxis", "Axis Deer", "Ciervo axis"),
+    ("banteng", "Banteng", "Banteng", "Banteng"),
+    ("barasingha", "Barasingha", "Barasingha", "Barasinga"),
+    (
+        "bean_goose",
+        "Ganso-campestre",
+        "Tundra Bean Goose",
+        "Ganso campestre",
+    ),
+    ("bear", "Urso-negro", "Black Bear", "Oso negro"),
+    (
+        "beceite_ibex",
+        "Íbex de Beceite",
+        "Beceite Ibex",
+        "Cabra montés de Beceite",
+    ),
+    (
+        "bengal_tiger",
+        "Tigre-de-bengala",
+        "Bengal Tiger",
+        "Tigre de Bengala",
+    ),
+    (
+        "bighorn_sheep",
+        "Carneiro-selvagem",
+        "Bighorn Sheep",
+        "Borrego cimarrón",
+    ),
+    (
+        "bison_upper",
+        "Bisão-europeu",
+        "European Bison",
+        "Bisonte europeo",
+    ),
+    ("black_bear", "Urso-negro", "Black Bear", "Oso negro"),
+    ("black_grouse", "Galo-lira", "Black Grouse", "Gallo lira"),
+    (
+        "blackbuck",
+        "Antílope-indiano",
+        "Blackbuck",
+        "Antílope negro",
+    ),
+    (
+        "blacktail",
+        "Cervo-de-cauda-preta",
+        "Blacktail Deer",
+        "Ciervo de cola negra",
+    ),
+    (
+        "blacktail_deer",
+        "Veado-de-cauda-preta",
+        "Blacktail Deer",
+        "Ciervo de cola negra",
+    ),
+    ("blue_sheep", "Bharal", "Blue Sheep", "Bharal"),
+    ("blue_wildebeest", "Gnu-azul", "Blue Wildebeest", "Ñu azul"),
+    ("boar", "Javali", "Wild Boar", "Jabalí"),
+    ("bobcat", "Lince-pardo", "Bobcat", "Lince rojo"),
+    (
+        "brown_bear",
+        "Urso-pardo",
+        "Eurasian Brown Bear",
+        "Oso pardo euroasiático",
+    ),
+    (
+        "canada_goose",
+        "Ganso-do-canadá",
+        "Canada Goose",
+        "Ganso del Canadá",
+    ),
+    (
+        "cape_buffalo",
+        "Búfalo-africano",
+        "Cape Buffalo",
+        "Búfalo africano",
+    ),
+    (
+        "capercaillie",
+        "Tetraz-grande",
+        "Western Capercaillie",
+        "Urogallo común",
+    ),
+    ("caribou", "Caribu", "Caribou", "Caribú"),
+    (
+        "cinnamon_teal",
+        "Marreca-canela",
+        "Cinnamon Teal",
+        "Cerceta canela",
+    ),
+    (
+        "collared_peccary",
+        "Cateto",
+        "Collared Peccary",
+        "Pecarí de collar",
+    ),
+    ("coyote", "Coiote", "Coyote", "Coyote"),
+    (
+        "eastern_cottontail_rabbit",
+        "Coelho-de-cauda-de-algodão",
+        "Eastern Cottontail Rabbit",
+        "Conejo de cola de algodón",
+    ),
+    (
+        "eastern_grey_kangaroo",
+        "Canguru-cinzento",
+        "Eastern Gray Kangaroo",
+        "Canguro gris oriental",
+    ),
+    (
+        "eastern_wild_turkey",
+        "Peru-selvagem oriental",
+        "Eastern Wild Turkey",
+        "Pavo salvaje oriental",
+    ),
+    ("elk", "Alce-americano", "Elk", "Wapití"),
+    (
+        "eu_rabbit",
+        "Coelho-europeu",
+        "European Rabbit",
+        "Conejo europeo",
+    ),
+    (
+        "eurasian_teal",
+        "Marrequinha",
+        "Eurasian Teal",
+        "Cerceta común",
+    ),
+    (
+        "eurasian_wigeon",
+        "Piadeira",
+        "Eurasian Wigeon",
+        "Silbón europeo",
+    ),
+    (
+        "european_bison",
+        "Bisão-europeu",
+        "European Bison",
+        "Bisonte europeo",
+    ),
+    (
+        "european_hare",
+        "Lebre-europeia",
+        "European Hare",
+        "Liebre europea",
+    ),
+    ("fallow", "Gamo", "Fallow Deer", "Gamo"),
+    ("fallow_deer", "Gamo", "Fallow Deer", "Gamo"),
+    (
+        "feral_goat",
+        "Cabra-selvagem",
+        "Feral Goat",
+        "Cabra asilvestrada",
+    ),
+    (
+        "feral_pig",
+        "Porco-selvagem",
+        "Feral Pig",
+        "Cerdo asilvestrado",
+    ),
+    ("fox", "Raposa-vermelha", "Red Fox", "Zorro rojo"),
+    ("gemsbok", "Órix", "Gemsbok", "Órice"),
+    ("goldeneye", "Olho-dourado", "Goldeneye", "Porrón osculado"),
+    ("gray_fox", "Raposa-cinzenta", "Gray Fox", "Zorro gris"),
+    ("gray_wolf", "Lobo-cinzento", "Gray Wolf", "Lobo gris"),
+    (
+        "gredos_ibex",
+        "Íbex de Gredos",
+        "Gredos Ibex",
+        "Cabra montés de Gredos",
+    ),
+    (
+        "green_wing_teal",
+        "Marreca-de-asa-verde",
+        "Green-winged Teal",
+        "Cerceta aliverde",
+    ),
+    ("grey_fox", "Raposa-cinzenta", "Gray Fox", "Zorro gris"),
+    (
+        "greylag_goose",
+        "Ganso-bravo",
+        "Greylag Goose",
+        "Ganso común",
+    ),
+    (
+        "grizzly_bear",
+        "Urso-pardo (grizzly)",
+        "Grizzly Bear",
+        "Oso grizzly",
+    ),
+    (
+        "harlequin_duck",
+        "Pato-arlequim",
+        "Harlequin Duck",
+        "Pato arlequín",
+    ),
+    ("hazel_grouse", "Galinha-do-mato", "Hazel Grouse", "Grévol"),
+    ("hog_deer", "Cervo-porco", "Hog Deer", "Ciervo porcino"),
+    (
+        "iberian_mouflon",
+        "Muflão-ibérico",
+        "Iberian Mouflon",
+        "Muflón ibérico",
+    ),
+    (
+        "iberian_wolf",
+        "Lobo-ibérico",
+        "Iberian Wolf",
+        "Lobo ibérico",
+    ),
+    ("jackal", "Chacal", "Side-striped Jackal", "Chacal rayado"),
+    (
+        "jackrabbit",
+        "Lebre-americana",
+        "White-tailed Jackrabbit",
+        "Liebre de cola blanca",
+    ),
+    (
+        "javan_rusa",
+        "Rusa-de-java",
+        "Javan Rusa",
+        "Ciervo rusa de Java",
+    ),
+    ("lesser_kudu", "Cudo-menor", "Lesser Kudu", "Kudú menor"),
+    ("lion", "Leão", "Lion", "León"),
+    (
+        "lynx",
+        "Lince-euroasiático",
+        "Eurasian Lynx",
+        "Lince euroasiático",
+    ),
+    ("magpie_goose", "Ganso-pega", "Magpie Goose", "Ganso urraca"),
+    ("mallard", "Pato-real", "Mallard", "Ánade real"),
+    ("moose", "Alce", "Moose", "Alce"),
+    (
+        "mountain_goat",
+        "Cabra-das-rochosas",
+        "Mountain Goat",
+        "Cabra de las Rocosas",
+    ),
+    (
+        "mountain_hare",
+        "Lebre-variável",
+        "Mountain Hare",
+        "Liebre variable",
+    ),
+    ("mule_deer", "Veado-mula", "Mule Deer", "Ciervo mulo"),
+    (
+        "musk_deer",
+        "Almiscareiro-siberiano",
+        "Siberian Musk Deer",
+        "Ciervo almizclero siberiano",
+    ),
+    ("nilgai", "Nilgai", "Nilgai", "Nilgó"),
+    (
+        "northern_bobwhite_quail",
+        "Codorna-colinus",
+        "Northern Bobwhite Quail",
+        "Codorniz bobwhite",
+    ),
+    (
+        "northern_red_muntjac",
+        "Muntíaco",
+        "Northern Red Muntjac",
+        "Muntíaco rojo",
+    ),
+    ("peccary", "Caititu", "Collared Peccary", "Pecarí de collar"),
+    (
+        "pheasant",
+        "Faisão",
+        "Ring-necked Pheasant",
+        "Faisán de collar",
+    ),
+    (
+        "plains_bison",
+        "Bisão-das-planícies",
+        "Plains Bison",
+        "Bisonte de las llanuras",
+    ),
+    ("pronghorn", "Antilocapra", "Pronghorn", "Berrendo"),
+    ("puma", "Puma", "Puma", "Puma"),
+    ("raccoon", "Guaxinim", "Common Raccoon", "Mapache"),
+    (
+        "raccoon_dog",
+        "Cão-guaxinim",
+        "Raccoon Dog",
+        "Perro mapache",
+    ),
+    ("red_deer", "Cervo-vermelho", "Red Deer", "Ciervo rojo"),
+    ("red_fox", "Raposa-vermelha", "Red Fox", "Zorro rojo"),
+    ("reindeer", "Rena", "Mountain Reindeer", "Reno"),
+    (
+        "rio_grande_turkey",
+        "Peru Rio Grande",
+        "Rio Grande Turkey",
+        "Pavo del Río Grande",
+    ),
+    (
+        "rock_ptarmigan",
+        "Lagópode-branco",
+        "Rock Ptarmigan",
+        "Perdiz nival",
+    ),
+    (
+        "rocky_mountain_elk",
+        "Uapiti-das-rochosas",
+        "Rocky Mountain Elk",
+        "Wapití de las Rocosas",
+    ),
+    (
+        "rockymountain_elk",
+        "Alce-das-montanhas-rochosas",
+        "Rocky Mountain Elk",
+        "Wapití de las Rocosas",
+    ),
+    ("roe", "Corço", "Roe Deer", "Corzo"),
+    ("roe_deer", "Corço", "Roe Deer", "Corzo"),
+    (
+        "ronda_ibex",
+        "Íbex de Ronda",
+        "Ronda Ibex",
+        "Cabra montés de Ronda",
+    ),
+    (
+        "roosevelt_elk",
+        "Uapiti-de-roosevelt",
+        "Roosevelt Elk",
+        "Wapití de Roosevelt",
+    ),
+    (
+        "saltwater_crocodile",
+        "Crocodilo-de-água-salgada",
+        "Saltwater Crocodile",
+        "Cocodrilo de agua salada",
+    ),
+    ("sambar", "Sambar", "Sambar", "Sambar"),
+    (
+        "scrub_hare",
+        "Lebre-do-mato",
+        "Scrub Hare",
+        "Liebre de matorral",
+    ),
+    (
+        "siberian_musk_deer",
+        "Cervo-almiscarado",
+        "Siberian Musk Deer",
+        "Ciervo almizclero siberiano",
+    ),
+    (
+        "side_striped_jackal",
+        "Chacal-listrado",
+        "Side-striped Jackal",
+        "Chacal rayado",
+    ),
+    (
+        "snow_leopard",
+        "Leopardo-das-neves",
+        "Snow Leopard",
+        "Leopardo de las nieves",
+    ),
+    (
+        "southeastern_ibex",
+        "Íbex-do-sudeste",
+        "Southeastern Spanish Ibex",
+        "Cabra montés del sudeste",
+    ),
+    (
+        "southeastern_spanish_ibex",
+        "Íbex do sudeste",
+        "Southeastern Spanish Ibex",
+        "Cabra montés del sudeste",
+    ),
+    ("springbok", "Springbok", "Springbok", "Springbok"),
+    (
+        "stubble_quail",
+        "Codorniz-australiana",
+        "Stubble Quail",
+        "Codorniz australiana",
+    ),
+    (
+        "tahr",
+        "Tahr-do-himalaia",
+        "Himalayan Tahr",
+        "Tahr del Himalaya",
+    ),
+    (
+        "tibetan_fox",
+        "Raposa-tibetana",
+        "Tibetan Fox",
+        "Zorro tibetano",
+    ),
+    (
+        "tufted_duck",
+        "Zarro-negrinha",
+        "Tufted Duck",
+        "Porrón moñudo",
+    ),
+    ("warthog", "Javali-africano", "Warthog", "Facóquero"),
+    (
+        "water_buffalo",
+        "Búfalo-asiático",
+        "Water Buffalo",
+        "Búfalo de agua",
+    ),
+    (
+        "western_capercaillie",
+        "Tetraz-grande",
+        "Western Capercaillie",
+        "Urogallo común",
+    ),
+    (
+        "whitetail",
+        "Cervo-de-cauda-branca",
+        "Whitetail Deer",
+        "Ciervo de cola blanca",
+    ),
+    (
+        "whitetail_deer",
+        "Veado-de-cauda-branca",
+        "Whitetail Deer",
+        "Ciervo de cola blanca",
+    ),
+    ("wild_boar", "Javali", "Wild Boar", "Jabalí"),
+    (
+        "wild_turkey",
+        "Peru-selvagem",
+        "Wild Turkey",
+        "Pavo salvaje",
+    ),
+    ("wild_yak", "Iaque-selvagem", "Wild Yak", "Yak salvaje"),
+    ("wildhog", "Porco-selvagem", "Wild Hog", "Cerdo salvaje"),
+    (
+        "willow_ptarmigan",
+        "Lagópode-escocês",
+        "Willow Ptarmigan",
+        "Lagópodo común",
+    ),
+    (
+        "woolly_hare",
+        "Lebre-lanosa",
+        "Woolly Hare",
+        "Liebre lanuda",
+    ),
 ];
 
-/// Nome para exibir. Espécie sem tradução vira o `id` com espaços e a primeira letra maiúscula.
+/// Nome para exibir no idioma pedido. Espécie sem tradução vira o `id` com espaços e a primeira
+/// letra maiúscula.
 #[must_use]
-pub fn display_name(id: &str) -> String {
-    if let Ok(at) = NAMES.binary_search_by_key(&id, |(key, _)| key) {
-        return NAMES[at].1.to_owned();
+pub fn display_name(id: &str, language: Language) -> String {
+    if let Ok(at) = NAMES.binary_search_by_key(&id, |(key, ..)| key) {
+        let (_, pt, en, es) = NAMES[at];
+        return match language {
+            Language::PtBr => pt,
+            Language::En => en,
+            Language::Es => es,
+        }
+        .to_owned();
     }
     let spaced = id.replace('_', " ");
     let mut chars = spaced.chars();
@@ -142,14 +491,28 @@ mod tests {
     }
 
     #[test]
-    fn known_species_use_the_portuguese_name() {
-        assert_eq!(display_name("moose"), "Alce");
-        assert_eq!(display_name("whitetail"), "Cervo-de-cauda-branca");
+    fn every_species_has_a_name_in_every_language() {
+        for (id, pt, en, es) in NAMES {
+            assert!(!pt.is_empty() && !en.is_empty() && !es.is_empty(), "{id}");
+        }
     }
 
     #[test]
-    fn unknown_species_get_a_readable_fallback() {
-        assert_eq!(display_name("wild_haggis"), "Wild haggis");
-        assert_eq!(display_name(""), "");
+    fn names_follow_the_language() {
+        assert_eq!(display_name("moose", Language::PtBr), "Alce");
+        assert_eq!(display_name("moose", Language::En), "Moose");
+        assert_eq!(display_name("moose", Language::Es), "Alce");
+        assert_eq!(display_name("red_deer", Language::PtBr), "Cervo-vermelho");
+        assert_eq!(display_name("red_deer", Language::En), "Red Deer");
+        assert_eq!(display_name("red_deer", Language::Es), "Ciervo rojo");
+        assert_eq!(display_name("gray_wolf", Language::Es), "Lobo gris");
+    }
+
+    #[test]
+    fn an_unknown_species_becomes_a_readable_id_in_any_language() {
+        for language in [Language::PtBr, Language::En, Language::Es] {
+            assert_eq!(display_name("new_species_x", language), "New species x");
+        }
+        assert_eq!(display_name("", Language::En), "");
     }
 }

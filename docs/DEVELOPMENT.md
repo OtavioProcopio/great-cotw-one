@@ -115,6 +115,26 @@ no horário escolhido. Zonas que o app ainda não gravou aparecem com contorno t
   cantos arredondados, chaves liga/desliga e controle segmentado, tema claro/escuro automático e barra reduzida a ícones
   em janelas estreitas.
 
+## Premium: licença, vendas e editor
+
+**O que é Premium:** tudo o que grava no jogo, ou seja, liberar zonas (por reserva, por animal ou por necessidade) e editar animais que já existem. O bloqueio fica no serviço (`AppService::unlock_zones` e `edit_animals` devolvem `premiumRequired` sem licença); a interface só mostra o aviso (selo PRO no menu, cadeado nos animais, página do Premium).
+
+**Planos:** R$ 15,00 por mês ou R$ 75,00 por ano (`ui/src/config.ts`). A tela do Premium mostra as vantagens, a comparação com o gratuito (marcando "em breve" o que não existe), os planos e a economia do anual.
+
+**Licença (`cotw-core/src/license.rs`):** a chave é um texto `GCO1.<dados>.<assinatura>` com plano (`monthly` ou `yearly`), e-mail, emissão e vencimento, assinado com Ed25519. O app tem a chave **pública** embutida (`crates/cotw-core/src/license_public.key`) e confere tudo sem internet; a ativação não envia nada. A chave guardada fica em `%APPDATA%\Great COTW One\license.key`. Mensal vale 31 dias e anual 366; 30 dias antes do fim o app avisa; vencida, volta ao modo gratuito sem apagar nada.
+
+**Emitir chaves (vendedor):** `cargo run -p license-tool -- keygen <pasta>` gera `private.key` (**secreta, nunca vai para o repositório**) e `public.key` (copie para `crates/cotw-core/src/license_public.key` e recompile). Depois: `cargo run -p license-tool -- issue <private.key> <e-mail> monthly|yearly` imprime a chave para mandar ao comprador, e `inspect <public.key> <chave>` confere uma chave. A chave privada do desenvolvimento está em `%USERPROFILE%\.great-cotw-one\license-keys\`; faça uma cópia segura dela: sem ela não dá para emitir licenças que o app aceite (e, se trocar o par, as licenças já vendidas deixam de valer).
+
+**Testar o Premium em desenvolvimento:** `GREAT_COTW_PREMIUM_DEV=1` (só em compilações de depuração) ou `?mock&premium` no navegador; os testes usam `FixedLicense` ou uma chave de teste (`AppService::with_license_file`).
+
+**Vendas:** ainda não há loja. Candidata: plataforma brasileira com Pix (por exemplo Kiwify, 8,99% + R$ 2,49 por venda) mandando a chave por e-mail, de início emitida à mão com a ferramenta. `STORE_URL` em `config.ts` fica vazio até a loja abrir.
+
+**Editor de animais (`cotw-core/src/animal_editor.rs`, `cotw-formats/src/population.rs`):** no mapa, ao rastrear um grupo, cada animal tem um botão de editar (cadeado para quem é gratuito). O painel muda sexo, peso, pontuação e Great One de animais que **já existem**; nada é criado nem removido e o tamanho do ADF não muda. `locate_animals` acha os bytes de cada animal pelos typedefs do arquivo e `edit_animals` troca só os campos pedidos; nos saves reais, um animal editado muda poucos bytes, a cadeia de ponteiros continua íntegra e voltar os valores devolve o arquivo original byte a byte. **Equilíbrio:** peso e pontuação só valem dentro do que o save já tem para a espécie e o sexo (menor e maior valor, com 10% de folga); ao trocar de sexo o painel sugere a mediana do sexo novo; Great One só onde a espécie já tem algum na reserva. A regra vale no serviço, não só na tela. Pendentes: pelagem (a semente depende de uma conta do executável que ainda não conhecemos) e atalhos de diamante (precisam das faixas de diamante do jogo).
+
+## Idiomas
+
+A interface tem português do Brasil (referência, `ui/src/locales/pt-BR.ts`), inglês e espanhol. Os dicionários de `en.ts` e `es.ts` são `Record<MessageKey, string>`, então uma chave faltando não compila, e um teste confere que `{marcadores}` e quebras de linha são iguais nos três. O idioma vem do que o jogador escolheu (guardado no computador), senão do sistema, senão inglês. O app recebe o idioma por `set_language` e o usa nos nomes das espécies (`species.rs`), nos textos das missões (posição na tabela do jogo: 0 inglês, 3 espanhol, 7 português) e nas conquistas da Steam (`english`, `spanish`, `brazilian`). Para acrescentar um idioma: um arquivo em `locales/`, uma linha em `LOCALES` (`i18n.ts`), uma variante em `Language` (Rust) com seu índice de missão e chave da Steam, e uma coluna na tabela de espécies. O jogo já traz os textos das missões também em francês (1), alemão (2), russo (4), polonês (5), japonês (6), tcheco (8) e chinês (9).
+
 ## Animais (wiki)
 
 A aba **Animais** (`cotw-core/src/animals.rs`) lista todas as reservas que o jogo tem (as com mapa de spawn), com a

@@ -109,6 +109,29 @@ export function installMock(): void {
         return history;
       case 'animals':
         return mockAnimals();
+      case 'species_editor':
+        return {
+          reserve: 2,
+          reserveName: 'Medved-Taiga',
+          species: 'moose',
+          name: 'Alce',
+          greatOneAllowed: true,
+          limits: {
+            male: { minWeight: 90, maxWeight: 660, minScore: 0, maxScore: 330, typicalWeight: 400, typicalScore: 150 },
+            female: { minWeight: 80, maxWeight: 500, minScore: 0, maxScore: 200, typicalWeight: 320, typicalScore: 90 },
+          },
+          groups: [
+            {
+              number: 1,
+              animals: [
+                { index: 0, male: true, weight: 560, score: 210, greatOne: true },
+                { index: 1, male: false, weight: 410, score: 0, greatOne: false },
+              ],
+            },
+          ],
+        };
+      case 'edit_animals':
+        return { animals: 1, backup: 'C:\\...\\backups\\2026-11-02_17-00-00' };
       case 'profile':
         return mockProfile();
       case 'missions':
@@ -121,12 +144,16 @@ export function installMock(): void {
         return {
           total: 7_330,
           reserves: [
-            { id: 2, name: 'Medved-Taiga', state: 'ready', newZones: 3_511, estimated: 89, skipped: 0 },
-            { id: 13, name: 'Revontuli Coast', state: 'ready', newZones: 3_819, estimated: 181, skipped: 805 },
-            { id: 0, name: 'Hirschfelden', state: 'nothingToDo', newZones: 0, estimated: 0, skipped: 0 },
-            { id: 18, name: 'Reserva 18', state: 'needsDiscovery', newZones: 0, estimated: 0, skipped: 0 },
+            { id: 2, name: 'Medved-Taiga', state: 'ready', newZones: 3_511, estimated: 89, skipped: 0, species: [{ id: 'moose', name: 'Alce', needs: [1_000, 1_500, 900] }, { id: 'brown_bear', name: 'Urso-pardo', needs: [40, 40, 31] }] },
+            { id: 13, name: 'Revontuli Coast', state: 'ready', newZones: 3_819, estimated: 181, skipped: 805, species: [{ id: 'moose', name: 'Alce', needs: [1_900, 1_000, 919] }] },
+            { id: 0, name: 'Hirschfelden', state: 'nothingToDo', newZones: 0, estimated: 0, skipped: 0, species: [] },
+            { id: 18, name: 'Reserva 18', state: 'needsDiscovery', newZones: 0, estimated: 0, skipped: 0, species: [] },
           ],
         };
+      case 'license':
+        return new URLSearchParams(location.search).has('premium')
+          ? { premium: true, state: 'active', email: 'ana@exemplo.com', expires: 1_830_000_000, daysLeft: 200, plan: 'yearly' }
+          : { premium: false, state: 'free', email: null, expires: null, daysLeft: null, plan: null };
       case 'unlock_zones':
         return { zonesAdded: 7_330, reserves: 2, backup: 'C:\\...\\backups\\2026-11-02_16-10-00' };
       case 'restore_backup':

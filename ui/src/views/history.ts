@@ -1,7 +1,19 @@
 import { escapeHtml as e } from '../escape';
 import { formatStamp } from '../format';
-import { t } from '../i18n';
+import { type MessageKey, t } from '../i18n';
 import type { HistoryItem } from '../types';
+
+/** Nomes de funções que o app grava no histórico, traduzidos para o idioma atual. */
+const FUNCTIONS: Record<string, MessageKey> = {
+  'Liberar o mapa': 'history.fn.unlock',
+  'Editar animais': 'history.fn.edit',
+  'Teste de gravação': 'history.fn.test',
+};
+
+function functionName(name: string): string {
+  const key = FUNCTIONS[name];
+  return key === undefined ? name : t(key);
+}
 
 function renderItem(item: HistoryItem): string {
   const files = item.files.length === 0 ? t('history.noFiles') : item.files.join(', ');
@@ -11,7 +23,7 @@ function renderItem(item: HistoryItem): string {
   return `<li class="card history-item">
     <div class="history-head">
       <span class="badge badge-${item.kind === 'restore' ? 'muted' : 'ok'}">${e(t(`history.kind.${item.kind}`))}</span>
-      <strong>${e(item.function)}</strong>
+      <strong>${e(functionName(item.function))}</strong>
       <time class="muted">${e(formatStamp(item.at))}</time>
     </div>
     <p>${e(item.summary)}</p>

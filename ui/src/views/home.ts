@@ -2,7 +2,7 @@ import { escapeHtml as e } from '../escape';
 import { formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
-import type { AccountDiagnostic, Diagnostics, FileDiagnostic, MapReserve } from '../types';
+import type { AccountDiagnostic, Diagnostics, FileDiagnostic, License, MapReserve } from '../types';
 
 /** Arquivo usado no teste de gravação: a população da reserva 2 se existir, senão qualquer população. */
 export function defaultRewriteFile(files: FileDiagnostic[]): string | undefined {
@@ -66,9 +66,10 @@ function renderSaveRow(d: Diagnostics): string {
   );
 }
 
-function tile(symbol: IconName, tone: string, title: string, text: string, button: string): string {
+function tile(symbol: IconName, tone: string, title: string, text: string, button: string, premium = false): string {
+  const badge = premium ? ` <span class="badge badge-premium">${e(t('premium.badge'))}</span>` : '';
   return `<li class="tile tile-${tone}"><span class="tile-icon" aria-hidden="true">${icon(symbol, 26)}</span>
-    <h3>${e(title)}</h3><p class="muted">${e(text)}</p>${button}</li>`;
+    <h3>${e(title)}${badge}</h3><p class="muted">${e(text)}</p>${button}</li>`;
 }
 
 function soonTile(kind: 'guide' | 'animals'): string {
@@ -90,7 +91,7 @@ function renderActions(d: Diagnostics): string {
     ? tile('map', 'green', t('home.map.title'), t('home.map.text'), button('show-map', t('home.map.button'), true))
     : '';
   const unlock = d.game.found
-    ? tile('unlock', 'orange', t('home.unlock.title'), t('home.unlock.text'), button('show-unlock', t('home.unlock.button'), true))
+    ? tile('unlock', 'orange', t('home.unlock.title'), t('home.unlock.text'), button('show-unlock', t('home.unlock.button'), true), true)
     : '';
   const backups = tile('backup', 'violet', t('home.backups.title'), t('home.backups.text'), button('show-history', t('home.backups.button'), false));
   return `<section aria-labelledby="actions-title">
@@ -117,9 +118,16 @@ function renderReserves(reserves: MapReserve[]): string {
   </section>`;
 }
 
+function renewalNotice(license: License | null): string {
+  if (license?.state === 'expiring') {
+    return `<p class="notice notice-warn">${e(t('home.renew.soon', { days: license.daysLeft ?? 0 }))}</p>`;
+  }
+  return license?.state === 'expired' ? `<p class="notice notice-warn">${e(t('home.renew.expired'))}</p>` : '';
+}
+
 /** Tela inicial: o que está pronto e o que o jogador pode fazer, sem termos técnicos. */
-export function renderHome(d: Diagnostics, reserves: MapReserve[] = []): string {
-  return `<header class="view-header">
+export function renderHome(d: Diagnostics, reserves: MapReserve[] = [], license: License | null = null): string {
+  return `${renewalNotice(license)}<header class="view-header">
       <div><h1>${e(t('home.title'))}</h1><p class="lead">${e(t('home.intro'))}</p></div>
       <button data-action="refresh">${icon('refresh', 16)}<span>${e(t('home.recheck'))}</span></button>
     </header>

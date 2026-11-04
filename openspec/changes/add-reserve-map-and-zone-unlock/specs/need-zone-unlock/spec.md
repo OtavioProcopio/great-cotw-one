@@ -31,3 +31,29 @@ O app SHALL permitir liberar uma reserva por vez ou todas, e SHALL mostrar quant
 #### Scenario: Liberar só Layton Lake
 - **WHEN** o usuário escolhe apenas Layton Lake
 - **THEN** só as zonas da reserva 1 são acrescentadas
+
+### Requirement: Liberar por animal ou por necessidade
+O app SHALL permitir escolher o que liberar: tudo, só algumas espécies ou só algumas necessidades (comer, beber, descansar), e SHALL mostrar, antes de gravar, quantas zonas cada espécie e cada necessidade ganha nas reservas escolhidas.
+
+#### Scenario: Só beber
+- **WHEN** o usuário escolhe "Por necessidade" e marca só "Beber"
+- **THEN** o app mostra quantas zonas de beber serão liberadas e só essas são acrescentadas
+
+#### Scenario: Só alguns animais
+- **WHEN** o usuário escolhe "Por animal" e marca só o alce
+- **THEN** só as zonas usadas pelos grupos de alce são acrescentadas
+
+#### Scenario: Nada escolhido
+- **WHEN** o modo é por animal ou por necessidade e nada está marcado
+- **THEN** o app pede para marcar uma opção e não oferece gravação
+
+### Requirement: Liberar é Premium
+O app SHALL mostrar a todos os usuários as zonas que ainda faltam descobrir e quantas seriam liberadas, e SHALL gravar a liberação somente com a licença Premium ativa.
+
+#### Scenario: Usuário gratuito
+- **WHEN** um usuário sem licença escolhe o que liberar
+- **THEN** o app mostra a prévia e os números, mas o botão leva ao aviso do Premium e nada é gravado
+
+#### Scenario: Pedido sem licença
+- **WHEN** um pedido de liberação chega ao app sem licença ativa
+- **THEN** o app recusa com `premiumRequired` e o save fica intacto

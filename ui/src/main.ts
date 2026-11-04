@@ -2,6 +2,7 @@ import './styles.css';
 
 import { tauriApi } from './api';
 import { Controller } from './controller';
+import { detectLocale, savedLocale, setLocale } from './i18n';
 
 const root = document.getElementById('app');
 if (!root) throw new Error('#app ausente');
@@ -11,5 +12,7 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).has('mock')) {
   const { installMock } = await import('./mock');
   installMock();
 }
+
+setLocale(detectLocale(savedLocale(), navigator.languages));
 
 await new Controller(root, tauriApi).start();

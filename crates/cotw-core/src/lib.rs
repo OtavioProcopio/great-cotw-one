@@ -3,12 +3,15 @@
 //!
 //! Os formatos de arquivo ficam em `cotw-formats`; este crate não conhece interface.
 
+pub mod animal_editor;
 pub mod animals;
 pub mod backup;
 pub mod career;
 pub mod diagnostics;
 pub mod discovery;
 pub mod history;
+pub mod language;
+pub mod license;
 pub mod mapview;
 pub mod paths;
 pub mod process;

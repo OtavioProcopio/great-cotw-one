@@ -1,7 +1,9 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { Controller, describeError } from './controller';
-import { commandError, fakeApi, foundDiagnostics } from './test-data';
+import type { Api } from './api';
+import type { EditRequest } from './types';
+import { ACTIVE_LICENSE, FREE_LICENSE, commandError, fakeApi, foundDiagnostics } from './test-data';
 
 let root: HTMLElement;
 
@@ -29,7 +31,7 @@ describe('Controller', () => {
     await new Controller(root, api).start();
     expect(root.textContent).toContain('O jogo foi encontrado');
     expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Início');
-    expect(api.calls).toEqual(['diagnostics', 'mapReserves']);
+    expect(api.calls).toEqual(['license', 'diagnostics', 'mapReserves']);
   });
 
   it('shows the reserves the app recognised and opens the one the player taps', async () => {
@@ -209,12 +211,14 @@ describe('Controller', () => {
     root.click();
     click('acao-desconhecida');
     await settle();
-    expect(api.calls).toEqual(['diagnostics', 'mapReserves']);
+    expect(api.calls).toEqual(['license', 'diagnostics', 'mapReserves']);
   });
 });
 
 describe('Controller: liberar o mapa', () => {
-  async function openUnlock(api = fakeApi()): Promise<ReturnType<typeof fakeApi>> {
+  const premium = (): Partial<Api> => ({ license: () => Promise.resolve(ACTIVE_LICENSE) });
+
+  async function openUnlock(api = fakeApi(premium())): Promise<ReturnType<typeof fakeApi>> {
     await new Controller(root, api).start();
     click('show-unlock');
     await settle();
@@ -228,34 +232,91 @@ describe('Controller: liberar o mapa', () => {
     expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Liberar mapa');
   });
 
-  it('unlocks only the checked reserves after confirmation', async () => {
-    const api = await openUnlock();
-    const second = root.querySelector<HTMLInputElement>('.reserve-pick[value="13"]');
-    if (second) second.checked = false;
-    click('unlock-run');
+  it('shows a free user everything but does not write: the button only explains Premium', async () => {
+    const api = await openUnlock(fakeApi());
+    expect(root.querySelector('.premium-banner')).not.toBeNull();
+    expect(root.querySelector('.tab[data-premium="true"]')?.textContent).toBe('Liberar mapa');
+    click('premium-info');
     await settle();
-    expect(api.calls).toContain('unlockZones:2');
-    expect(root.querySelector('.notice-ok')?.textContent).toContain('3.511 lugares liberados em 1 reservas');
-  });
-
-  it('does nothing when no reserve is checked or the user declines', async () => {
-    const api = await openUnlock(fakeApi({ confirm: () => Promise.resolve(false) }));
+    expect(root.textContent).toContain('Escolha o seu plano');
     click('unlock-run');
     await settle();
     expect(api.calls.some((c) => c.startsWith('unlockZones'))).toBe(false);
+  });
 
-    const other = await openUnlock();
-    for (const box of root.querySelectorAll<HTMLInputElement>('.reserve-pick')) box.checked = false;
+  it('does not mark Liberar mapa as Premium when the license is active', async () => {
+    await openUnlock();
+    expect(root.querySelector('.tab[data-premium="true"]')).toBeNull();
+  });
+
+  it('unlocks only the checked reserves after confirmation', async () => {
+    const api = await openUnlock();
+    click('toggle-reserve', { reserve: '13' });
+    expect(root.textContent).toContain('Serão liberados 3.511 lugares em 1 reservas');
     click('unlock-run');
     await settle();
-    expect(other.calls.some((c) => c.startsWith('unlockZones'))).toBe(false);
+    expect(api.requests).toEqual([{ reserves: [2], species: null, needs: null }]);
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('3.511 lugares liberados em 1 reservas');
+  });
+
+  it('unlocks by need', async () => {
+    const api = await openUnlock();
+    click('unlock-mode', { mode: 'need' });
+    click('toggle-need', { need: '2' });
+    expect(root.textContent).toContain('Serão liberados 2.540 lugares em 2 reservas');
+    click('unlock-run');
+    await settle();
+    expect(api.requests).toEqual([{ reserves: [2, 13], species: null, needs: [2] }]);
+  });
+
+  it('unlocks by animal and can go back to everything', async () => {
+    const api = await openUnlock();
+    click('unlock-mode', { mode: 'animal' });
+    click('toggle-species', { species: 'brown_bear' });
+    expect(root.textContent).toContain('Serão liberados 111 lugares em 1 reservas');
+    click('toggle-species', { species: 'brown_bear' });
+    expect(root.textContent).toContain('Nada escolhido ainda');
+    click('toggle-species', { species: 'brown_bear' });
+    click('unlock-run');
+    await settle();
+    expect(api.requests).toEqual([{ reserves: [2, 13], species: ['brown_bear'], needs: null }]);
+    click('unlock-mode', { mode: 'qualquer-coisa' });
+    expect(root.textContent).toContain('Tudo');
+    expect(root.querySelector('[data-mode="all"]')?.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('does nothing when nothing is chosen or the user declines', async () => {
+    const declined = await openUnlock(fakeApi({ ...premium(), confirm: () => Promise.resolve(false) }));
+    click('unlock-run');
+    await settle();
+    expect(declined.requests).toEqual([]);
+
+    const other = await openUnlock();
+    click('unlock-mode', { mode: 'animal' });
+    click('unlock-run');
+    await settle();
+    expect(other.requests).toEqual([]);
   });
 
   it('tells the player to close the game when the unlock is blocked', async () => {
-    await openUnlock(fakeApi({ unlockZones: () => commandError('gameRunning') }));
+    await openUnlock(fakeApi({ ...premium(), unlockZones: () => commandError('gameRunning') }));
     click('unlock-run');
     await settle();
     expect(root.querySelector('.notice-error')?.textContent).toContain('Feche o theHunter');
+  });
+
+  it('explains that the function is Premium if the app refuses it', async () => {
+    await openUnlock(fakeApi({ ...premium(), unlockZones: () => commandError('premiumRequired') }));
+    click('unlock-run');
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('do Premium');
+  });
+
+  it('keeps working when the license cannot be read', async () => {
+    const api = fakeApi({ license: () => Promise.reject(new Error('sem licença')) });
+    await new Controller(root, api).start();
+    expect(root.textContent).toContain('Bem-vindo, caçador!');
+    expect(root.querySelector('.tab[data-premium="true"]')).not.toBeNull();
   });
 
   it('explains when the game is not installed', async () => {
@@ -313,6 +374,265 @@ describe('Controller: mapa', () => {
   it('explains when the game is not installed', async () => {
     await openMap(fakeApi({ mapReserves: () => commandError('gameNotFound') }));
     expect(root.querySelector('.notice-error')?.textContent).toContain('Não encontramos o jogo instalado');
+  });
+});
+
+describe('Controller: idioma', () => {
+  it('tells the app the language at the start', async () => {
+    const api = fakeApi();
+    await new Controller(root, api).start();
+    expect(api.languages).toEqual(['pt-BR']);
+  });
+
+  it('switches the whole screen to English and tells the app', async () => {
+    window.localStorage.clear();
+    const api = fakeApi();
+    await new Controller(root, api).start();
+    click('show-diagnostics');
+    await settle();
+    click('set-language', { locale: 'en' });
+    await settle();
+    expect(api.languages).toEqual(['pt-BR', 'en']);
+    expect(root.textContent).toContain('Settings');
+    expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Settings');
+    expect(root.querySelector('[data-locale="en"]')?.getAttribute('aria-pressed')).toBe('true');
+    expect(window.localStorage.getItem('great-cotw-one.locale')).toBe('en');
+    expect(document.documentElement.lang).toBe('en');
+  });
+
+  it('refreshes the content that comes from the app, in the new language', async () => {
+    const api = fakeApi();
+    await new Controller(root, api).start();
+    click('show-animals');
+    await settle();
+    const before = api.calls.filter((c) => c === 'animals').length;
+    click('set-language', { locale: 'es' });
+    await settle();
+    expect(api.calls.filter((c) => c === 'animals').length).toBe(before + 1);
+    expect(root.textContent).toContain('Animales');
+  });
+
+  it('ignores the language that is already chosen and unknown ones', async () => {
+    const api = fakeApi();
+    await new Controller(root, api).start();
+    click('set-language', { locale: 'pt-BR' });
+    click('set-language', { locale: 'fr' });
+    click('set-language');
+    await settle();
+    expect(api.languages).toEqual(['pt-BR']);
+  });
+
+  it('keeps going if the app cannot be told the language', async () => {
+    const api = fakeApi({ setLanguage: () => Promise.reject(new Error('sem app')) });
+    await new Controller(root, api).start();
+    click('set-language', { locale: 'en' });
+    await settle();
+    expect(root.textContent).toContain('Welcome, hunter!');
+  });
+});
+
+describe('Controller: licença', () => {
+  async function openSettings(api = fakeApi()): Promise<ReturnType<typeof fakeApi>> {
+    await new Controller(root, api).start();
+    click('show-premium');
+    await settle();
+    return api;
+  }
+
+  function paste(text: string): void {
+    const field = root.querySelector<HTMLTextAreaElement>('#license-key');
+    if (!field) throw new Error('campo ausente');
+    field.value = text;
+  }
+
+  it('shows the license card on the Premium page and highlights Premium', async () => {
+    await openSettings();
+    expect(root.textContent).toContain('Licença Premium');
+    expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Premium');
+  });
+
+  it('explains that the store is not open yet when a plan button is pressed', async () => {
+    const api = await openSettings();
+    click('buy', { plan: 'yearly' });
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('loja ainda não abriu');
+    expect(api.calls.some((c) => c.startsWith('activateLicense'))).toBe(false);
+  });
+
+  it('takes a free user from the unlock screen to the Premium page', async () => {
+    await new Controller(root, fakeApi()).start();
+    click('show-unlock');
+    await settle();
+    click('show-premium');
+    await settle();
+    expect(root.textContent).toContain('Great COTW One Premium');
+  });
+
+  it('sends a free user who tries to save to the Premium page', async () => {
+    await new Controller(root, fakeApi()).start();
+    click('show-unlock');
+    await settle();
+    click('premium-info');
+    await settle();
+    expect(root.textContent).toContain('Escolha o seu plano');
+  });
+
+  it('activates a pasted key and unlocks Premium', async () => {
+    let active = false;
+    const keys: string[] = [];
+    await openSettings(
+      fakeApi({
+        license: () => Promise.resolve(active ? ACTIVE_LICENSE : FREE_LICENSE),
+        activateLicense: (key) => {
+          active = true;
+          keys.push(key);
+          return Promise.resolve(ACTIVE_LICENSE);
+        },
+      }),
+    );
+    paste('  GCO1.abc.def \n');
+    click('activate-license');
+    await settle();
+    expect(keys).toEqual(['GCO1.abc.def']);
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('Premium ativado');
+    expect(root.querySelector('.tab[data-premium="true"]')).toBeNull();
+  });
+
+  it('asks for a key when the field is empty', async () => {
+    const api = await openSettings();
+    click('activate-license');
+    await settle();
+    expect(api.calls.some((c) => c.startsWith('activateLicense'))).toBe(false);
+    expect(root.querySelector('.notice-error')?.textContent).toContain('Cole primeiro a chave');
+  });
+
+  it('explains in plain words when the key is refused', async () => {
+    await openSettings(fakeApi({ activateLicense: () => commandError('licenseSignature') }));
+    paste('GCO1.x.y');
+    click('activate-license');
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('não é válida');
+  });
+
+  it('removes the key after confirmation and goes back to free', async () => {
+    let active = true;
+    await openSettings(
+      fakeApi({
+        license: () => Promise.resolve(active ? ACTIVE_LICENSE : FREE_LICENSE),
+        removeLicense: () => {
+          active = false;
+          return Promise.resolve(FREE_LICENSE);
+        },
+      }),
+    );
+    click('remove-license');
+    await settle();
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('Chave removida');
+    expect(root.querySelector('.tab[data-premium="true"]')).not.toBeNull();
+  });
+
+  it('keeps the key when the player declines to remove it', async () => {
+    const api = await openSettings(fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE), confirm: () => Promise.resolve(false) }));
+    click('remove-license');
+    await settle();
+    expect(api.calls).not.toContain('removeLicense');
+  });
+
+  it('shows a plain message when removing fails', async () => {
+    await openSettings(fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE), removeLicense: () => commandError('licenseSave') }));
+    click('remove-license');
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('guardar a chave');
+  });
+});
+
+describe('Controller: editar animais no mapa', () => {
+  const premium = (): Partial<Api> => ({ license: () => Promise.resolve(ACTIVE_LICENSE) });
+
+  async function openGroup(api = fakeApi(premium())): Promise<ReturnType<typeof fakeApi>> {
+    await new Controller(root, api).start();
+    click('show-map');
+    await settle();
+    const select = root.querySelector<HTMLSelectElement>('#map-grp');
+    if (!select) throw new Error('grupo');
+    select.value = '1';
+    select.dispatchEvent(new Event('change'));
+    root.querySelector<HTMLElement>('#map-anim [data-animal="0"]')?.click();
+    await settle();
+    return api;
+  }
+
+  function weigh(value: string): void {
+    const field = root.querySelector<HTMLInputElement>('#edit-weight');
+    if (!field) throw new Error('peso');
+    field.value = value;
+    field.dispatchEvent(new Event('input'));
+  }
+
+  it('confirms, saves the edit with a backup and reloads the map with a notice', async () => {
+    const requests: EditRequest[] = [];
+    const api = await openGroup(
+      fakeApi({
+        ...premium(),
+        editAnimals: (request) => {
+          requests.push(request);
+          return Promise.resolve({ animals: 1, backup: 'backup-x' });
+        },
+      }),
+    );
+    weigh('600');
+    root.querySelector<HTMLElement>('#edit-save')?.click();
+    await settle();
+    expect(requests).toEqual([{ reserve: 2, species: 'moose', changes: [{ group: 1, index: 0, weight: 600 }] }]);
+    expect(api.calls.filter((c) => c.startsWith('reserveMap')).length).toBeGreaterThan(1);
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('Animal editado');
+  });
+
+  it('does not save when the player declines the confirmation', async () => {
+    const requests: EditRequest[] = [];
+    await openGroup(
+      fakeApi({
+        ...premium(),
+        confirm: () => Promise.resolve(false),
+        editAnimals: (request) => {
+          requests.push(request);
+          return Promise.resolve({ animals: 1, backup: '' });
+        },
+      }),
+    );
+    weigh('600');
+    root.querySelector<HTMLElement>('#edit-save')?.click();
+    await settle();
+    expect(requests).toEqual([]);
+    expect(root.querySelector('#map-edit')?.hasAttribute('hidden')).toBe(false);
+  });
+
+  it('shows the reason inside the panel when the app refuses the edit', async () => {
+    await openGroup(fakeApi({ ...premium(), editAnimals: () => commandError('editorOutOfRange') }));
+    weigh('600');
+    root.querySelector<HTMLElement>('#edit-save')?.click();
+    await settle();
+    expect(root.querySelector('#edit-error')?.textContent).toContain('fora do que o jogo tem');
+  });
+
+  it('tells the player to close the game when it is open', async () => {
+    await openGroup(fakeApi({ ...premium(), editAnimals: () => commandError('gameRunning') }));
+    weigh('600');
+    root.querySelector<HTMLElement>('#edit-save')?.click();
+    await settle();
+    expect(root.querySelector('#edit-error')?.textContent).toContain('Feche o theHunter');
+  });
+
+  it('sends a free user to the Premium page when they press edit', async () => {
+    await new Controller(root, fakeApi()).start();
+    click('show-map');
+    await settle();
+    const select = root.querySelector<HTMLSelectElement>('#map-grp');
+    if (!select) throw new Error('grupo');
+    select.value = '1';
+    select.dispatchEvent(new Event('change'));
+    root.querySelector<HTMLElement>('#map-anim [data-animal="0"]')?.click();
+    await settle();
+    expect(root.textContent).toContain('Escolha o seu plano');
   });
 });
 

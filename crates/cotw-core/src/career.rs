@@ -12,13 +12,11 @@ use cotw_formats::steam_kv::{self, Kv};
 use serde::Serialize;
 
 use crate::discovery::reserve_name;
+use crate::language::Language;
 use crate::mapview::read_adf;
 
 /// Diferença entre o Steam ID de 64 bits e o número da conta usado nos arquivos da Steam.
 const STEAM_ID_BASE: u64 = 76_561_197_960_265_728;
-/// Idioma das missões (índice do português do Brasil) e das conquistas na Steam.
-const MISSIONS_LANGUAGE: usize = 7;
-const STEAM_LANGUAGE: &str = "brazilian";
 /// Número da Steam do jogo.
 const APP_ID: u32 = 518_790;
 
@@ -130,12 +128,16 @@ pub fn account_id(steam_id: &str) -> Option<u32> {
 }
 
 /// Conquistas da Steam com o estado da conta, ou `None` se os arquivos não estiverem no computador.
-fn achievements(stats_dir: &Path, steam_id: &str) -> Option<Vec<AchievementView>> {
+fn achievements(
+    stats_dir: &Path,
+    steam_id: &str,
+    language: Language,
+) -> Option<Vec<AchievementView>> {
     let schema = Kv::parse(
         &std::fs::read(stats_dir.join(format!("UserGameStatsSchema_{APP_ID}.bin"))).ok()?,
     )
     .ok()?;
-    let infos = steam_kv::achievements(&schema, STEAM_LANGUAGE);
+    let infos = steam_kv::achievements(&schema, language.steam_key());
     if infos.is_empty() {
         return None;
     }
@@ -177,6 +179,7 @@ pub fn profile(
     save_dir: &Path,
     steam_id: &str,
     stats_dir: Option<&Path>,
+    language: Language,
 ) -> Result<ProfileView, CareerError> {
     const PROFILE: &str = "thp_player_profile_adf";
     let root = first_instance(&read_adf(&save_dir.join(PROFILE), PROFILE)?, PROFILE)?;
@@ -210,7 +213,7 @@ pub fn profile(
             })
             .count()
     });
-    let list = stats_dir.and_then(|dir| achievements(dir, steam_id));
+    let list = stats_dir.and_then(|dir| achievements(dir, steam_id, language));
     Ok(ProfileView {
         steam_id: steam_id.to_owned(),
         level: unsigned(member(&root, "Level")),
@@ -325,6 +328,7 @@ fn mission_view(
 pub fn missions(
     save_dir: &Path,
     archives: &GameArchives,
+    language: Language,
 ) -> Result<Vec<ReserveMissions>, CareerError> {
     const FILE: &str = "missions_missiondata_adf";
     let campaigns = missions::parse_progress(&read_adf(&save_dir.join(FILE), FILE)?)
@@ -354,7 +358,7 @@ pub fn missions(
             .find_path(&format!("missions/missions_{number}.stringlookup"))
             .first()
             .and_then(|at| archives.read(at).ok())
-            .and_then(|adf| missions::parse_lookup(&adf, MISSIONS_LANGUAGE).ok())
+            .and_then(|adf| missions::parse_lookup(&adf, language.mission_index()).ok())
             .unwrap_or_default();
         let mut views: Vec<MissionView> = defs
             .iter()
@@ -458,7 +462,7 @@ mod tests {
     #[test]
     fn a_missing_steam_folder_means_no_achievements() {
         assert_eq!(
-            achievements(Path::new("não existe"), "76561198125950350"),
+            achievements(Path::new("não existe"), "76561198125950350", Language::PtBr),
             None
         );
     }

@@ -9,9 +9,9 @@ context: |
   theHunter: Call of the Wild (PC/Steam). Lê o save do próprio usuário e os arquivos do jogo
   instalado e mostra tudo o que ajuda na carreira: mapa de zonas de necessidade e rotas dos
   grupos, missões, conquistas, contagem de abates, pelagens, build de habilidades. Versão
-  gratuita inclui liberar as zonas de necessidade que os grupos do usuário usam, com
-  horários. Versão premium edita os animais do mapa (pontuação, peso, sexo, Great One,
-  pelagem).
+  gratuita mostra o mapa com as zonas (inclusive as que ainda faltam descobrir), animais,
+  perfil e missões. Versão premium grava no jogo: libera as zonas, por animal ou por
+  necessidade, e edita animais que já existem (pontuação, peso, sexo, Great One, pelagem).
 
   Conhecimento técnico: toda a engenharia reversa está na skill
   `.claude/skills/cotw-save-knowledge/SKILL.md` e no código de referência em

@@ -22,6 +22,7 @@ import {
   zoomAt,
 } from '../maplogic';
 import type { MapGroup, MapReserve, MapZone, ReserveMap } from '../types';
+import { AnimalEditPanel, type EditorHooks, NO_EDITOR } from './animalEdit';
 
 const COLORS: Record<number, string> = { 1: '#bcd84e', 2: '#4fbcd1', 3: '#f4e856' };
 const NEED_ICONS: Record<number, IconName> = { 1: 'leaf', 2: 'drop', 3: 'moon' };
@@ -86,6 +87,7 @@ function shell(reserves: MapReserve[], map: ReserveMap): string {
         </div>
         <div class="gsum" id="map-gsum"></div>
         <div class="anim" id="map-anim"></div>
+        <div class="edit-panel" id="map-edit" hidden></div>
         <ol class="route" id="map-route"></ol>
         <p class="legend" id="map-route-hint" hidden>${e(t('map.routeHint'))}</p>
       </section>
@@ -122,6 +124,7 @@ export class MapView {
   private readonly iconShapes = new Map<number, Path2D>();
   private readonly image: HTMLImageElement | null;
   private canvas!: HTMLCanvasElement;
+  private panel: AnimalEditPanel | null = null;
   private tip!: HTMLElement;
   private drag: { x: number; y: number; vx: number; vy: number; moved: boolean } | null = null;
   private readonly onResize = (): void => {
@@ -133,6 +136,7 @@ export class MapView {
     private readonly reserves: MapReserve[],
     private readonly map: ReserveMap,
     private readonly onReserve: (id: number) => void,
+    private readonly editor: EditorHooks = NO_EDITOR,
   ) {
     this.filters = {
       needs: new Set(NEEDS),
@@ -149,6 +153,7 @@ export class MapView {
     if (!(canvas instanceof HTMLCanvasElement)) throw new Error('#map-canvas não é um canvas');
     this.canvas = canvas;
     this.tip = this.q('#map-tip');
+    this.panel = new AnimalEditPanel(this.q('#map-edit'), this.editor);
     if (this.image && this.map.image) {
       this.image.onload = () => {
         this.draw();
@@ -326,6 +331,7 @@ export class MapView {
   }
 
   private pickGroup(): void {
+    this.panel?.close();
     const route = this.q('#map-route');
     route.innerHTML = '';
     this.q('#map-gsum').textContent = '';
@@ -345,13 +351,21 @@ export class MapView {
         females: data.animals.length - males,
         stops: stops.length,
       });
-      this.q('#map-anim').innerHTML = data.animals
-        .map((a) => {
+        this.q('#map-anim').innerHTML = data.animals
+        .map((a, i) => {
           const sex = a.male ? '♂' : '♀';
-          const label = `${sex} ${a.weight.toFixed(0)} kg${a.male && a.score > 0 ? ` · ${a.score.toFixed(0)}` : ''}${a.greatOne ? ' ⭐' : ''}`;
-          return `<span class="${a.greatOne ? 'go' : ''}" title="${e(a.male ? t('map.male') : t('map.female'))}">${e(label)}</span>`;
+          const label = `${sex} ${a.weight.toFixed(0)} kg${a.score > 0 ? ` · ${a.score.toFixed(0)}` : ''}${a.greatOne ? ' ⭐' : ''}`;
+          const symbol = this.editor.premium ? 'edit' : 'lock';
+          const hint = this.editor.premium ? t('edit.button') : t('edit.buttonPremium');
+          return `<button type="button" class="animal${a.greatOne ? ' go' : ''}" data-animal="${String(i)}" title="${e(`${a.male ? t('map.male') : t('map.female')} · ${hint}`)}">${e(label)} ${icon(symbol, 12)}</button>`;
         })
         .join('');
+      for (const chip of this.root.querySelectorAll<HTMLButtonElement>('#map-anim [data-animal]')) {
+        chip.addEventListener('click', () => {
+          const speciesId = this.map.species[species]?.id;
+          if (speciesId !== undefined) void this.panel?.open(this.map.id, speciesId, number, Number(chip.dataset['animal']));
+        });
+      }
       route.innerHTML = stops.map((s) => this.routeItem(s)).join('');
       for (const item of route.querySelectorAll<HTMLLIElement>('li[data-stop]')) {
         item.addEventListener('click', () => {

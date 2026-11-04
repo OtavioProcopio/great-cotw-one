@@ -5,6 +5,8 @@ import type { Diagnostics } from '../types';
 import { renderDiagnostics } from './diagnostics';
 import { defaultRewriteFile, renderHome } from './home';
 import { renderHistory } from './history';
+import { type UnlockState, initialUnlockState } from '../unlocklogic';
+import { setLocale } from '../i18n';
 import { renderUnlock } from './unlock';
 
 function html(markup: string): HTMLElement {
@@ -194,14 +196,16 @@ describe('defaultRewriteFile', () => {
 });
 
 describe('renderUnlock', () => {
+  const start = initialUnlockState();
+
   it('shows a waiting message while the progress is analysed', () => {
-    const root = html(renderUnlock(null));
+    const root = html(renderUnlock(null, start, true));
     expect(root.textContent).toContain('Analisando o seu progresso');
     expect(root.querySelector('[data-action="unlock-run"]')).toBeNull();
   });
 
   it('lets the player pick only the reserves that have something to unlock', () => {
-    const root = html(renderUnlock(zonesPreview));
+    const root = html(renderUnlock(zonesPreview, start, true));
     const picks = [...root.querySelectorAll<HTMLInputElement>('.reserve-pick')];
     expect(picks.map((p) => p.value)).toEqual(['2', '13']);
     expect(picks.every((p) => p.checked)).toBe(true);
@@ -209,10 +213,59 @@ describe('renderUnlock', () => {
     expect(root.textContent).toContain('89 com horário aproximado');
     expect(root.textContent).toContain('Serão liberados 7.330 lugares em 2 reservas');
     expect(root.querySelector('[data-action="unlock-run"]')).not.toBeNull();
+    expect(root.querySelector('.premium-banner')).toBeNull();
+  });
+
+  it('shows everything that is missing to a free user but only offers the Premium button', () => {
+    const root = html(renderUnlock(zonesPreview, start, false));
+    expect(root.querySelector('.premium-banner')?.textContent).toContain('recurso Premium');
+    expect(root.textContent).toContain('Serão liberados 7.330 lugares em 2 reservas');
+    expect(root.querySelector('[data-action="unlock-run"]')).toBeNull();
+    expect(root.querySelector('[data-action="premium-info"]')?.textContent).toContain('Liberar com o Premium');
+  });
+
+  it('offers to unlock everything, by animal or by need', () => {
+    const root = html(renderUnlock(zonesPreview, start, true));
+    expect([...root.querySelectorAll('[data-action="unlock-mode"]')].map((b) => b.textContent)).toEqual([
+      'Tudo',
+      'Por animal',
+      'Por necessidade',
+    ]);
+    expect(root.querySelector('[data-mode="all"]')?.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('lists the animals with how many places each one gains', () => {
+    const state: UnlockState = { ...start, mode: 'animal', species: new Set(['brown_bear']) };
+    const root = html(renderUnlock(zonesPreview, state, true));
+    const chips = [...root.querySelectorAll('[data-action="toggle-species"]')];
+    expect(chips.map((c) => c.textContent.replace(/\s+/g, ' ').trim())).toEqual(['Alce 7.219', 'Urso-pardo 111']);
+    expect(root.querySelector('[data-species="brown_bear"]')?.getAttribute('aria-pressed')).toBe('true');
+    expect(root.textContent).toContain('Serão liberados 111 lugares em 1 reservas');
+  });
+
+  it('lists the needs with how many places each one gains', () => {
+    const state: UnlockState = { ...start, mode: 'need', needs: new Set([2]) };
+    const root = html(renderUnlock(zonesPreview, state, true));
+    const chips = [...root.querySelectorAll('[data-action="toggle-need"]')];
+    expect(chips.map((c) => c.textContent.replace(/\s+/g, ' ').trim())).toEqual(['Comer 2.940', 'Beber 2.540', 'Descansar 1.850']);
+    expect(root.textContent).toContain('Serão liberados 2.540 lugares em 2 reservas');
+  });
+
+  it('asks for a choice when nothing is selected yet', () => {
+    const state: UnlockState = { ...start, mode: 'animal' };
+    const root = html(renderUnlock(zonesPreview, state, true));
+    expect(root.textContent).toContain('Nada escolhido ainda');
+    expect(root.querySelector('[data-action="unlock-run"]')).toBeNull();
+  });
+
+  it('asks for a reserve when none is marked', () => {
+    const state: UnlockState = { ...start, reserves: new Set() };
+    const root = html(renderUnlock(zonesPreview, state, true));
+    expect(root.textContent).toContain('Marque pelo menos uma reserva');
   });
 
   it('explains the reserves that cannot be unlocked in plain words', () => {
-    const text = html(renderUnlock(zonesPreview)).textContent;
+    const text = html(renderUnlock(zonesPreview, start, true)).textContent;
     expect(text).toContain('Tudo já está liberado');
     expect(text).toContain('Jogue um pouco nesta reserva');
     expect(text).toContain('Sem dados desta reserva');
@@ -220,7 +273,7 @@ describe('renderUnlock', () => {
 
   it('offers no button when there is nothing to unlock', () => {
     const none = { total: 0, reserves: zonesPreview.reserves.filter((r) => r.state !== 'ready') };
-    const root = html(renderUnlock(none));
+    const root = html(renderUnlock(none, start, true));
     expect(root.textContent).toContain('Não há nada para liberar agora');
     expect(root.querySelector('[data-action="unlock-run"]')).toBeNull();
   });
@@ -245,5 +298,24 @@ describe('renderHistory', () => {
 
   it('shows a friendly message when empty', () => {
     expect(html(renderHistory([])).textContent).toContain('Ainda não há nada');
+  });
+});
+
+describe('language card and history names', () => {
+  it('lists the languages, each in its own tongue, with the current one pressed', () => {
+    const root = html(renderDiagnostics(foundDiagnostics));
+    const buttons = [...root.querySelectorAll<HTMLElement>('[data-action="set-language"]')];
+    expect(buttons.map((b) => b.textContent)).toEqual(['Português (Brasil)', 'English', 'Español']);
+    expect(buttons.map((b) => b.getAttribute('aria-pressed'))).toEqual(['true', 'false', 'false']);
+  });
+
+  it('shows the known history functions in the current language and keeps unknown ones as stored', () => {
+    const item = { ...historyItems[0], function: 'Liberar o mapa' } as (typeof historyItems)[number];
+    expect(html(renderHistory([item])).textContent).toContain('Liberar o mapa');
+    setLocale('en');
+    expect(html(renderHistory([item])).textContent).toContain('Unlock the map');
+    setLocale('es');
+    expect(html(renderHistory([item])).textContent).toContain('Liberar el mapa');
+    expect(html(renderHistory([{ ...item, function: 'Outra função' }])).textContent).toContain('Outra função');
   });
 });

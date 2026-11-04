@@ -1,5 +1,6 @@
 // Dados de exemplo compartilhados pelos testes.
 import type { Api } from './api';
+import type { License, SpeciesEditor, UnlockRequest } from './types';
 import type { AnimalReserve, Diagnostics, HistoryItem, MapReserve, Profile, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 
 export const foundDiagnostics: Diagnostics = {
@@ -56,11 +57,30 @@ export const historyItems: HistoryItem[] = [
 export const zonesPreview: ZonesPreview = {
   total: 7_330,
   reserves: [
-    { id: 2, name: 'Medved-Taiga', state: 'ready', newZones: 3_511, estimated: 89, skipped: 0 },
-    { id: 13, name: 'Revontuli Coast', state: 'ready', newZones: 3_819, estimated: 0, skipped: 805 },
-    { id: 0, name: 'Hirschfelden', state: 'nothingToDo', newZones: 0, estimated: 0, skipped: 0 },
-    { id: 18, name: 'Reserva 18', state: 'needsDiscovery', newZones: 0, estimated: 0, skipped: 0 },
-    { id: 5, name: 'Reserva 5', state: 'noData', newZones: 0, estimated: 0, skipped: 0 },
+    {
+      id: 2,
+      name: 'Medved-Taiga',
+      state: 'ready',
+      newZones: 3_511,
+      estimated: 89,
+      skipped: 0,
+      species: [
+        { id: 'moose', name: 'Alce', needs: [1_000, 1_500, 900] },
+        { id: 'brown_bear', name: 'Urso-pardo', needs: [40, 40, 31] },
+      ],
+    },
+    {
+      id: 13,
+      name: 'Revontuli Coast',
+      state: 'ready',
+      newZones: 3_819,
+      estimated: 0,
+      skipped: 805,
+      species: [{ id: 'moose', name: 'Alce', needs: [1_900, 1_000, 919] }],
+    },
+    { id: 0, name: 'Hirschfelden', state: 'nothingToDo', newZones: 0, estimated: 0, skipped: 0, species: [] },
+    { id: 18, name: 'Reserva 18', state: 'needsDiscovery', newZones: 0, estimated: 0, skipped: 0, species: [] },
+    { id: 5, name: 'Reserva 5', state: 'noData', newZones: 0, estimated: 0, skipped: 0, species: [] },
   ],
 };
 
@@ -107,6 +127,44 @@ export const sampleMap: ReserveMap = {
       animals: [{ male: true, weight: 300, score: 90, greatOne: false }],
     },
     { number: 3, species: 1, stops: [3, 4, 99], animals: [] },
+  ],
+};
+
+export const FREE_LICENSE: License = {
+  premium: false,
+  state: 'free',
+  email: null,
+  expires: null,
+  daysLeft: null,
+  plan: null,
+};
+export const ACTIVE_LICENSE: License = {
+  premium: true,
+  state: 'active',
+  email: 'ana@exemplo.com',
+  expires: 1_830_000_000,
+  daysLeft: 200,
+  plan: 'yearly',
+};
+
+export const sampleEditor: SpeciesEditor = {
+  reserve: 2,
+  reserveName: 'Medved-Taiga',
+  species: 'moose',
+  name: 'Alce',
+  greatOneAllowed: true,
+  limits: {
+    male: { minWeight: 90, maxWeight: 660, minScore: 0, maxScore: 330, typicalWeight: 400, typicalScore: 150 },
+    female: { minWeight: 80, maxWeight: 500, minScore: 0, maxScore: 200, typicalWeight: 320, typicalScore: 90 },
+  },
+  groups: [
+    {
+      number: 1,
+      animals: [
+        { index: 0, male: true, weight: 560, score: 210, greatOne: true },
+        { index: 1, male: false, weight: 410, score: 0, greatOne: false },
+      ],
+    },
   ],
 };
 
@@ -203,8 +261,10 @@ export function commandError(code: string, message = 'detalhe'): Promise<never> 
 }
 
 /** API falsa: cada método devolve valores de exemplo e registra as chamadas. */
-export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[] } {
+export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[]; requests: UnlockRequest[]; languages: string[] } {
   const calls: string[] = [];
+  const requests: UnlockRequest[] = [];
+  const languages: string[] = [];
   const record =
     <T>(name: string, value: T) =>
     (...args: unknown[]): Promise<T> => {
@@ -213,6 +273,8 @@ export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[] }
     };
   return {
     calls,
+    requests,
+    languages,
     diagnostics: record('diagnostics', foundDiagnostics),
     selectSaveDir: record('selectSaveDir', undefined),
     selectGameDir: record('selectGameDir', undefined),
@@ -224,13 +286,26 @@ export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[] }
       oldSize: 90_561,
       newSize: 85_622,
     }),
+    setLanguage: (tag) => {
+      languages.push(tag);
+      return Promise.resolve();
+    },
+    license: record('license', FREE_LICENSE),
+    activateLicense: record('activateLicense', ACTIVE_LICENSE),
+    removeLicense: record('removeLicense', FREE_LICENSE),
     animals: record('animals', sampleAnimals),
+    speciesEditor: record('speciesEditor', sampleEditor),
+    editAnimals: record('editAnimals', { animals: 1, backup: 'C:\\Backups\\animais' }),
     profile: record('profile', sampleProfile),
     missions: record('missions', sampleMissions),
     mapReserves: record('mapReserves', mapReserves),
     reserveMap: record('reserveMap', sampleMap),
     zonesPreview: record('zonesPreview', zonesPreview),
-    unlockZones: record('unlockZones', { zonesAdded: 7_330, reserves: 2, backup: 'C:\\Backups\\mapa' }),
+    unlockZones: (request) => {
+      requests.push(request);
+      calls.push(`unlockZones:${request.reserves.join(',')}`);
+      return Promise.resolve({ zonesAdded: 7_330, reserves: 2, backup: 'C:\\Backups\\mapa' });
+    },
     pickFolder: record('pickFolder', 'C:\\Escolhida'),
     confirm: record('confirm', true),
     ...overrides,

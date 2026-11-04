@@ -22,6 +22,8 @@
 - [ ] 3.2 Tela de prévia por reserva com contagem e lista (feita a contagem por reserva; falta a lista das zonas)
 - [x] 3.3 Escritor de `found_need_zones_adf` com reconstrução completa e verificação (sem y=1,0, cadeia íntegra, zonas antigas idênticas)
 - [x] 3.4 Integração com `SaveTransaction`
+- [x] 3.5 Liberar por animal ou por necessidade (contagens por espécie e necessidade na prévia; filtro na gravação)
+- [x] 3.6 Liberar é Premium: o serviço recusa sem licença (`premiumRequired`) e a tela mostra o aviso; a prévia segue gratuita
 
 ## 4. Verificação
 

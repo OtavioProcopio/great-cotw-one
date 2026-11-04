@@ -6,14 +6,17 @@
 use std::path::PathBuf;
 use std::sync::Arc;
 
+use cotw_core::animal_editor::SpeciesEditor;
 use cotw_core::animals::AnimalReserve;
 use cotw_core::career::{ProfileView, ReserveMissions};
 use cotw_core::diagnostics::{Diagnostics, SearchRoots};
+use cotw_core::license::LicenseStatus;
 use cotw_core::mapview::{MapReserve, ReserveMap};
 use cotw_core::paths::system_appdata;
 use cotw_core::process::SystemProcessList;
 use cotw_core::service::{
-    AppService, HistoryItem, RestoreResult, RewriteResult, ServiceError, UnlockResult, ZonesPreview,
+    AppService, EditRequest, EditResult, HistoryItem, RestoreResult, RewriteResult, ServiceError,
+    UnlockRequest, UnlockResult, ZonesPreview,
 };
 use serde::Serialize;
 use tauri::State;
@@ -96,6 +99,23 @@ async fn animals(service: Service<'_>) -> Result<Vec<AnimalReserve>, CommandErro
 }
 
 #[tauri::command]
+async fn species_editor(
+    service: Service<'_>,
+    reserve: u32,
+    species: String,
+) -> Result<SpeciesEditor, CommandError> {
+    blocking(&service, move |s| s.species_editor(reserve, &species)).await
+}
+
+#[tauri::command]
+async fn edit_animals(
+    service: Service<'_>,
+    request: EditRequest,
+) -> Result<EditResult, CommandError> {
+    blocking(&service, move |s| s.edit_animals(&request)).await
+}
+
+#[tauri::command]
 async fn profile(service: Service<'_>) -> Result<ProfileView, CommandError> {
     blocking(&service, AppService::profile).await
 }
@@ -118,9 +138,36 @@ async fn zones_preview(service: Service<'_>) -> Result<ZonesPreview, CommandErro
 #[tauri::command]
 async fn unlock_zones(
     service: Service<'_>,
-    reserves: Vec<u32>,
+    request: UnlockRequest,
 ) -> Result<UnlockResult, CommandError> {
-    blocking(&service, move |s| s.unlock_zones(&reserves)).await
+    blocking(&service, move |s| s.unlock_zones(&request)).await
+}
+
+#[tauri::command]
+async fn set_language(service: Service<'_>, tag: String) -> Result<(), CommandError> {
+    blocking(&service, move |s| {
+        s.set_language(&tag);
+        Ok(())
+    })
+    .await
+}
+
+#[tauri::command]
+async fn license(service: Service<'_>) -> Result<LicenseStatus, CommandError> {
+    blocking(&service, |s| Ok(s.license_status())).await
+}
+
+#[tauri::command]
+async fn activate_license(
+    service: Service<'_>,
+    key: String,
+) -> Result<LicenseStatus, CommandError> {
+    blocking(&service, move |s| s.activate_license(&key)).await
+}
+
+#[tauri::command]
+async fn remove_license(service: Service<'_>) -> Result<LicenseStatus, CommandError> {
+    blocking(&service, AppService::remove_license).await
 }
 
 #[tauri::command]
@@ -160,10 +207,16 @@ pub fn run() {
             map_reserves,
             reserve_map,
             animals,
+            species_editor,
+            edit_animals,
             profile,
             missions,
             zones_preview,
             unlock_zones,
+            set_language,
+            license,
+            activate_license,
+            remove_license,
             restore_backup
         ])
         .run(tauri::generate_context!())

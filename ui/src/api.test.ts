@@ -35,7 +35,10 @@ describe('tauriApi', () => {
     await tauriApi.mapReserves();
     await tauriApi.reserveMap(2);
     await tauriApi.zonesPreview();
-    await tauriApi.unlockZones([2, 13]);
+    await tauriApi.unlockZones({ reserves: [2, 13], species: null, needs: [2] });
+    await tauriApi.license();
+    await tauriApi.activateLicense('GCO1.a.b');
+    await tauriApi.removeLicense();
     await tauriApi.restore('C:\\Backups\\1');
     expect(calls).toEqual([
       { command: 'diagnostics', args: {} },
@@ -47,7 +50,10 @@ describe('tauriApi', () => {
       { command: 'map_reserves', args: {} },
       { command: 'reserve_map', args: { reserve: 2 } },
       { command: 'zones_preview', args: {} },
-      { command: 'unlock_zones', args: { reserves: [2, 13] } },
+      { command: 'unlock_zones', args: { request: { reserves: [2, 13], species: null, needs: [2] } } },
+      { command: 'license', args: {} },
+      { command: 'activate_license', args: { key: 'GCO1.a.b' } },
+      { command: 'remove_license', args: {} },
       { command: 'restore_backup', args: { backup: 'C:\\Backups\\1' } },
     ]);
   });

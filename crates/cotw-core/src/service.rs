@@ -10,18 +10,23 @@ use cotw_formats::adf::Adf;
 use cotw_formats::archive::GameArchives;
 use cotw_formats::envelope::SaveEnvelope;
 
+use crate::animal_editor::{self, AnimalChange, EditorError, SpeciesEditor};
 use crate::animals::{self, AnimalReserve};
 use crate::career::{self, CareerError, ProfileView, ReserveMissions};
 use crate::diagnostics::{Diagnostics, FileDiagnostic, FileState, SaveStatus, SearchRoots, run};
 use crate::discovery::saves::{SaveLocation, resolve_manual};
 use crate::discovery::steam::validate_game_dir;
 use crate::history::{History, HistoryError, HistoryKind};
+use crate::language::Language;
+use crate::license::{
+    ActivateError, FileLicense, LicenseCheck, LicenseStatus, default_license, now,
+};
 use crate::mapview::{self, MapError, MapReserve, ReserveMap};
 use crate::paths::{app_data_dir, backups_dir, history_db, migrate_legacy_dir};
 use crate::process::ProcessList;
 use crate::settings::Settings;
 use crate::transaction::{Change, FileChange, SaveTransaction, TransactionError};
-use crate::unlock::{ReserveSummary, UnlockError, analyze};
+use crate::unlock::{ReserveSummary, Selection, UnlockError, analyze};
 
 /// Erros que a interface mostra ao usuário; `code()` é estável para tradução.
 #[derive(Debug, thiserror::Error)]
@@ -65,6 +70,15 @@ pub enum ServiceError {
     /// Não foi possível montar o perfil ou as missões.
     #[error(transparent)]
     Career(#[from] CareerError),
+    /// A chave de licença não pôde ser ativada.
+    #[error(transparent)]
+    License(#[from] ActivateError),
+    /// Não foi possível montar ou aplicar a edição de animais.
+    #[error(transparent)]
+    Editor(#[from] EditorError),
+    /// A função exige a licença Premium.
+    #[error("esta função exige a licença Premium")]
+    PremiumRequired,
     /// Nenhuma das reservas escolhidas tem zonas a liberar.
     #[error("não há zonas a liberar nas reservas escolhidas")]
     NothingToUnlock,
@@ -86,6 +100,10 @@ impl ServiceError {
             Self::Map(_) => "map",
             Self::Career(_) => "career",
             Self::NothingToUnlock => "nothingToUnlock",
+            Self::PremiumRequired => "premiumRequired",
+            Self::Editor(error) => error.code(),
+            Self::License(ActivateError::License(error)) => error.code(),
+            Self::License(ActivateError::Io(_)) => "licenseSave",
             Self::History(_) => "history",
             Self::Settings(_) => "settings",
             Self::Transaction(TransactionError::Game(crate::process::GameStateError::Running)) => {
@@ -167,6 +185,45 @@ pub struct AppService {
     appdata: PathBuf,
     roots: SearchRoots,
     processes: Box<dyn ProcessList + Send + Sync>,
+    license: Box<dyn LicenseCheck>,
+    license_file: FileLicense,
+    language: std::sync::Mutex<Language>,
+}
+
+/// O que o usuário quer mudar nos animais de uma espécie.
+#[derive(Debug, Clone, Default, PartialEq, serde::Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EditRequest {
+    /// Número da reserva.
+    pub reserve: u32,
+    /// Espécie (nome que o jogo usa).
+    pub species: String,
+    /// Mudanças, uma por animal.
+    pub changes: Vec<AnimalChange>,
+}
+
+/// Resultado de uma edição gravada.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EditResult {
+    /// Animais que mudaram.
+    pub animals: usize,
+    /// Backup do estado anterior.
+    pub backup: String,
+}
+
+/// O que o usuário escolheu liberar.
+#[derive(Debug, Clone, Default, PartialEq, Eq, serde::Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct UnlockRequest {
+    /// Reservas escolhidas.
+    pub reserves: Vec<u32>,
+    /// Só estas espécies (ausente libera todas).
+    #[serde(default)]
+    pub species: Option<Vec<String>>,
+    /// Só estas necessidades: 1 comer, 2 beber, 3 descansar (ausente libera todas).
+    #[serde(default)]
+    pub needs: Option<Vec<u32>>,
 }
 
 impl AppService {
@@ -177,13 +234,76 @@ impl AppService {
         roots: SearchRoots,
         processes: Box<dyn ProcessList + Send + Sync>,
     ) -> Self {
+        let license_path = app_data_dir(appdata).join("license.key");
         let service = Self {
             appdata: appdata.to_path_buf(),
             roots,
             processes,
+            license: default_license(&license_path),
+            license_file: FileLicense::new(&license_path),
+            language: std::sync::Mutex::new(Language::default()),
         };
         service.adopt_legacy_data();
         service
+    }
+
+    /// Troca a licença usada pelo serviço (testes e, no futuro, o verificador real).
+    #[must_use]
+    pub fn with_license(mut self, license: Box<dyn LicenseCheck>) -> Self {
+        self.license = license;
+        self
+    }
+
+    /// Idioma atual (nomes de espécies, textos de missões e conquistas).
+    #[must_use]
+    pub fn language(&self) -> Language {
+        self.language
+            .lock()
+            .map_or_else(|poisoned| *poisoned.into_inner(), |guard| *guard)
+    }
+
+    /// Escolhe o idioma a partir da etiqueta (`pt-BR`, `en`, `es`…); etiqueta desconhecida vira inglês.
+    pub fn set_language(&self, tag: &str) {
+        let language = tag.parse().unwrap_or(Language::En);
+        match self.language.lock() {
+            Ok(mut guard) => *guard = language,
+            Err(poisoned) => *poisoned.into_inner() = language,
+        }
+    }
+
+    /// Usa um arquivo de licença específico (testes com uma chave pública de teste).
+    #[must_use]
+    pub fn with_license_file(mut self, file: FileLicense) -> Self {
+        self.license = Box::new(file.clone());
+        self.license_file = file;
+        self
+    }
+
+    /// Situação da licença Premium.
+    #[must_use]
+    pub fn license_status(&self) -> LicenseStatus {
+        self.license.status()
+    }
+
+    /// Ativa uma chave de licença colada pelo usuário: confere a assinatura e o prazo e a guarda.
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::License`] se a chave for inválida, de outro produto, vencida ou não puder
+    /// ser guardada.
+    pub fn activate_license(&self, key: &str) -> Result<LicenseStatus, ServiceError> {
+        self.license_file.activate(key, now())?;
+        Ok(self.license_status())
+    }
+
+    /// Remove a chave guardada (volta ao modo gratuito).
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::Settings`] se o arquivo não puder ser apagado.
+    pub fn remove_license(&self) -> Result<LicenseStatus, ServiceError> {
+        self.license_file.remove()?;
+        Ok(self.license_status())
     }
 
     /// Traz a pasta de dados do nome antigo (backups e histórico) para a nova, sem perder nada.
@@ -306,7 +426,66 @@ impl AppService {
     /// [`ServiceError::Map`] se o arquivo de zonas não puder ser lido.
     pub fn animals(&self) -> Result<Vec<AnimalReserve>, ServiceError> {
         let (save_dir, archives) = self.unlock_context()?;
-        Ok(animals::animals(&save_dir, &archives)?)
+        Ok(animals::animals(&save_dir, &archives, self.language())?)
+    }
+
+    /// Os animais de uma espécie numa reserva, para o editor (ver é gratuito; gravar é Premium).
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::GameNotFound`] sem o jogo, [`ServiceError::NoSaveSelected`] sem save e
+    /// [`ServiceError::Editor`] se a reserva ou a espécie não puderem ser lidas.
+    pub fn species_editor(
+        &self,
+        reserve: u32,
+        species: &str,
+    ) -> Result<SpeciesEditor, ServiceError> {
+        let (save_dir, archives) = self.unlock_context()?;
+        Ok(animal_editor::species_editor(
+            &save_dir,
+            &archives,
+            reserve,
+            species,
+            self.language(),
+        )?)
+    }
+
+    /// Grava as mudanças nos animais, pelo caminho seguro (jogo fechado, backup, conferência).
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::PremiumRequired`] sem licença Premium; [`ServiceError::Editor`] se a
+    /// edição não valer; [`ServiceError::Transaction`] se o jogo estiver aberto ou algo falhar
+    /// (os arquivos são restaurados).
+    pub fn edit_animals(&self, request: &EditRequest) -> Result<EditResult, ServiceError> {
+        if !self.license.is_premium() {
+            return Err(ServiceError::PremiumRequired);
+        }
+        let (save_dir, archives) = self.unlock_context()?;
+        let plan = animal_editor::build_edit(
+            &save_dir,
+            &archives,
+            request.reserve,
+            &request.species,
+            &request.changes,
+            self.language(),
+        )?;
+        let animals = plan.animals;
+        let transaction = SaveTransaction::new(&save_dir, &backups_dir(&self.appdata));
+        let preview = transaction.preview(Change {
+            function: "Editar animais".into(),
+            summary: format!(
+                "{animals} animais editados ({})",
+                crate::species::display_name(&request.species, self.language())
+            ),
+            files: vec![plan.file],
+        })?;
+        let history = History::open(&history_db(&self.appdata))?;
+        let done = transaction.commit(preview.confirm(), self.processes.as_ref(), &history)?;
+        Ok(EditResult {
+            animals,
+            backup: done.backup.path.display().to_string(),
+        })
     }
 
     /// Perfil do jogador: nível, dinheiro, tiros, troféus e conquistas da Steam.
@@ -329,6 +508,7 @@ impl AppService {
             Path::new(&account.path),
             &account.steam_id,
             stats_dir.as_deref(),
+            self.language(),
         )?)
     }
 
@@ -340,7 +520,7 @@ impl AppService {
     /// [`ServiceError::Career`] se o progresso não puder ser lido.
     pub fn missions(&self) -> Result<Vec<ReserveMissions>, ServiceError> {
         let (save_dir, archives) = self.unlock_context()?;
-        Ok(career::missions(&save_dir, &archives)?)
+        Ok(career::missions(&save_dir, &archives, self.language())?)
     }
 
     /// Reservas que o mapa consegue mostrar (têm população no save e mapas no jogo).
@@ -361,7 +541,12 @@ impl AppService {
     /// Como [`Self::map_reserves`], mais [`ServiceError::Map`] se a reserva não tiver dados.
     pub fn reserve_map(&self, reserve: u32) -> Result<ReserveMap, ServiceError> {
         let (save_dir, archives) = self.unlock_context()?;
-        Ok(mapview::build(&save_dir, &archives, reserve)?)
+        Ok(mapview::build(
+            &save_dir,
+            &archives,
+            reserve,
+            self.language(),
+        )?)
     }
 
     /// Calcula, sem gravar nada, as zonas que cada reserva ganharia ao liberar o mapa.
@@ -372,7 +557,7 @@ impl AppService {
     /// sem save e [`ServiceError::Unlock`] se o arquivo de zonas não puder ser lido.
     pub fn zones_preview(&self) -> Result<ZonesPreview, ServiceError> {
         let (save_dir, archives) = self.unlock_context()?;
-        let analysis = analyze(&save_dir, &archives)?;
+        let analysis = analyze(&save_dir, &archives, self.language())?;
         Ok(ZonesPreview {
             total: analysis.total_new_zones(),
             reserves: analysis.reserves,
@@ -384,14 +569,22 @@ impl AppService {
     ///
     /// # Errors
     ///
-    /// [`ServiceError::NothingToUnlock`] se não houver zonas a liberar nas reservas escolhidas;
+    /// [`ServiceError::PremiumRequired`] sem licença Premium;
+    /// [`ServiceError::NothingToUnlock`] se não houver zonas a liberar na seleção;
     /// [`ServiceError::Transaction`] se o jogo estiver aberto ou algo falhar (os arquivos são
     /// restaurados); demais erros como em [`Self::zones_preview`].
-    pub fn unlock_zones(&self, reserves: &[u32]) -> Result<UnlockResult, ServiceError> {
+    pub fn unlock_zones(&self, request: &UnlockRequest) -> Result<UnlockResult, ServiceError> {
+        if !self.license.is_premium() {
+            return Err(ServiceError::PremiumRequired);
+        }
         let (save_dir, archives) = self.unlock_context()?;
-        let analysis = analyze(&save_dir, &archives)?;
+        let analysis = analyze(&save_dir, &archives, self.language())?;
         let unlock = analysis
-            .build(reserves)?
+            .build(&Selection {
+                reserves: &request.reserves,
+                species: request.species.as_deref(),
+                needs: request.needs.as_deref(),
+            })?
             .ok_or(ServiceError::NothingToUnlock)?;
         let (zones_added, reserves_changed) = (unlock.zones_added, unlock.reserves);
 
@@ -536,6 +729,63 @@ mod tests {
             },
             Box::new(Fixed(processes)),
         )
+    }
+
+    #[test]
+    fn activating_a_signed_key_unlocks_premium_and_removing_it_locks_again() {
+        use crate::license::{FileLicense, LicenseState, issue, now};
+        use ed25519_dalek::SigningKey;
+        let env = env();
+        let signing = SigningKey::from_bytes(&[3; 32]);
+        let path = env.appdata.join("Great COTW One").join("license.key");
+        let service = service(&env, vec![])
+            .with_license_file(FileLicense::with_public_key(&path, signing.verifying_key()));
+        assert!(!service.license_status().premium);
+        assert_eq!(
+            service
+                .unlock_zones(&UnlockRequest::default())
+                .unwrap_err()
+                .code(),
+            "premiumRequired"
+        );
+
+        let key = issue(&signing, "ana@exemplo.com", now(), now() + 365 * 86_400);
+        let status = service.activate_license(&key).unwrap();
+        assert!(status.premium);
+        assert_eq!(status.state, LicenseState::Active);
+        assert_eq!(status.email.as_deref(), Some("ana@exemplo.com"));
+        // Com a licença, o pedido passa do bloqueio (e falha adiante, sem jogo instalado).
+        assert_ne!(
+            service
+                .unlock_zones(&UnlockRequest::default())
+                .unwrap_err()
+                .code(),
+            "premiumRequired"
+        );
+
+        assert_eq!(
+            service.activate_license("lixo").unwrap_err().code(),
+            "licenseFormat"
+        );
+        let other = issue(
+            &SigningKey::from_bytes(&[4; 32]),
+            "x@y.z",
+            now(),
+            now() + 86_400,
+        );
+        assert_eq!(
+            service.activate_license(&other).unwrap_err().code(),
+            "licenseSignature"
+        );
+        let old = issue(&signing, "x@y.z", now() - 400 * 86_400, now() - 86_400);
+        assert_eq!(
+            service.activate_license(&old).unwrap_err().code(),
+            "licenseExpired"
+        );
+        // Uma tentativa ruim não derruba a licença que já estava ativa.
+        assert!(service.license_status().premium);
+
+        assert!(!service.remove_license().unwrap().premium);
     }
 
     #[test]

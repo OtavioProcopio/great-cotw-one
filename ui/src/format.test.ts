@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import { escapeHtml } from './escape';
-import { formatBytes, formatEpoch, formatStamp } from './format';
+import { formatBytes, formatCount, formatDate, formatEpoch, formatMoney, formatStamp } from './format';
+import { setLocale } from './i18n';
 
 describe('formatBytes', () => {
   it('uses the right unit and pt-BR decimals', () => {
@@ -41,5 +42,17 @@ describe('escapeHtml', () => {
       '&lt;a href=&quot;x&quot; onclick=&#39;y&#39;&gt;&amp;&lt;/a&gt;',
     );
     expect(escapeHtml('texto simples')).toBe('texto simples');
+  });
+});
+
+describe('formats follow the language', () => {
+  it('uses the separators of each language', () => {
+    expect(formatCount(1234567)).toBe('1.234.567');
+    setLocale('en');
+    expect(formatCount(1234567)).toBe('1,234,567');
+    expect(formatMoney(75)).toMatch(/^R\$\s?75\.00$/);
+    expect(formatDate(0, 'UTC')).toBe('1/1/70');
+    setLocale('es');
+    expect(formatMoney(15)).toMatch(/^15,00\s?R\$$/);
   });
 });

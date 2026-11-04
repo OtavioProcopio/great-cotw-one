@@ -1,300 +1,75 @@
-// Textos da interface. Português do Brasil primeiro; outros idiomas entram como novos
-// dicionários com as mesmas chaves.
+// Idiomas da interface: português do Brasil (referência), inglês e espanhol.
+// Para acrescentar um idioma: um arquivo em `locales/` com as mesmas chaves e uma linha em `LOCALES`.
 
-export const ptBR = {
-  'app.name': 'Great COTW One',
-  'nav.home': 'Início',
-  'nav.map': 'Mapa',
-  'nav.history': 'Backups',
-  'nav.profile': 'Perfil',
-  'nav.animals': 'Animais',
-  'nav.missions': 'Missões',
-  'nav.unlock': 'Liberar mapa',
-  'nav.diagnostics': 'Ajustes',
+import { en } from './locales/en';
+import { es } from './locales/es';
+import { type MessageKey, ptBR } from './locales/pt-BR';
 
-  'common.refresh': 'Atualizar',
-  'common.loading': 'Carregando…',
+export type { MessageKey } from './locales/pt-BR';
 
-  'home.title': 'Bem-vindo, caçador!',
-  'home.intro': 'Este app ajuda a cuidar do seu progresso no theHunter: Call of the Wild, sempre com cópia de segurança.',
-  'home.recheck': 'Verificar de novo',
-  'home.status.title': 'Está tudo pronto?',
-  'home.game.ok': 'O jogo foi encontrado no seu computador.',
-  'home.game.missing':
-    'Não encontramos o jogo instalado. Se ele está em outro disco, mostre onde ele está. Sem o jogo, algumas funções ficam indisponíveis.',
-  'home.game.choose': 'Mostrar onde o jogo está…',
-  'home.save.ok': 'Seu progresso foi encontrado: {count} reservas.',
-  'home.save.okLast': 'Última vez que você jogou: {date}.',
-  'home.save.choose': 'Encontramos mais de um perfil da Steam com progresso. Qual é o seu?',
-  'home.save.profile': 'Perfil Steam {id}',
-  'home.save.use': 'É este',
-  'home.save.missing':
-    'Não encontramos o seu progresso. Jogue o jogo ao menos uma vez e salve a carreira, ou mostre onde o progresso está guardado.',
-  'home.save.choose2': 'Mostrar onde está o meu progresso…',
-  'home.safety': 'Segurança: antes de qualquer mudança o app guarda uma cópia do seu progresso, e ele nunca mexe em nada com o jogo aberto.',
-  'home.actions.title': 'O que você quer fazer?',
-  'home.test.title': 'Testar se está tudo funcionando',
-  'home.test.text':
-    'Recomendado antes de usar qualquer outra função. O app guarda uma cópia do seu progresso e refaz um arquivo sem mudar nada, só para confirmar que o jogo continua abrindo normalmente. Feche o jogo antes.',
-  'home.test.button': 'Fazer o teste',
-  'home.backups.title': 'Voltar a um backup',
-  'home.backups.text': 'Algo deu errado ou você se arrependeu? Volte seu progresso para um momento anterior.',
-  'home.backups.button': 'Ver meus backups',
-  'home.map.title': 'Mapa das zonas',
-  'home.map.text':
-    'Veja no mapa do jogo onde cada espécie come, bebe e descansa, e siga a rota de um grupo de animais hora a hora.',
-  'home.map.button': 'Abrir o mapa',
-  'home.unlock.title': 'Liberar o mapa',
-  'home.unlock.text':
-    'Mostra no mapa do jogo onde cada grupo de animais come, bebe e descansa, até nos lugares que você ainda não descobriu. Assim você sabe onde procurar. Feche o jogo antes.',
-  'home.unlock.button': 'Ver o que será liberado',
-  'home.reserves.title': 'Suas reservas',
-  'home.reserves.text': 'O app reconheceu estas reservas no seu jogo. Toque em uma para abrir o mapa dela.',
-  'home.soon': 'Em breve',
-  'home.soon.guide.title': 'Guia da carreira',
-  'home.soon.guide.text': 'Saber o que falta para cada conquista e cada animal.',
-  'home.soon.animals.title': 'Editor de animais',
-  'home.soon.animals.text': 'Escolher os animais que aparecem nas reservas.',
+export type Locale = 'pt-BR' | 'en' | 'es';
 
-  'map.loading': 'Carregando o mapa…',
-  'map.title': 'Mapa de zonas',
-  'map.subtitle': 'O seu progresso sobre o mapa do jogo',
-  'map.reserve': 'Reserva',
-  'map.needs': 'O que procurar',
-  'map.need.1': 'Comer',
-  'map.need.2': 'Beber',
-  'map.need.3': 'Descansar',
-  'map.pending': 'Mostrar também os lugares que você ainda não descobriu (contorno tracejado)',
-  'map.byHour': 'Só ativos às',
-  'map.hour': 'Horário',
-  'map.follow': 'Seguir um grupo',
-  'map.followHint': 'Escolha a espécie e o grupo para ver a rota do dia e onde ele deve estar no horário escolhido.',
-  'map.speciesLabel': 'Espécie do grupo',
-  'map.groupLabel': 'Grupo',
-  'map.groupNone': 'Nenhum grupo',
-  'map.groupOption': '{marks}Grupo {n} · {count} animais · {stops} paradas',
-  'map.groupSummary': '{count} animais: {males} machos e {females} fêmeas. O grupo passa por {stops} lugares ao longo do dia.',
-  'map.stopSaved': 'horário gravado no seu jogo',
-  'map.stopEstimated': 'horário aproximado',
-  'map.stopPending': 'ainda não descoberto · horário aproximado',
-  'map.stopNoTime': 'sem horário conhecido',
-  'map.routeHint': 'O destaque laranja mostra onde o grupo deve estar no horário escolhido.',
-  'map.speciesTitle': 'Espécies',
-  'map.all': 'Todas',
-  'map.none': 'Nenhuma',
-  'map.count': 'zonas no mapa',
-  'map.hud': 'mesmas coordenadas do mapa do jogo · norte para cima',
-  'map.zoomIn': 'Aproximar',
-  'map.zoomOut': 'Afastar',
-  'map.zoomFit': 'Ver a reserva inteira',
-  'map.unlock': 'Liberar os lugares que faltam…',
-  'map.noImage':
-    'O app ainda não conhece a imagem do mapa desta reserva. As zonas aparecem sobre um fundo liso, com a grade de 1 km.',
-  'map.reserves': 'Reservas',
-  'map.approx':
-    'O mapa desta reserva é novo: o app encaixou a imagem pelas zonas, então ela pode estar deslocada algumas centenas de metros.',
-  'map.empty': 'Ainda não há nenhuma reserva com dados para mostrar. Jogue um pouco e volte.',
-  'map.tipSaved': 'Já descoberta',
-  'map.tipPending': 'Ainda não descoberta',
-  'map.tipTime': 'Horário',
-  'map.tipApprox': 'aproximado',
-  'map.greatOne': 'Great One',
-  'map.male': 'macho',
-  'map.female': 'fêmea',
-  'map.credit': 'Mapa: arquivos do jogo instalado no seu computador. Projeto de fã, sem ligação com a Expansive Worlds.',
+/** Idiomas oferecidos, com o nome de cada um escrito no próprio idioma. */
+export const LOCALES: readonly { code: Locale; name: string }[] = [
+  { code: 'pt-BR', name: 'Português (Brasil)' },
+  { code: 'en', name: 'English' },
+  { code: 'es', name: 'Español' },
+];
 
-  'unlock.title': 'Liberar o mapa',
-  'unlock.intro':
-    'Escolha as reservas onde você quer ver no mapa do jogo os lugares em que os animais comem, bebem e descansam. Nada é gravado até você confirmar.',
-  'unlock.back': 'Voltar',
-  'unlock.analysing': 'Analisando o seu progresso. Isso pode levar alguns segundos…',
-  'unlock.ready': '{count} lugares novos no mapa',
-  'unlock.estimated': '{count} com horário aproximado',
-  'unlock.nothing': 'Tudo já está liberado',
-  'unlock.needsDiscovery':
-    'Jogue um pouco nesta reserva para o jogo marcar alguns lugares. O app precisa deles como referência.',
-  'unlock.noData': 'Sem dados desta reserva no seu progresso ou no jogo',
-  'unlock.summary': 'Serão liberados {count} lugares em {reserves} reservas.',
-  'unlock.approx':
-    'Alguns horários são aproximados. O jogo acerta sozinho quando você passar por lá.',
-  'unlock.none': 'Não há nada para liberar agora.',
-  'unlock.run': 'Liberar os selecionados',
-  'unlock.confirm':
-    'Liberar {count} lugares em {reserves} reservas?\n\nO jogo precisa estar fechado. O app guarda uma cópia do seu progresso, grava e confere o resultado. Você poderá desfazer na aba Backups.',
-  'unlock.confirmOk': 'Liberar',
-  'unlock.done':
-    'Pronto! {count} lugares liberados em {reserves} reservas. Abra o jogo e olhe o mapa. Se algo não ficar bom, vá em Backups e volte ao momento anterior.',
+const DICTIONARIES: Record<Locale, Record<MessageKey, string>> = { 'pt-BR': ptBR, en, es };
 
-  'profile.title': 'Seu perfil',
-  'profile.subtitle': 'Caçador da Steam {id}',
-  'profile.level': 'Nível {level}',
-  'profile.xp': '{xp} pontos de experiência',
-  'profile.cash': 'Dinheiro',
-  'profile.stats': 'Suas marcas',
-  'profile.kills': 'Animais abatidos',
-  'profile.shots': 'Tiros disparados',
-  'profile.accuracy': 'Precisão',
-  'profile.oneShot': 'Abates com um tiro só',
-  'profile.record': 'Maior pontuação',
-  'profile.distance': 'Tiro mais longe',
-  'profile.trophies': 'Troféus no salão',
-  'profile.reserves': 'Reservas jogadas',
-  'profile.meters': '{value} m',
-  'profile.achievements': 'Conquistas',
-  'profile.achievementsOf': '{done} de {total} conquistas',
-  'profile.filterAll': 'Todas',
-  'profile.filterDone': 'Obtidas',
-  'profile.filterTodo': 'Faltam',
-  'profile.search': 'Buscar conquista…',
-  'profile.noAchievements':
-    'Não encontramos as conquistas da Steam neste computador. Abra a Steam, entre na sua conta e volte aqui.',
-  'profile.hidden': 'Conquista secreta',
-  'profile.noMatch': 'Nenhuma conquista com esse filtro.',
-  'animals.title': 'Animais',
-  'animals.subtitle': 'A wiki dos animais de cada reserva, com o que o seu progresso já sabe deles.',
-  'animals.reserves': 'Reservas',
-  'animals.count': '{count} espécies',
-  'animals.played': 'Você já jogou aqui',
-  'animals.notPlayed': 'Você ainda não jogou aqui',
-  'animals.search': 'Buscar animal…',
-  'animals.areas': '{count} áreas de comer, beber e descansar',
-  'animals.noSave': 'Sem animais no seu progresso',
-  'animals.living': '{animals} animais em {groups} grupos',
-  'animals.greatOnes': '{count} Great One',
-  'animals.sexes': '{males} machos · {females} fêmeas',
-  'animals.bestScore': 'Maior pontuação',
-  'animals.heaviest': 'Maior peso',
-  'animals.kg': '{value} kg',
-  'animals.where': 'Onde vive',
-  'animals.here': 'No seu jogo, nesta reserva',
-  'animals.harvests': 'Seus melhores abates',
-  'animals.noHarvests': 'Você ainda não abateu esta espécie.',
-  'animals.medal': '{count} de 5 medalhas',
-  'animals.noMedal': 'sem medalha',
-  'animals.close': 'Fechar',
-  'animals.empty': 'Nenhum animal com esse nome.',
-  'animals.none': 'Não encontramos animais no jogo.',
-  'animals.loading': 'Reunindo os animais…',
-  'missions.title': 'Missões',
-  'missions.subtitle': 'Seu andamento em cada reserva, direto do seu progresso e dos arquivos do jogo.',
-  'missions.overall': '{done} de {total} missões concluídas em {reserves} reservas',
-  'missions.reserves': 'Reservas',
-  'missions.of': '{done} de {total} missões',
-  'missions.main': 'História principal: {done} de {total}',
-  'missions.active': '{count} em andamento',
-  'missions.filterActive': 'Em andamento',
-  'missions.filterAll': 'Todas',
-  'missions.filterDone': 'Concluídas',
-  'missions.filterLocked': 'Bloqueadas',
-  'missions.stateDone': 'Concluída',
-  'missions.stateActive': 'Em andamento',
-  'missions.stateLocked': 'Ainda bloqueada',
-  'missions.noText': 'Missão {id}',
-  'missions.story': 'História',
-  'missions.empty': 'Nenhuma missão com esse filtro.',
-  'missions.none': 'Ainda não há missões para mostrar. Jogue um pouco e volte.',
-  'missions.loading': 'Lendo as missões…',
-  'diag.title': 'Ajustes',
-  'diag.intro':
-    'Aqui você confere e muda onde o app procura o jogo e o seu progresso. Se está tudo funcionando, não precisa mexer em nada.',
+const STORAGE_KEY = 'great-cotw-one.locale';
 
-  'game.title': 'Jogo',
-  'game.found': 'Instalação encontrada',
-  'game.notFound': 'Jogo não encontrado',
-  'game.path': 'Pasta do jogo',
-  'game.archives': 'Arquivos do jogo',
-  'game.tabFiles': '{count} índices (.tab)',
-  'game.buildLabel': 'Versão (build)',
-  'game.buildUnknown': 'Não identificada',
-  'game.manual': 'Pasta indicada manualmente',
-  'game.limited':
-    'Modo limitado: sem o jogo, as telas que usam nomes, mapas e regras vindos dele ficam indisponíveis. As demais funcionam normalmente.',
-  'game.choose': 'Indicar a pasta do jogo…',
+let current: Locale = 'pt-BR';
 
-  'save.title': 'Save',
-  'save.found': 'Save encontrado',
-  'save.account': 'Conta Steam {id}',
-  'save.modified': 'Última alteração: {date}',
-  'save.manual': 'Pasta indicada manualmente',
-  'save.chooseIntro': 'Foram encontradas {count} contas Steam com save. Escolha qual usar:',
-  'save.use': 'Usar esta conta',
-  'save.notFound': 'Save não encontrado',
-  'save.notFoundHelp':
-    'O jogo guarda o save em Documentos\\Avalanche Studios\\COTW\\Saves\\<id da conta Steam> (ou na pasta Documentos do OneDrive). Procuramos em:',
-  'save.choose': 'Indicar a pasta do save…',
-  'save.reset': 'Voltar à busca automática',
+export function getLocale(): Locale {
+  return current;
+}
 
-  'reserves.title': 'Reservas no save',
-  'reserves.empty': 'Nenhuma reserva encontrada neste save.',
+export function setLocale(locale: Locale): void {
+  current = locale;
+  if (typeof document !== 'undefined') document.documentElement.lang = locale;
+}
 
-  'files.title': 'Arquivos do save',
-  'files.summary': '{ok} reconhecidos · {other} não reconhecidos',
-  'files.empty': 'Nenhum arquivo para mostrar.',
-  'files.colName': 'Arquivo',
-  'files.colKind': 'Tipo',
-  'files.colSize': 'Tamanho',
-  'files.colState': 'Situação',
-  'files.kind.population': 'Animais da reserva {reserve}',
-  'files.kind.foundIcons': 'Ícones da reserva {reserve}',
-  'files.kind.fogOfWar': 'Névoa de guerra da reserva {reserve}',
-  'files.kind.known': 'Dados do jogador',
-  'files.kind.unrecognized': 'Desconhecido',
-  'files.state.ok': 'Reconhecido',
-  'files.state.unreadable': 'Não foi possível ler: só leitura',
-  'files.state.unrecognized': 'Não reconhecido: só leitura',
+/** `pt`, `pt-PT`, `en-US`, `es-MX`… → idioma que o app oferece; desconhecido → `null`. */
+export function matchLocale(tag: string): Locale | null {
+  const language = tag.toLowerCase().split(/[-_]/)[0];
+  if (language === 'pt') return 'pt-BR';
+  if (language === 'en') return 'en';
+  return language === 'es' ? 'es' : null;
+}
 
-  'tools.confirm':
-    'Fazer o teste agora?\n\nO jogo precisa estar fechado. O app guarda uma cópia do seu progresso, refaz um arquivo sem mudar nada e confere o resultado. Você poderá desfazer na aba Backups.',
-  'tools.confirmOk': 'Fazer o teste',
-  'tools.done':
-    'Teste feito! O app guardou uma cópia do seu progresso e refez um arquivo sem mudar nada.\n\nAgora abra o jogo e carregue sua carreira. Se abrir normalmente, está tudo certo. Se der algum problema, vá em Backups e volte ao momento anterior.',
+/** O idioma do jogador: o que ele escolheu antes, senão o do sistema; sem nenhum dos dois, inglês. */
+export function detectLocale(saved: string | null, system: readonly string[]): Locale {
+  const chosen = saved === null ? null : matchLocale(saved);
+  if (chosen) return chosen;
+  for (const tag of system) {
+    const found = matchLocale(tag);
+    if (found) return found;
+  }
+  return 'en';
+}
 
-  'history.title': 'Backups',
-  'history.intro':
-    'Sempre que o app muda algo no seu progresso, ele guarda antes uma cópia. Aqui você pode voltar a qualquer um desses momentos. O app nunca apaga seus backups.',
-  'history.empty': 'Ainda não há nada por aqui. Quando o app fizer a primeira mudança, o backup aparece nesta lista.',
-  'history.kind.change': 'Mudança feita pelo app',
-  'history.kind.restore': 'Volta a um backup',
-  'history.details': 'Detalhes',
-  'history.files': 'Arquivos: {files}',
-  'history.noFiles': 'Pasta inteira',
-  'history.backup': 'Backup: {path}',
-  'history.backupMissing': 'A cópia deste momento não existe mais, então não dá para voltar a ele.',
-  'history.restore': 'Voltar para este momento',
-  'history.restoreConfirm':
-    'Voltar seu progresso para o estado de {at}?\n\nO jogo precisa estar fechado. Antes de voltar, o app guarda uma cópia do estado atual, então você pode desfazer.',
-  'history.restoreOk': 'Voltar',
-  'history.restored':
-    'Pronto! Seu progresso voltou ao estado do backup. Por garantia, o estado de antes também ficou guardado na lista.',
+/** Idioma guardado no navegador (nunca falha: sem acesso ao armazenamento, devolve `null`). */
+export function savedLocale(): string | null {
+  try {
+    return window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
 
-  'error.generic': 'Algo deu errado: {message}',
-  'error.gameRunning':
-    'O jogo está aberto. Feche o theHunter: Call of the Wild e tente novamente.',
-  'error.gameStateUnknown':
-    'Não foi possível verificar se o jogo está aberto; por segurança, nada foi alterado.',
-  'error.invalidSaveDir': 'Essa pasta não contém arquivos de save do jogo.',
-  'error.invalidGameDir': 'Essa pasta não contém os arquivos do jogo (gameN.tab).',
-  'error.noSaveSelected': 'Selecione primeiro um save na tela de Diagnóstico.',
-  'error.backupOutsideAppFolder': 'Esse backup não está na pasta de backups do app.',
-  'error.rollbackFailed':
-    'Falha ao desfazer a gravação. Restaure manualmente o backup indicado na mensagem.',
-  'error.invalidFile': 'Esse arquivo não pode ser regravado pelo app.',
-  'error.read': 'Não foi possível ler o arquivo do save.',
-  'error.history': 'Não foi possível acessar o histórico.',
-  'error.settings': 'Não foi possível salvar as configurações.',
-  'error.gameNotFound':
-    'Não encontramos o jogo instalado. Na tela Início, mostre onde ele está para poder liberar o mapa.',
-  'error.unlock': 'Não foi possível analisar o seu progresso para liberar o mapa.',
-  'error.career': 'Não foi possível ler o seu perfil ou as suas missões.',
-  'error.nothingToUnlock': 'Não há nada a liberar nas reservas escolhidas.',
-  'error.transaction': 'A operação falhou e nada foi alterado.',
-} as const;
+export function saveLocale(locale: Locale): void {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, locale);
+  } catch {
+    // Sem armazenamento, a escolha vale só até fechar o app.
+  }
+}
 
-export type MessageKey = keyof typeof ptBR;
-
-/** Texto traduzido com `{marcadores}` substituídos; chave desconhecida volta como está. */
+/** Texto traduzido com `{marcadores}` substituídos. */
 export function t(key: MessageKey, params: Record<string, string | number> = {}): string {
-  const template: string = ptBR[key];
+  const template = DICTIONARIES[current][key];
   return template.replace(/\{(\w+)\}/g, (whole, name: string) => {
     const value = params[name];
     return value === undefined ? whole : String(value);

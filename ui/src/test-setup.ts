@@ -1,5 +1,11 @@
 // O jsdom não desenha em canvas: devolve um contexto falso que aceita qualquer chamada.
-import { vi } from 'vitest';
+import { afterEach, vi } from 'vitest';
+
+import { setLocale } from './i18n';
+
+afterEach(() => {
+  setLocale('pt-BR');
+});
 
 export const drawCalls: string[] = [];
 

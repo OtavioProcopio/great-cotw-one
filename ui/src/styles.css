@@ -1659,6 +1659,318 @@ button.chip-link[aria-pressed='true'] {
   letter-spacing: 0.1em;
 }
 
+/* ===== edição de animal ===== */
+.anim button.animal {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 0;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  background: var(--surface-2);
+}
+
+.anim button.animal:hover {
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-2));
+}
+
+.anim button.animal.go {
+  background: color-mix(in srgb, #d4a017 26%, var(--surface));
+  font-weight: 600;
+}
+
+.edit-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.edit-panel[hidden] {
+  display: none;
+}
+
+.edit-panel h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.field input[type='number'],
+.field select {
+  font: inherit;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.field small.bad {
+  color: var(--error-text);
+  font-weight: 600;
+}
+
+.edit-panel .segmented {
+  margin-bottom: 0;
+  align-self: flex-start;
+}
+
+/* ===== premium ===== */
+textarea {
+  width: 100%;
+  margin-top: 6px;
+  font: 0.82rem 'Cascadia Mono', ui-monospace, Consolas, monospace;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  resize: vertical;
+}
+
+.fine {
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+.badge-premium {
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+  color: #4a3000;
+  vertical-align: middle;
+}
+
+.nav-item[data-premium='true']::after {
+  content: 'PRO';
+  margin-left: auto;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+  color: #4a3000;
+}
+
+.premium-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, color-mix(in srgb, #f2a516 22%, var(--surface)), var(--surface));
+}
+
+.premium-banner h2 {
+  margin-bottom: 4px;
+}
+
+.premium-icon {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  color: #4a3000;
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+}
+
+button.primary.locked {
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+  border-color: #f2a516;
+  color: #4a3000;
+}
+
+.chip-link .count {
+  margin-left: 4px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+/* ===== página do Premium ===== */
+.premium-hero {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 28px;
+  margin-bottom: 30px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, color-mix(in srgb, #f2a516 30%, var(--surface)), var(--surface) 70%);
+  box-shadow: var(--shadow);
+}
+
+.premium-icon.big {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+}
+
+.benefits,
+.plans {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.benefits {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.benefit {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.benefit h3 {
+  margin-bottom: 4px;
+}
+
+.benefit-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #4a3000;
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+}
+
+table.compare th,
+table.compare td {
+  padding: 12px 14px;
+}
+
+table.compare thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-align: center;
+}
+
+table.compare thead th:first-child,
+table.compare tbody th {
+  text-align: left;
+  font-weight: 500;
+}
+
+table.compare td {
+  text-align: center;
+  width: 130px;
+}
+
+.col-premium {
+  background: color-mix(in srgb, #f2a516 12%, transparent);
+}
+
+table.compare thead .col-premium {
+  color: #b87b00;
+}
+
+.mark {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.mark-yes {
+  background: var(--ok-bg);
+  color: var(--ok-text);
+}
+
+.mark-no {
+  background: var(--muted-bg);
+  color: var(--muted);
+}
+
+.plans {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 2px solid transparent;
+}
+
+.plan-best {
+  border-color: #f2a516;
+  box-shadow: var(--shadow-lift);
+}
+
+.plan h3 {
+  margin: 0;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px 0 0;
+}
+
+.price strong {
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+}
+
+.price span,
+.plan-extra {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.plan-extra {
+  flex: 1;
+  margin: 0 0 8px;
+}
+
+.ribbon {
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+  color: #4a3000;
+}
+
+button.primary.gold {
+  background: linear-gradient(135deg, #ffd166, #f2a516);
+  border-color: #f2a516;
+  color: #4a3000;
+}
+
 /* ===== telas estreitas ===== */
 @media (max-width: 1100px) {
   .shell {

@@ -5,13 +5,18 @@ import type {
   AnimalReserve,
   CommandError,
   Diagnostics,
+  EditRequest,
+  EditResult,
   HistoryItem,
+  License,
   MapReserve,
   Profile,
   RestoreResult,
   ReserveMissions,
+  SpeciesEditor,
   ReserveMap,
   RewriteResult,
+  UnlockRequest,
   UnlockResult,
   ZonesPreview,
 } from './types';
@@ -30,6 +35,10 @@ export interface Api {
   mapReserves(): Promise<MapReserve[]>;
   /** Wiki dos animais: espécies de cada reserva e o que o save sabe delas. */
   animals(): Promise<AnimalReserve[]>;
+  /** Os animais de uma espécie numa reserva e as regras de edição (ver é gratuito). */
+  speciesEditor(reserve: number, species: string): Promise<SpeciesEditor>;
+  /** Grava a edição de animais que já existem, com backup antes. Exige Premium. */
+  editAnimals(request: EditRequest): Promise<EditResult>;
   /** Perfil do jogador: nível, marcas e conquistas da Steam. */
   profile(): Promise<Profile>;
   /** Progresso das missões em cada reserva. */
@@ -38,8 +47,16 @@ export interface Api {
   reserveMap(reserve: number): Promise<ReserveMap>;
   /** O que a liberação do mapa faria em cada reserva (não grava nada). */
   zonesPreview(): Promise<ZonesPreview>;
-  /** Libera o mapa nas reservas indicadas, com backup antes. */
-  unlockZones(reserves: number[]): Promise<UnlockResult>;
+  /** Libera o mapa (reservas, animais ou necessidades escolhidos), com backup antes. Exige Premium. */
+  unlockZones(request: UnlockRequest): Promise<UnlockResult>;
+  /** Avisa o app do idioma escolhido (nomes de animais, missões e conquistas seguem ele). */
+  setLanguage(tag: string): Promise<void>;
+  /** Situação da licença Premium. */
+  license(): Promise<License>;
+  /** Ativa uma chave de licença colada pelo usuário (confere sem internet). */
+  activateLicense(key: string): Promise<License>;
+  /** Remove a chave de licença guardada neste computador. */
+  removeLicense(): Promise<License>;
   /** Abre o seletor de pasta; `null` se o usuário cancelar. */
   pickFolder(title: string): Promise<string | null>;
   /** Pergunta ao usuário; `okLabel` é o texto do botão que confirma. */
@@ -67,11 +84,17 @@ export const tauriApi: Api = {
   rewriteUnchanged: (file) => invoke<RewriteResult>('rewrite_unchanged', { file }),
   mapReserves: () => invoke<MapReserve[]>('map_reserves'),
   animals: () => invoke<AnimalReserve[]>('animals'),
+  speciesEditor: (reserve, species) => invoke<SpeciesEditor>('species_editor', { reserve, species }),
+  editAnimals: (request) => invoke<EditResult>('edit_animals', { request }),
   profile: () => invoke<Profile>('profile'),
   missions: () => invoke<ReserveMissions[]>('missions'),
   reserveMap: (reserve) => invoke<ReserveMap>('reserve_map', { reserve }),
   zonesPreview: () => invoke<ZonesPreview>('zones_preview'),
-  unlockZones: (reserves) => invoke<UnlockResult>('unlock_zones', { reserves }),
+  unlockZones: (request) => invoke<UnlockResult>('unlock_zones', { request }),
+  setLanguage: (tag) => invoke('set_language', { tag }),
+  license: () => invoke<License>('license'),
+  activateLicense: (key) => invoke<License>('activate_license', { key }),
+  removeLicense: () => invoke<License>('remove_license'),
   pickFolder: async (title) => {
     const chosen = await open({ directory: true, multiple: false, title });
     return typeof chosen === 'string' ? chosen : null;

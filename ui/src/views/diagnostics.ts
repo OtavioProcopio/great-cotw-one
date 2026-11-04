@@ -2,6 +2,7 @@ import { escapeHtml as e } from '../escape';
 import { formatBytes, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
+import { renderLanguage } from './language';
 import type { AccountDiagnostic, Diagnostics, FileDiagnostic, GameDiagnostic, SaveDiagnostic } from '../types';
 
 function badge(kind: 'ok' | 'warn' | 'muted', text: string): string {
@@ -137,6 +138,7 @@ export function renderDiagnostics(d: Diagnostics): string {
       <div><h1>${e(t('diag.title'))}</h1><p class="muted">${e(t('diag.intro'))}</p></div>
       <button data-action="refresh">${icon('refresh', 16)}<span>${e(t('common.refresh'))}</span></button>
     </header>
+    ${renderLanguage()}
     ${renderGame(d.game, d.limitedMode)}
     ${renderSave(d.save)}
     ${d.save.status === 'found' ? renderReserves(d) + renderFiles(d.files) : ''}`;

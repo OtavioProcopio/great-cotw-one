@@ -1,4 +1,4 @@
-const LOCALE = 'pt-BR';
+import { getLocale } from './i18n';
 
 /** `1536` → `1,5 KB`. */
 export function formatBytes(bytes: number): string {
@@ -10,7 +10,7 @@ export function formatBytes(bytes: number): string {
     unit += 1;
   }
   const digits = unit === 0 ? 0 : 1;
-  const number = new Intl.NumberFormat(LOCALE, {
+  const number = new Intl.NumberFormat(getLocale(), {
     minimumFractionDigits: digits,
     maximumFractionDigits: digits,
   }).format(value);
@@ -27,14 +27,26 @@ export function formatStamp(stamp: string): string {
 
 /** Segundos desde 1970 → data e hora locais (`timeZone` existe para os testes). */
 export function formatEpoch(seconds: number, timeZone?: string): string {
-  return new Intl.DateTimeFormat(LOCALE, {
+  return new Intl.DateTimeFormat(getLocale(), {
     dateStyle: 'short',
     timeStyle: 'short',
     ...(timeZone ? { timeZone } : {}),
   }).format(new Date(seconds * 1000));
 }
 
+/** Segundos desde 1970 → só a data local (`02/11/2026`). */
+export function formatDate(seconds: number, timeZone?: string): string {
+  return new Intl.DateTimeFormat(getLocale(), { dateStyle: 'short', ...(timeZone ? { timeZone } : {}) }).format(
+    new Date(seconds * 1000),
+  );
+}
+
+/** Valor em reais (`15` → `R$ 15,00`). */
+export function formatMoney(value: number): string {
+  return new Intl.NumberFormat(getLocale(), { style: 'currency', currency: 'BRL', currencyDisplay: 'narrowSymbol' }).format(value);
+}
+
 /** `5374` → `5.374`. */
 export function formatCount(count: number): string {
-  return new Intl.NumberFormat(LOCALE).format(count);
+  return new Intl.NumberFormat(getLocale()).format(count);
 }

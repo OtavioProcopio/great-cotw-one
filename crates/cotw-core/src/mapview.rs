@@ -14,6 +14,7 @@ use cotw_formats::texture::Image;
 use serde::Serialize;
 
 use crate::discovery::reserve_name;
+use crate::language::Language;
 use crate::species::display_name;
 use crate::unlock::{SpawnSource, ZONES_FILE};
 use crate::zones::{ReserveInput, assign_species, plan_reserve};
@@ -316,6 +317,7 @@ pub fn build(
     save_dir: &Path,
     source: &dyn SpawnSource,
     reserve: u32,
+    language: Language,
 ) -> Result<ReserveMap, MapError> {
     let saved = NeedZones::parse(&read_adf(&save_dir.join(ZONES_FILE), ZONES_FILE)?)
         .map_err(|_| MapError::Parse(ZONES_FILE.into()))?;
@@ -346,7 +348,7 @@ pub fn build(
         .iter()
         .map(|id| MapSpecies {
             id: (*id).to_owned(),
-            name: display_name(id),
+            name: display_name(id, language),
         })
         .collect();
     species.sort_by(|a, b| a.name.cmp(&b.name));

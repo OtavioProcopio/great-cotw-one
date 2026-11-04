@@ -14,6 +14,7 @@ use cotw_formats::spawn_map::{SpawnMap, reserves_with_atlas};
 use serde::Serialize;
 
 use crate::discovery::reserve_name;
+use crate::language::Language;
 use crate::mapview::{self, MapError, read_adf};
 use crate::species::display_name;
 use crate::unlock::SpawnSource;
@@ -192,7 +193,11 @@ fn living_by_species(
 /// # Errors
 ///
 /// [`MapError`] só se o arquivo de zonas do save não puder ser lido (ele define quais reservas existem).
-pub fn animals(save_dir: &Path, source: &dyn SpawnSource) -> Result<Vec<AnimalReserve>, MapError> {
+pub fn animals(
+    save_dir: &Path,
+    source: &dyn SpawnSource,
+    language: Language,
+) -> Result<Vec<AnimalReserve>, MapError> {
     let log = harvest_log(save_dir);
     let mut found = Vec::new();
     for reserve in reserves_with_atlas() {
@@ -211,7 +216,7 @@ pub fn animals(save_dir: &Path, source: &dyn SpawnSource) -> Result<Vec<AnimalRe
             .into_iter()
             .map(|(id, count)| SpeciesEntry {
                 id: id.to_owned(),
-                name: display_name(id),
+                name: display_name(id, language),
                 areas: count,
                 living: living.as_ref().and_then(|l| l.get(id)).cloned(),
                 harvests: log
