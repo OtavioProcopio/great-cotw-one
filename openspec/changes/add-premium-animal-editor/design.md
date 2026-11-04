@@ -26,3 +26,7 @@ Ver proposal.md. Protótipo funcional: aba "Editor de animais" da Central do Ca�
 ## Open Questions
 
 - Canal de venda e meio de entrega da chave (não muda as specs: o app só precisa de uma chave assinada válida).
+
+## Decisão: nada de lote
+
+Ajustar o grupo todo de uma vez (ex.: todos os animais no maior valor) foi construído e depois removido por decisão do dono: vários diamantes num mesmo grupo desequilibram a caça e viram algo apelativo. A edição fica animal por animal, sempre dentro das faixas do jogo.
