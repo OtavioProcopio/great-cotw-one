@@ -82,3 +82,14 @@ Toda gravação do editor SHALL passar pela escrita segura (jogo fechado, backup
 #### Scenario: Prévia
 - **WHEN** o usuário clica em gravar com 12 animais alterados
 - **THEN** a prévia lista os 12 animais com antes e depois
+
+### Requirement: Ajustar o grupo todo
+O app SHALL oferecer, para quem tem Premium, um botão no grupo rastreado que muda o peso e a pontuação de todos os animais do grupo de uma só vez para os valores típicos do sexo de cada um ou para os maiores que o jogo já tem para o sexo, mostrando quantos animais vão mudar; MUST manter sexo e Great One como estão e MUST aplicar as mesmas faixas do editor de um animal; quem não tem Premium SHALL ver o botão com um cadeado que leva à tela do Premium.
+
+#### Scenario: Os maiores do jogo
+- **WHEN** o usuário Premium escolhe "Os maiores do jogo" num grupo de alces e confirma
+- **THEN** cada animal recebe o maior peso e a maior pontuação reais do seu sexo, numa única gravação com backup, e nenhum valor passa da faixa aceita
+
+#### Scenario: Nada a mudar
+- **WHEN** todos os animais do grupo já estão nos valores da opção escolhida
+- **THEN** o app informa que nenhum animal muda e o botão de gravar fica desativado

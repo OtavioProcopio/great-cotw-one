@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { changeOf, formOf, limitsOf, suggestFor, validate } from '../editlogic';
+import { changeOf, formOf, limitsOf, presetChanges, suggestFor, validate } from '../editlogic';
 import { mapReserves, sampleEditor, sampleMap } from '../test-data';
 import type { EditRequest } from '../types';
 import { AnimalEditPanel, type EditorHooks, NO_EDITOR, type SaveOutcome } from './animalEdit';
@@ -286,5 +286,87 @@ describe('edit buttons in the group tracker', () => {
     select.value = '';
     select.dispatchEvent(new Event('change'));
     expect(root.querySelector<HTMLElement>('#map-edit')?.hidden).toBe(true);
+  });
+});
+
+describe('group presets', () => {
+  const group = sampleEditor.groups[0];
+  if (!group) throw new Error('dados de teste');
+
+  it('typical sends every animal to the median of its own sex', () => {
+    expect(presetChanges(sampleEditor.limits, group, 'typical')).toEqual([
+      { group: 1, index: 0, weight: 400, score: 150 },
+      { group: 1, index: 1, weight: 320, score: 90 },
+    ]);
+  });
+
+  it('best sends every animal to the biggest the game has, without the 10% slack', () => {
+    const changes = presetChanges(sampleEditor.limits, group, 'best');
+    expect(changes).toEqual([
+      { group: 1, index: 0, weight: 600, score: 300 },
+      { group: 1, index: 1, weight: 454, score: 181 },
+    ]);
+    for (const c of changes) {
+      const animal = group.animals[c.index];
+      if (!animal) throw new Error('dados de teste');
+      const ok = validate(sampleEditor.limits, { ...formOf(animal), weight: c.weight ?? 0, score: c.score ?? 0 });
+      expect(ok).toEqual({ weight: true, score: true });
+    }
+  });
+
+  it('leaves out animals that already have the values, and never touches sex or Great One', () => {
+    const done = { ...group, animals: [{ index: 0, male: true, weight: 400, score: 150, greatOne: true }] };
+    expect(presetChanges(sampleEditor.limits, done, 'typical')).toEqual([]);
+  });
+});
+
+describe('group panel', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="host"></div>';
+  });
+
+  function hooks(overrides: Partial<EditorHooks> = {}): { hooks: EditorHooks; requests: EditRequest[] } {
+    const requests: EditRequest[] = [];
+    return {
+      requests,
+      hooks: {
+        premium: true,
+        load: () => Promise.resolve(sampleEditor),
+        save: (request) => {
+          requests.push(request);
+          return Promise.resolve<SaveOutcome>({ status: 'saved' });
+        },
+        openPremium: vi.fn(),
+        reload: vi.fn(),
+        ...overrides,
+      },
+    };
+  }
+
+  it('applies the chosen preset to the whole group in one save', async () => {
+    const host = document.querySelector<HTMLElement>('#host');
+    if (!host) throw new Error('host');
+    const reload = vi.fn();
+    const { hooks: h, requests } = hooks({ reload });
+    const panel = new AnimalEditPanel(host, h);
+    await panel.openGroup(2, 'moose', 1);
+    host.querySelector<HTMLButtonElement>('[data-batch="best"]')?.click();
+    host.querySelector<HTMLButtonElement>('#batch-apply')?.click();
+    await Promise.resolve();
+    expect(requests).toHaveLength(1);
+    expect(requests[0]?.changes).toHaveLength(2);
+    expect(requests[0]?.changes[0]).toEqual({ group: 1, index: 0, weight: 600, score: 300 });
+    expect(reload).toHaveBeenCalled();
+  });
+
+  it('sends free users to the Premium page and opens nothing', async () => {
+    const host = document.querySelector<HTMLElement>('#host');
+    if (!host) throw new Error('host');
+    const openPremium = vi.fn();
+    const { hooks: h } = hooks({ premium: false, openPremium });
+    await new AnimalEditPanel(host, h).openGroup(2, 'moose', 1);
+    expect(openPremium).toHaveBeenCalled();
+    expect(host.hidden).toBe(false);
+    expect(host.innerHTML).toBe('');
   });
 });

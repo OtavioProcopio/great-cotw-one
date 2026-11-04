@@ -4,7 +4,8 @@
 - [x] 1.2 Regras de equilíbrio por espécie e sexo, tiradas dos próprios animais do save (faixa com 10% de folga e valores típicos)
 - [ ] 1.2b Atalhos de diamante e Great One por espécie (precisam das faixas de diamante do jogo)
 - [x] 1.3 Painel de edição de um animal no rastreador do mapa, com trocar de sexo e faixas aceitas
-- [ ] 1.3b Ações em lote ("1 diamante por grupo", desfazer por espécie)
+- [x] 1.3b Ajustar o grupo todo de uma vez (valores típicos ou os maiores do jogo), dentro das faixas aceitas
+- [ ] 1.3c Atalho "1 diamante por grupo" (precisa das faixas de diamante do jogo)
 - [x] 1.4 Ligação mapa ↔ editor: botão em cada animal do grupo rastreado (cadeado para quem é gratuito) e recarga do mapa depois de gravar
 
 ## 2. Pelagens (só de animais que já existem)
