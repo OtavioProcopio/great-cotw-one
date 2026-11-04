@@ -310,6 +310,9 @@ export const es: Record<MessageKey, string> = {
   'missions.story': 'Historia',
   'missions.empty': 'Ninguna misión con ese filtro.',
   'missions.none': 'Todavía no hay misiones que mostrar. Juega un poco y vuelve.',
+  'missions.quickTitle': 'Victorias rápidas',
+  'missions.quickHint': 'Las misiones en curso más cerca de terminar, de todas las reservas.',
+  'missions.quickLeft': '{done} de {total} objetivos hechos',
   'missions.loading': 'Leyendo las misiones…',
   'diag.title': 'Ajustes',
   'diag.intro':

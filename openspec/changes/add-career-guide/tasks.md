@@ -5,7 +5,7 @@
 - [x] 1.3 Ler o cache de estatísticas da Steam e o schema para status das conquistas (aba Perfil, em português)
 - [ ] 1.4 Mapear conquista → missão de conquista e calcular progresso por tipo
 - [ ] 1.5 Itens que faltam: condições dos objetivos e `ValueOccurrences`
-- [ ] 1.6 Telas: visão geral e conquistas (feitas nas abas Perfil e Missões); faltam cadeias, contagens e vitórias rápidas
+- [ ] 1.6 Telas: visão geral e conquistas (feitas nas abas Perfil e Missões); vitórias rápidas feitas na aba Missões; faltam cadeias e contagens
 
 ## 2. Pelagens
 

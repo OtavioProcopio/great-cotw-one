@@ -40,6 +40,53 @@ export function filterMissions(missions: Mission[], filter: MissionFilter): Miss
   return filter === 'all' ? missions : missions.filter((m) => m.state === filter);
 }
 
+export interface QuickWin {
+  reserve: number;
+  reserveName: string;
+  mission: Mission;
+  /** Objetivos já cumpridos e total. */
+  done: number;
+  total: number;
+}
+
+/**
+ * As missões em andamento mais perto de terminar, de todas as reservas: já começadas (algum
+ * progresso) e ainda não completas, das que faltam menos objetivos e mais avançadas primeiro.
+ */
+export function quickWins(list: ReserveMissions[], limit = 5): QuickWin[] {
+  const wins: (QuickWin & { share: number })[] = [];
+  for (const reserve of list) {
+    for (const mission of reserve.missions) {
+      if (mission.state !== 'active' || mission.objectives.length === 0) continue;
+      const done = mission.objectives.filter((o) => o.done >= o.required).length;
+      const total = mission.objectives.length;
+      const required = mission.objectives.reduce((sum, o) => sum + o.required, 0);
+      const got = mission.objectives.reduce((sum, o) => sum + Math.min(o.done, o.required), 0);
+      if (done >= total || got === 0) continue;
+      wins.push({ reserve: reserve.id, reserveName: reserve.name, mission, done, total, share: required === 0 ? 0 : got / required });
+    }
+  }
+  wins.sort((a, b) => a.total - a.done - (b.total - b.done) || b.share - a.share);
+  return wins.slice(0, limit);
+}
+
+function quickWinsCard(list: ReserveMissions[]): string {
+  const wins = quickWins(list);
+  if (wins.length === 0) return '';
+  const rows = wins
+    .map((w) => {
+      const text = w.mission.text === '' ? t('missions.noText', { id: w.mission.id }) : w.mission.text;
+      return `<li><button class="quick-win" data-action="pick-mission-reserve" data-reserve="${String(w.reserve)}">
+        <span class="mission-icon" aria-hidden="true">${icon('target', 18)}</span>
+        <span class="mission-body"><strong title="${e(text)}">${e(text)}</strong>
+          <span class="muted">${e(w.reserveName)} · ${e(t('missions.quickLeft', { done: w.done, total: w.total }))}</span></span>
+      </button></li>`;
+    })
+    .join('');
+  return `<section class="card" aria-labelledby="qw-title"><h2 id="qw-title">${icon('flag', 16)} ${e(t('missions.quickTitle'))}</h2>
+    <p class="muted">${e(t('missions.quickHint'))}</p><ul class="quick-wins">${rows}</ul></section>`;
+}
+
 function percent(done: number, total: number): number {
   return total === 0 ? 0 : Math.round((done / total) * 100);
 }
@@ -104,6 +151,7 @@ export function renderMissions(
   const share = percent(current.done, current.total);
   return `${header}
     <p class="muted overall">${e(t('missions.overall', { done: formatCount(done), total: formatCount(total), reserves: list.length }))}</p>
+    ${quickWinsCard(list)}
     <section aria-labelledby="mr-title"><h2 id="mr-title">${e(t('missions.reserves'))}</h2>
       <div class="reserve-strip big" role="group" aria-label="${e(t('missions.reserves'))}">${cards}</div></section>
     <section class="card reserve-summary" aria-label="${e(current.name)}">

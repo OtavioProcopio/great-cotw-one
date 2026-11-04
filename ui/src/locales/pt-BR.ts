@@ -305,6 +305,9 @@ export const ptBR = {
   'missions.story': 'História',
   'missions.empty': 'Nenhuma missão com esse filtro.',
   'missions.none': 'Ainda não há missões para mostrar. Jogue um pouco e volte.',
+  'missions.quickTitle': 'Vitórias rápidas',
+  'missions.quickHint': 'As missões em andamento que estão mais perto de terminar, de todas as reservas.',
+  'missions.quickLeft': '{done} de {total} objetivos feitos',
   'missions.loading': 'Lendo as missões…',
   'diag.title': 'Ajustes',
   'diag.intro':

@@ -310,6 +310,9 @@ export const en: Record<MessageKey, string> = {
   'missions.story': 'Story',
   'missions.empty': 'No mission matches this filter.',
   'missions.none': 'There are no missions to show yet. Play a little and come back.',
+  'missions.quickTitle': 'Quick wins',
+  'missions.quickHint': 'The missions in progress that are closest to done, across all reserves.',
+  'missions.quickLeft': '{done} of {total} objectives done',
   'missions.loading': 'Reading the missions…',
   'diag.title': 'Settings',
   'diag.intro':
