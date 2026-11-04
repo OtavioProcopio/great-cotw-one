@@ -1,9 +1,9 @@
-import { type EditForm, type Preset, changeOf, formOf, limitsOf, presetChanges, suggestFor, validate } from '../editlogic';
+import { type EditForm, changeOf, formOf, limitsOf, suggestFor, validate } from '../editlogic';
 import { escapeHtml as e } from '../escape';
 import { formatCount } from '../format';
 import { t } from '../i18n';
 import { icon } from '../icons';
-import type { EditRequest, EditableAnimal, EditableGroup, SpeciesEditor } from '../types';
+import type { EditRequest, EditableAnimal, SpeciesEditor } from '../types';
 
 /** O que o painel precisa do app: carregar os dados da espécie, gravar e levar ao Premium. */
 export interface EditorHooks {
@@ -37,9 +37,6 @@ export class AnimalEditPanel {
   private editor: SpeciesEditor | null = null;
   private animal: EditableAnimal | null = null;
   private group = 0;
-  /** Grupo inteiro aberto para ajuste em lote (quando não há um animal só). */
-  private batch: EditableGroup | null = null;
-  private preset: Preset = 'typical';
   private form: EditForm = { male: true, weight: 0, score: 0, greatOne: false };
 
   constructor(
@@ -74,78 +71,9 @@ export class AnimalEditPanel {
     }
   }
 
-  /** Abre o ajuste do grupo todo; sem Premium, leva à tela do Premium. */
-  async openGroup(reserve: number, species: string, group: number): Promise<void> {
-    if (!this.hooks.premium) {
-      this.hooks.openPremium();
-      return;
-    }
-    this.host.hidden = false;
-    this.host.innerHTML = `<p class="muted">${e(t('edit.loading'))}</p>`;
-    try {
-      const editor = await this.hooks.load(reserve, species);
-      const data = editor.groups.find((g) => g.number === group);
-      if (!data) throw new Error('grupo ausente');
-      this.editor = editor;
-      this.animal = null;
-      this.batch = data;
-      this.group = group;
-      this.preset = 'typical';
-      this.renderBatch();
-    } catch {
-      this.host.innerHTML = `<p class="notice notice-error">${e(t('edit.loadError'))}</p>`;
-    }
-  }
-
-  private renderBatch(): void {
-    const { editor, batch } = this;
-    if (!editor || !batch) return;
-    const count = presetChanges(editor.limits, batch, this.preset).length;
-    const choice = (preset: Preset, label: string, note: string): string =>
-      `<button class="seg wide" type="button" data-batch="${preset}" aria-pressed="${String(this.preset === preset)}"><strong>${e(label)}</strong><small>${e(note)}</small></button>`;
-    this.host.innerHTML = `<h3>${icon('settings', 16)} ${e(t('batch.title', { group: this.group }))}</h3>
-      <p class="muted fine">${e(t('batch.rules'))}</p>
-      <div class="field"><div class="segmented stack">${choice('typical', t('batch.typical'), t('batch.typicalNote'))}${choice('best', t('batch.best'), t('batch.bestNote'))}</div></div>
-      <p id="batch-count" class="muted">${e(count === 0 ? t('batch.none') : t('batch.count', { count }))}</p>
-      <p class="notice notice-error" id="edit-error" hidden></p>
-      <div class="actions"><button class="primary" type="button" id="batch-apply"${count === 0 ? ' disabled' : ''}>${e(t('batch.apply'))}</button>
-        <button type="button" id="edit-cancel">${e(t('edit.cancel'))}</button></div>`;
-    for (const button of this.host.querySelectorAll<HTMLButtonElement>('[data-batch]')) {
-      button.addEventListener('click', () => {
-        this.preset = button.dataset['batch'] === 'best' ? 'best' : 'typical';
-        this.renderBatch();
-      });
-    }
-    this.host.querySelector('#edit-cancel')?.addEventListener('click', () => {
-      this.close();
-    });
-    this.host.querySelector('#batch-apply')?.addEventListener('click', () => {
-      void this.saveBatch();
-    });
-  }
-
-  private async saveBatch(): Promise<void> {
-    const { editor, batch } = this;
-    if (!editor || !batch) return;
-    const changes = presetChanges(editor.limits, batch, this.preset);
-    if (changes.length === 0) return;
-    const outcome = await this.hooks.save({ reserve: editor.reserve, species: editor.species, changes });
-    if (outcome.status === 'saved') {
-      this.close();
-      this.hooks.reload();
-    } else if (outcome.status === 'error') {
-      const box = this.host.querySelector<HTMLElement>('#edit-error');
-      if (box) {
-        box.textContent = outcome.message;
-        box.hidden = false;
-      }
-    }
-  }
-
   close(): void {
     this.editor = null;
     this.animal = null;
-    this.batch = null;
     this.host.hidden = true;
     this.host.innerHTML = '';
   }

@@ -87,7 +87,6 @@ function shell(reserves: MapReserve[], map: ReserveMap): string {
         </div>
         <div class="gsum" id="map-gsum"></div>
         <div class="anim" id="map-anim"></div>
-        <button type="button" class="ghost" id="map-batch" hidden></button>
         <div class="edit-panel" id="map-edit" hidden></div>
         <ol class="route" id="map-route"></ol>
         <p class="legend" id="map-route-hint" hidden>${e(t('map.routeHint'))}</p>
@@ -367,13 +366,6 @@ export class MapView {
           if (speciesId !== undefined) void this.panel?.open(this.map.id, speciesId, number, Number(chip.dataset['animal']));
         });
       }
-      const batch = this.q('#map-batch');
-      batch.hidden = data.animals.length === 0;
-      batch.innerHTML = `${icon(this.editor.premium ? 'edit' : 'lock', 14)} ${e(t(this.editor.premium ? 'batch.button' : 'batch.buttonPremium'))}`;
-      batch.onclick = () => {
-        const speciesId = this.map.species[species]?.id;
-        if (speciesId !== undefined) void this.panel?.openGroup(this.map.id, speciesId, number);
-      };
       route.innerHTML = stops.map((s) => this.routeItem(s)).join('');
       for (const item of route.querySelectorAll<HTMLLIElement>('li[data-stop]')) {
         item.addEventListener('click', () => {

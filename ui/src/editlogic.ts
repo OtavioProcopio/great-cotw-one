@@ -1,4 +1,4 @@
-import type { AnimalChange, EditableAnimal, EditableGroup, Limits, SexLimits } from './types';
+import type { AnimalChange, EditableAnimal, Limits, SexLimits } from './types';
 
 export interface EditForm {
   male: boolean;
@@ -51,38 +51,4 @@ export function changeOf(
   if (Math.abs(form.score - animal.score) > 0.05) change.score = form.score;
   if (form.greatOne !== animal.greatOne) change.greatOne = form.greatOne;
   return Object.keys(change).length === 2 ? null : change;
-}
-
-/** Predefinições para o grupo todo. */
-export type Preset = 'typical' | 'best';
-
-/** Folga que o app aceita além do maior animal real (`MARGIN` em `animal_editor.rs`). */
-const SLACK = 1.1;
-/** Absorve o erro de ponto flutuante de `máx × 1,1 ÷ 1,1`. */
-const EPSILON = 1e-3;
-
-/**
- * Mudanças que levam todos os animais do grupo à predefinição: `typical` = a mediana de cada
- * sexo; `best` = o maior animal real do sexo na espécie (sem a folga de 10 % que o app aceita).
- * Animais que já estão nesses valores ficam de fora; sexo e Great One nunca mudam.
- */
-export function presetChanges(
-  limits: SexLimits,
-  group: EditableGroup,
-  preset: Preset,
-): AnimalChange[] {
-  const changes: AnimalChange[] = [];
-  for (const animal of group.animals) {
-    const range = limitsOf(limits, animal.male);
-    const target =
-      preset === 'typical'
-        ? { weight: Math.round(range.typicalWeight), score: Math.round(range.typicalScore) }
-        : {
-            weight: Math.floor(range.maxWeight / SLACK + EPSILON),
-            score: Math.floor(range.maxScore / SLACK + EPSILON),
-          };
-    const change = changeOf(group.number, animal, { ...formOf(animal), ...target });
-    if (change) changes.push(change);
-  }
-  return changes;
 }
