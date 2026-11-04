@@ -45,7 +45,7 @@ function featureRow(feature: Feature): string {
   return `<tr><th scope="row">${e(t(feature.label))}</th><td>${mark(feature.free)}</td><td class="col-premium">${premium}</td></tr>`;
 }
 
-function planCard(plan: 'monthly' | 'yearly', current: License['plan']): string {
+function planCard(plan: 'monthly' | 'yearly', current: License['plan'], waiting: boolean): string {
   const yearly = plan === 'yearly';
   const price = formatMoney(yearly ? PRICES.yearly : PRICES.monthly);
   const ribbon = yearly
@@ -59,12 +59,21 @@ function planCard(plan: 'monthly' | 'yearly', current: License['plan']): string 
     <h3>${e(t(yearly ? 'premium.yearly' : 'premium.monthly'))} ${yours}</h3>
     <p class="price"><strong>${e(price)}</strong><span>${e(t(yearly ? 'premium.perYear' : 'premium.perMonth'))}</span></p>
     ${extra}
-    <button class="primary${yearly ? ' gold' : ''}" data-action="buy" data-plan="${plan}">${e(t(yearly ? 'premium.buyYearly' : 'premium.buyMonthly'))}</button>
+    <button class="primary${yearly ? ' gold' : ''}" data-action="buy" data-plan="${plan}"${waiting ? ' disabled' : ''}>${e(t(yearly ? 'premium.buyYearly' : 'premium.buyMonthly'))}</button>
   </li>`;
 }
 
+function waitingBanner(plan: 'monthly' | 'yearly' | null): string {
+  if (plan === null) return '';
+  return `<div class="card purchase-waiting" role="status">
+    <p><strong>${e(t('purchase.waiting'))}</strong></p>
+    <p class="muted">${e(t('purchase.waitingHint'))}</p>
+    <div class="actions"><button type="button" data-action="cancel-purchase">${e(t('purchase.cancel'))}</button></div>
+  </div>`;
+}
+
 /** Tela do Premium: o que muda em relação ao gratuito, os planos e onde colar a chave. */
-export function renderPremium(license: License): string {
+export function renderPremium(license: License, waitingPlan: 'monthly' | 'yearly' | null = null): string {
   const hero = `<header class="premium-hero">
       <span class="premium-icon big" aria-hidden="true">${icon('star', 30)}</span>
       <div><h1>${e(t('premium.title'))}</h1><p class="lead">${e(t('premium.tagline'))}</p></div>
@@ -82,7 +91,8 @@ export function renderPremium(license: License): string {
     <section aria-labelledby="compare-title"><h2 id="compare-title">${e(t('premium.versus'))}</h2>
       <div class="card">${table}</div></section>
     <section aria-labelledby="plans-title"><h2 id="plans-title">${e(t('premium.choose'))}</h2>
-      <ul class="plans">${planCard('monthly', license.plan)}${planCard('yearly', license.plan)}</ul>
+      ${waitingBanner(waitingPlan)}
+      <ul class="plans">${planCard('monthly', license.plan, waitingPlan !== null)}${planCard('yearly', license.plan, waitingPlan !== null)}</ul>
       <p class="muted fine">${e(t('premium.payNote'))}</p></section>
     ${renderLicense(license)}`;
 }

@@ -167,6 +167,13 @@ export interface License {
   plan: 'monthly' | 'yearly' | null;
 }
 
+export interface PurchaseStatus {
+  /** `none`: nada em andamento; `waiting`: esperando o pagamento; `activated`: Premium ligado. */
+  state: 'none' | 'waiting' | 'activated';
+  plan: 'monthly' | 'yearly' | null;
+  license: License;
+}
+
 export interface UnlockRequest {
   reserves: number[];
   species: string[] | null;

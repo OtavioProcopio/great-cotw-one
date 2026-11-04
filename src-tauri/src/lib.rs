@@ -3,6 +3,8 @@
 //! Aqui não há regra de negócio: cada comando repassa a chamada ao [`AppService`] (testado em
 //! `cotw-core`) numa thread de trabalho, para que o acesso a disco não trave a janela.
 
+mod http_store;
+
 use std::path::PathBuf;
 use std::sync::Arc;
 
@@ -14,12 +16,14 @@ use cotw_core::license::LicenseStatus;
 use cotw_core::mapview::{MapReserve, ReserveMap};
 use cotw_core::paths::system_appdata;
 use cotw_core::process::SystemProcessList;
+use cotw_core::purchase::{LICENSE_SERVER, PurchaseStatus};
 use cotw_core::service::{
     AppService, EditRequest, EditResult, HistoryItem, RestoreResult, RewriteResult, ServiceError,
     UnlockRequest, UnlockResult, ZonesPreview,
 };
 use serde::Serialize;
-use tauri::State;
+use tauri::{AppHandle, State};
+use tauri_plugin_opener::OpenerExt;
 
 /// Erro enviado à interface: `code` é estável (a interface traduz); `message` é o detalhe técnico.
 #[derive(Debug, Serialize)]
@@ -170,6 +174,49 @@ async fn remove_license(service: Service<'_>) -> Result<LicenseStatus, CommandEr
     blocking(&service, AppService::remove_license).await
 }
 
+/// Começa a compra: pede o link de pagamento ao servidor e o abre no navegador do jogador.
+#[tauri::command]
+async fn start_purchase(
+    app: AppHandle,
+    service: Service<'_>,
+    plan: String,
+    token: String,
+) -> Result<(), CommandError> {
+    let url = blocking(&service, move |s| s.start_purchase(&plan, &token)).await?;
+    app.opener()
+        .open_url(url, None::<&str>)
+        .map_err(|e| CommandError {
+            code: "openBrowser",
+            message: e.to_string(),
+        })
+}
+
+/// Confere se o pagamento da compra em andamento foi confirmado e, se foi, liga o Premium.
+#[tauri::command]
+async fn check_purchase(service: Service<'_>) -> Result<PurchaseStatus, CommandError> {
+    blocking(&service, AppService::check_purchase).await
+}
+
+/// Desiste da compra em andamento.
+#[tauri::command]
+async fn cancel_purchase(service: Service<'_>) -> Result<(), CommandError> {
+    blocking(&service, |s| {
+        s.cancel_purchase();
+        Ok(())
+    })
+    .await
+}
+
+/// Endereço do servidor de licenças: o fixo do app; em compilação de depuração, a variável
+/// `GREAT_COTW_LICENSE_SERVER` permite apontar para um servidor de teste.
+fn license_server() -> String {
+    #[cfg(debug_assertions)]
+    if let Ok(url) = std::env::var("GREAT_COTW_LICENSE_SERVER") {
+        return url;
+    }
+    LICENSE_SERVER.to_owned()
+}
+
 #[tauri::command]
 async fn restore_backup(
     service: Service<'_>,
@@ -189,13 +236,19 @@ async fn restore_backup(
 )]
 pub fn run() {
     let appdata = system_appdata().unwrap_or_else(std::env::temp_dir);
-    let service = Arc::new(AppService::new(
+    let mut service = AppService::new(
         &appdata,
         SearchRoots::from_system(),
         Box::new(SystemProcessList),
-    ));
+    );
+    let server = license_server();
+    if !server.is_empty() {
+        service = service.with_store(Box::new(http_store::HttpStore::new(&server)));
+    }
+    let service = Arc::new(service);
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_opener::init())
         .manage(service)
         .invoke_handler(tauri::generate_handler![
             diagnostics,
@@ -217,6 +270,9 @@ pub fn run() {
             license,
             activate_license,
             remove_license,
+            start_purchase,
+            check_purchase,
+            cancel_purchase,
             restore_backup
         ])
         .run(tauri::generate_context!())

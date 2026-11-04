@@ -1,8 +1,8 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Controller, describeError } from './controller';
 import type { Api } from './api';
-import type { EditRequest } from './types';
+import type { EditRequest, PurchaseStatus } from './types';
 import { ACTIVE_LICENSE, FREE_LICENSE, commandError, fakeApi, foundDiagnostics } from './test-data';
 
 let root: HTMLElement;
@@ -31,7 +31,7 @@ describe('Controller', () => {
     await new Controller(root, api).start();
     expect(root.textContent).toContain('O jogo foi encontrado');
     expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Início');
-    expect(api.calls).toEqual(['license', 'diagnostics', 'mapReserves']);
+    expect(api.calls).toEqual(['license', 'checkPurchase', 'diagnostics', 'mapReserves']);
   });
 
   it('shows the reserves the app recognised and opens the one the player taps', async () => {
@@ -211,7 +211,7 @@ describe('Controller', () => {
     root.click();
     click('acao-desconhecida');
     await settle();
-    expect(api.calls).toEqual(['license', 'diagnostics', 'mapReserves']);
+    expect(api.calls).toEqual(['license', 'checkPurchase', 'diagnostics', 'mapReserves']);
   });
 });
 
@@ -452,9 +452,11 @@ describe('Controller: licença', () => {
   });
 
   it('explains that the store is not open yet when a plan button is pressed', async () => {
-    const api = await openSettings();
+    const api = await openSettings(fakeApi({ startPurchase: () => commandError('storeClosed') }));
     click('buy', { plan: 'yearly' });
-    expect(root.querySelector('.notice-ok')?.textContent).toContain('loja ainda não abriu');
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('loja ainda não abriu');
+    expect(root.querySelector('.purchase-waiting')).toBeNull();
     expect(api.calls.some((c) => c.startsWith('activateLicense'))).toBe(false);
   });
 
@@ -743,5 +745,130 @@ describe('describeError', () => {
     expect(describeError({ code: 'noSaveSelected', message: 'x' })).toContain('Selecione primeiro');
     expect(describeError(new Error('falhou'))).toBe('Algo deu errado: falhou');
     expect(describeError('texto')).toBe('Algo deu errado: texto');
+  });
+});
+
+describe('Controller: compra pelo app', () => {
+  const waiting: PurchaseStatus = { state: 'waiting', plan: 'yearly', license: FREE_LICENSE };
+  const paid: PurchaseStatus = { state: 'activated', plan: 'yearly', license: ACTIVE_LICENSE };
+
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  function purchaseApi(statuses: PurchaseStatus[]): { api: ReturnType<typeof fakeApi>; started: [string, string][]; cancelled: number[] } {
+    const started: [string, string][] = [];
+    const cancelled: number[] = [];
+    let step = 0;
+    const api = fakeApi({
+      startPurchase: (plan, token) => {
+        started.push([plan, token]);
+        return Promise.resolve();
+      },
+      checkPurchase: () => {
+        const status = statuses[Math.min(step, statuses.length - 1)];
+        step += 1;
+        return Promise.resolve(status ?? { state: 'none', plan: null, license: FREE_LICENSE });
+      },
+      cancelPurchase: () => {
+        cancelled.push(1);
+        return Promise.resolve();
+      },
+    });
+    return { api, started, cancelled };
+  }
+
+  async function openPremium(api: Api): Promise<void> {
+    await new Controller(root, api).start();
+    click('show-premium');
+    await settle();
+  }
+
+  it('opens the payment, waits, and turns Premium on by itself when it is confirmed', async () => {
+    // 1ª chamada: a abertura do app (nada em andamento); depois, esperando; por fim, pago.
+    const none: PurchaseStatus = { state: 'none', plan: null, license: FREE_LICENSE };
+    const { api, started } = purchaseApi([none, waiting, waiting, paid]);
+    await openPremium(api);
+
+    click('buy', { plan: 'yearly' });
+    await settle();
+    expect(started).toHaveLength(1);
+    expect(started[0]?.[0]).toBe('yearly');
+    expect(started[0]?.[1]).toMatch(/^[A-Za-z0-9_-]{24}$/);
+    expect(root.querySelector('.purchase-waiting')?.textContent).toContain('Esperando a confirmação');
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('Abrimos o pagamento');
+    expect(root.querySelector<HTMLButtonElement>('[data-action="buy"]')?.disabled).toBe(true);
+
+    // Apertar de novo enquanto espera não abre outro pagamento.
+    click('buy', { plan: 'monthly' });
+    await settle();
+    expect(started).toHaveLength(1);
+
+    await vi.advanceTimersByTimeAsync(4000);
+    expect(root.querySelector('.purchase-waiting')).not.toBeNull();
+
+    await vi.advanceTimersByTimeAsync(8000);
+    await settle();
+    expect(root.querySelector('.purchase-waiting')).toBeNull();
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('Pagamento confirmado');
+    expect(root.textContent).toContain('Premium');
+    const calls = api.calls.filter((c) => c === 'checkPurchase').length;
+    await vi.advanceTimersByTimeAsync(20_000);
+    expect(api.calls.filter((c) => c === 'checkPurchase').length).toBe(calls);
+  });
+
+  it('keeps waiting when the internet drops for a moment', async () => {
+    let answers = 0;
+    const api = fakeApi({
+      checkPurchase: () => {
+        answers += 1;
+        if (answers === 1) return Promise.resolve({ state: 'none', plan: null, license: FREE_LICENSE });
+        return answers === 2 ? commandError('storeOffline') : Promise.resolve(paid);
+      },
+    });
+    await openPremium(api);
+    click('buy', { plan: 'monthly' });
+    await settle();
+    await vi.advanceTimersByTimeAsync(4000);
+    expect(root.querySelector('.purchase-waiting')).not.toBeNull();
+    expect(root.querySelector('.notice-error')).toBeNull();
+    await vi.advanceTimersByTimeAsync(4000);
+    await settle();
+    expect(root.querySelector('.notice-ok')?.textContent).toContain('Pagamento confirmado');
+  });
+
+  it('lets the player stop waiting', async () => {
+    const none: PurchaseStatus = { state: 'none', plan: null, license: FREE_LICENSE };
+    const { api, cancelled } = purchaseApi([none, waiting]);
+    await openPremium(api);
+    click('buy', { plan: 'yearly' });
+    await settle();
+    click('cancel-purchase');
+    await settle();
+    expect(cancelled).toHaveLength(1);
+    expect(root.querySelector('.purchase-waiting')).toBeNull();
+    expect(root.querySelector<HTMLButtonElement>('[data-action="buy"]')?.disabled).toBe(false);
+    const calls = api.calls.filter((c) => c === 'checkPurchase').length;
+    await vi.advanceTimersByTimeAsync(20_000);
+    expect(api.calls.filter((c) => c === 'checkPurchase').length).toBe(calls);
+  });
+
+  it('picks the purchase back up when the app is opened again', async () => {
+    const { api } = purchaseApi([waiting]);
+    await openPremium(api);
+    expect(root.querySelector('.purchase-waiting')).not.toBeNull();
+  });
+
+  it('shows a clear message when the store cannot be reached to start', async () => {
+    const api = fakeApi({ startPurchase: () => commandError('storeOffline') });
+    await openPremium(api);
+    click('buy', { plan: 'yearly' });
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('loja');
+    expect(root.querySelector('.purchase-waiting')).toBeNull();
   });
 });

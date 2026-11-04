@@ -15,6 +15,7 @@ pub mod license;
 pub mod mapview;
 pub mod paths;
 pub mod process;
+pub mod purchase;
 pub mod service;
 pub mod settings;
 pub mod species;

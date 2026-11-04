@@ -24,6 +24,9 @@ use crate::license::{
 use crate::mapview::{self, MapError, MapReserve, ReserveMap};
 use crate::paths::{app_data_dir, backups_dir, history_db, migrate_legacy_dir};
 use crate::process::ProcessList;
+use crate::purchase::{
+    Claim, ClosedStore, Pending, PurchaseStatus, Store, StoreError, valid_plan, valid_token,
+};
 use crate::settings::Settings;
 use crate::transaction::{Change, FileChange, SaveTransaction, TransactionError};
 use crate::unlock::{ReserveSummary, Selection, UnlockError, analyze};
@@ -73,6 +76,9 @@ pub enum ServiceError {
     /// A chave de licença não pôde ser ativada.
     #[error(transparent)]
     License(#[from] ActivateError),
+    /// Falha ao falar com a loja do Premium.
+    #[error(transparent)]
+    Store(#[from] StoreError),
     /// Não foi possível montar ou aplicar a edição de animais.
     #[error(transparent)]
     Editor(#[from] EditorError),
@@ -102,6 +108,7 @@ impl ServiceError {
             Self::NothingToUnlock => "nothingToUnlock",
             Self::PremiumRequired => "premiumRequired",
             Self::Editor(error) => error.code(),
+            Self::Store(error) => error.code(),
             Self::License(ActivateError::License(error)) => error.code(),
             Self::License(ActivateError::Io(_)) => "licenseSave",
             Self::History(_) => "history",
@@ -187,6 +194,7 @@ pub struct AppService {
     processes: Box<dyn ProcessList + Send + Sync>,
     license: Box<dyn LicenseCheck>,
     license_file: FileLicense,
+    store: Box<dyn Store>,
     language: std::sync::Mutex<Language>,
 }
 
@@ -241,6 +249,7 @@ impl AppService {
             processes,
             license: default_license(&license_path),
             license_file: FileLicense::new(&license_path),
+            store: Box::new(ClosedStore),
             language: std::sync::Mutex::new(Language::default()),
         };
         service.adopt_legacy_data();
@@ -277,6 +286,82 @@ impl AppService {
         self.license = Box::new(file.clone());
         self.license_file = file;
         self
+    }
+
+    /// Usa outra loja (o servidor real no app; uma falsa nos testes).
+    #[must_use]
+    pub fn with_store(mut self, store: Box<dyn Store>) -> Self {
+        self.store = store;
+        self
+    }
+
+    fn pending_path(&self) -> PathBuf {
+        app_data_dir(&self.appdata).join("pending_purchase.json")
+    }
+
+    /// Começa uma compra: pede o link de pagamento e guarda o código para buscar a chave depois.
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::Store`] se o plano ou o código forem inválidos, a loja não estiver aberta,
+    /// estiver fora do ar ou recusar; [`ServiceError::Settings`] se a compra não puder ser guardada.
+    pub fn start_purchase(&self, plan: &str, token: &str) -> Result<String, ServiceError> {
+        if !valid_plan(plan) || !valid_token(token) {
+            return Err(StoreError::InvalidRequest.into());
+        }
+        let url = self.store.checkout(plan, token)?;
+        Pending {
+            token: token.to_owned(),
+            plan: plan.to_owned(),
+            started: now(),
+        }
+        .save(&self.pending_path())?;
+        Ok(url)
+    }
+
+    /// Confere se a compra em andamento foi paga; se foi, ativa a licença.
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::Store`] se a loja estiver fora do ar (a compra continua guardada e pode
+    /// ser conferida de novo) e [`ServiceError::License`] se a chave recebida não for aceita.
+    pub fn check_purchase(&self) -> Result<PurchaseStatus, ServiceError> {
+        let path = self.pending_path();
+        let none = |service: &Self| PurchaseStatus {
+            state: "none",
+            plan: None,
+            license: service.license_status(),
+        };
+        let Some(pending) = Pending::load(&path) else {
+            return Ok(none(self));
+        };
+        if pending.expired(now()) {
+            Pending::clear(&path);
+            return Ok(none(self));
+        }
+        match self.store.claim(&pending.token)? {
+            Claim::Pending => Ok(PurchaseStatus {
+                state: "waiting",
+                plan: Some(pending.plan),
+                license: self.license_status(),
+            }),
+            Claim::Ready { key, plan } => {
+                // Com chave pronta, a compra termina de qualquer jeito: se a chave fosse recusada,
+                // repetir a cada checagem só repetiria o erro.
+                Pending::clear(&path);
+                let license = self.activate_license(&key)?;
+                Ok(PurchaseStatus {
+                    state: "activated",
+                    plan: Some(plan),
+                    license,
+                })
+            }
+        }
+    }
+
+    /// Desiste da compra em andamento (o jogador fechou o pagamento ou quer escolher outro plano).
+    pub fn cancel_purchase(&self) {
+        Pending::clear(&self.pending_path());
     }
 
     /// Situação da licença Premium.

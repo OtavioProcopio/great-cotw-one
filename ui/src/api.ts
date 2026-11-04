@@ -9,6 +9,7 @@ import type {
   EditResult,
   HistoryItem,
   License,
+  PurchaseStatus,
   MapReserve,
   Profile,
   RestoreResult,
@@ -57,6 +58,9 @@ export interface Api {
   activateLicense(key: string): Promise<License>;
   /** Remove a chave de licença guardada neste computador. */
   removeLicense(): Promise<License>;
+  startPurchase(plan: 'monthly' | 'yearly', token: string): Promise<void>;
+  checkPurchase(): Promise<PurchaseStatus>;
+  cancelPurchase(): Promise<void>;
   /** Abre o seletor de pasta; `null` se o usuário cancelar. */
   pickFolder(title: string): Promise<string | null>;
   /** Pergunta ao usuário; `okLabel` é o texto do botão que confirma. */
@@ -95,6 +99,9 @@ export const tauriApi: Api = {
   license: () => invoke<License>('license'),
   activateLicense: (key) => invoke<License>('activate_license', { key }),
   removeLicense: () => invoke<License>('remove_license'),
+  startPurchase: (plan, token) => invoke<undefined>('start_purchase', { plan, token }),
+  checkPurchase: () => invoke<PurchaseStatus>('check_purchase'),
+  cancelPurchase: () => invoke<undefined>('cancel_purchase'),
   pickFolder: async (title) => {
     const chosen = await open({ directory: true, multiple: false, title });
     return typeof chosen === 'string' ? chosen : null;

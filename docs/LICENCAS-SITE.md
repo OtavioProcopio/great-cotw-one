@@ -69,7 +69,7 @@ Pontos de segurança:
    ```
    `systemctl enable --now great-cotw-license` e confira `https://licencas.seudominio.com/health`.
 6. **Faça backup de `orders.json`** (é o registro das vendas) e do `private.key`.
-7. No app, preencha `LICENSE_SERVER` em `ui/src/config.ts` com a URL do servidor.
+7. No app, preencha `LICENSE_SERVER` em `crates/cotw-core/src/purchase.rs` com a URL do servidor e gere o instalador de novo. Para testar sem recompilar, numa compilação de depuração use a variável de ambiente `GREAT_COTW_LICENSE_SERVER`. Enquanto estiver vazio, o botão do plano avisa que a loja ainda não abriu.
 
 ## Testar ponta a ponta antes de vender
 

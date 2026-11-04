@@ -70,3 +70,23 @@ O app MUST NOT enviar dados do save, do jogo ou caminhos de arquivos para ativar
 #### Scenario: Ativação
 - **WHEN** o usuário ativa a licença
 - **THEN** nenhuma requisição de rede é feita pelo app
+
+### Requirement: Comprar o Premium pelo app
+O app SHALL permitir assinar o Premium sem sair dele: ao escolher um plano, SHALL gerar um código secreto aleatório, pedir ao servidor de licenças o link de pagamento, abri-lo no navegador do jogador e, enquanto espera, perguntar periodicamente ao servidor se o pagamento foi confirmado; ao receber a chave, SHALL ativá-la sozinho. O app MUST NOT receber nem guardar dados de cartão ou de Pix (o pagamento acontece na página do Mercado Pago), MUST NOT conter a chave privada de assinatura e MUST abrir apenas links `https://`. A compra em espera SHALL sobreviver a fechar o app e SHALL ser abandonada depois de 24 horas.
+
+#### Scenario: Pagamento confirmado
+- **WHEN** o jogador escolhe o plano anual, paga no navegador e o servidor confirma o pagamento
+- **THEN** o app ativa a licença sozinho, mostra "Pagamento confirmado" e o Premium fica ligado sem copiar nenhuma chave
+
+#### Scenario: Fechar o app no meio da compra
+- **WHEN** o jogador fecha e reabre o app depois de pagar
+- **THEN** o app retoma a espera e ativa o Premium assim que o servidor entregar a chave
+
+#### Scenario: Loja fora do ar ou ainda fechada
+- **WHEN** o servidor não responde ou ainda não foi configurado
+- **THEN** o app explica em linguagem simples, não inicia espera nenhuma e o jogador pode colar uma chave que já tenha
+
+#### Scenario: Só quem tem o código recebe a chave
+- **WHEN** outra pessoa conhece apenas o e-mail do comprador
+- **THEN** ela não consegue buscar a chave, porque a busca exige o código gerado pelo app
+

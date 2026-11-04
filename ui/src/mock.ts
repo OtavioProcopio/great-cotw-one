@@ -150,6 +150,11 @@ export function installMock(): void {
             { id: 18, name: 'Reserva 18', state: 'needsDiscovery', newZones: 0, estimated: 0, skipped: 0, species: [] },
           ],
         };
+      case 'start_purchase':
+      case 'cancel_purchase':
+        return undefined;
+      case 'check_purchase':
+        return { state: 'none', plan: null, license: { premium: false, state: 'free', email: null, expires: null, daysLeft: null, plan: null } };
       case 'license':
         return new URLSearchParams(location.search).has('premium')
           ? { premium: true, state: 'active', email: 'ana@exemplo.com', expires: 1_830_000_000, daysLeft: 200, plan: 'yearly' }

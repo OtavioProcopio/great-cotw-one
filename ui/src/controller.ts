@@ -2,7 +2,7 @@ import { isCommandError, type Api } from './api';
 import { formatCount, formatStamp } from './format';
 import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } from './i18n';
 import { icon, type IconName } from './icons';
-import type { AnimalReserve, Diagnostics, EditRequest, License, HistoryItem, MapReserve, Profile, ReserveMap, ReserveMissions, ZonesPreview } from './types';
+import type { AnimalReserve, Diagnostics, EditRequest, HistoryItem, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 import { renderDiagnostics } from './views/diagnostics';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
@@ -29,6 +29,15 @@ export function describeError(error: unknown): string {
   return t('error.generic', { message: error instanceof Error ? error.message : String(error) });
 }
 
+/** De quantos em quantos milissegundos o app pergunta se o pagamento foi confirmado. */
+const PURCHASE_POLL_MS = 4000;
+
+/** Código secreto da compra: 24 letras e números aleatórios, que só este app conhece. */
+function newPurchaseCode(): string {
+  const bytes = crypto.getRandomValues(new Uint8Array(18));
+  return btoa(String.fromCharCode(...bytes)).replaceAll('+', '-').replaceAll('/', '_');
+}
+
 const FREE: License = { premium: false, state: 'free', email: null, expires: null, daysLeft: null, plan: null };
 
 function parseMode(value: string | undefined): UnlockMode {
@@ -46,6 +55,8 @@ export class Controller {
   private history: HistoryItem[] | null = null;
   private zones: ZonesPreview | null = null;
   private unlockState: UnlockState = initialUnlockState();
+  private purchase: 'monthly' | 'yearly' | null = null;
+  private purchaseTimer: number | null = null;
   private license: License = { premium: false, state: 'free', email: null, expires: null, daysLeft: null, plan: null };
   private mapReserves: MapReserve[] | null = null;
   private homeReserves: MapReserve[] = [];
@@ -77,7 +88,75 @@ export class Controller {
   async start(): Promise<void> {
     await this.api.setLanguage(getLocale()).catch(() => undefined);
     this.license = await this.api.license().catch((): License => FREE);
+    await this.resumePurchase();
     await this.show('home');
+  }
+
+  /** Se o app foi fechado no meio de uma compra, volta a esperar o pagamento (ou ativa, se já saiu). */
+  private async resumePurchase(): Promise<void> {
+    try {
+      this.applyPurchase(await this.api.checkPurchase());
+    } catch {
+      // Sem loja ou sem internet: nada a retomar agora.
+    }
+  }
+
+  /** Compra pelo app: abre o pagamento no navegador e espera a confirmação, sem copiar chave. */
+  private async buy(plan: 'monthly' | 'yearly'): Promise<void> {
+    if (this.purchase !== null) return;
+    try {
+      await this.api.startPurchase(plan, newPurchaseCode());
+      this.purchase = plan;
+      this.notice = { kind: 'ok', text: t('purchase.opened') };
+      this.watchPurchase();
+    } catch (error) {
+      this.notice = { kind: 'error', text: describeError(error) };
+    }
+    this.render();
+    window.scrollTo({ top: 0 });
+  }
+
+  private watchPurchase(): void {
+    this.stopWatching();
+    this.purchaseTimer = window.setInterval(() => {
+      void this.pollPurchase();
+    }, PURCHASE_POLL_MS);
+  }
+
+  private stopWatching(): void {
+    if (this.purchaseTimer !== null) window.clearInterval(this.purchaseTimer);
+    this.purchaseTimer = null;
+  }
+
+  private async pollPurchase(): Promise<void> {
+    try {
+      this.applyPurchase(await this.api.checkPurchase());
+      this.render();
+    } catch {
+      // Sem internet agora: continua esperando e tenta de novo.
+    }
+  }
+
+  private applyPurchase(status: PurchaseStatus): void {
+    if (status.state === 'waiting') {
+      this.purchase = status.plan;
+      if (this.purchaseTimer === null) this.watchPurchase();
+      return;
+    }
+    this.purchase = null;
+    this.stopWatching();
+    if (status.state === 'activated') {
+      this.license = status.license;
+      this.notice = { kind: 'ok', text: t('purchase.done') };
+    }
+  }
+
+  private async cancelPurchase(): Promise<void> {
+    await this.api.cancelPurchase().catch(() => undefined);
+    this.purchase = null;
+    this.stopWatching();
+    this.notice = null;
+    this.render();
   }
 
   async show(view: View): Promise<void> {
@@ -123,7 +202,7 @@ export class Controller {
   }
 
   private async handle(button: HTMLElement): Promise<void> {
-    const { action, path, backup, at, reserve } = button.dataset;
+    const { action, path, backup, at, reserve, plan } = button.dataset;
     switch (action) {
       case 'show-home':
         await this.show('home');
@@ -186,9 +265,10 @@ export class Controller {
         await this.show('premium');
         break;
       case 'buy':
-        this.notice = { kind: 'ok', text: t('premium.storeClosed') };
-        this.render();
-        window.scrollTo({ top: 0 });
+        await this.buy(plan === 'monthly' ? 'monthly' : 'yearly');
+        break;
+      case 'cancel-purchase':
+        await this.cancelPurchase();
         break;
       case 'toggle-reserve': {
         const ready = (this.zones?.reserves ?? []).filter((r) => r.state === 'ready').map((r) => r.id);
@@ -463,7 +543,7 @@ export class Controller {
     if (this.view === 'unlock') return renderUnlock(this.zones, this.unlockState, this.license.premium);
     if (this.view === 'map') return this.renderMap();
     if (this.view === 'profile') return this.profile ? renderProfile(this.profile) : '';
-    if (this.view === 'premium') return renderPremium(this.license);
+    if (this.view === 'premium') return renderPremium(this.license, this.purchase);
     if (this.view === 'animals') {
       return this.animals ? renderAnimals(this.animals, this.animalReserve, this.animalSpecies) : '';
     }
