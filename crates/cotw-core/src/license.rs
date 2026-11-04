@@ -623,4 +623,27 @@ mod tests {
             assert!(!default_license(&dir.path().join("license.key")).is_premium());
         }
     }
+
+    /// Vetor compartilhado com `tools/license-issuer` (emissor em JavaScript do servidor do site):
+    /// a assinatura Ed25519 é determinística, então o app tem de aceitar o texto que ele gera.
+    #[test]
+    fn accepts_the_key_issued_by_the_website_issuer() {
+        let signing = SigningKey::from_bytes(&[7; 32]);
+        let key = "GCO1.eyJ2IjoxLCJwIjoiZ3JlYXQtY290dy1vbmUiLCJsIjoibW9udGhseSIsImUiOiJ2ZXRvckBleGVtcGxvLmNvbSIsImkiOjE3MDAwMDAwMDAsIngiOjE3MDI2Nzg0MDB9.cJs0lhVWpgw6VByJ6iRmjwVSrVA2JFzMYoRuRtr27HTxhBS-Hp6jDGCT92EkdQc3tH11LrtwBF69NEZ0W9xtDg";
+        let info = verify(key, &signing.verifying_key()).unwrap();
+        assert_eq!(info.email, "vetor@exemplo.com");
+        assert_eq!(info.plan, "monthly");
+        assert_eq!(info.issued, 1_700_000_000);
+        assert_eq!(info.expires, 1_700_000_000 + MONTHLY_DAYS * 86_400);
+        assert_eq!(
+            issue_plan(
+                &signing,
+                "vetor@exemplo.com",
+                "monthly",
+                1_700_000_000,
+                info.expires
+            ),
+            key
+        );
+    }
 }

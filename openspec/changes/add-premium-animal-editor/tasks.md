@@ -18,7 +18,7 @@
 - [x] 3.1 Bloqueio no serviço do app: `unlock_zones` recusa sem licença (`premiumRequired`) e a interface mostra o que é Premium (selo, faixa e botão)
 - [x] 3.2 Verificação offline da chave (assinatura Ed25519, plano e vencimento), guardar a chave e ativação na tela do Premium
 - [x] 3.5 Ferramenta `gco-license` (gerar o par de chaves fora do repositório, emitir chave mensal ou anual, inspecionar)
-- [ ] 3.6 Canal de venda: página de compra, webhook de pagamento, emissão e envio da chave por e-mail
+- [ ] 3.6 Canal de venda: página de compra, webhook de pagamento, emissão e envio da chave por e-mail (emissor JavaScript pronto e travado por teste nos dois lados, ver docs/LICENCAS-SITE.md; faltam plataforma de pagamento, função no servidor e e-mail)
 - [x] 3.7 Aviso de renovação 30 dias antes do vencimento (tela inicial e tela do Premium)
 - [x] 3.8 Tela do Premium: vantagens, comparação com o gratuito, planos (R$ 15/mês e R$ 75/ano) e economia do anual
 - [x] 3.3 Modo leitura do editor para usuários gratuitos (botão com cadeado que leva ao Premium)

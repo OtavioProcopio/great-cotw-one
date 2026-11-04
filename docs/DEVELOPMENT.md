@@ -125,6 +125,8 @@ no horário escolhido. Zonas que o app ainda não gravou aparecem com contorno t
 
 **Emitir chaves (vendedor):** `cargo run -p license-tool -- keygen <pasta>` gera `private.key` (**secreta, nunca vai para o repositório**) e `public.key` (copie para `crates/cotw-core/src/license_public.key` e recompile). Depois: `cargo run -p license-tool -- issue <private.key> <e-mail> monthly|yearly` imprime a chave para mandar ao comprador, e `inspect <public.key> <chave>` confere uma chave. A chave privada do desenvolvimento está em `%USERPROFILE%\.great-cotw-one\license-keys\`; faça uma cópia segura dela: sem ela não dá para emitir licenças que o app aceite (e, se trocar o par, as licenças já vendidas deixam de valer).
 
+**Emitir chaves pelo site:** o servidor do site usa `tools/license-issuer` (JavaScript, mesmo formato) depois do webhook de pagamento; o passo a passo e as decisões pendentes estão em [LICENCAS-SITE.md](LICENCAS-SITE.md).
+
 **Testar o Premium em desenvolvimento:** `GREAT_COTW_PREMIUM_DEV=1` (só em compilações de depuração) ou `?mock&premium` no navegador; os testes usam `FixedLicense` ou uma chave de teste (`AppService::with_license_file`).
 
 **Vendas:** ainda não há loja. Candidata: plataforma brasileira com Pix (por exemplo Kiwify, 8,99% + R$ 2,49 por venda) mandando a chave por e-mail, de início emitida à mão com a ferramenta. `STORE_URL` em `config.ts` fica vazio até a loja abrir.
