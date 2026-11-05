@@ -19,6 +19,7 @@ pub mod purchase;
 pub mod service;
 pub mod settings;
 pub mod species;
+pub mod species_stats;
 pub mod transaction;
 pub mod unlock;
 pub mod zones;

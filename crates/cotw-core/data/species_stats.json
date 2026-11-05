@@ -1,0 +1,11338 @@
+{
+ "species": {
+  "american_alligator": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "olive",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      150.0,
+      302.0
+     ],
+     "weight": [
+      75.0,
+      145.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      200.0,
+      530.0
+     ],
+     "weight": [
+      200.0,
+      530.0
+     ]
+    }
+   },
+   "trophy": "length"
+  },
+  "american_mink": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 74650,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "black",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "chestnut",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "silver",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      70.0,
+      110.0
+     ],
+     "weight": [
+      0.7,
+      1.1
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      100.0,
+      160.0
+     ],
+     "weight": [
+      1.0,
+      1.6
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "antelope": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "antelope_jackrabbit": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 12465,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "mottled",
+     "odds": 12465,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.0,
+      4.6
+     ],
+     "weight": [
+      2.2,
+      4.1
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.9,
+      6.83
+     ],
+     "weight": [
+      2.7,
+      4.7
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "axis_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "orange",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "spotted",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      25.0,
+      42.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      31.565,
+      237.937
+     ],
+     "weight": [
+      30.0,
+      75.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "banteng": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 8333,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 8333,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "nz_moose_mocha",
+     "odds": 8333,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "orange",
+     "odds": 74700,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      53.139,
+      100.917
+     ],
+     "weight": [
+      590.0,
+      670.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      90.131,
+      146.32
+     ],
+     "weight": [
+      600.0,
+      800.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "barasingha": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "red",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "dark_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_red",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      130.0,
+      150.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      58.691,
+      244.649
+     ],
+     "weight": [
+      170.0,
+      280.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "bear": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "beceite_ibex": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "buff",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "orange",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown_hybrid",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "gray_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      45.55,
+      60.0
+     ],
+     "weight": [
+      35.0,
+      70.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      45.55,
+      207.864
+     ],
+     "weight": [
+      75.0,
+      110.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "bengal_tiger": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "orange",
+     "odds": 98799,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "gold",
+     "odds": 143,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "white",
+     "odds": 143,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "white_stripeless",
+     "odds": 143,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "pseudo_melanistic",
+     "odds": 143,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "pseudo_melanistic_white",
+     "odds": 143,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "pseudo_melanistic",
+     "odds": 143,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "pseudo_melanistic_white",
+     "odds": 143,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      30.0,
+      34.622
+     ],
+     "weight": [
+      116.0,
+      164.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      45.741,
+      60.0
+     ],
+     "weight": [
+      200.0,
+      324.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "bighorn_sheep": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "bronze",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "grey",
+     "odds": 37300,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 37300,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      52.462,
+      87.066
+     ],
+     "weight": [
+      34.0,
+      91.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      53.972,
+      213.049
+     ],
+     "weight": [
+      58.0,
+      143.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "bird": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "bison": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "black_bear": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dusky",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "blonde",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "cinnamon",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "black",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "dark",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dusky",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "great_one_black_bear_fabled_glacier",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "great_one_black_bear_fabled_glacier",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "great_one_black_bear_fabled_cream",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "great_one_black_bear_fabled_spotted",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "great_one_black_bear_fabled_spirit",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "great_one_black_bear_fabled_chestnut",
+     "odds": 38,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      40.0,
+      145.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      12.0,
+      17.04
+     ],
+     "weight": [
+      40.0,
+      145.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      24.0,
+      28.0
+     ],
+     "weight": [
+      291.0,
+      409.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      12.816,
+      24.0
+     ],
+     "weight": [
+      57.0,
+      290.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "black_caiman": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_green",
+     "odds": 49800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_green",
+     "odds": 49800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      180.0,
+      300.0
+     ],
+     "weight": [
+      90.0,
+      150.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      200.0,
+      500.0
+     ],
+     "weight": [
+      200.0,
+      500.0
+     ]
+    }
+   },
+   "trophy": "length"
+  },
+  "black_grouse": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "gold",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "dark",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "orange",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "melanistic",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "melanistic",
+     "odds": 20,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      75.0,
+      110.0
+     ],
+     "weight": [
+      0.75,
+      1.1
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      100.0,
+      125.0
+     ],
+     "weight": [
+      1.0,
+      1.25
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "blackbuck": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 23928,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "beige",
+     "odds": 33234,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_brown",
+     "odds": 35893,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "beige",
+     "odds": 6647,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      25.0,
+      42.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      54.534,
+      140.897
+     ],
+     "weight": [
+      34.0,
+      51.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "blacktail_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "tan",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "gray_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "gray_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dark_grey",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      40.0,
+      59.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      48.172,
+      191.961
+     ],
+     "weight": [
+      50.0,
+      95.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "blue_sheep": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "slate_grey",
+     "odds": 37375,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 37375,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "yellow",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "blue_grey",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      42.599,
+      77.843
+     ],
+     "weight": [
+      35.0,
+      55.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      75.239,
+      166.475
+     ],
+     "weight": [
+      55.0,
+      75.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "blue_wildebeest": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "gold",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "crowned",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_grey",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      17.0,
+      26.0
+     ],
+     "weight": [
+      190.0,
+      260.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      28.5,
+      40.0
+     ],
+     "weight": [
+      200.0,
+      290.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "bobcat": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "blue",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "red",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "tan",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      15.99,
+      20.554
+     ],
+     "weight": [
+      4.0,
+      16.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      19.501,
+      28.98
+     ],
+     "weight": [
+      6.0,
+      20.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "bovid": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "bovine": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "buffalo": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "canada_goose": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown_hybrid",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "lightgreyleucistic",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "gray_brown",
+     "odds": 74900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "white_hybrid",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 20,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.2,
+      6.8
+     ],
+     "weight": [
+      3.2,
+      6.8
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.5,
+      9.2
+     ],
+     "weight": [
+      3.5,
+      9.2
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "canid": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "cape_buffalo": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "black",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 24930,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      51.0,
+      114.0
+     ],
+     "weight": [
+      360.0,
+      530.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      91.0,
+      162.5
+     ],
+     "weight": [
+      600.0,
+      950.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "capybara": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 49950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 49950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      35.0,
+      70.0
+     ],
+     "weight": [
+      35.0,
+      70.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      35.0,
+      65.0
+     ],
+     "weight": [
+      35.0,
+      65.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "caribou": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      73.194,
+      158.0
+     ],
+     "weight": [
+      75.0,
+      125.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      73.194,
+      469.903
+     ],
+     "weight": [
+      150.0,
+      190.0
+     ]
+    }
+   },
+   "trophy": "antlers"
+  },
+  "cat": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "cattle": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "chamois": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "gray_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "honeytones",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      23.083,
+      58.047
+     ],
+     "weight": [
+      35.0,
+      50.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      23.093,
+      61.89
+     ],
+     "weight": [
+      40.0,
+      65.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "cinnamon_teal": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "piebald",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "beige",
+     "odds": 175,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "cinnamon",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "red",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.0,
+      4.0
+     ],
+     "weight": [
+      0.3,
+      0.4
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.8,
+      4.8
+     ],
+     "weight": [
+      0.38,
+      0.48
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "collared_peccary": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "ochre",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_grey",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      7.0,
+      81.5
+     ],
+     "weight": [
+      14.0,
+      27.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      7.0,
+      159.5
+     ],
+     "weight": [
+      16.0,
+      31.0
+     ]
+    }
+   },
+   "trophy": "tusks"
+  },
+  "coyote": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "gray_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "gray_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "light_grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dark_grey",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      33.069,
+      44.092
+     ],
+     "weight": [
+      15.0,
+      20.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      35.274,
+      59.525
+     ],
+     "weight": [
+      16.0,
+      27.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "crocodilian": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "cryptid": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "deer": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "desert_bighorn_sheep": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 29000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 29000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_grey",
+     "odds": 29000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "erythristic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "mosaic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      52.462,
+      87.066
+     ],
+     "weight": [
+      34.0,
+      85.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      53.972,
+      213.049
+     ],
+     "weight": [
+      52.0,
+      127.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "duck": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "dusky_grouse": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "slate_grey",
+     "odds": 37450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "molting",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "gray_brown",
+     "odds": 37450,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      70.0,
+      110.0
+     ],
+     "weight": [
+      0.7,
+      1.1
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      110.0,
+      160.0
+     ],
+     "weight": [
+      1.1,
+      1.6
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eastern_cottontail_rabbit": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_grey",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.1,
+      2.1
+     ],
+     "weight": [
+      1.1,
+      2.1
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      0.8,
+      1.8
+     ],
+     "weight": [
+      0.8,
+      1.8
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eastern_grey_kangaroo": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "gray_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      150.0,
+      302.0
+     ],
+     "weight": [
+      17.0,
+      40.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      200.0,
+      530.0
+     ],
+     "weight": [
+      50.0,
+      66.0
+     ]
+    }
+   },
+   "trophy": "length"
+  },
+  "eastern_wild_turkey": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "bronze",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_bronze",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.0,
+      4.0
+     ],
+     "weight": [
+      3.6,
+      5.4
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.8,
+      4.8
+     ],
+     "weight": [
+      6.8,
+      11.0
+     ]
+    }
+   },
+   "trophy": "combined"
+  },
+  "eu_bison": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dark_brown",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      74.791,
+      120.016
+     ],
+     "weight": [
+      300.0,
+      540.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      77.732,
+      133.499
+     ],
+     "weight": [
+      400.0,
+      920.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "eu_hare": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_brown",
+     "odds": 18675,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.0,
+      7.0
+     ],
+     "weight": [
+      2.0,
+      7.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      2.0,
+      4.0
+     ],
+     "weight": [
+      2.0,
+      4.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eu_rabbit": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_grey",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "tan",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.9,
+      1.7
+     ],
+     "weight": [
+      0.9,
+      1.7
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.1,
+      2.6
+     ],
+     "weight": [
+      1.1,
+      2.6
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eurasian_brown_bear": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "spirit",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "blonde",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 0,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "red_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "cinnamon",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "gold",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "dark_brown",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 11,
+     "key": "grey",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 12,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      16.0,
+      24.038
+     ],
+     "weight": [
+      110.0,
+      340.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      18.97,
+      29.0
+     ],
+     "weight": [
+      195.0,
+      482.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "eurasian_lynx": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      15.99,
+      20.554
+     ],
+     "weight": [
+      8.0,
+      21.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      19.501,
+      28.98
+     ],
+     "weight": [
+      18.0,
+      45.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "eurasian_pine_marten": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "black",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "tawny",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      100.0,
+      160.0
+     ],
+     "weight": [
+      1.0,
+      1.6
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      150.0,
+      220.0
+     ],
+     "weight": [
+      1.5,
+      2.2
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eurasian_teal": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_green",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_green",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "hybrid_blue",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "hybrid_green",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      300.0,
+      340.0
+     ],
+     "weight": [
+      0.3,
+      0.34
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      320.0,
+      360.0
+     ],
+     "weight": [
+      0.32,
+      0.36
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eurasian_wigeon": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "eclipse",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "hybrid",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      500.0,
+      800.0
+     ],
+     "weight": [
+      0.5,
+      0.8
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      500.0,
+      950.0
+     ],
+     "weight": [
+      0.5,
+      0.95
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "eurasian_woodcock": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 49800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 49800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      23.7,
+      43.2
+     ],
+     "weight": [
+      0.237,
+      0.432
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      21.5,
+      39.3
+     ],
+     "weight": [
+      0.215,
+      0.393
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "european_badger": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "dilute",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "erythristic_red",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      7.0,
+      14.0
+     ],
+     "weight": [
+      7.0,
+      14.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      9.0,
+      17.0
+     ],
+     "weight": [
+      9.0,
+      17.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "fallow_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 6900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "spotted",
+     "odds": 13800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "spotted",
+     "odds": 6900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "spotted_red",
+     "odds": 13800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "spotted_dark",
+     "odds": 13800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "spotted_dark",
+     "odds": 13800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 12,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 12,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "albino",
+     "odds": 12,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "dark",
+     "odds": 6900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 11,
+     "key": "melanistic",
+     "odds": 12,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 12,
+     "key": "spotted",
+     "odds": 6900,
+     "rarity": 0
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "great_one_fallow_deer_a",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "great_one_fallow_deer_b",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 15,
+     "key": "great_one_fallow_deer_c",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 16,
+     "key": "great_one_fallow_deer_d",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 17,
+     "key": "great_one_fallow_deer_e",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 18,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 19,
+     "key": "white",
+     "odds": 8427,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 20,
+     "key": "chocolate",
+     "odds": 8427,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 21,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 22,
+     "key": "acromelanistic",
+     "odds": 24,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 23,
+     "key": "erythristic",
+     "odds": 24,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      30.0,
+      50.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      30.0,
+      50.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      250.023,
+      293.643
+     ],
+     "weight": [
+      101.0,
+      140.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      63.435,
+      270.728
+     ],
+     "weight": [
+      60.0,
+      100.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "feral_goat": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "black_white",
+     "odds": 8333,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "black_brown",
+     "odds": 8333,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "blonde",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "white_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "white",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "mixed",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "mixed",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "white_brown",
+     "odds": 8333,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      55.369,
+      74.443
+     ],
+     "weight": [
+      25.0,
+      35.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      81.963,
+      225.758
+     ],
+     "weight": [
+      44.0,
+      50.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "feral_pig": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "pink",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "black_spots",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "black_spots",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown_hybrid",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown_hybrid",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "blackgold",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "black",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "dark_brown",
+     "odds": 12450,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      7.0,
+      81.5
+     ],
+     "weight": [
+      32.0,
+      114.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      7.0,
+      159.5
+     ],
+     "weight": [
+      45.0,
+      205.0
+     ]
+    }
+   },
+   "trophy": "tusks"
+  },
+  "ferruginous_duck": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 49950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "red_brown",
+     "odds": 49950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      600.0,
+      1000.0
+     ],
+     "weight": [
+      0.6,
+      1.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      700.0,
+      1100.0
+     ],
+     "weight": [
+      0.7,
+      1.1
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "fox": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "gadwall": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 37450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "eclipse",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      600.0,
+      900.0
+     ],
+     "weight": [
+      0.6,
+      0.9
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      700.0,
+      1100.0
+     ],
+     "weight": [
+      0.7,
+      1.1
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "gemsbok": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark",
+     "odds": 75,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "beige",
+     "odds": 75,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "gold",
+     "odds": 75,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      154.0,
+      358.0
+     ],
+     "weight": [
+      100.0,
+      210.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      196.0,
+      342.0
+     ],
+     "weight": [
+      180.0,
+      240.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "goat": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "goldeneye": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "eclipse",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "hybrid",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "hybrid",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      600.0,
+      1100.0
+     ],
+     "weight": [
+      0.6,
+      1.1
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      600.0,
+      1300.0
+     ],
+     "weight": [
+      0.6,
+      1.3
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "goose": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "gray_fox": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "red",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "tone",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 67,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.1,
+      6.5
+     ],
+     "weight": [
+      3.1,
+      6.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.5,
+      6.8
+     ],
+     "weight": [
+      3.5,
+      6.8
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "gray_wolf": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "eggwhite",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "red_brown",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "grey",
+     "odds": 49850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_grey",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 49850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanisticcharcoal",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "acromelanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "scarborne",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "frostbite",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "gravehide",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "hollow",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "razorwind",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "vanguard",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 15,
+     "key": "twinsoul",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 16,
+     "key": "dawnbreak",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 17,
+     "key": "battlethorn",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      30.0,
+      60.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      30.0,
+      35.0
+     ],
+     "weight": [
+      30.0,
+      60.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      40.0,
+      42.0
+     ],
+     "weight": [
+      80.0,
+      90.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      33.0,
+      40.0
+     ],
+     "weight": [
+      45.0,
+      80.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "greater_grison": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "pale",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "erythristic_chocolate",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      140.0,
+      280.0
+     ],
+     "weight": [
+      1.4,
+      2.8
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      180.0,
+      380.0
+     ],
+     "weight": [
+      1.8,
+      3.8
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "gredos_ibex": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "gray_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown_hybrid",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "buff",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_grey",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "grey",
+     "odds": 18675,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      41.251,
+      50.0
+     ],
+     "weight": [
+      35.0,
+      70.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      41.251,
+      106.719
+     ],
+     "weight": [
+      70.0,
+      102.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "green_wing_teal": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_green",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_green",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      300.0,
+      450.0
+     ],
+     "weight": [
+      0.3,
+      0.45
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      300.0,
+      500.0
+     ],
+     "weight": [
+      0.3,
+      0.5
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "greylag_goose": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 74898,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "hybrid",
+     "odds": 17,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 17,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 17,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 17,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 17,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 17,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.5,
+      3.5
+     ],
+     "weight": [
+      2.5,
+      3.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      2.5,
+      4.0
+     ],
+     "weight": [
+      2.5,
+      4.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "grizzly_bear": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "gray_brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "brown",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 150,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      48.5,
+      54.0
+     ],
+     "weight": [
+      165.0,
+      300.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      51.0,
+      69.0
+     ],
+     "weight": [
+      225.0,
+      680.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "grouse": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "hare": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "harlequin_duck": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "piebald",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "grey",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_grey",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      4.8,
+      6.8
+     ],
+     "weight": [
+      0.48,
+      0.68
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      5.8,
+      7.5
+     ],
+     "weight": [
+      0.58,
+      0.75
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "hazel_grouse": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "hybrid",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "pale",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "ochre",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "dark",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      300.0,
+      400.0
+     ],
+     "weight": [
+      0.3,
+      0.4
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      300.0,
+      450.0
+     ],
+     "weight": [
+      0.3,
+      0.45
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "hog_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "spotted",
+     "odds": 6250,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 6250,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "spotted_dark",
+     "odds": 6250,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "spotted_dark",
+     "odds": 6250,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      25.0,
+      35.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      32.53,
+      117.151
+     ],
+     "weight": [
+      39.0,
+      50.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "homo_sapien": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_grey",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {},
+   "trophy": "weight"
+  },
+  "iberian_mouflon": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      30.0,
+      40.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      73.424,
+      191.36
+     ],
+     "weight": [
+      40.0,
+      60.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "iberian_wolf": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "pristine",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "olive",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "winter",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "sombra",
+     "odds": 0,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "fantasma",
+     "odds": 0,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "gray_brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "ogro",
+     "odds": 0,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "grey",
+     "odds": 25000,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      30.0,
+      35.0
+     ],
+     "weight": [
+      30.0,
+      40.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      33.0,
+      40.0
+     ],
+     "weight": [
+      35.0,
+      50.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "jackrabbit": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "beige",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 75,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 18675,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.0,
+      4.6
+     ],
+     "weight": [
+      2.0,
+      4.6
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.9,
+      6.83
+     ],
+     "weight": [
+      1.9,
+      6.83
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "jaguar": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "rosetted",
+     "odds": 44825,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "spotted",
+     "odds": 44825,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanisticcharcoal",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 5000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "pseudo_melanistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 8,
+     "key": "umbrafade",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "vellum",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "giltdusk",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "tapestry",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "rosewash",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "porcelain",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "ivorybark",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 15,
+     "key": "oldscar",
+     "odds": 0,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      60.0,
+      90.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      32.5,
+      38.5
+     ],
+     "weight": [
+      60.0,
+      90.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      45.0,
+      49.0
+     ],
+     "weight": [
+      120.0,
+      140.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      39.0,
+      45.0
+     ],
+     "weight": [
+      90.0,
+      120.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "javan_rusa": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "tone",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "white_brown",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      64.0,
+      84.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      40.578,
+      160.81
+     ],
+     "weight": [
+      152.0,
+      172.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "landfowl": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "lesser_kudu": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dusky",
+     "odds": 75,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "red_brown",
+     "odds": 75,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 55,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "grey",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      50.0,
+      95.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      95.317,
+      157.901
+     ],
+     "weight": [
+      60.0,
+      105.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "lion": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "blonde",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "tan",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 25000,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      35.0,
+      42.222
+     ],
+     "weight": [
+      135.0,
+      200.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      38.889,
+      50.0
+     ],
+     "weight": [
+      170.0,
+      270.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "lynx": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "magpie_goose": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "yellow",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "maroon",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.4,
+      2.8
+     ],
+     "weight": [
+      1.4,
+      2.8
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.8,
+      3.2
+     ],
+     "weight": [
+      1.8,
+      3.2
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "mallard": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "piebald",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "blonde",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "black_brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown_hybrid",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      7.2,
+      16.0
+     ],
+     "weight": [
+      0.72,
+      1.6
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      9.5,
+      21.0
+     ],
+     "weight": [
+      0.95,
+      2.1
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "mammal": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "manitoban_elk": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown_maned",
+     "odds": 74701,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      230.0,
+      320.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      61.007,
+      501.63
+     ],
+     "weight": [
+      320.0,
+      450.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "mexican_bobcat": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "blue",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "red",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "tan",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      15.99,
+      20.554
+     ],
+     "weight": [
+      4.0,
+      15.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      19.501,
+      28.98
+     ],
+     "weight": [
+      6.0,
+      18.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "moose": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "tan",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "tan",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "dark_brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "nz_moose_mocha",
+     "odds": 0,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "great_one_moose_a",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "great_one_moose_b",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "great_one_moose_c",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "great_one_moose_d",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "great_one_moose_e",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 15,
+     "key": "great_one_moose_f",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 16,
+     "key": "acromelanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 17,
+     "key": "mosaic",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      320.0,
+      440.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      320.0,
+      440.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      181.082,
+      295.059
+     ],
+     "weight": [
+      621.0,
+      700.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      32.296,
+      301.959
+     ],
+     "weight": [
+      400.0,
+      620.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "mountain_goat": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "beige",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "white",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 150,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 150,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_grey",
+     "odds": 74700,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      37.021,
+      85.251
+     ],
+     "weight": [
+      45.0,
+      105.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      48.543,
+      115.529
+     ],
+     "weight": [
+      60.0,
+      145.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "mountain_hare": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_brown",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "molting",
+     "odds": 66,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "molting",
+     "odds": 66,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "white",
+     "odds": 66,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.0,
+      6.0
+     ],
+     "weight": [
+      2.0,
+      6.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      2.0,
+      4.0
+     ],
+     "weight": [
+      2.0,
+      4.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "mule_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "blonde",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dilute",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "grey",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "great_one_muledeer_broderbuck",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "great_one_muledeer_deadtree",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "great_one_muledeer_corkscrew",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "great_one_muledeer_velvetstripes",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "great_one_muledeer_cobweb",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "great_one_muledeer_rosethorns",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 15,
+     "key": "erythristic_isabelline",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 16,
+     "key": "erythristic_red",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 17,
+     "key": "mosaic",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      70.0,
+      110.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      70.0,
+      110.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      279.419,
+      702.846
+     ],
+     "weight": [
+      211.0,
+      230.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      37.128,
+      342.483
+     ],
+     "weight": [
+      100.0,
+      210.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "mustelid": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "nilgai": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "blue",
+     "odds": 37400,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 37400,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      100.0,
+      213.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      61.832,
+      98.566
+     ],
+     "weight": [
+      109.0,
+      308.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "north_american_beaver": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 74701,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "reddish_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      16.0,
+      32.0
+     ],
+     "weight": [
+      16.0,
+      32.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      16.0,
+      30.0
+     ],
+     "weight": [
+      16.0,
+      30.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "northern_bobwhite_quail": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 99000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "red_brown",
+     "odds": 99000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "grey",
+     "odds": 99000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 8,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      130.0,
+      175.0
+     ],
+     "weight": [
+      0.13,
+      0.175
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      130.0,
+      250.0
+     ],
+     "weight": [
+      0.13,
+      0.25
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "northern_pintail": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "erythristic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "eclipse",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "bright",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      500.0,
+      900.0
+     ],
+     "weight": [
+      0.5,
+      0.9
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      600.0,
+      1100.0
+     ],
+     "weight": [
+      0.6,
+      1.1
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "northern_red_muntjac": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "red",
+     "odds": 49875,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "leucistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 67,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "red",
+     "odds": 49875,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      10.0,
+      16.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      22.403,
+      36.673
+     ],
+     "weight": [
+      12.0,
+      28.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "ocelot": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "bold",
+     "odds": 33267,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "fine",
+     "odds": 33267,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "rosetted",
+     "odds": 33267,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanisticcharcoal",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "pseudo_melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "erythristic_red",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "erythristic_isabelline",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      15.99,
+      20.554
+     ],
+     "weight": [
+      7.0,
+      12.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      19.501,
+      28.98
+     ],
+     "weight": [
+      8.0,
+      16.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "pheasant": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "pig": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "plains_bison": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      98.947,
+      173.817
+     ],
+     "weight": [
+      350.0,
+      550.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      105.599,
+      192.897
+     ],
+     "weight": [
+      450.0,
+      1200.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "prong_horn": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "tan",
+     "odds": 37300,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 25001,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 37300,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      54.827,
+      63.047
+     ],
+     "weight": [
+      35.0,
+      50.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      53.263,
+      118.195
+     ],
+     "weight": [
+      40.0,
+      65.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "puma": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_red",
+     "odds": 12465,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "light_brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "grey",
+     "odds": 12465,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      30.0,
+      34.605
+     ],
+     "weight": [
+      29.0,
+      64.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      34.737,
+      40.0
+     ],
+     "weight": [
+      65.0,
+      105.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "quail": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "rabbit": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "raccoon": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "blonde",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald_blonde",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald_grey",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.0,
+      6.0
+     ],
+     "weight": [
+      3.0,
+      6.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      4.0,
+      13.0
+     ],
+     "weight": [
+      4.0,
+      13.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "raccoon_dog": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "black_white",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "orange",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_brown",
+     "odds": 200,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 26,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 26,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 26,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.0,
+      6.5
+     ],
+     "weight": [
+      3.0,
+      6.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.0,
+      10.0
+     ],
+     "weight": [
+      3.0,
+      10.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "red_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "light_brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dark_brown",
+     "odds": 16617,
+     "rarity": 0
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "great_one_red_deer",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 11,
+     "key": "erythristic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 12,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      120.0,
+      170.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      120.0,
+      170.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      238.771,
+      279.537
+     ],
+     "weight": [
+      241.0,
+      260.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      44.627,
+      274.015
+     ],
+     "weight": [
+      160.0,
+      240.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "red_fox": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "red",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_red",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "red",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "dark_red",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "great_one_red_fox_cherry_blossom",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "great_one_red_fox_scarlet_nightshade",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "great_one_red_fox_rosebud_frost",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "great_one_red_fox_mystic_snowdrop",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "great_one_red_fox_peppermint",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "great_one_red_fox_licorice",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 15,
+     "key": "great_one_red_fox_candy_cane",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 16,
+     "key": "great_one_red_fox_blood_moon",
+     "odds": 34,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 17,
+     "key": "great_one_red_fox_midnight_poppy",
+     "odds": 34,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      1.98,
+      12.6
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      1.98,
+      12.6
+     ],
+     "weight": [
+      1.98,
+      12.6
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      15.5,
+      19.0
+     ],
+     "weight": [
+      15.5,
+      19.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      2.42,
+      15.4
+     ],
+     "weight": [
+      2.42,
+      15.4
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "red_grouse": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "red",
+     "odds": 24925,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_red",
+     "odds": 24925,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 24925,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_brown",
+     "odds": 24925,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      52.5,
+      70.0
+     ],
+     "weight": [
+      0.525,
+      0.7
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      53.5,
+      75.0
+     ],
+     "weight": [
+      0.535,
+      0.75
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "red_squirrel": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_red",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "red",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "orange",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "red_brown",
+     "odds": 100,
+     "rarity": 0
+    }
+   ],
+   "scoring": {},
+   "trophy": ""
+  },
+  "reindeer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "tan",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 75,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 75,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      73.194,
+      158.0
+     ],
+     "weight": [
+      80.0,
+      120.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      73.194,
+      469.903
+     ],
+     "weight": [
+      159.0,
+      182.0
+     ]
+    }
+   },
+   "trophy": "antlers"
+  },
+  "reptile": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "rio_grande_turkey": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "buff",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "lightbuff",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.0,
+      4.0
+     ],
+     "weight": [
+      3.6,
+      5.4
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.8,
+      4.8
+     ],
+     "weight": [
+      6.8,
+      11.0
+     ]
+    }
+   },
+   "trophy": "combined"
+  },
+  "rock_ptarmigan": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "bicolor",
+     "odds": 10671,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "mottled",
+     "odds": 10671,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "mottled",
+     "odds": 10671,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "molting",
+     "odds": 21342,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "molting",
+     "odds": 21342,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "white",
+     "odds": 200,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      430.0,
+      700.0
+     ],
+     "weight": [
+      0.43,
+      0.7
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      440.0,
+      740.0
+     ],
+     "weight": [
+      0.44,
+      0.74
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "rockymountain_elk": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_grey",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      200.0,
+      250.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      91.137,
+      524.777
+     ],
+     "weight": [
+      280.0,
+      480.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "rodent": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "roe_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "tan",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_grey",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dark_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "leucistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "go1",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "go2",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "go3",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "go4",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 15,
+     "key": "go5",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 16,
+     "key": "go6",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      14.0,
+      33.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      14.0,
+      33.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      120.915,
+      167.04
+     ],
+     "weight": [
+      36.0,
+      42.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      29.386,
+      87.697
+     ],
+     "weight": [
+      18.0,
+      35.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "ronda_ibex": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "gray_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown_hybrid",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "buff",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "light_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "grey",
+     "odds": 18675,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      58.244,
+      70.0
+     ],
+     "weight": [
+      35.0,
+      70.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      58.244,
+      113.517
+     ],
+     "weight": [
+      45.0,
+      70.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "roosevelt_elk": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "tan",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "tan",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "orange",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      260.0,
+      285.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      56.666,
+      416.861
+     ],
+     "weight": [
+      300.0,
+      500.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "saltwater_crocodile": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "olive",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      250.0,
+      400.0
+     ],
+     "weight": [
+      125.0,
+      200.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      350.0,
+      1100.0
+     ],
+     "weight": [
+      350.0,
+      1100.0
+     ]
+    }
+   },
+   "trophy": "length"
+  },
+  "sambar": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "duskygradient",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      180.0,
+      230.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      39.775,
+      180.507
+     ],
+     "weight": [
+      250.0,
+      300.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "scrub_hare": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 2500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_grey",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "chestnut",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.5,
+      5.8
+     ],
+     "weight": [
+      1.5,
+      5.8
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.9,
+      5.1
+     ],
+     "weight": [
+      1.9,
+      5.1
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "sheep": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "siberian_musk_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "gray_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "orange",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "gray_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "dark_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      7.0,
+      17.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      6.0,
+      276.0
+     ],
+     "weight": [
+      7.0,
+      17.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "siberian_weasel": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "orange",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "red",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "red_brown",
+     "odds": 100,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "dark_red",
+     "odds": 100,
+     "rarity": 0
+    }
+   ],
+   "scoring": {},
+   "trophy": ""
+  },
+  "sidestriped_jackal": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 24930,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "ghost",
+     "odds": 0,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "gray_brown",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      13.228,
+      22.046
+     ],
+     "weight": [
+      6.0,
+      10.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      15.432,
+      30.865
+     ],
+     "weight": [
+      7.0,
+      14.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "sika_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "spotted_dark",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "spotted_red",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "spotted",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      25.0,
+      42.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      11.735,
+      219.524
+     ],
+     "weight": [
+      30.0,
+      75.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "snow_goose": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "blue_morph",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "hybrid",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "white_morph",
+     "odds": 99600,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "intermediate_morph",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.5,
+      3.5
+     ],
+     "weight": [
+      2.5,
+      3.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      2.5,
+      4.0
+     ],
+     "weight": [
+      2.5,
+      4.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "snow_leopard": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "snow",
+     "odds": 73800,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "caramel",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 500,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 500,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 200,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      20.0,
+      24.044
+     ],
+     "weight": [
+      28.0,
+      45.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      24.044,
+      30.0
+     ],
+     "weight": [
+      45.0,
+      75.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "south_american_tapir": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 33233,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 33233,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown_grey",
+     "odds": 33233,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 101,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 101,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "erythristic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      100.0,
+      150.0
+     ],
+     "weight": [
+      200.0,
+      300.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      90.0,
+      140.0
+     ],
+     "weight": [
+      180.0,
+      280.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "southeastern_ibex": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "gray_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_grey",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "buff",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown_hybrid",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "orange",
+     "odds": 18675,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      38.32,
+      60.0
+     ],
+     "weight": [
+      35.0,
+      70.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      38.32,
+      95.387
+     ],
+     "weight": [
+      35.0,
+      87.5
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "spectacled_bear": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "xmarkings",
+     "odds": 24850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "glassesmarkings",
+     "odds": 24850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "messymarkings",
+     "odds": 24850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "abundantmarkings",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "minimalisticmarkings",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "nomarkings",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "blondfaced",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 11,
+     "key": "erythristic_red",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 12,
+     "key": "erythristic_isabelline",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      6.5,
+      11.5
+     ],
+     "weight": [
+      35.0,
+      82.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      12.0,
+      22.0
+     ],
+     "weight": [
+      100.0,
+      200.0
+     ]
+    }
+   },
+   "trophy": "skull"
+  },
+  "springbok": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black_brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "black_brown",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 75,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "tan",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "orange",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      24.433,
+      58.272
+     ],
+     "weight": [
+      27.0,
+      37.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      31.299,
+      84.57
+     ],
+     "weight": [
+      32.0,
+      42.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "stubble_quail": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "gray_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "gray_brown",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "grey",
+     "odds": 18675,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark_brown",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      90.0,
+      130.0
+     ],
+     "weight": [
+      0.09,
+      0.13
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      90.0,
+      130.0
+     ],
+     "weight": [
+      0.09,
+      0.13
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "tahr": {
+   "furs": [
+    {
+     "great_one": true,
+     "index": 0,
+     "key": "great_one_tahr_snow",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 1,
+     "key": "great_one_tahr_skull",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 2,
+     "key": "great_one_tahr_scars",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 3,
+     "key": "great_one_tahr_latte",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 4,
+     "key": "great_one_tahr_half",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 5,
+     "key": "great_one_tahr_grey",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 6,
+     "key": "great_one_tahr_gold",
+     "odds": 20,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "red_brown",
+     "odds": 74450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "straw",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "red",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 11,
+     "key": "dark_brown",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 12,
+     "key": "black",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 13,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 14,
+     "key": "white",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 15,
+     "key": "dark_red",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      50.0,
+      70.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      49.628,
+      70.873
+     ],
+     "weight": [
+      50.0,
+      70.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      115.272,
+      140.191
+     ],
+     "weight": [
+      141.0,
+      180.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      52.167,
+      107.685
+     ],
+     "weight": [
+      80.0,
+      140.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "taruca": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "melanistic",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "erythristic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 8,
+     "key": "starthistle",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "saffronglow",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 10,
+     "key": "stormcloak",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "cirrus",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "eclipse_go",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      42.0,
+      58.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      42.0,
+      58.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      118.554,
+      160.341
+     ],
+     "weight": [
+      73.0,
+      83.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      57.609,
+      106.555
+     ],
+     "weight": [
+      52.0,
+      72.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "tibetan_fox": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "red",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "orange",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "tawny",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "grey",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "smoke",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "sand",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      2.5,
+      5.8
+     ],
+     "weight": [
+      3.0,
+      5.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.5,
+      6.8
+     ],
+     "weight": [
+      4.0,
+      6.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "tufted_duck": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "black",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "eclipse",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "cream",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      630.0,
+      900.0
+     ],
+     "weight": [
+      0.63,
+      0.9
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      750.0,
+      1000.0
+     ],
+     "weight": [
+      0.75,
+      1.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "tundra_bean_goose": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_grey",
+     "odds": 6250,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_grey",
+     "odds": 6250,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.9,
+      2.8
+     ],
+     "weight": [
+      1.9,
+      2.8
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.9,
+      3.3
+     ],
+     "weight": [
+      1.9,
+      3.3
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "turkey": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "unknown": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_grey",
+     "odds": 24900,
+     "rarity": 0
+    }
+   ],
+   "scoring": {},
+   "trophy": "weight"
+  },
+  "vicuna": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "beige",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "erythristic_isabelline",
+     "odds": 50,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "dilute_silver",
+     "odds": 50,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      160.0,
+      200.0
+     ],
+     "weight": [
+      40.0,
+      50.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      180.0,
+      220.0
+     ],
+     "weight": [
+      45.0,
+      55.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "warthog": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "red_brown",
+     "odds": 24930,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "red",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 75,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "grey",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "dark",
+     "odds": 37350,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      15.0,
+      25.0
+     ],
+     "weight": [
+      45.0,
+      80.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      25.0,
+      63.0
+     ],
+     "weight": [
+      60.0,
+      150.0
+     ]
+    }
+   },
+   "trophy": "tusks"
+  },
+  "water_buffalo": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "orange",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 37350,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "grey",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "black",
+     "odds": 2500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      60.488,
+      102.0
+     ],
+     "weight": [
+      520.0,
+      1025.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      80.0,
+      179.439
+     ],
+     "weight": [
+      680.0,
+      1250.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "waterfowl": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "western_capercaillie": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "leucistic",
+     "odds": 66,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "pale",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "bright",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "ochre",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.5,
+      2.5
+     ],
+     "weight": [
+      1.5,
+      2.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.6,
+      5.0
+     ],
+     "weight": [
+      3.6,
+      5.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "western_mountain_coati": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 37351,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 37351,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "orange",
+     "odds": 25000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.0,
+      1.5
+     ],
+     "weight": [
+      1.0,
+      1.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.0,
+      1.5
+     ],
+     "weight": [
+      1.0,
+      1.5
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "whitetail_deer": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 25000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 25000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 38,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "tan",
+     "odds": 25000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "brown",
+     "odds": 25000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "red_brown",
+     "odds": 25000,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "dark_brown",
+     "odds": 25000,
+     "rarity": 0
+    },
+    {
+     "great_one": true,
+     "index": 9,
+     "key": "great_one_whitetail",
+     "odds": 38,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      60.0,
+      70.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      40.0,
+      59.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      296.247,
+      643.632
+     ],
+     "weight": [
+      101.0,
+      110.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      71.181,
+      275.535
+     ],
+     "weight": [
+      59.0,
+      100.0
+     ]
+    }
+   },
+   "trophy": "none"
+  },
+  "wild_boar": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "blackgold",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "light_brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "dark_brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "brown",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "purplegrey",
+     "odds": 150,
+     "rarity": 2
+    },
+    {
+     "great_one": true,
+     "index": 11,
+     "key": "GO_0",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 12,
+     "key": "GO_1",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 13,
+     "key": "GO_2",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 14,
+     "key": "GO_3",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 15,
+     "key": "GO_4",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 16,
+     "key": "GO_5",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 17,
+     "key": "GO_6",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 18,
+     "key": "GO_7",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": true,
+     "index": 19,
+     "key": "GO_8",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_GreatOne_Scoring": {
+     "score": [
+      0.0,
+      0.0
+     ],
+     "weight": [
+      169.0,
+      189.0
+     ]
+    },
+    "Female_Scoring": {
+     "score": [
+      7.0,
+      81.5
+     ],
+     "weight": [
+      25.0,
+      168.0
+     ]
+    },
+    "Male_GreatOne_Scoring": {
+     "score": [
+      160.0,
+      180.0
+     ],
+     "weight": [
+      241.0,
+      261.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      7.0,
+      159.5
+     ],
+     "weight": [
+      32.0,
+      240.0
+     ]
+    }
+   },
+   "trophy": "tusks"
+  },
+  "wild_haggis": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "bald_spotted",
+     "odds": 25,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "bald_calico",
+     "odds": 25,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "crested_blond",
+     "odds": 25,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "crested_brown",
+     "odds": 25,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "furry_charred_cinnamon",
+     "odds": 25,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "furry_tawny",
+     "odds": 25,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "variation_trophy_bald_spotted",
+     "odds": 0,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "variation_trophy_baldcalico",
+     "odds": 0,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "variation_trophy_crested_blond",
+     "odds": 0,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "variation_trophy_crested_brown",
+     "odds": 0,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 10,
+     "key": "variation_trophy_furry_charred_cinnamon",
+     "odds": 0,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 11,
+     "key": "variation_trophy_furry_tawny",
+     "odds": 0,
+     "rarity": 0
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      30.0,
+      55.0
+     ],
+     "weight": [
+      3.0,
+      5.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      30.0,
+      60.0
+     ],
+     "weight": [
+      3.0,
+      6.0
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "wild_turkey": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "brown",
+     "odds": 74700,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "light_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "leucistic",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "melanistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_brown",
+     "odds": 12500,
+     "rarity": 1
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      3.0,
+      4.0
+     ],
+     "weight": [
+      3.6,
+      5.4
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      3.8,
+      4.8
+     ],
+     "weight": [
+      6.8,
+      11.0
+     ]
+    }
+   },
+   "trophy": "combined"
+  },
+  "wild_yak": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "dark_red_brown",
+     "odds": 24950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "dark_brown",
+     "odds": 24950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_red",
+     "odds": 24950,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "jet_brown",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "jet_black",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "gold",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "leucistic",
+     "odds": 50,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      146.424,
+      172.216
+     ],
+     "weight": [
+      500.0,
+      700.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      193.444,
+      287.323
+     ],
+     "weight": [
+      900.0,
+      1200.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "willow_ptarmigan": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "bicolor",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "bicolor",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "brown",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "molting",
+     "odds": 24900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "molting",
+     "odds": 12450,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "white",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "erythristic",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      430.0,
+      790.0
+     ],
+     "weight": [
+      0.43,
+      0.79
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      430.0,
+      810.0
+     ],
+     "weight": [
+      0.43,
+      0.81
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "wolf": {
+   "furs": [],
+   "scoring": {},
+   "trophy": ""
+  },
+  "wood_bison": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 74701,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "ginger",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "gingersplit",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      79.274,
+      121.766
+     ],
+     "weight": [
+      400.0,
+      600.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      90.684,
+      166.75
+     ],
+     "weight": [
+      500.0,
+      1350.0
+     ]
+    }
+   },
+   "trophy": "horns"
+  },
+  "wood_duck": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "standard",
+     "odds": 37425,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "standard",
+     "odds": 37425,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "dark",
+     "odds": 12500,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "piebald",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dilute_silver",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "erythristic_golden",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 7,
+     "key": "melanistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 8,
+     "key": "leucistic",
+     "odds": 25,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 9,
+     "key": "albino",
+     "odds": 25,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      400.0,
+      600.0
+     ],
+     "weight": [
+      0.4,
+      0.6
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      500.0,
+      700.0
+     ],
+     "weight": [
+      0.5,
+      0.7
+     ]
+    }
+   },
+   "trophy": "weight"
+  },
+  "woodland_caribou": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "melanistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "leucistic",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "albino",
+     "odds": 33,
+     "rarity": 3
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "light_brown",
+     "odds": 49850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "dark_brown",
+     "odds": 49850,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 6,
+     "key": "piebald",
+     "odds": 100,
+     "rarity": 2
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      73.194,
+      158.0
+     ],
+     "weight": [
+      75.0,
+      125.0
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      73.194,
+      469.903
+     ],
+     "weight": [
+      150.0,
+      190.0
+     ]
+    }
+   },
+   "trophy": "antlers"
+  },
+  "woolly_hare": {
+   "furs": [
+    {
+     "great_one": false,
+     "index": 0,
+     "key": "light_brown",
+     "odds": 27900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 1,
+     "key": "light_grey",
+     "odds": 27900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 2,
+     "key": "dark_brown",
+     "odds": 27900,
+     "rarity": 0
+    },
+    {
+     "great_one": false,
+     "index": 3,
+     "key": "molting",
+     "odds": 16000,
+     "rarity": 1
+    },
+    {
+     "great_one": false,
+     "index": 4,
+     "key": "white",
+     "odds": 200,
+     "rarity": 2
+    },
+    {
+     "great_one": false,
+     "index": 5,
+     "key": "albino",
+     "odds": 100,
+     "rarity": 3
+    }
+   ],
+   "scoring": {
+    "Female_Scoring": {
+     "score": [
+      1.5,
+      3.5
+     ],
+     "weight": [
+      1.5,
+      3.5
+     ]
+    },
+    "Male_Scoring": {
+     "score": [
+      1.3,
+      3.4
+     ],
+     "weight": [
+      1.3,
+      3.4
+     ]
+    }
+   },
+   "trophy": "weight"
+  }
+ }
+}
