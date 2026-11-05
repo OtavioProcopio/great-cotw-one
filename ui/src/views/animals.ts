@@ -37,9 +37,13 @@ function speciesCard(entry: SpeciesEntry, selected: boolean): string {
     living && living.greatOnes > 0
       ? `<span class="badge badge-warn">${icon('star', 12)} ${e(t('animals.greatOnes', { count: living.greatOnes }))}</span>`
       : '';
+  const diamonds =
+    living && living.diamonds > 0
+      ? `<span class="badge badge-ok">${icon('star', 12)} ${e(t('animals.diamonds', { count: living.diamonds }))}</span>`
+      : '';
   return `<li><button class="species-card" data-action="pick-species" data-species="${e(entry.id)}" data-name="${e(entry.name.toLowerCase())}" aria-pressed="${String(selected)}" style="--hue:${String(hueOf(entry.id))}">
     <span class="species-icon" aria-hidden="true">${icon('paw', 22)}</span>
-    <span class="species-text"><strong>${e(entry.name)}</strong><span class="muted">${e(detail)}</span>${star}</span>
+    <span class="species-text"><strong>${e(entry.name)}</strong><span class="muted">${e(detail)}</span>${diamonds}${star}</span>
   </button></li>`;
 }
 
@@ -72,6 +76,8 @@ function detailCard(list: AnimalReserve[], reserve: AnimalReserve, entry: Specie
         ${metric(t('animals.bestScore'), formatCount(Math.round(living.bestScore)))}
         ${metric(t('animals.heaviest'), t('animals.kg', { value: formatCount(Math.round(living.heaviest)) }))}
         ${metric('Great One', formatCount(living.greatOnes))}
+        ${metric(t('animals.diamondsLabel'), formatCount(living.diamonds))}
+        ${living.diamondMin === null ? '' : metric(t('animals.diamondMin'), formatCount(Math.round(living.diamondMin)))}
       </ul>`
     : `<p class="muted">${e(t('animals.noSave'))}</p>`;
   const harvests =

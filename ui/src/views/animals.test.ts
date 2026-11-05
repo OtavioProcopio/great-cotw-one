@@ -40,6 +40,7 @@ describe('renderAnimals', () => {
     expect(root.querySelectorAll('.species-card')).toHaveLength(2);
     expect(root.textContent).toContain('9 animais em 3 grupos');
     expect(root.textContent).toContain('1 Great One');
+    expect(root.textContent).toContain('2 diamante(s)');
     expect(root.textContent).toContain('Sem animais no seu progresso');
     expect(root.querySelector('.species-detail')).toBeNull();
   });
@@ -52,6 +53,8 @@ describe('renderAnimals', () => {
     expect(root.querySelector('.chip-link[aria-pressed="true"]')?.textContent).toBe('Medved-Taiga');
     expect(detail?.textContent).toContain('♂ 4 · ♀ 5');
     expect(detail?.textContent).toContain('640 kg');
+    expect(detail?.textContent).toContain('Diamante a partir de (pontos)');
+    expect(detail?.textContent).toContain('255');
     expect(root.querySelectorAll('.harvests li')).toHaveLength(2);
     expect(root.querySelector('.medal')?.textContent).toBe('★★★');
     expect(root.querySelectorAll('.medal')[1]?.textContent).toBe('sem medalha');

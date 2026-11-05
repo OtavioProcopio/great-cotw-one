@@ -83,6 +83,42 @@ pub fn get(species: &str) -> Option<&'static SpeciesStats> {
     table().get(species)
 }
 
+/// Nomes que o mapa de aparição usa e que diferem dos da tabela de espécies (apelido, nome na tabela).
+const ALIASES: &[(&str, &str)] = &[
+    ("bean_goose", "tundra_bean_goose"),
+    ("bison_upper", "eu_bison"),
+    ("european_bison", "eu_bison"),
+    ("blacktail", "blacktail_deer"),
+    ("boar", "wild_boar"),
+    ("wildhog", "wild_boar"),
+    ("brown_bear", "eurasian_brown_bear"),
+    ("capercaillie", "western_capercaillie"),
+    ("elk", "roosevelt_elk"),
+    ("european_hare", "eu_hare"),
+    ("fallow", "fallow_deer"),
+    ("grey_fox", "gray_fox"),
+    ("jackal", "sidestriped_jackal"),
+    ("side_striped_jackal", "sidestriped_jackal"),
+    ("musk_deer", "siberian_musk_deer"),
+    ("peccary", "collared_peccary"),
+    ("pronghorn", "prong_horn"),
+    ("rocky_mountain_elk", "rockymountain_elk"),
+    ("roe", "roe_deer"),
+    ("southeastern_spanish_ibex", "southeastern_ibex"),
+    ("whitetail", "whitetail_deer"),
+];
+
+/// Como [`get`], mas aceita também os apelidos que o mapa de aparição usa para algumas espécies.
+#[must_use]
+pub fn lookup(species: &str) -> Option<&'static SpeciesStats> {
+    get(species).or_else(|| {
+        ALIASES
+            .iter()
+            .find(|(alias, _)| *alias == species)
+            .and_then(|(_, id)| get(id))
+    })
+}
+
 /// Todas as espécies conhecidas, em ordem alfabética do `id`.
 pub fn all() -> impl Iterator<Item = (&'static str, &'static SpeciesStats)> {
     table().iter().map(|(id, s)| (id.as_str(), s))
@@ -190,6 +226,15 @@ mod tests {
         let old_scar = jaguar.furs.iter().find(|f| f.key == "oldscar").unwrap();
         assert_eq!(old_scar.odds, 0);
         assert!(jaguar.fur_chances().iter().all(|(f, _)| f.key != "oldscar"));
+    }
+
+    #[test]
+    fn every_alias_points_to_a_species_in_the_table() {
+        for (alias, id) in ALIASES {
+            assert!(get(id).is_some(), "{alias} -> {id}");
+            assert!(lookup(alias).is_some());
+        }
+        assert!(lookup("boar").is_some() && get("boar").is_none());
     }
 
     #[test]

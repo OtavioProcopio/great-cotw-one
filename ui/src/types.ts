@@ -186,6 +186,8 @@ export interface Living {
   males: number;
   females: number;
   greatOnes: number;
+  diamonds: number;
+  diamondMin: number | null;
   bestScore: number;
   heaviest: number;
 }

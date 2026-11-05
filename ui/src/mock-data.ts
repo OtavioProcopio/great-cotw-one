@@ -149,6 +149,8 @@ export function mockAnimals(): AnimalReserve[] {
               males: 3 + (i % 9),
               females: 3 + ((i + r) % 12),
               greatOnes: i % 4 === 0 ? 1 : 0,
+              diamonds: i % 3 === 0 ? 2 : 0,
+              diamondMin: 120,
               bestScore: 180 + i * 23,
               heaviest: 90 + i * 70,
             }

@@ -179,7 +179,7 @@ export const sampleAnimals: AnimalReserve[] = [
         id: 'moose',
         name: 'Alce',
         areas: 1_200,
-        living: { groups: 3, animals: 9, males: 4, females: 5, greatOnes: 1, bestScore: 312.4, heaviest: 640 },
+        living: { groups: 3, animals: 9, males: 4, females: 5, greatOnes: 1, diamonds: 2, diamondMin: 255.1, bestScore: 312.4, heaviest: 640 },
         harvests: [
           { score: 301.5, medal: 3, at: 1_622_753_604 },
           { score: 120, medal: 0, at: 0 },

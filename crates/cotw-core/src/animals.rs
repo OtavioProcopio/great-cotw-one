@@ -17,6 +17,7 @@ use crate::discovery::reserve_name;
 use crate::language::Language;
 use crate::mapview::{self, MapError, read_adf};
 use crate::species::display_name;
+use crate::species_stats::{self, SpeciesStats};
 use crate::unlock::SpawnSource;
 use crate::zones::assign_species;
 
@@ -37,6 +38,10 @@ pub struct Living {
     pub females: usize,
     /// Animais Great One.
     pub great_ones: usize,
+    /// Machos na faixa de diamante (a partir de 90 % da faixa de pontos da espécie).
+    pub diamonds: usize,
+    /// Pontuação mínima do diamante da espécie, se o app a conhece.
+    pub diamond_min: Option<f64>,
     /// Maior pontuação de troféu entre os machos.
     pub best_score: f32,
     /// Maior peso, em quilos.
@@ -163,12 +168,15 @@ fn living_by_species(
         let Some(species) = species else {
             continue;
         };
+        let diamond_min = species_stats::lookup(&species).and_then(SpeciesStats::diamond_min);
         let living = found.entry(species).or_insert(Living {
             groups: 0,
             animals: 0,
             males: 0,
             females: 0,
             great_ones: 0,
+            diamonds: 0,
+            diamond_min,
             best_score: 0.0,
             heaviest: 0.0,
         });
@@ -178,6 +186,13 @@ fn living_by_species(
             if animal.male {
                 living.males += 1;
                 living.best_score = living.best_score.max(animal.score);
+                if !animal.great_one
+                    && living
+                        .diamond_min
+                        .is_some_and(|min| f64::from(animal.score) >= min)
+                {
+                    living.diamonds += 1;
+                }
             } else {
                 living.females += 1;
             }
