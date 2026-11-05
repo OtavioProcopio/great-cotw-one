@@ -69,7 +69,20 @@ Pontos de segurança:
    ```
    `systemctl enable --now great-cotw-license` e confira `https://licencas.seudominio.com/health`.
 6. **Faça backup de `orders.json`** (é o registro das vendas) e do `private.key`.
-7. No app, preencha `LICENSE_SERVER` em `crates/cotw-core/src/purchase.rs` com a URL do servidor e gere o instalador de novo. Para testar sem recompilar, numa compilação de depuração use a variável de ambiente `GREAT_COTW_LICENSE_SERVER`. Enquanto estiver vazio, o botão do plano avisa que a loja ainda não abriu.
+7. **Endereço no app, sem mexer no código:** o app lê `GREAT_COTW_LICENSE_SERVER` **na hora de compilar**.
+   Com a VPS no ar, gere o instalador assim (PowerShell):
+   ```
+   $env:GREAT_COTW_LICENSE_SERVER = "https://licencas.seudominio.com"
+   npm run tauri build
+   ```
+   No GitHub, cadastre a mesma variável em *Settings → Secrets and variables → Actions → Variables*
+   e passe-a no passo de build do workflow de release. Para testar sem gerar instalador, numa
+   compilação de depuração (`npm run tauri dev`) a mesma variável vale em tempo de execução.
+   Enquanto ela não existir, o botão do plano avisa que a loja ainda não abriu.
+
+   Ordem sugerida, tudo por variável: (1) desenvolver o app normalmente; (2) quando tiver acesso à
+   VPS, preencher `/etc/great-cotw-license.env` (passo 4) e subir o serviço; (3) compilar o
+   instalador com `GREAT_COTW_LICENSE_SERVER`.
 
 ## Testar ponta a ponta antes de vender
 

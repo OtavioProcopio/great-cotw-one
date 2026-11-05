@@ -13,8 +13,13 @@ use serde::{Deserialize, Serialize};
 
 use crate::license::LicenseStatus;
 
-/// Endereço do servidor de licenças (vazio até o servidor entrar no ar).
-pub const LICENSE_SERVER: &str = "";
+/// Endereço do servidor de licenças, fixado **na hora de compilar** pela variável de ambiente
+/// `GREAT_COTW_LICENSE_SERVER` (ex.: `https://licencas.exemplo.com`). Sem ela fica vazio e o
+/// botão de compra avisa que a loja ainda não abriu; o código não muda quando o servidor entrar.
+pub const LICENSE_SERVER: &str = match option_env!("GREAT_COTW_LICENSE_SERVER") {
+    Some(url) => url,
+    None => "",
+};
 
 /// Quanto tempo o app continua esperando um pagamento (24 horas).
 pub const WAIT_SECS: i64 = 86_400;
