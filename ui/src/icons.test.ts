@@ -1,19 +1,25 @@
 import { describe, expect, it } from 'vitest';
 
-import { icon, iconPath } from './icons';
+import { animalIcon, icon } from './icons';
 
-describe('icons', () => {
-  it('draws a decorative svg with the requested size', () => {
-    const markup = icon('map', 32);
-    expect(markup).toContain('width="32"');
-    expect(markup).toContain('aria-hidden="true"');
-    expect(markup).toContain(`d="${iconPath('map')}"`);
+describe('animalIcon', () => {
+  it('picks an icon from the class the game gives to the animal', () => {
+    expect(animalIcon('deer')).toBe('deer');
+    expect(animalIcon('duck')).toBe('bird');
+    expect(animalIcon('wolf')).toBe('canid');
+    expect(animalIcon('lynx')).toBe('cat');
+    expect(animalIcon('goat antelope')).toBe('horn');
+    expect(animalIcon('crocodilian')).toBe('croc');
   });
 
-  it('uses 20 pixels by default and keeps the text content empty', () => {
-    const root = document.createElement('div');
-    root.innerHTML = icon('leaf');
-    expect(root.querySelector('svg')?.getAttribute('width')).toBe('20');
-    expect(root.textContent).toBe('');
+  it('falls back to the paw for unknown classes', () => {
+    expect(animalIcon('')).toBe('paw');
+    expect(animalIcon('mammal')).toBe('paw');
+  });
+
+  it('draws every animal icon', () => {
+    for (const group of ['deer', 'bird', 'canid', 'cat', 'bear', 'pig', 'bovine', 'sheep', 'hare', 'crocodilian']) {
+      expect(icon(animalIcon(group))).toContain('<path d="M');
+    }
   });
 });

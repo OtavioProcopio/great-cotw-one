@@ -66,6 +66,7 @@
      "rarity": 3
     }
    ],
+   "group": "crocodilian",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -156,6 +157,7 @@
      "rarity": 3
     }
    ],
+   "group": "mustelid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -182,6 +184,7 @@
   },
   "antelope": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -230,6 +233,7 @@
      "rarity": 2
     }
    ],
+   "group": "hare",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -299,6 +303,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -375,6 +380,7 @@
      "rarity": 0
     }
    ],
+   "group": "cattle",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -465,6 +471,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -491,6 +498,7 @@
   },
   "bear": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -553,6 +561,7 @@
      "rarity": 0
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -650,6 +659,7 @@
      "rarity": 2
     }
    ],
+   "group": "cat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -740,6 +750,7 @@
      "rarity": 2
     }
    ],
+   "group": "sheep",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -766,11 +777,13 @@
   },
   "bird": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "bison": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -882,6 +895,7 @@
      "rarity": 3
     }
    ],
+   "group": "bear",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -978,6 +992,7 @@
      "rarity": 3
     }
    ],
+   "group": "crocodilian",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1075,6 +1090,7 @@
      "rarity": 3
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1158,6 +1174,7 @@
      "rarity": 1
     }
    ],
+   "group": "antelope",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1248,6 +1265,7 @@
      "rarity": 0
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1324,6 +1342,7 @@
      "rarity": 3
     }
    ],
+   "group": "sheep",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1386,6 +1405,7 @@
      "rarity": 0
     }
    ],
+   "group": "antelope",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1462,6 +1482,7 @@
      "rarity": 0
     }
    ],
+   "group": "lynx",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1488,16 +1509,19 @@
   },
   "bovid": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "bovine": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "buffalo": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -1553,6 +1577,7 @@
      "rarity": 3
     }
    ],
+   "group": "goose",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1579,6 +1604,7 @@
   },
   "canid": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -1620,6 +1646,7 @@
      "rarity": 1
     }
    ],
+   "group": "buffalo",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1689,6 +1716,7 @@
      "rarity": 3
     }
    ],
+   "group": "rodent",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1758,6 +1786,7 @@
      "rarity": 0
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1784,11 +1813,13 @@
   },
   "cat": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "cattle": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -1844,6 +1875,7 @@
      "rarity": 0
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1906,6 +1938,7 @@
      "rarity": 1
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -1989,6 +2022,7 @@
      "rarity": 3
     }
    ],
+   "group": "pig",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2079,6 +2113,7 @@
      "rarity": 0
     }
    ],
+   "group": "canid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2105,16 +2140,19 @@
   },
   "crocodilian": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "cryptid": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "deer": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -2198,6 +2236,7 @@
      "rarity": 3
     }
    ],
+   "group": "sheep",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2224,6 +2263,7 @@
   },
   "duck": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -2279,6 +2319,7 @@
      "rarity": 0
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2362,6 +2403,7 @@
      "rarity": 3
     }
    ],
+   "group": "rabbit",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2459,6 +2501,7 @@
      "rarity": 3
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2535,6 +2578,7 @@
      "rarity": 1
     }
    ],
+   "group": "turkey",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2625,6 +2669,7 @@
      "rarity": 0
     }
    ],
+   "group": "bison",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2694,6 +2739,7 @@
      "rarity": 0
     }
    ],
+   "group": "hare",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2777,6 +2823,7 @@
      "rarity": 0
     }
    ],
+   "group": "rabbit",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2895,6 +2942,7 @@
      "rarity": 0
     }
    ],
+   "group": "bear",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -2971,6 +3019,7 @@
      "rarity": 0
     }
    ],
+   "group": "lynx",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3061,6 +3110,7 @@
      "rarity": 2
     }
    ],
+   "group": "mustelid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3144,6 +3194,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3234,6 +3285,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3303,6 +3355,7 @@
      "rarity": 3
     }
    ],
+   "group": "landfowl",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3393,6 +3446,7 @@
      "rarity": 3
     }
    ],
+   "group": "mustelid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3588,6 +3642,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -3712,6 +3767,7 @@
      "rarity": 1
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3809,6 +3865,7 @@
      "rarity": 0
     }
    ],
+   "group": "pig",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3871,6 +3928,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -3897,6 +3955,7 @@
   },
   "fox": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -3945,6 +4004,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4007,6 +4067,7 @@
      "rarity": 0
     }
    ],
+   "group": "antelope",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4033,6 +4094,7 @@
   },
   "goat": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -4095,6 +4157,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4121,6 +4184,7 @@
   },
   "goose": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -4183,6 +4247,7 @@
      "rarity": 2
     }
    ],
+   "group": "fox",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4336,6 +4401,7 @@
      "rarity": 3
     }
    ],
+   "group": "wolf",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -4439,6 +4505,7 @@
      "rarity": 3
     }
    ],
+   "group": "mustelid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4522,6 +4589,7 @@
      "rarity": 0
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4591,6 +4659,7 @@
      "rarity": 0
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4674,6 +4743,7 @@
      "rarity": 3
     }
    ],
+   "group": "goose",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4736,6 +4806,7 @@
      "rarity": 2
     }
    ],
+   "group": "bear",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4762,11 +4833,13 @@
   },
   "grouse": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "hare": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -4822,6 +4895,7 @@
      "rarity": 0
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4905,6 +4979,7 @@
      "rarity": 1
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -4981,6 +5056,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5015,6 +5091,7 @@
      "rarity": 0
     }
    ],
+   "group": "",
    "scoring": {},
    "trophy": "weight"
   },
@@ -5063,6 +5140,7 @@
      "rarity": 3
     }
    ],
+   "group": "sheep",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5160,6 +5238,7 @@
      "rarity": 1
     }
    ],
+   "group": "wolf",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5222,6 +5301,7 @@
      "rarity": 0
     }
    ],
+   "group": "hare",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5361,6 +5441,7 @@
      "rarity": 2
     }
    ],
+   "group": "cat",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -5464,6 +5545,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5490,6 +5572,7 @@
   },
   "landfowl": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -5545,6 +5628,7 @@
      "rarity": 0
     }
    ],
+   "group": "bovine",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5607,6 +5691,7 @@
      "rarity": 1
     }
    ],
+   "group": "cat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5633,6 +5718,7 @@
   },
   "lynx": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -5695,6 +5781,7 @@
      "rarity": 3
     }
    ],
+   "group": "goose",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5764,6 +5851,7 @@
      "rarity": 1
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5790,6 +5878,7 @@
   },
   "mammal": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -5845,6 +5934,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -5921,6 +6011,7 @@
      "rarity": 0
     }
    ],
+   "group": "lynx",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6074,6 +6165,7 @@
      "rarity": 2
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -6163,6 +6255,7 @@
      "rarity": 0
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6246,6 +6339,7 @@
      "rarity": 3
     }
    ],
+   "group": "hare",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6399,6 +6493,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -6445,6 +6540,7 @@
   },
   "mustelid": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -6507,6 +6603,7 @@
      "rarity": 2
     }
    ],
+   "group": "bovine",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6583,6 +6680,7 @@
      "rarity": 3
     }
    ],
+   "group": "rodent",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6638,6 +6736,7 @@
      "rarity": 3
     }
    ],
+   "group": "quail",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6728,6 +6827,7 @@
      "rarity": 0
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6797,6 +6897,7 @@
      "rarity": 0
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6901,6 +7002,7 @@
      "rarity": 3
     }
    ],
+   "group": "cat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -6927,11 +7029,13 @@
   },
   "pheasant": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "pig": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -6987,6 +7091,7 @@
      "rarity": 0
     }
    ],
+   "group": "bison",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7070,6 +7175,7 @@
      "rarity": 3
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7132,6 +7238,7 @@
      "rarity": 1
     }
    ],
+   "group": "cat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7158,11 +7265,13 @@
   },
   "quail": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
   "rabbit": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -7218,6 +7327,7 @@
      "rarity": 3
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7301,6 +7411,7 @@
      "rarity": 3
     }
    ],
+   "group": "canid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7419,6 +7530,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -7592,6 +7704,7 @@
      "rarity": 3
     }
    ],
+   "group": "fox",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -7695,6 +7808,7 @@
      "rarity": 2
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7750,6 +7864,7 @@
      "rarity": 0
     }
    ],
+   "group": "mammal",
    "scoring": {},
    "trophy": ""
   },
@@ -7812,6 +7927,7 @@
      "rarity": 0
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7838,6 +7954,7 @@
   },
   "reptile": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -7893,6 +8010,7 @@
      "rarity": 1
     }
    ],
+   "group": "turkey",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -7962,6 +8080,7 @@
      "rarity": 2
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8031,6 +8150,7 @@
      "rarity": 0
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8057,6 +8177,7 @@
   },
   "rodent": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -8182,6 +8303,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -8285,6 +8407,7 @@
      "rarity": 0
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8375,6 +8498,7 @@
      "rarity": 0
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8465,6 +8589,7 @@
      "rarity": 3
     }
    ],
+   "group": "crocodilian",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8555,6 +8680,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8610,6 +8736,7 @@
      "rarity": 0
     }
    ],
+   "group": "hare",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8636,6 +8763,7 @@
   },
   "sheep": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -8691,6 +8819,7 @@
      "rarity": 0
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8746,6 +8875,7 @@
      "rarity": 0
     }
    ],
+   "group": "mammal",
    "scoring": {},
    "trophy": ""
   },
@@ -8794,6 +8924,7 @@
      "rarity": 0
     }
    ],
+   "group": "canid",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8863,6 +8994,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8932,6 +9064,7 @@
      "rarity": 2
     }
    ],
+   "group": "goose",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -8994,6 +9127,7 @@
      "rarity": 3
     }
    ],
+   "group": "cat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9077,6 +9211,7 @@
      "rarity": 3
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9160,6 +9295,7 @@
      "rarity": 0
     }
    ],
+   "group": "goat",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9278,6 +9414,7 @@
      "rarity": 3
     }
    ],
+   "group": "bear",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9340,6 +9477,7 @@
      "rarity": 0
     }
    ],
+   "group": "antelope",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9409,6 +9547,7 @@
      "rarity": 3
     }
    ],
+   "group": "quail",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9548,6 +9687,7 @@
      "rarity": 2
     }
    ],
+   "group": "goat antelope",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -9686,6 +9826,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -9796,6 +9937,7 @@
      "rarity": 3
     }
    ],
+   "group": "fox",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9872,6 +10014,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9941,6 +10084,7 @@
      "rarity": 2
     }
    ],
+   "group": "goose",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -9967,6 +10111,7 @@
   },
   "turkey": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -9980,6 +10125,7 @@
      "rarity": 0
     }
    ],
+   "group": "",
    "scoring": {},
    "trophy": "weight"
   },
@@ -10042,6 +10188,7 @@
      "rarity": 3
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10104,6 +10251,7 @@
      "rarity": 0
     }
    ],
+   "group": "pig",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10166,6 +10314,7 @@
      "rarity": 1
     }
    ],
+   "group": "buffalo",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10192,6 +10341,7 @@
   },
   "waterfowl": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -10247,6 +10397,7 @@
      "rarity": 1
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10330,6 +10481,7 @@
      "rarity": 3
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10427,6 +10579,7 @@
      "rarity": 3
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -10614,6 +10767,7 @@
      "rarity": 3
     }
    ],
+   "group": "pig",
    "scoring": {
     "Female_GreatOne_Scoring": {
      "score": [
@@ -10745,6 +10899,7 @@
      "rarity": 0
     }
    ],
+   "group": "mammal",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10814,6 +10969,7 @@
      "rarity": 1
     }
    ],
+   "group": "turkey",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10904,6 +11060,7 @@
      "rarity": 3
     }
    ],
+   "group": "cattle",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -10980,6 +11137,7 @@
      "rarity": 3
     }
    ],
+   "group": "grouse",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -11006,6 +11164,7 @@
   },
   "wolf": {
    "furs": [],
+   "group": "",
    "scoring": {},
    "trophy": ""
   },
@@ -11068,6 +11227,7 @@
      "rarity": 2
     }
    ],
+   "group": "bison",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -11165,6 +11325,7 @@
      "rarity": 3
     }
    ],
+   "group": "duck",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -11241,6 +11402,7 @@
      "rarity": 2
     }
    ],
+   "group": "deer",
    "scoring": {
     "Female_Scoring": {
      "score": [
@@ -11310,6 +11472,7 @@
      "rarity": 3
     }
    ],
+   "group": "hare",
    "scoring": {
     "Female_Scoring": {
      "score": [

@@ -43,6 +43,9 @@ pub struct Fur {
 pub struct SpeciesStats {
     /// Tipo de troféu (`weight`, `skull`, `antlers`, `tusks`, `length`, `none`).
     pub trophy: String,
+    /// Classe do animal no jogo (`deer`, `cat`, `wolf`, `duck`…; vazia se o jogo não informa).
+    #[serde(default)]
+    pub group: String,
     /// Faixas por grupo: `Male_Scoring`, `Female_Scoring`, `Male_GreatOne_Scoring`, `Female_GreatOne_Scoring`.
     pub scoring: BTreeMap<String, Scoring>,
     /// Pelagens.

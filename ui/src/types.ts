@@ -201,6 +201,7 @@ export interface Harvest {
 export interface SpeciesEntry {
   id: string;
   name: string;
+  group: string;
   areas: number;
   living: Living | null;
   harvests: Harvest[];

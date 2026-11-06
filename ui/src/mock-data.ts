@@ -140,6 +140,7 @@ export function mockAnimals(): AnimalReserve[] {
     species: SPECIES.map(([sid, sname], i) => ({
       id: sid,
       name: sname,
+      group: ['deer', 'cat', 'bear', 'bird', 'canid', 'pig'][i % 6] ?? '',
       areas: 300 + ((i * 137 + r * 41) % 900),
       living:
         r < 4 && i % 3 !== 2

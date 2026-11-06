@@ -22,7 +22,7 @@ import rtpc  # noqa: E402
 DEFAULT = r"C:\Program Files (x86)\Steam\steamapps\common\theHunterCotW\archives_win64"
 TARGET = "global/global_animal_types.blo"
 
-NAME, KIND, TROPHY = 0xD31AB684, 0x1473B179, 0x3CB71423
+NAME, KIND, TROPHY, GROUP = 0xD31AB684, 0x1473B179, 0x3CB71423, 0x00836D1B
 SCORE_MIN, SCORE_MAX, WEIGHT_MIN, WEIGHT_MAX = 0x140687D8, 0xE3062A0E, 0x87EA42C8, 0x29F241F4
 V_INDEX, V_RARITY, V_WEIGHT, V_NAME, V_GO = 0x73EAD679, 0xC82AF7B4, 0xD8A03DB0, 0xF336B29F, 0xEB13FCD3
 
@@ -65,7 +65,7 @@ def main():
     for lst in root["kids"]:
         for sp in lst["kids"]:
             sid = prop(sp, NAME)
-            entry = {"trophy": (prop(sp, TROPHY) or "").replace("harvest_trophy_type_", ""), "scoring": {}, "furs": []}
+            entry = {"trophy": (prop(sp, TROPHY) or "").replace("harvest_trophy_type_", ""), "group": prop(sp, GROUP) or "", "scoring": {}, "furs": []}
             for kid in sp["kids"]:
                 for c in kid["kids"]:
                     k = prop(c, KIND)

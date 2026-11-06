@@ -224,6 +224,19 @@ describe('renderUnlock', () => {
     expect(root.querySelector('[data-action="premium-info"]')?.textContent).toContain('Liberar com o Premium');
   });
 
+  it('only warns about weak computers when a lot of places would be unlocked', () => {
+    expect(html(renderUnlock(zonesPreview, start, true)).querySelector('.notice-warn')).toBeNull();
+    const heavy = {
+      ...zonesPreview,
+      reserves: [
+        { id: 2, name: 'Medved-Taiga', state: 'ready' as const, newZones: 52_000, estimated: 0, skipped: 0, species: [{ id: 'moose', name: 'Alce', needs: [30_000, 12_000, 10_000] as [number, number, number] }] },
+      ],
+    };
+    const root = html(renderUnlock(heavy, start, true));
+    expect(root.querySelector('.notice-warn')?.textContent).toContain('computadores mais fracos');
+    expect(root.querySelector('.notice-warn')?.textContent).toContain('Por animal');
+  });
+
   it('offers to unlock everything, by animal or by need', () => {
     const root = html(renderUnlock(zonesPreview, start, true));
     expect([...root.querySelectorAll('[data-action="unlock-mode"]')].map((b) => b.textContent)).toEqual([

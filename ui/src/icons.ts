@@ -32,6 +32,16 @@ const PATHS = {
   target: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 11.5v1',
   lock: 'M7 11V8a5 5 0 0 1 10 0v3M5.500 11h13v9h-13z',
   list: 'M9 7h11M9 12h11M9 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01',
+  deer: 'M12 20.5c-2 0-3-1.500-3-3.500 0-2 1-3.500 3-3.500s3 1.500 3 3.500c0 2-1 3.500-3 3.500zM9.500 13.500 7.500 8.500 5.500 4M7.500 8.500 4 7.500M14.500 13.500l2-5 2-4.500M16.500 8.500 20 7.500M11 17v.01M13 17v.01',
+  bird: 'M4 15.500c3 0 4-3.500 7-3.500 1.500-3 4-4.500 7-4l2 1.500-2 1.200c0 4.500-3 8.500-8.500 8.500-3 0-4.500-1-5.500-3.700zM16.500 9.800v.01M9 19.500l-1.500 2M13 19.500l.5 2',
+  canid: 'M5 4l3 4h8l3-4v9.500c0 3.700-3.300 6.500-7 6.500s-7-2.800-7-6.500zM9.500 12v.01M14.500 12v.01M12 15l-1.200 1.500h2.400z',
+  cat: 'M5 5l3.500 3h7L19 5v9c0 3.500-3.500 6-7 6s-7-2.500-7-6zM9.500 12v.01M14.500 12v.01M12 14.500v1.200M6.500 15.500l-3 .5M17.500 15.500l3 .5',
+  bear: 'M7.500 7.500a2.500 2.500 0 1 0-3-2.500M16.500 7.500a2.500 2.500 0 1 1 3-2.500M12 20.500c-4 0-7-2.500-7-6.500S8 7.500 12 7.500s7 2.500 7 6.500-3 6.500-7 6.500zM9.500 13v.01M14.500 13v.01M11 16.500h2',
+  pig: 'M5 8l2-3 3 2h4l3-2 2 3v6c0 3-3 6-7 6s-7-3-7-6zM9 11.500v.01M15 11.500v.01M9.500 15.500h5M8 17.500l-1 2.500M16 17.500l1 2.500',
+  bull: 'M3 7c0 3.500 2 4.500 4 4.500M21 7c0 3.500-2 4.500-4 4.500M7 11.500c0-2 1.500-3.500 5-3.500s5 1.500 5 3.500v4.500c0 2.500-2 4-5 4s-5-1.500-5-4zM10 13.500v.01M14 13.500v.01M10.500 17.500h3',
+  horn: 'M8 9.500C5 9.500 3.500 6.500 5.500 4.500M16 9.500c3 0 4.500-3 2.500-5M8 9.500h8v7c0 2.500-2 4-4 4s-4-1.500-4-4zM10 13v.01M14 13v.01M12 16.500v2',
+  hare: 'M9 3.500c-1.500 0-2 2-2 4.500v3M15 3.500c1.500 0 2 2 2 4.500v3M7 11c-2 1.200-3 3-3 5.500 0 2.500 3.500 3.500 8 3.500s8-1 8-3.500c0-2.500-1-4.300-3-5.500zM10 15v.01M14 15v.01',
+  croc: 'M3 15h12l2-2.500 4 1.500-3 1.500V18H3zM6.500 15v-2M9.500 15v-2M12.500 15v-2M16.500 13.200v.01',
 } as const;
 
 export type IconName = keyof typeof PATHS;
@@ -44,4 +54,49 @@ export function iconPath(name: IconName): string {
 /** SVG do ícone, com a cor do texto ao redor. Decorativo: leitores de tela o ignoram. */
 export function icon(name: IconName, size = 20): string {
   return `<svg class="icon" width="${String(size)}" height="${String(size)}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${PATHS[name]}"/></svg>`;
+}
+
+/** Ícone de uma espécie, pela classe que o jogo dá a ela (`deer`, `cat`, `duck`…). */
+export function animalIcon(group: string): IconName {
+  switch (group) {
+    case 'deer':
+    case 'antelope':
+      return 'deer';
+    case 'duck':
+    case 'goose':
+    case 'grouse':
+    case 'landfowl':
+    case 'quail':
+    case 'turkey':
+      return 'bird';
+    case 'canid':
+    case 'wolf':
+    case 'fox':
+      return 'canid';
+    case 'cat':
+    case 'lynx':
+      return 'cat';
+    case 'bear':
+      return 'bear';
+    case 'pig':
+      return 'pig';
+    case 'bovine':
+    case 'bison':
+    case 'buffalo':
+    case 'cattle':
+      return 'bull';
+    case 'goat':
+    case 'goat antelope':
+    case 'sheep':
+      return 'horn';
+    case 'hare':
+    case 'rabbit':
+    case 'rodent':
+    case 'mustelid':
+      return 'hare';
+    case 'crocodilian':
+      return 'croc';
+    default:
+      return 'paw';
+  }
 }

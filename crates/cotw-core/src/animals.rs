@@ -68,6 +68,8 @@ pub struct SpeciesEntry {
     pub id: String,
     /// Nome para exibir.
     pub name: String,
+    /// Classe do animal no jogo (`deer`, `cat`, `duck`…), usada para escolher o ícone.
+    pub group: String,
     /// Quantas áreas de comer, beber e descansar a espécie tem na reserva.
     pub areas: usize,
     /// Animais vivos no save (`None` se a reserva nunca foi jogada).
@@ -232,6 +234,9 @@ pub fn animals(
             .map(|(id, count)| SpeciesEntry {
                 id: id.to_owned(),
                 name: display_name(id, language),
+                group: species_stats::lookup(id)
+                    .map(|s| s.group.clone())
+                    .unwrap_or_default(),
                 areas: count,
                 living: living.as_ref().and_then(|l| l.get(id)).cloned(),
                 harvests: log

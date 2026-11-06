@@ -79,7 +79,7 @@ export const ptBR = {
   'map.stopEstimated': 'horário aproximado',
   'map.stopPending': 'ainda não descoberto · horário aproximado',
   'map.stopNoTime': 'sem horário conhecido',
-  'map.routeHint': 'O destaque laranja mostra onde o grupo deve estar no horário escolhido.',
+  'map.routeHint': 'O destaque laranja mostra onde o grupo deve estar no horário escolhido. É uma região aproximada: às vezes o animal não está no ponto exato da zona, e sim por perto.',
   'map.speciesTitle': 'Espécies',
   'map.all': 'Todas',
   'map.none': 'Nenhuma',
@@ -118,6 +118,7 @@ export const ptBR = {
   'unlock.summary': 'Serão liberados {count} lugares em {reserves} reservas.',
   'unlock.approx':
     'Alguns horários são aproximados. O jogo acerta sozinho quando você passar por lá.',
+  'unlock.heavy': 'Liberar tantos lugares de uma vez pode deixar o mapa do jogo pesado e travar em computadores mais fracos. Se o seu PC for modesto, libere só o que precisa: escolha “Por animal” ou “Por necessidade” e poucas reservas.',
   'unlock.none': 'Não há nada para liberar agora.',
   'unlock.run': 'Liberar os selecionados',
   'unlock.runPremium': 'Liberar com o Premium',

@@ -1,7 +1,7 @@
 import { escapeHtml as e } from '../escape';
 import { formatCount, formatEpoch } from '../format';
 import { t } from '../i18n';
-import { icon } from '../icons';
+import { icon, animalIcon } from '../icons';
 import type { AnimalReserve, Harvest, SpeciesEntry } from '../types';
 
 /** Tom (0 a 359) estável de uma espécie, para colorir o ícone dela. */
@@ -42,7 +42,7 @@ function speciesCard(entry: SpeciesEntry, selected: boolean): string {
       ? `<span class="badge badge-ok">${icon('star', 12)} ${e(t('animals.diamonds', { count: living.diamonds }))}</span>`
       : '';
   return `<li><button class="species-card" data-action="pick-species" data-species="${e(entry.id)}" data-name="${e(entry.name.toLowerCase())}" aria-pressed="${String(selected)}" style="--hue:${String(hueOf(entry.id))}">
-    <span class="species-icon" aria-hidden="true">${icon('paw', 22)}</span>
+    <span class="species-icon" aria-hidden="true">${icon(animalIcon(entry.group), 22)}</span>
     <span class="species-text"><strong>${e(entry.name)}</strong><span class="muted">${e(detail)}</span>${diamonds}${star}</span>
   </button></li>`;
 }
@@ -86,7 +86,7 @@ function detailCard(list: AnimalReserve[], reserve: AnimalReserve, entry: Specie
       : `<ol class="harvests">${entry.harvests.map(harvestRow).join('')}</ol>`;
   return `<section class="card species-detail" style="--hue:${String(hueOf(entry.id))}" aria-label="${e(entry.name)}">
     <div class="detail-head">
-      <span class="species-icon big" aria-hidden="true">${icon('paw', 30)}</span>
+      <span class="species-icon big" aria-hidden="true">${icon(animalIcon(entry.group), 30)}</span>
       <div><h2>${e(entry.name)}</h2>
         <p class="muted">${e(reserve.name)} · ${e(t('animals.areas', { count: formatCount(entry.areas) }))}</p></div>
       <button data-action="pick-species" data-species="" aria-label="${e(t('animals.close'))}" title="${e(t('animals.close'))}">${icon('close', 16)}</button>

@@ -70,10 +70,17 @@ function renderChoices(preview: ZonesPreview, state: UnlockState): string {
   return '';
 }
 
+/** Acima disto o mapa do jogo pode ficar pesado em PCs mais fracos. */
+export const HEAVY_UNLOCK = 8000;
+
 function renderAction(total: number, reserves: number, premium: boolean): string {
   if (total === 0) return `<p class="muted">${e(t('unlock.nothingChosen'))}</p>`;
+  const heavy =
+    total > HEAVY_UNLOCK
+      ? `<p class="notice notice-warn" role="note">${icon('alert', 16)} ${e(t('unlock.heavy'))}</p>`
+      : '';
   const summary = `<p>${e(t('unlock.summary', { count: formatCount(total), reserves }))}</p>
-    <p class="muted">${e(t('unlock.approx'))}</p>`;
+    <p class="muted">${e(t('unlock.approx'))}</p>${heavy}`;
   if (premium) {
     return `${summary}<div class="actions"><button class="primary" data-action="unlock-run">${e(t('unlock.run'))}</button></div>`;
   }

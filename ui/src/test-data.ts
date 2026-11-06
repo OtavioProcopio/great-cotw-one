@@ -178,6 +178,7 @@ export const sampleAnimals: AnimalReserve[] = [
       {
         id: 'moose',
         name: 'Alce',
+        group: 'deer',
         areas: 1_200,
         living: { groups: 3, animals: 9, males: 4, females: 5, greatOnes: 1, diamonds: 2, diamondMin: 255.1, bestScore: 312.4, heaviest: 640 },
         harvests: [
@@ -185,7 +186,7 @@ export const sampleAnimals: AnimalReserve[] = [
           { score: 120, medal: 0, at: 0 },
         ],
       },
-      { id: 'brown_bear', name: '<i>Urso-pardo</i>', areas: 800, living: null, harvests: [] },
+      { id: 'brown_bear', name: '<i>Urso-pardo</i>', group: 'bear', areas: 800, living: null, harvests: [] },
     ],
   },
   {
@@ -193,7 +194,7 @@ export const sampleAnimals: AnimalReserve[] = [
     name: 'Cuatro Colinas',
     cover: null,
     played: false,
-    species: [{ id: 'moose', name: 'Alce', areas: 40, living: null, harvests: [] }],
+    species: [{ id: 'moose', name: 'Alce', group: 'deer', areas: 40, living: null, harvests: [] }],
   },
 ];
 
