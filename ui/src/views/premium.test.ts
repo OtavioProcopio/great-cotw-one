@@ -36,7 +36,7 @@ describe('renderPremium', () => {
   it('compares what each version does, with the editing features only in Premium', () => {
     const root = html(renderPremium(FREE_LICENSE));
     const rows = [...root.querySelectorAll('table.compare tbody tr')];
-    expect(rows).toHaveLength(8);
+    expect(rows).toHaveLength(10);
     const marks = (row: Element | undefined): string[] =>
       [...(row?.querySelectorAll('.mark-yes, .mark-no, .badge') ?? [])].map((m) => m.className.split(' ')[1] ?? '');
     // Mapa: os dois têm; liberar zonas: só o Premium.
@@ -44,12 +44,16 @@ describe('renderPremium', () => {
     expect(marks(rows[4])).toEqual(['mark-no', 'mark-yes']);
     expect(rows[6]?.textContent).toContain('Editar peso, pontuação, sexo e Great One');
     expect(marks(rows[6])).toEqual(['mark-no', 'mark-yes']);
+    // Equipamentos: ver é grátis; entregar itens e ajustar munição e dinheiro é do Premium.
+    expect(marks(rows[7])).toEqual(['mark-yes', 'mark-yes']);
+    expect(rows[8]?.textContent).toContain('Entregar itens');
+    expect(marks(rows[8])).toEqual(['mark-no', 'mark-yes']);
   });
 
   it('marks the fur choice as coming soon instead of promising it', () => {
     const rows = [...html(renderPremium(FREE_LICENSE)).querySelectorAll('table.compare tbody tr')];
-    expect(rows[7]?.textContent).toContain('pelagem');
-    expect(rows[7]?.querySelector('.badge')?.textContent).toBe('Em breve');
+    expect(rows[9]?.textContent).toContain('pelagem');
+    expect(rows[9]?.querySelector('.badge')?.textContent).toBe('Em breve');
   });
 
   it('offers the monthly and the yearly plans with the saving of the yearly one', () => {

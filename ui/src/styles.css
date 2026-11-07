@@ -2202,3 +2202,39 @@ button.eq-card {
   border-radius: 999px;
   background: var(--surface-2);
 }
+
+.eq-actions,
+.eq-cash {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.eq-cash {
+  margin: 4px 0 14px;
+}
+
+.eq-actions label,
+.eq-cash label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.eq-amount,
+#eq-cash {
+  width: 7.5em;
+}
+
+button.eq-act {
+  padding: 5px 12px;
+  font-size: 0.85rem;
+}
+
+button.eq-act.locked {
+  opacity: 0.75;
+}

@@ -363,6 +363,18 @@ export interface EquipmentItem {
   stats: WeaponStats | null;
 }
 
+/** Mudança pedida ao editor de equipamentos (Premium). */
+export type EquipmentChange =
+  | { action: 'give'; id: string; amount?: number }
+  | { action: 'setAmount'; id: string; amount: number }
+  | { action: 'unlock'; id: string }
+  | { action: 'setCash'; cash: number };
+
+export interface EquipmentEditResult {
+  changes: number;
+  backup: string;
+}
+
 export interface Loadout {
   index: number;
   name: string;

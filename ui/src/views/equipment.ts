@@ -1,5 +1,5 @@
 import { escapeHtml as e } from '../escape';
-import { type EquipTab, KINDS, type OwnFilter, RANK_KEYS, type RankKey, collection, itemsById, rankValue, rankWeapons, visibleItems } from '../equipmentlogic';
+import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey, collection, itemsById, maxAmount, rankValue, rankWeapons, visibleItems } from '../equipmentlogic';
 import { formatCount, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
@@ -45,6 +45,35 @@ function tabs(state: EquipState): string {
   return `<div class="segmented" role="group">${tab('arsenal')}${tab('ranking')}${tab('loadouts')}</div>`;
 }
 
+/** Ações do Premium de um item; quem não tem Premium vê o botão com cadeado que leva à tela do Premium. */
+function actions(item: EquipmentItem, premium: boolean): string {
+  const stackable = maxAmount(item.kind) > 1;
+  const lock = (label: string): string =>
+    `<button class="eq-act locked" data-action="show-premium" title="${e(t('equip.premiumOnly'))}">${icon('lock', 14)} ${e(label)}</button>`;
+  const act = (action: string, label: string): string =>
+    `<button class="eq-act" data-action="${action}" data-id="${e(item.id)}">${e(label)}</button>`;
+  if (!item.owned) {
+    const give = premium ? act('equip-give', t('equip.give')) : lock(t('equip.give'));
+    const shop = item.unlocked ? '' : premium ? act('equip-unlock', t('equip.unlockShop')) : lock(t('equip.unlockShop'));
+    return `<div class="eq-actions">${give}${shop}</div>`;
+  }
+  if (!stackable) return '';
+  if (!premium) return `<div class="eq-actions">${lock(t('equip.setAmount'))}</div>`;
+  return `<div class="eq-actions"><label>${e(t('equip.amountLabel'))}
+    <input type="number" class="eq-amount" data-eq-amount="${e(item.id)}" min="1" max="${String(maxAmount(item.kind))}" value="${String(item.amount)}" /></label>
+    ${act('equip-set-amount', t('equip.setAmount'))}</div>`;
+}
+
+function cashForm(inv: Inventory, premium: boolean): string {
+  if (!premium) {
+    return `<div class="eq-cash"><button class="eq-act locked" data-action="show-premium" title="${e(t('equip.premiumOnly'))}">${icon('lock', 14)} ${e(t('equip.setCash'))}</button></div>`;
+  }
+  return `<div class="eq-cash"><label>${e(t('equip.cashLabel'))}
+    <input type="number" id="eq-cash" min="0" max="${String(MAX_CASH)}" value="${String(inv.cash)}" /></label>
+    <button class="eq-act" data-action="equip-set-cash">${e(t('equip.setCash'))}</button>
+    <small class="muted">${e(t('equip.cashLimit', { max: formatCount(MAX_CASH) }))}</small></div>`;
+}
+
 function header(inv: Inventory): string {
   const levels = (['rifle', 'handgun', 'shotgun', 'archery'] as const)
     .map((name, i) => `<li class="metric"><span class="metric-icon" aria-hidden="true">${icon('target', 20)}</span>
@@ -80,16 +109,16 @@ function itemMeta(item: EquipmentItem): string {
   return meta.join(' · ');
 }
 
-function itemCard(item: EquipmentItem, icons: Record<string, string>): string {
+function itemCard(item: EquipmentItem, icons: Record<string, string>, premium: boolean): string {
   const body = `${thumb(item, icons)}
     <span class="eq-text"><strong>${e(item.name)}</strong><small>${e(itemMeta(item))}</small><span>${itemBadges(item)}</span></span>`;
   const search = e(`${item.name} ${item.id}`.toLowerCase());
   return item.kind === 'weapon'
-    ? `<li data-text="${search}"><button class="eq-card" data-action="equip-open" data-id="${e(item.id)}">${body}</button></li>`
-    : `<li data-text="${search}"><div class="eq-card">${body}</div></li>`;
+    ? `<li data-text="${search}"><button class="eq-card" data-action="equip-open" data-id="${e(item.id)}">${body}</button>${actions(item, premium)}</li>`
+    : `<li data-text="${search}"><div class="eq-card">${body}</div>${actions(item, premium)}</li>`;
 }
 
-function arsenal(inv: Inventory, state: EquipState, icons: Record<string, string>): string {
+function arsenal(inv: Inventory, state: EquipState, icons: Record<string, string>, premium: boolean): string {
   const progress = collection(inv.items);
   const chips = KINDS.map((kind) => {
     const p = progress[kind];
@@ -101,7 +130,7 @@ function arsenal(inv: Inventory, state: EquipState, icons: Record<string, string
   const body =
     list.length === 0
       ? `<p class="muted">${e(t('equip.empty'))}</p>`
-      : `<ul class="eq-grid" id="eq-grid">${list.map((item) => itemCard(item, icons)).join('')}</ul>`;
+      : `<ul class="eq-grid" id="eq-grid">${list.map((item) => itemCard(item, icons, premium)).join('')}</ul>`;
   return `<div class="eq-kinds segmented">${chips}</div>
     <div class="eq-tools"><div class="segmented">${own('all')}${own('owned')}${own('missing')}</div>
       <input type="search" id="eq-search" placeholder="${e(t('equip.search'))}" aria-label="${e(t('equip.search'))}" /></div>${body}`;
@@ -190,17 +219,17 @@ function loadouts(inv: Inventory, icons: Record<string, string>): string {
 }
 
 /** Página de equipamentos: arsenal, ranking das armas e conjuntos salvos. */
-export function renderEquipment(inv: Inventory, state: EquipState, icons: Record<string, string>): string {
+export function renderEquipment(inv: Inventory, state: EquipState, icons: Record<string, string>, premium = false): string {
   const content =
     state.open !== null
       ? weaponSheet(inv, state.open, icons)
       : state.tab === 'arsenal'
-        ? arsenal(inv, state, icons)
+        ? arsenal(inv, state, icons, premium)
         : state.tab === 'ranking'
           ? ranking(inv, state, icons)
           : loadouts(inv, icons);
   return `<header><h1>${e(t('equip.title'))}</h1><p class="muted">${e(t('equip.subtitle'))}</p></header>
-    ${state.open === null ? `${header(inv)}${tabs(state)}` : ''}${content}`;
+    ${state.open === null ? `${header(inv)}${cashForm(inv, premium)}${tabs(state)}` : ''}${content}`;
 }
 
 /** Filtro por texto no arsenal, feito sem refazer a página (o campo mantém o foco). */

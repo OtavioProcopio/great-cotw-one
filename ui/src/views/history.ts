@@ -7,6 +7,7 @@ import type { HistoryItem } from '../types';
 const FUNCTIONS: Record<string, MessageKey> = {
   'Liberar o mapa': 'history.fn.unlock',
   'Editar animais': 'history.fn.edit',
+  'Editar equipamentos': 'history.fn.equipment',
   'Teste de gravação': 'history.fn.test',
 };
 

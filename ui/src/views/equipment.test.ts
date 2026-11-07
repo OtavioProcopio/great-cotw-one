@@ -98,6 +98,45 @@ describe('renderEquipment', () => {
   });
 });
 
+describe('Premium actions', () => {
+  it('shows locked buttons that lead to the Premium page for free users', () => {
+    const root = html(renderEquipment(inv, initialEquipState(), {}));
+    const locked = [...root.querySelectorAll<HTMLElement>('.eq-act.locked')];
+    expect(locked.length).toBeGreaterThan(0);
+    expect(locked.every((b) => b.dataset['action'] === 'show-premium')).toBe(true);
+    expect(root.querySelector('#eq-cash')).toBeNull();
+    expect(root.querySelector('[data-action="equip-give"]')).toBeNull();
+  });
+
+  it('offers to give what is missing and to unlock what is not on the shop list', () => {
+    const root = html(renderEquipment(inv, initialEquipState(), {}, true));
+    // Longbow: não tem, mas já está liberado: só "Entregar".
+    const give = root.querySelector('[data-action="equip-give"][data-id="equipment_weapon_longbow_01"]');
+    expect(give?.textContent).toBe('Entregar');
+    expect(root.querySelector('[data-action="equip-unlock"][data-id="equipment_weapon_longbow_01"]')).toBeNull();
+    // A arma que o jogador tem não ganha botão de entregar nem de quantidade.
+    expect(root.querySelector('[data-action="equip-give"][data-id="equipment_weapon_ba_rifle_270_01"]')).toBeNull();
+    const ammo = html(renderEquipment(inv, { ...initialEquipState(), kind: 'ammo' }, {}, true));
+    expect(ammo.querySelector('[data-action="equip-give"][data-id="equipment_ammo_270_pt_01"]')).not.toBeNull();
+    expect(ammo.querySelector('[data-action="equip-unlock"][data-id="equipment_ammo_270_pt_01"]')).not.toBeNull();
+  });
+
+  it('lets the player set the amount of ammo they own and their cash', () => {
+    const ammo = html(renderEquipment(inv, { ...initialEquipState(), kind: 'ammo' }, {}, true));
+    const field = ammo.querySelector<HTMLInputElement>('[data-eq-amount="equipment_ammo_270_sp_01"]');
+    expect(field?.value).toBe('203');
+    expect(field?.max).toBe('999');
+    expect(ammo.querySelector('[data-action="equip-set-amount"]')).not.toBeNull();
+    expect(ammo.querySelector<HTMLInputElement>('#eq-cash')?.value).toBe('300618');
+    expect(ammo.textContent).toContain('Até 10.000.000.');
+  });
+
+  it('does not offer an amount for items that cannot stack', () => {
+    const sights = html(renderEquipment(inv, { ...initialEquipState(), kind: 'sight' }, {}, true));
+    expect(sights.querySelector('[data-eq-amount]')).toBeNull();
+  });
+});
+
 describe('bindEquipment', () => {
   it('filters the cards by text without redrawing', () => {
     const root = html(renderEquipment(inv, initialEquipState(), {}));

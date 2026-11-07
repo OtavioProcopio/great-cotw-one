@@ -2,7 +2,7 @@ import { isCommandError, type Api } from './api';
 import { formatCount, formatStamp } from './format';
 import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } from './i18n';
 import { icon, type IconName } from './icons';
-import type { AnimalReserve, Diagnostics, EditRequest, HistoryItem, Inventory, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
+import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, HistoryItem, Inventory, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 import { renderDiagnostics } from './views/diagnostics';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
@@ -16,7 +16,7 @@ import { renderPremium } from './views/premium';
 import { renderUnlock } from './views/unlock';
 import { type UnlockMode, type UnlockState, initialUnlockState, summarize, toRequest, toggled } from './unlocklogic';
 import { escapeHtml } from './escape';
-import type { EquipTab, OwnFilter, RankKey } from './equipmentlogic';
+import { type EquipTab, MAX_CASH, type OwnFilter, type RankKey, maxAmount } from './equipmentlogic';
 
 export type View = 'home' | 'premium' | 'profile' | 'equipment' | 'animals' | 'map' | 'missions' | 'history' | 'diagnostics' | 'unlock';
 
@@ -255,6 +255,18 @@ export class Controller {
         this.equipState = { ...this.equipState, open: button.dataset['id'] ?? null };
         this.render();
         window.scrollTo({ top: 0 });
+        break;
+      case 'equip-give':
+        await this.editEquipment({ action: 'give', id: button.dataset['id'] ?? '' }, 'equip.confirmGive');
+        break;
+      case 'equip-unlock':
+        await this.editEquipment({ action: 'unlock', id: button.dataset['id'] ?? '' }, 'equip.confirmUnlock');
+        break;
+      case 'equip-set-amount':
+        await this.setEquipmentAmount(button.dataset['id'] ?? '');
+        break;
+      case 'equip-set-cash':
+        await this.setEquipmentCash();
         break;
       case 'equip-close':
         this.equipState = { ...this.equipState, open: null };
@@ -512,6 +524,48 @@ export class Controller {
     await this.reload();
   }
 
+  /** Grava uma mudança de equipamento depois de o usuário confirmar; o app faz o backup antes. */
+  private async editEquipment(change: EquipmentChange, confirmKey: 'equip.confirmGive' | 'equip.confirmUnlock' | 'equip.confirmAmount' | 'equip.confirmCash'): Promise<void> {
+    if (!this.license.premium) {
+      await this.show('premium');
+      return;
+    }
+    const item = this.equipment?.items.find((i) => 'id' in change && i.id === change.id);
+    const params = { name: item?.name ?? '', amount: 'amount' in change ? String(change.amount) : '', cash: 'cash' in change ? formatCount(change.cash) : '' };
+    if (!(await this.api.confirm(t(confirmKey, params), t('equip.confirmOk')))) return;
+    try {
+      await this.api.editEquipment([change]);
+      this.notice = { kind: 'ok', text: t('equip.done') };
+      this.equipment = await this.api.equipment();
+    } catch (error) {
+      this.notice = { kind: 'error', text: describeError(error) };
+    }
+    this.render();
+    window.scrollTo({ top: 0 });
+  }
+
+  private async setEquipmentAmount(id: string): Promise<void> {
+    const input = [...this.root.querySelectorAll<HTMLInputElement>('[data-eq-amount]')].find((i) => i.dataset['eqAmount'] === id);
+    const item = this.equipment?.items.find((i) => i.id === id);
+    const amount = Math.floor(Number(input?.value));
+    if (!item || !Number.isFinite(amount) || amount < 1 || amount > maxAmount(item.kind)) {
+      this.notice = { kind: 'error', text: t('equip.badAmount', { max: maxAmount(item?.kind ?? 'weapon') }) };
+      this.render();
+      return;
+    }
+    await this.editEquipment({ action: 'setAmount', id, amount }, 'equip.confirmAmount');
+  }
+
+  private async setEquipmentCash(): Promise<void> {
+    const cash = Math.floor(Number(this.root.querySelector<HTMLInputElement>('#eq-cash')?.value));
+    if (!Number.isFinite(cash) || cash < 0 || cash > MAX_CASH) {
+      this.notice = { kind: 'error', text: t('equip.badCash', { max: formatCount(MAX_CASH) }) };
+      this.render();
+      return;
+    }
+    await this.editEquipment({ action: 'setCash', cash }, 'equip.confirmCash');
+  }
+
   private async restore(backup: string, at: string): Promise<void> {
     if (!(await this.api.confirm(t('history.restoreConfirm', { at: formatStamp(at) }), t('history.restoreOk')))) return;
     try {
@@ -617,7 +671,7 @@ export class Controller {
     if (this.view === 'map') return this.renderMap();
     if (this.view === 'profile') return this.profile ? renderProfile(this.profile) : '';
     if (this.view === 'equipment') {
-      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons) : '';
+      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons, this.license.premium) : '';
     }
     if (this.view === 'premium') return renderPremium(this.license, this.purchase);
     if (this.view === 'animals') {

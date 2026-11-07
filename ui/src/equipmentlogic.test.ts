@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { KINDS, collection, itemsById, rankValue, rankWeapons, visibleItems } from './equipmentlogic';
+import { KINDS, MAX_CASH, collection, itemsById, maxAmount, rankValue, rankWeapons, visibleItems } from './equipmentlogic';
 import { mockInventory } from './mock-data';
 import type { EquipmentItem, WeaponStats } from './types';
 
@@ -54,5 +54,17 @@ describe('itemsById', () => {
       '.270 Soft-Point Bullet',
       'ATV',
     ]);
+  });
+});
+
+describe('maxAmount', () => {
+  it('lets ammo and stackable items hold many units and keeps the rest at one', () => {
+    expect(maxAmount('ammo')).toBe(999);
+    expect(maxAmount('consumable')).toBe(99);
+    expect(maxAmount('lure_caller')).toBe(99);
+    expect(maxAmount('deployable')).toBe(99);
+    expect(maxAmount('weapon')).toBe(1);
+    expect(maxAmount('sight')).toBe(1);
+    expect(MAX_CASH).toBe(10_000_000);
   });
 });

@@ -727,6 +727,82 @@ describe('Controller: perfil e missões', () => {
     expect(root.textContent).toContain('Alces');
   });
 
+  function input(selector: string): HTMLInputElement {
+    const found = root.querySelector<HTMLInputElement>(selector);
+    if (!found) throw new Error(`sem ${selector}`);
+    return found;
+  }
+
+  async function openEquipment(api: Api): Promise<void> {
+    await new Controller(root, api).start();
+    click('show-equipment');
+    await settle();
+  }
+
+  it('sends free users to the Premium page instead of writing equipment', async () => {
+    const api = fakeApi();
+    await openEquipment(api);
+    click('equip-give', { id: 'equipment_weapon_longbow_01' });
+    await settle();
+    expect(api.calls.some((c) => c.startsWith('editEquipment'))).toBe(false);
+    expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Premium');
+  });
+
+  it('gives an item after the player confirms, then reloads the equipment', async () => {
+    const api = fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE) });
+    await openEquipment(api);
+    click('equip-give', { id: 'equipment_weapon_longbow_01' });
+    await settle();
+    expect(api.calls).toContain('editEquipment:[{"action":"give","id":"equipment_weapon_longbow_01"}]');
+    expect(api.calls.filter((c) => c === 'equipment')).toHaveLength(2);
+    expect(root.textContent).toContain('Pronto! Abra o jogo');
+  });
+
+  it('does nothing when the player declines the confirmation', async () => {
+    const api = fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE), confirm: () => Promise.resolve(false) });
+    await openEquipment(api);
+    click('equip-unlock', { id: 'equipment_ammo_270_pt_01' });
+    await settle();
+    expect(api.calls.some((c) => c.startsWith('editEquipment'))).toBe(false);
+  });
+
+  it('sets the ammo amount and the cash from the typed values and rejects bad ones', async () => {
+    const api = fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE) });
+    await openEquipment(api);
+    click('equip-kind', { kind: 'ammo' });
+    const amount = root.querySelector<HTMLInputElement>('[data-eq-amount="equipment_ammo_270_sp_01"]');
+    if (!amount) throw new Error('sem campo de quantidade');
+    amount.value = '0';
+    click('equip-set-amount', { id: 'equipment_ammo_270_sp_01' });
+    await settle();
+    expect(root.textContent).toContain('quantidade inteira de 1 a 999');
+    input('[data-eq-amount="equipment_ammo_270_sp_01"]').value = '500';
+    click('equip-set-amount', { id: 'equipment_ammo_270_sp_01' });
+    await settle();
+    expect(api.calls).toContain('editEquipment:[{"action":"setAmount","id":"equipment_ammo_270_sp_01","amount":500}]');
+    const cash = root.querySelector<HTMLInputElement>('#eq-cash');
+    if (!cash) throw new Error('sem campo de dinheiro');
+    cash.value = '99999999';
+    click('equip-set-cash');
+    await settle();
+    expect(root.textContent).toContain('valor inteiro de 0 a 10.000.000');
+    input('#eq-cash').value = '50000';
+    click('equip-set-cash');
+    await settle();
+    expect(api.calls).toContain('editEquipment:[{"action":"setCash","cash":50000}]');
+  });
+
+  it('shows the error when the write is refused', async () => {
+    const api = fakeApi({
+      license: () => Promise.resolve(ACTIVE_LICENSE),
+      editEquipment: () => commandError('gameRunning'),
+    });
+    await openEquipment(api);
+    click('equip-give', { id: 'equipment_weapon_longbow_01' });
+    await settle();
+    expect(root.querySelector('.notice-error')).not.toBeNull();
+  });
+
   it('keeps the equipment page working when the icons cannot be read', async () => {
     const api = fakeApi({ equipmentIcons: () => Promise.reject(new Error('sem jogo')) });
     await new Controller(root, api).start();

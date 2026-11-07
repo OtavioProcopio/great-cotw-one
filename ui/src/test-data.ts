@@ -305,6 +305,10 @@ export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[]; 
     profile: record('profile', sampleProfile),
     equipment: record('equipment', mockInventory()),
     equipmentIcons: record('equipmentIcons', {}),
+    editEquipment: (changes) => {
+      calls.push(`editEquipment:${JSON.stringify(changes)}`);
+      return Promise.resolve({ changes: changes.length, backup: 'C:\\Backups\\equipamentos' });
+    },
     missions: record('missions', sampleMissions),
     mapReserves: record('mapReserves', mapReserves),
     reserveMap: record('reserveMap', sampleMap),

@@ -13,14 +13,15 @@ use cotw_core::animals::AnimalReserve;
 use cotw_core::career::{ProfileView, ReserveMissions};
 use cotw_core::diagnostics::{Diagnostics, SearchRoots};
 use cotw_core::equipment::Inventory;
+use cotw_core::equipment_editor::EquipmentChange;
 use cotw_core::license::LicenseStatus;
 use cotw_core::mapview::{MapReserve, ReserveMap};
 use cotw_core::paths::system_appdata;
 use cotw_core::process::SystemProcessList;
 use cotw_core::purchase::{LICENSE_SERVER, PurchaseStatus};
 use cotw_core::service::{
-    AppService, EditRequest, EditResult, HistoryItem, RestoreResult, RewriteResult, ServiceError,
-    UnlockRequest, UnlockResult, ZonesPreview,
+    AppService, EditRequest, EditResult, EquipmentEditResult, HistoryItem, RestoreResult,
+    RewriteResult, ServiceError, UnlockRequest, UnlockResult, ZonesPreview,
 };
 use serde::Serialize;
 use tauri::{AppHandle, State};
@@ -128,6 +129,14 @@ async fn profile(service: Service<'_>) -> Result<ProfileView, CommandError> {
 #[tauri::command]
 async fn equipment(service: Service<'_>) -> Result<Inventory, CommandError> {
     blocking(&service, AppService::equipment).await
+}
+
+#[tauri::command]
+async fn edit_equipment(
+    service: Service<'_>,
+    changes: Vec<EquipmentChange>,
+) -> Result<EquipmentEditResult, CommandError> {
+    blocking(&service, move |s| s.edit_equipment(&changes)).await
 }
 
 #[tauri::command]
@@ -279,6 +288,7 @@ pub fn run() {
             profile,
             equipment,
             equipment_icons,
+            edit_equipment,
             missions,
             zones_preview,
             unlock_zones,

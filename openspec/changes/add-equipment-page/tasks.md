@@ -21,13 +21,13 @@
 
 ## 4. Escrita (Premium)
 
-- [ ] 4.1 Entregar item em vaga livre, mesmo tamanho, com backup e jogo fechado
-- [ ] 4.2 Quantidade de munição e consumíveis, e veículos
-- [ ] 4.3 Montar loadout com checagem de compatibilidade
-- [ ] 4.4 Dinheiro, depois de testar o comportamento do jogo
-- [ ] 4.5 Bloqueio duplo (`premiumRequired`) e atualização da tela do Premium
+- [x] 4.1 Entregar item (posse, quantidade, liberado e registro de estatísticas da arma) em vaga livre, mesmo tamanho, com backup e jogo fechado; também liberar item na loja do jogo (`cotw-core::equipment_editor`, comando `edit_equipment`)
+- [x] 4.2 Quantidade de munição, consumíveis, iscas e abrigos (limites do app: 999 e 99). Veículos ficam de fora: `VehicleData` veio vazio no save de teste e o app não sabe os valores máximos
+- [ ] 4.3 Montar loadout com checagem de compatibilidade (ADIADO: os conjuntos usam listas de tamanho variável no ADF; mudar o tamanho exige realocar o arquivo, o que já travou o jogo em outra edição. Só vale se o conjunto mantiver o mesmo número de itens)
+- [x] 4.4 Dinheiro, até 10.000.000 (limite do app, não do jogo). Falta testar no jogo se conquistas ou o online reagem
+- [x] 4.5 Bloqueio duplo (`premiumRequired` no serviço, cadeado na tela) e linhas novas na comparação da tela do Premium
 
 ## 5. Verificação
 
-- [ ] 5.1 Testes com saves sintéticos (mesmo tamanho, demais bytes idênticos; vale para as escritas da seção 4)
+- [x] 5.1 Testes das escritas: unidades com bytes sintéticos (vaga livre, buraco, limites, mesmo tamanho) e de ponta a ponta com o perfil real (mesmo tamanho, poucos bytes mudam, conferidor aceita, leitura mostra a mudança, backup desfaz)
 - [ ] 5.2 Teste no jogo: um item por categoria, quantidade, veículo, loadout e dinheiro

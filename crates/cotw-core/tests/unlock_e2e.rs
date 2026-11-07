@@ -511,3 +511,51 @@ fn the_service_answers_in_the_chosen_language() {
     service.set_language("xx");
     assert_eq!(service.species_editor(2, "moose").unwrap().name, "Moose");
 }
+
+#[test]
+fn editing_equipment_needs_premium_writes_safely_and_can_be_undone() {
+    use cotw_core::equipment_editor::EquipmentChange;
+    let Some(setup) = setup() else { return };
+    let free = service(&setup, Box::new(Closed));
+    let before = fs::read(setup.save.join("thp_player_profile_adf")).unwrap();
+    let cash = vec![EquipmentChange::SetCash { cash: 777_000 }];
+
+    // Sem Premium: nada grava.
+    assert_eq!(
+        free.edit_equipment(&cash).unwrap_err().code(),
+        "premiumRequired"
+    );
+    assert_eq!(
+        fs::read(setup.save.join("thp_player_profile_adf")).unwrap(),
+        before
+    );
+
+    // Com o jogo aberto: recusa e o arquivo continua igual.
+    let running = premium_service(&setup, Box::new(Open));
+    assert_eq!(
+        running.edit_equipment(&cash).unwrap_err().code(),
+        "gameRunning"
+    );
+    assert_eq!(
+        fs::read(setup.save.join("thp_player_profile_adf")).unwrap(),
+        before
+    );
+
+    // Com Premium e o jogo fechado: grava, aparece na leitura e o backup desfaz.
+    let premium = premium_service(&setup, Box::new(Closed));
+    let result = premium.edit_equipment(&cash).unwrap();
+    assert_eq!(result.changes, 1);
+    assert_eq!(premium.equipment().unwrap().cash, 777_000);
+    // Repetir o mesmo pedido não muda nada.
+    assert_eq!(
+        premium.edit_equipment(&cash).unwrap_err().code(),
+        "nothingToChange"
+    );
+    let history = premium.history().unwrap();
+    assert_eq!(history[0].function, "Editar equipamentos");
+    premium.restore(Path::new(&history[0].backup)).unwrap();
+    assert_eq!(
+        fs::read(setup.save.join("thp_player_profile_adf")).unwrap(),
+        before
+    );
+}

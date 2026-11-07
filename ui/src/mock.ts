@@ -137,6 +137,8 @@ export function installMock(): void {
         return mockProfile();
       case 'equipment':
         return mockInventory();
+      case 'edit_equipment':
+        return { changes: 1, backup: 'C:\\...\\backups\\2026-11-07_12-00-00' };
       case 'equipment_icons':
         return {};
       case 'missions':

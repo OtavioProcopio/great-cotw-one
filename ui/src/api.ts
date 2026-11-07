@@ -7,6 +7,8 @@ import type {
   Diagnostics,
   EditRequest,
   EditResult,
+  EquipmentChange,
+  EquipmentEditResult,
   HistoryItem,
   Inventory,
   License,
@@ -45,6 +47,8 @@ export interface Api {
   profile(): Promise<Profile>;
   /** Equipamentos do jogador: posse, quantidades, estatísticas por arma e conjuntos salvos. */
   equipment(): Promise<Inventory>;
+  /** Entrega itens, ajusta quantidades e dinheiro, com backup antes. Exige Premium. */
+  editEquipment(changes: EquipmentChange[]): Promise<EquipmentEditResult>;
   /** Ícones (`data:image/png`) dos itens pedidos, lidos do jogo; os que não existirem ficam de fora. */
   equipmentIcons(ids: string[]): Promise<Record<string, string>>;
   /** Progresso das missões em cada reserva. */
@@ -97,6 +101,7 @@ export const tauriApi: Api = {
   editAnimals: (request) => invoke<EditResult>('edit_animals', { request }),
   profile: () => invoke<Profile>('profile'),
   equipment: () => invoke<Inventory>('equipment'),
+  editEquipment: (changes) => invoke<EquipmentEditResult>('edit_equipment', { changes }),
   equipmentIcons: (ids) => invoke<Record<string, string>>('equipment_icons', { ids }),
   missions: () => invoke<ReserveMissions[]>('missions'),
   reserveMap: (reserve) => invoke<ReserveMap>('reserve_map', { reserve }),

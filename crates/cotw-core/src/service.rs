@@ -18,6 +18,7 @@ use crate::diagnostics::{Diagnostics, FileDiagnostic, FileState, SaveStatus, Sea
 use crate::discovery::saves::{SaveLocation, resolve_manual};
 use crate::discovery::steam::validate_game_dir;
 use crate::equipment::{self, Inventory};
+use crate::equipment_editor::{self, EquipmentChange, EquipmentError};
 use crate::history::{History, HistoryError, HistoryKind};
 use crate::language::Language;
 use crate::license::{
@@ -84,6 +85,9 @@ pub enum ServiceError {
     /// Não foi possível montar ou aplicar a edição de animais.
     #[error(transparent)]
     Editor(#[from] EditorError),
+    /// Não foi possível montar ou aplicar a edição de equipamentos.
+    #[error(transparent)]
+    Equipment(#[from] EquipmentError),
     /// A função exige a licença Premium.
     #[error("esta função exige a licença Premium")]
     PremiumRequired,
@@ -110,6 +114,7 @@ impl ServiceError {
             Self::NothingToUnlock => "nothingToUnlock",
             Self::PremiumRequired => "premiumRequired",
             Self::Editor(error) => error.code(),
+            Self::Equipment(error) => error.code(),
             Self::Store(error) => error.code(),
             Self::License(ActivateError::License(error)) => error.code(),
             Self::License(ActivateError::Io(_)) => "licenseSave",
@@ -210,6 +215,16 @@ pub struct EditRequest {
     pub species: String,
     /// Mudanças, uma por animal.
     pub changes: Vec<AnimalChange>,
+}
+
+/// Resultado de uma edição de equipamentos gravada.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EquipmentEditResult {
+    /// Quantas mudanças foram gravadas.
+    pub changes: usize,
+    /// Pasta do backup feito antes.
+    pub backup: String,
 }
 
 /// Resultado de uma edição gravada.
@@ -571,6 +586,42 @@ impl AppService {
         let done = transaction.commit(preview.confirm(), self.processes.as_ref(), &history)?;
         Ok(EditResult {
             animals,
+            backup: done.backup.path.display().to_string(),
+        })
+    }
+
+    /// Grava mudanças nos equipamentos (itens, quantidades, dinheiro), pelo caminho seguro (jogo
+    /// fechado, backup, conferência).
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::PremiumRequired`] sem licença Premium; [`ServiceError::Equipment`] se a
+    /// edição não valer; [`ServiceError::Transaction`] se o jogo estiver aberto ou algo falhar
+    /// (os arquivos são restaurados).
+    pub fn edit_equipment(
+        &self,
+        changes: &[EquipmentChange],
+    ) -> Result<EquipmentEditResult, ServiceError> {
+        if !self.license.is_premium() {
+            return Err(ServiceError::PremiumRequired);
+        }
+        let report = self.diagnostics();
+        let (SaveStatus::Found, Some(account)) = (report.save.status, report.save.account) else {
+            return Err(ServiceError::NoSaveSelected);
+        };
+        let save_dir = PathBuf::from(account.path);
+        let plan = equipment_editor::build_edit(&save_dir, changes)?;
+        let count = plan.changes;
+        let transaction = SaveTransaction::new(&save_dir, &backups_dir(&self.appdata));
+        let preview = transaction.preview(Change {
+            function: "Editar equipamentos".into(),
+            summary: format!("{count} mudanças nos equipamentos"),
+            files: vec![plan.file],
+        })?;
+        let history = History::open(&history_db(&self.appdata))?;
+        let done = transaction.commit(preview.confirm(), self.processes.as_ref(), &history)?;
+        Ok(EquipmentEditResult {
+            changes: count,
             backup: done.backup.path.display().to_string(),
         })
     }

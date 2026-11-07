@@ -15,7 +15,9 @@ Registro vivo do que foi decidido e do que surgiu no caminho. Atualize quando al
 - **Equipamentos (07/11/2026):** o dono aprovou o plano completo: página grátis de leitura (arsenal, ficha da arma, ranking, loadouts, coleção), escritas Premium (itens, munição, veículos, loadouts, dinheiro) e recomendador de arma e munição por espécie. Proposta em `openspec/changes/add-equipment-page`. Reagrupar animais fica depois.
   - **Feito (grátis, só leitura):** catálogo decodificado e embutido (`equipment.json`, gerado por `tools/gen-equipment`), página Equipamentos com arsenal, ficha da arma, ranking e conjuntos, ícones lidos do jogo do usuário para um cache local.
   - **Não achado:** dano e balística das munições (não estão em `equipment_data.bin` nem em `ammunition.bin`) e o nível de desbloqueio dos itens. O recomendador por dano depende de encontrar essa fonte.
-  - **Falta:** escritas Premium (itens, munição, veículos, conjuntos, dinheiro) e testes no jogo.
+  - **Feito (Premium):** entregar item, liberar na loja, ajustar quantidade de munição e consumíveis e o dinheiro (até 10.000.000, limite do app), sempre no mesmo tamanho, com backup e jogo fechado.
+  - **Adiado:** montar conjuntos (listas de tamanho variável, risco de realocação) e veículos (campo vazio no save de teste).
+  - **Falta:** testar no jogo (item entregue, munição, dinheiro) e achar a fonte de dano para o recomendador.
 
 ## Ideias em aberto
 

@@ -21,6 +21,8 @@ const FEATURES: Feature[] = [
   { label: 'premium.f.unlock', free: false, premium: true },
   { label: 'premium.f.unlockBy', free: false, premium: true },
   { label: 'premium.f.edit', free: false, premium: true },
+  { label: 'premium.f.gear', free: true, premium: true },
+  { label: 'premium.f.gearEdit', free: false, premium: true },
   { label: 'premium.f.fur', free: false, premium: 'soon' },
 ];
 

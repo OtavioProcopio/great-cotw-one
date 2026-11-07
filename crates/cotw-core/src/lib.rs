@@ -10,6 +10,7 @@ pub mod career;
 pub mod diagnostics;
 pub mod discovery;
 pub mod equipment;
+pub mod equipment_editor;
 pub mod history;
 pub mod language;
 pub mod license;

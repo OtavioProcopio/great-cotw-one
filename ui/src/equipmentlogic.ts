@@ -9,6 +9,23 @@ export type RankKey = 'kills' | 'accuracy' | 'record' | 'distance' | 'shots';
 
 export const RANK_KEYS: RankKey[] = ['kills', 'accuracy', 'record', 'distance', 'shots'];
 
+/** Maior dinheiro que o app grava (igual ao limite do núcleo). */
+export const MAX_CASH = 10_000_000;
+
+/** Maior quantidade que o app grava de um item da categoria (1: item que não se empilha). */
+export function maxAmount(kind: EquipmentKind): number {
+  switch (kind) {
+    case 'ammo':
+      return 999;
+    case 'consumable':
+    case 'lure_caller':
+    case 'deployable':
+      return 99;
+    default:
+      return 1;
+  }
+}
+
 export interface Progress {
   owned: number;
   total: number;
