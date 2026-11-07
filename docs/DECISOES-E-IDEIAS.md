@@ -28,6 +28,8 @@ Registro vivo do que foi decidido e do que surgiu no caminho. Atualize quando al
 5. **Testes com saves sintéticos** para voltar a cobertura a 80 %.
 6. **Publicar a v0.1.0**, testar o instalador e subir o servidor de licenças na VPS.
 
+7. **Montador de equipamento por caça (ideia do dono, 07/11/2026):** escolher reserva e espécie e o app sugere arma, munição e mira do seu arsenal, e o que vale comprar. A classe do animal (1 a 9) já está decodificada do jogo; a faixa de classe de cada munição NÃO está nos arquivos lidos, então falta uma fonte (tabela da comunidade conferida no jogo ou um valor decodificado).
+
 ## Mercado (pesquisa de nov/2026)
 
 - Concorrente mais próximo: *Call of the Wild Tools*, analisador só de leitura, compra única por volta de US$ 9,99 (informação de listagens de terceiros). O APC é o único editor gratuito e o original não é mais mantido.
