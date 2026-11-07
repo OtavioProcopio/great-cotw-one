@@ -26,3 +26,7 @@ ui/node_modules/
 ui/dist/
 ui/coverage/
 src-tauri/gen/
+
+# python
+__pycache__/
+*.pyc
