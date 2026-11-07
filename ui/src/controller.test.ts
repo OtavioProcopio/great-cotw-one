@@ -698,6 +698,44 @@ describe('Controller: perfil e missões', () => {
     expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Perfil');
   });
 
+  it('opens the equipment page, switches tabs, opens a weapon and fills the icons', async () => {
+    const api = fakeApi({
+      equipmentIcons: (ids) => {
+        api.calls.push(`equipmentIcons:${ids.join(',')}`);
+        return Promise.resolve({ equipment_weapon_ba_rifle_270_01: 'data:image/png;base64,AAAA' });
+      },
+    });
+    await new Controller(root, api).start();
+    click('show-equipment');
+    await settle();
+    expect(api.calls).toContain('equipment');
+    expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Equipamentos');
+    expect(api.calls.some((c) => c.startsWith('equipmentIcons:'))).toBe(true);
+    expect(root.querySelector('img[src^="data:image/png"]')).not.toBeNull();
+    click('equip-kind', { kind: 'ammo' });
+    expect(root.textContent).toContain('.270 Soft-Point Bullet');
+    click('equip-own', { own: 'missing' });
+    expect(root.textContent).not.toContain('Soft-Point');
+    click('equip-kind', { kind: 'weapon' });
+    click('equip-open', { id: 'equipment_weapon_ba_rifle_270_01' });
+    expect(root.textContent).toContain('Munições que servem');
+    click('equip-close');
+    click('equip-tab', { tab: 'ranking' });
+    click('equip-rank', { rank: 'accuracy' });
+    expect(root.querySelectorAll('.eq-rank li')).toHaveLength(1);
+    click('equip-tab', { tab: 'loadouts' });
+    expect(root.textContent).toContain('Alces');
+  });
+
+  it('keeps the equipment page working when the icons cannot be read', async () => {
+    const api = fakeApi({ equipmentIcons: () => Promise.reject(new Error('sem jogo')) });
+    await new Controller(root, api).start();
+    click('show-equipment');
+    await settle();
+    expect(root.textContent).toContain('.270 Bolt-Action Rifle');
+    expect(root.querySelector('img[src^="data:image/png"]')).toBeNull();
+  });
+
   it('filters the achievements after the screen is drawn', async () => {
     await open('show-profile');
     root.querySelector<HTMLElement>('[data-ach-filter="done"]')?.click();

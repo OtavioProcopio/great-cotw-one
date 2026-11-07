@@ -1,6 +1,7 @@
 //! Serviço de aplicação: o que a interface chama. Reúne descoberta, histórico e restauração
 //! com as pastas do app, para que a camada de interface (Tauri) seja só repasse de chamadas.
 
+use std::collections::BTreeMap;
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -16,6 +17,7 @@ use crate::career::{self, CareerError, ProfileView, ReserveMissions};
 use crate::diagnostics::{Diagnostics, FileDiagnostic, FileState, SaveStatus, SearchRoots, run};
 use crate::discovery::saves::{SaveLocation, resolve_manual};
 use crate::discovery::steam::validate_game_dir;
+use crate::equipment::{self, Inventory};
 use crate::history::{History, HistoryError, HistoryKind};
 use crate::language::Language;
 use crate::license::{
@@ -595,6 +597,34 @@ impl AppService {
             stats_dir.as_deref(),
             self.language(),
         )?)
+    }
+
+    /// Equipamentos do jogador: posse, quantidades, estatísticas por arma e conjuntos salvos.
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::NoSaveSelected`] sem save e [`ServiceError::Career`] se o perfil não puder ser lido.
+    pub fn equipment(&self) -> Result<Inventory, ServiceError> {
+        let report = self.diagnostics();
+        let (SaveStatus::Found, Some(account)) = (report.save.status, report.save.account) else {
+            return Err(ServiceError::NoSaveSelected);
+        };
+        Ok(equipment::inventory(
+            Path::new(&account.path),
+            self.language(),
+        )?)
+    }
+
+    /// Ícones dos equipamentos pedidos, lidos do jogo do usuário (sem o jogo, a lista vem vazia).
+    #[must_use]
+    pub fn equipment_icons(&self, ids: &[String]) -> BTreeMap<String, String> {
+        let archives = self
+            .diagnostics()
+            .game
+            .archives
+            .and_then(|dir| GameArchives::open(Path::new(&dir)).ok());
+        let cache = app_data_dir(&self.appdata).join("icons");
+        equipment::icons(archives.as_ref(), &cache, ids)
     }
 
     /// Progresso das missões de cada reserva, com os textos do jogo.

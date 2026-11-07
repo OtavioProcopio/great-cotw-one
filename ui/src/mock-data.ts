@@ -1,6 +1,6 @@
 // Dados e artes de exemplo para ver a interface (e tirar prints) sem o jogo. Nada aqui vem do jogo:
 // as capas e o mapa são desenhos simples feitos em SVG. Só em desenvolvimento.
-import type { AnimalReserve, MapReserve, Profile, ReserveMissions } from './types';
+import type { AnimalReserve, EquipmentItem, Inventory, MapReserve, Profile, ReserveMissions } from './types';
 
 function svgUrl(svg: string): string {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
@@ -165,4 +165,75 @@ export function mockAnimals(): AnimalReserve[] {
           : [],
     })),
   }));
+}
+
+function item(partial: Partial<EquipmentItem> & Pick<EquipmentItem, 'id' | 'kind' | 'name'>): EquipmentItem {
+  return {
+    price: 0,
+    weight: null,
+    class: null,
+    boxSize: null,
+    icon: null,
+    owned: false,
+    unlocked: false,
+    inBackpack: false,
+    amount: 0,
+    ammo: [],
+    sights: [],
+    stats: null,
+    ...partial,
+  };
+}
+
+/** Equipamentos de exemplo (nomes e números inventados para o desenvolvimento). */
+export function mockInventory(): Inventory {
+  return {
+    cash: 300_618,
+    weaponLevels: [30, 23, 25, 21],
+    items: [
+      item({
+        id: 'equipment_weapon_ba_rifle_270_01',
+        kind: 'weapon',
+        name: '.270 Bolt-Action Rifle',
+        class: 'rifle',
+        price: 12_000,
+        weight: 4,
+        owned: true,
+        inBackpack: true,
+        amount: 1,
+        ammo: ['equipment_ammo_270_sp_01', 'equipment_ammo_270_pt_01'],
+        sights: ['equipment_sight_rifle_scope_3_9x44mm_01'],
+        stats: { shotsFired: 100, shotsMissed: 25, accuracy: 75, kills: 40, oneShotKills: 22, recordScore: 812.5, recordSpecies: 'Alce', furthestShot: 250.5, purchasedAt: 1_700_000_000 },
+      }),
+      item({
+        id: 'equipment_weapon_longbow_01',
+        kind: 'weapon',
+        name: 'Longbow',
+        class: 'archery',
+        weight: 2.5,
+        unlocked: true,
+        ammo: [],
+        sights: [],
+      }),
+      item({ id: 'equipment_ammo_270_sp_01', kind: 'ammo', name: '.270 Soft-Point Bullet', price: 440, weight: 0.03, boxSize: 10, owned: true, amount: 203 }),
+      item({ id: 'equipment_ammo_270_pt_01', kind: 'ammo', name: '.270 Polymer-Tip Bullet', price: 560, weight: 0.03, boxSize: 10 }),
+      item({ id: 'equipment_sight_rifle_scope_3_9x44mm_01', kind: 'sight', name: '3-9x 44mm Rifle Scope', weight: 0.5, owned: true, amount: 1 }),
+      item({ id: 'equipment_optics_binoculars_01', kind: 'optic', name: '8x42mm Binoculars', owned: true, amount: 1 }),
+      item({ id: 'equipment_lure_caller_roe_deer_01', kind: 'lure_caller', name: 'Roe Deer Caller', price: 1500, owned: true, amount: 1 }),
+      item({ id: 'equipment_tent_01', kind: 'deployable', name: 'Tent', price: 8000 }),
+      item({ id: 'equipment_consumable_first_aid_kit_01', kind: 'consumable', name: 'First Aid Kit', owned: true, amount: 5, inBackpack: true }),
+      item({ id: 'equipment_atv_01', kind: 'vehicle', name: 'ATV', owned: true, amount: 2 }),
+    ],
+    loadouts: [
+      {
+        index: 0,
+        name: 'Alces',
+        unlocked: true,
+        active: true,
+        items: ['equipment_weapon_ba_rifle_270_01', 'equipment_ammo_270_sp_01'],
+        missing: ['equipment_weapon_longbow_01'],
+      },
+      { index: 1, name: '', unlocked: true, active: false, items: [], missing: [] },
+    ],
+  };
 }

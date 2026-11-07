@@ -12,11 +12,16 @@ Registro vivo do que foi decidido e do que surgiu no caminho. Atualize quando al
 - **Imagens do jogo:** o usuário quer retrabalhá-las com arte própria. Os retratos dos animais não foram encontrados (os caminhos chutados eram colisões de hash); ficam dentro dos `.gfx` da interface. Os ícones por classe são provisórios.
 - **Aviso de PC fraco** ao liberar mais de 8.000 lugares; **aviso de ponto aproximado** no rastreador de grupo.
 
+- **Equipamentos (07/11/2026):** o dono aprovou o plano completo: página grátis de leitura (arsenal, ficha da arma, ranking, loadouts, coleção), escritas Premium (itens, munição, veículos, loadouts, dinheiro) e recomendador de arma e munição por espécie. Proposta em `openspec/changes/add-equipment-page`. Reagrupar animais fica depois.
+  - **Feito (grátis, só leitura):** catálogo decodificado e embutido (`equipment.json`, gerado por `tools/gen-equipment`), página Equipamentos com arsenal, ficha da arma, ranking e conjuntos, ícones lidos do jogo do usuário para um cache local.
+  - **Não achado:** dano e balística das munições (não estão em `equipment_data.bin` nem em `ammunition.bin`) e o nível de desbloqueio dos itens. O recomendador por dano depende de encontrar essa fonte.
+  - **Falta:** escritas Premium (itens, munição, veículos, conjuntos, dinheiro) e testes no jogo.
+
 ## Ideias em aberto
 
 1. **Teste grátis:** uma edição de animal por instalação (contador local); o resto é Premium.
 2. **Reagrupar animais:** trocar as áreas da rota de cada grupo (`NeedZonePathGuids`, edição do mesmo tamanho) para que vários grupos frequentem as mesmas áreas, perto de lagos. Não testado no jogo; começar com um grupo, prévia e backup.
-3. **Página de equipamentos:** o save traz posse, quantidades, estatísticas por arma (tiros, acertos, abates, recorde, tiro mais distante em órgão vital), loadouts, veículos e skins. Nomes, descrições e ícones vêm de `settings/hp_settings/equipment_data.bin` (991 itens: 138 armas, 118 munições, 79 iscas e chamados, 44 miras, 411 skins etc.; todos os ícones existem nos arquivos). Os números (peso, preço, nível) ainda não foram decodificados.
+3. **Página de equipamentos (leitura pronta, escrita Premium pendente):** o save traz posse, quantidades, estatísticas por arma (tiros, acertos, abates, recorde, tiro mais distante em órgão vital), loadouts, veículos e skins. Nomes, descrições e ícones vêm de `settings/hp_settings/equipment_data.bin` (991 itens: 138 armas, 118 munições, 79 iscas e chamados, 44 miras, 411 skins etc.; todos os ícones existem nos arquivos). Preço, peso, classe da arma e compatibilidade foram decodificados; dano e nível de desbloqueio não estão nesses arquivos.
 4. **Códices:** ainda não inspecionados (`codex_seen_status_adf` e os textos do jogo).
 5. **Testes com saves sintéticos** para voltar a cobertura a 80 %.
 6. **Publicar a v0.1.0**, testar o instalador e subir o servidor de licenças na VPS.

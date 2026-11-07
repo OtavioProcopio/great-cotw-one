@@ -327,6 +327,59 @@ export interface ReserveMap {
   groups: MapGroup[];
 }
 
+export type EquipmentKind = 'weapon' | 'ammo' | 'sight' | 'optic' | 'lure_caller' | 'deployable' | 'consumable' | 'vehicle';
+
+export type WeaponClass = 'rifle' | 'handgun' | 'shotgun' | 'archery';
+
+export interface WeaponStats {
+  shotsFired: number;
+  shotsMissed: number;
+  /** Porcentagem de acertos; `null` sem tiros. */
+  accuracy: number | null;
+  kills: number;
+  oneShotKills: number;
+  recordScore: number;
+  recordSpecies: string | null;
+  furthestShot: number | null;
+  /** Segundos desde 1970. */
+  purchasedAt: number | null;
+}
+
+export interface EquipmentItem {
+  id: string;
+  kind: EquipmentKind;
+  name: string;
+  price: number;
+  weight: number | null;
+  class: WeaponClass | null;
+  boxSize: number | null;
+  icon: string | null;
+  owned: boolean;
+  unlocked: boolean;
+  inBackpack: boolean;
+  amount: number;
+  ammo: string[];
+  sights: string[];
+  stats: WeaponStats | null;
+}
+
+export interface Loadout {
+  index: number;
+  name: string;
+  unlocked: boolean;
+  active: boolean;
+  items: string[];
+  missing: string[];
+}
+
+export interface Inventory {
+  cash: number;
+  /** Rifle, pistola, espingarda, arco. */
+  weaponLevels: [number, number, number, number];
+  items: EquipmentItem[];
+  loadouts: Loadout[];
+}
+
 export interface RestoreResult {
   safetyBackup: string;
 }

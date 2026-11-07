@@ -596,6 +596,7 @@ dependencies = [
  "ed25519-dalek",
  "flate2",
  "jpeg-encoder",
+ "png 0.18.1",
  "rusqlite",
  "serde",
  "serde_json",

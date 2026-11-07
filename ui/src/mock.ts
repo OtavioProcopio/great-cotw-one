@@ -1,7 +1,7 @@
 // Dados de exemplo para ver a interface no navegador (`npm run dev` + `?mock`). Não vão para o app.
 import { mockIPC } from '@tauri-apps/api/mocks';
 
-import { mockAnimals, mockMapReserves, mockMissions, mockProfile, terrainArt } from './mock-data';
+import { mockAnimals, mockInventory, mockMapReserves, mockMissions, mockProfile, terrainArt } from './mock-data';
 import type { Diagnostics, HistoryItem, ReserveMap } from './types';
 
 const diagnostics: Diagnostics = {
@@ -135,6 +135,10 @@ export function installMock(): void {
         return { animals: 1, backup: 'C:\\...\\backups\\2026-11-02_17-00-00' };
       case 'profile':
         return mockProfile();
+      case 'equipment':
+        return mockInventory();
+      case 'equipment_icons':
+        return {};
       case 'missions':
         return mockMissions();
       case 'map_reserves':

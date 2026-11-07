@@ -12,6 +12,7 @@ use cotw_core::animal_editor::SpeciesEditor;
 use cotw_core::animals::AnimalReserve;
 use cotw_core::career::{ProfileView, ReserveMissions};
 use cotw_core::diagnostics::{Diagnostics, SearchRoots};
+use cotw_core::equipment::Inventory;
 use cotw_core::license::LicenseStatus;
 use cotw_core::mapview::{MapReserve, ReserveMap};
 use cotw_core::paths::system_appdata;
@@ -122,6 +123,19 @@ async fn edit_animals(
 #[tauri::command]
 async fn profile(service: Service<'_>) -> Result<ProfileView, CommandError> {
     blocking(&service, AppService::profile).await
+}
+
+#[tauri::command]
+async fn equipment(service: Service<'_>) -> Result<Inventory, CommandError> {
+    blocking(&service, AppService::equipment).await
+}
+
+#[tauri::command]
+async fn equipment_icons(
+    service: Service<'_>,
+    ids: Vec<String>,
+) -> Result<std::collections::BTreeMap<String, String>, CommandError> {
+    blocking(&service, move |s| Ok(s.equipment_icons(&ids))).await
 }
 
 #[tauri::command]
@@ -263,6 +277,8 @@ pub fn run() {
             species_editor,
             edit_animals,
             profile,
+            equipment,
+            equipment_icons,
             missions,
             zones_preview,
             unlock_zones,

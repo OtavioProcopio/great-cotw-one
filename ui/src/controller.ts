@@ -2,7 +2,7 @@ import { isCommandError, type Api } from './api';
 import { formatCount, formatStamp } from './format';
 import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } from './i18n';
 import { icon, type IconName } from './icons';
-import type { AnimalReserve, Diagnostics, EditRequest, HistoryItem, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
+import type { AnimalReserve, Diagnostics, EditRequest, HistoryItem, Inventory, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 import { renderDiagnostics } from './views/diagnostics';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
@@ -10,13 +10,15 @@ import { bindAnimals, renderAnimals } from './views/animals';
 import type { EditorHooks, SaveOutcome } from './views/animalEdit';
 import { MapView } from './views/map';
 import { type MissionFilter, renderMissions } from './views/missions';
+import { bindEquipment, type EquipState, initialEquipState, renderEquipment } from './views/equipment';
 import { bindProfile, renderProfile } from './views/profile';
 import { renderPremium } from './views/premium';
 import { renderUnlock } from './views/unlock';
 import { type UnlockMode, type UnlockState, initialUnlockState, summarize, toRequest, toggled } from './unlocklogic';
 import { escapeHtml } from './escape';
+import type { EquipTab, OwnFilter, RankKey } from './equipmentlogic';
 
-export type View = 'home' | 'premium' | 'profile' | 'animals' | 'map' | 'missions' | 'history' | 'diagnostics' | 'unlock';
+export type View = 'home' | 'premium' | 'profile' | 'equipment' | 'animals' | 'map' | 'missions' | 'history' | 'diagnostics' | 'unlock';
 
 interface Notice {
   kind: 'ok' | 'error';
@@ -44,6 +46,18 @@ function parseMode(value: string | undefined): UnlockMode {
   return value === 'animal' || value === 'need' ? value : 'all';
 }
 
+function parseOwn(value: string | undefined): OwnFilter {
+  return value === 'owned' || value === 'missing' ? value : 'all';
+}
+
+function parseTab(value: string | undefined): EquipTab {
+  return value === 'ranking' || value === 'loadouts' ? value : 'arsenal';
+}
+
+function parseRank(value: string | undefined): RankKey {
+  return value === 'accuracy' || value === 'record' || value === 'distance' || value === 'shots' ? value : 'kills';
+}
+
 function parseFilter(value: string | undefined): MissionFilter {
   return value === 'all' || value === 'done' || value === 'locked' ? value : 'active';
 }
@@ -61,6 +75,9 @@ export class Controller {
   private mapReserves: MapReserve[] | null = null;
   private homeReserves: MapReserve[] = [];
   private profile: Profile | null = null;
+  private equipment: Inventory | null = null;
+  private equipState: EquipState = initialEquipState();
+  private equipIcons: Record<string, string> = {};
   private animals: AnimalReserve[] | null = null;
   private animalReserve: number | null = null;
   private animalSpecies: string | null = null;
@@ -178,6 +195,7 @@ export class Controller {
       else if (this.view === 'map') await this.loadMap();
       else if (this.view === 'premium') this.license = await this.api.license().catch((): License => FREE);
       else if (this.view === 'profile') this.profile = await this.api.profile();
+      else if (this.view === 'equipment') this.equipment = await this.api.equipment();
       else if (this.view === 'animals') this.animals = await this.api.animals();
       else if (this.view === 'missions') await this.loadMissions();
       else {
@@ -212,6 +230,35 @@ export class Controller {
         break;
       case 'show-animals':
         await this.show('animals');
+        break;
+      case 'show-equipment':
+        this.equipState = initialEquipState();
+        await this.show('equipment');
+        break;
+      case 'equip-tab':
+        this.equipState = { ...this.equipState, tab: parseTab(button.dataset['tab']), open: null };
+        this.render();
+        break;
+      case 'equip-kind':
+        this.equipState = { ...this.equipState, kind: (button.dataset['kind'] as EquipState['kind'] | undefined) ?? 'weapon' };
+        this.render();
+        break;
+      case 'equip-own':
+        this.equipState = { ...this.equipState, own: parseOwn(button.dataset['own']) };
+        this.render();
+        break;
+      case 'equip-rank':
+        this.equipState = { ...this.equipState, rank: parseRank(button.dataset['rank']) };
+        this.render();
+        break;
+      case 'equip-open':
+        this.equipState = { ...this.equipState, open: button.dataset['id'] ?? null };
+        this.render();
+        window.scrollTo({ top: 0 });
+        break;
+      case 'equip-close':
+        this.equipState = { ...this.equipState, open: null };
+        this.render();
         break;
       case 'pick-animal-reserve':
         this.animalReserve = Number(reserve);
@@ -409,6 +456,7 @@ export class Controller {
     this.animals = null;
     this.missions = null;
     this.profile = null;
+    this.equipment = null;
     this.mapData = null;
     this.mapReserves = null;
     this.zones = null;
@@ -480,7 +528,7 @@ export class Controller {
     this.mapView = null;
     const waiting = this.loading && !this.currentData() && this.view !== 'unlock' && this.view !== 'premium';
     const body = waiting
-      ? `<p class="muted">${escapeHtml(t(this.view === 'map' ? 'map.loading' : this.view === 'missions' ? 'missions.loading' : this.view === 'animals' ? 'animals.loading' : 'common.loading'))}</p>`
+      ? `<p class="muted">${escapeHtml(t(this.view === 'map' ? 'map.loading' : this.view === 'missions' ? 'missions.loading' : this.view === 'animals' ? 'animals.loading' : this.view === 'equipment' ? 'equip.loading' : 'common.loading'))}</p>`
       : this.renderBody();
     const notice = this.notice
       ? `<p class="notice notice-${this.notice.kind}" role="alert">${escapeHtml(this.notice.text)}</p>`
@@ -493,6 +541,7 @@ export class Controller {
         ${item('home', 'home', t('nav.home'), 'show-home')}
         ${item('profile', 'user', t('nav.profile'), 'show-profile')}
         ${item('animals', 'paw', t('nav.animals'), 'show-animals')}
+        ${item('equipment', 'backpack', t('nav.equipment'), 'show-equipment')}
         ${item('map', 'map', t('nav.map'), 'show-map')}
         ${item('missions', 'flag', t('nav.missions'), 'show-missions')}
         ${item('unlock', 'unlock', t('nav.unlock'), 'show-unlock', true)}
@@ -506,6 +555,29 @@ export class Controller {
     this.mountMap();
     bindProfile(this.root);
     bindAnimals(this.root);
+    bindEquipment(this.root);
+    if (this.view === 'equipment') void this.fillEquipmentIcons();
+  }
+
+  /** Pede ao app os ícones que a página mostra e ainda não chegaram, e os põe no lugar sem refazer a tela. */
+  private async fillEquipmentIcons(): Promise<void> {
+    const pending = [...this.root.querySelectorAll<HTMLImageElement>('img[data-equip-icon]')];
+    const wanted = [...new Set(pending.map((img) => img.dataset['equipIcon'] ?? '').filter((id) => id !== '' && !(id in this.equipIcons)))];
+    if (wanted.length > 0) {
+      try {
+        Object.assign(this.equipIcons, await this.api.equipmentIcons(wanted));
+      } catch {
+        // Sem o jogo instalado a página segue com os ícones simples.
+        for (const id of wanted) this.equipIcons[id] = '';
+      }
+    }
+    for (const img of pending) {
+      const url = this.equipIcons[img.dataset['equipIcon'] ?? ''];
+      if (!url || !img.isConnected) continue;
+      img.src = url;
+      img.hidden = false;
+      img.previousElementSibling?.remove();
+    }
   }
 
   /** Monta o mapa interativo depois que o HTML da tela existe. */
@@ -524,10 +596,11 @@ export class Controller {
     this.mapView.mount();
   }
 
-  private currentData(): Diagnostics | HistoryItem[] | ZonesPreview | ReserveMap | MapReserve[] | Profile | ReserveMissions[] | AnimalReserve[] | null {
+  private currentData(): Diagnostics | HistoryItem[] | ZonesPreview | ReserveMap | MapReserve[] | Profile | Inventory | ReserveMissions[] | AnimalReserve[] | null {
     if (this.view === 'unlock') return this.zones;
     if (this.view === 'map') return this.mapData ?? this.mapReserves;
     if (this.view === 'profile') return this.profile;
+    if (this.view === 'equipment') return this.equipment;
     if (this.view === 'animals') return this.animals;
     if (this.view === 'missions') return this.missions;
     return this.view === 'history' ? this.history : this.diagnostics;
@@ -543,6 +616,9 @@ export class Controller {
     if (this.view === 'unlock') return renderUnlock(this.zones, this.unlockState, this.license.premium);
     if (this.view === 'map') return this.renderMap();
     if (this.view === 'profile') return this.profile ? renderProfile(this.profile) : '';
+    if (this.view === 'equipment') {
+      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons) : '';
+    }
     if (this.view === 'premium') return renderPremium(this.license, this.purchase);
     if (this.view === 'animals') {
       return this.animals ? renderAnimals(this.animals, this.animalReserve, this.animalSpecies) : '';

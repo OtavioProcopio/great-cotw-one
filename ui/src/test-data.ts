@@ -2,6 +2,7 @@
 import type { Api } from './api';
 import type { License, SpeciesEditor, UnlockRequest } from './types';
 import type { AnimalReserve, Diagnostics, HistoryItem, MapReserve, Profile, ReserveMap, ReserveMissions, ZonesPreview } from './types';
+import { mockInventory } from './mock-data';
 
 export const foundDiagnostics: Diagnostics = {
   limitedMode: false,
@@ -302,6 +303,8 @@ export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[]; 
     speciesEditor: record('speciesEditor', sampleEditor),
     editAnimals: record('editAnimals', { animals: 1, backup: 'C:\\Backups\\animais' }),
     profile: record('profile', sampleProfile),
+    equipment: record('equipment', mockInventory()),
+    equipmentIcons: record('equipmentIcons', {}),
     missions: record('missions', sampleMissions),
     mapReserves: record('mapReserves', mapReserves),
     reserveMap: record('reserveMap', sampleMap),

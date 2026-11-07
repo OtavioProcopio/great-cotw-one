@@ -2078,3 +2078,127 @@ button.quick-win strong {
 .medal-silver svg { color: #b8c2cc; }
 .medal-gold svg { color: #f2c04a; }
 .medal-diamond svg { color: #5ad1ff; }
+
+/* ===== equipamentos ===== */
+.eq-kinds {
+  flex-wrap: wrap;
+}
+
+.eq-kinds small {
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.eq-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.eq-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 10px;
+}
+
+.eq-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  color: inherit;
+  background: var(--surface);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+button.eq-card {
+  cursor: pointer;
+}
+
+.eq-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.eq-text small {
+  color: var(--muted);
+}
+
+.eq-thumb {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--size, 56px);
+  height: var(--size, 56px);
+  border-radius: 12px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.eq-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.eq-fallback {
+  color: var(--muted);
+  display: grid;
+}
+
+.eq-row .eq-pos {
+  width: 1.6em;
+  text-align: center;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.eq-row .eq-value {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.eq-sheet-head {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.eq-list,
+.eq-chips,
+.eq-loadouts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.eq-mini {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.eq-chips {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.eq-chip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+}

@@ -110,7 +110,7 @@ fn float(value: Option<&Value>) -> f64 {
     }
 }
 
-fn first_instance(adf: &[u8], name: &str) -> Result<Value, CareerError> {
+pub(crate) fn first_instance(adf: &[u8], name: &str) -> Result<Value, CareerError> {
     let parsed = Adf::parse(adf.to_vec()).map_err(|_| CareerError::Parse(name.to_owned()))?;
     let instance = parsed
         .instances()

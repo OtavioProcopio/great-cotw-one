@@ -8,6 +8,7 @@ import type {
   EditRequest,
   EditResult,
   HistoryItem,
+  Inventory,
   License,
   PurchaseStatus,
   MapReserve,
@@ -42,6 +43,10 @@ export interface Api {
   editAnimals(request: EditRequest): Promise<EditResult>;
   /** Perfil do jogador: nível, marcas e conquistas da Steam. */
   profile(): Promise<Profile>;
+  /** Equipamentos do jogador: posse, quantidades, estatísticas por arma e conjuntos salvos. */
+  equipment(): Promise<Inventory>;
+  /** Ícones (`data:image/png`) dos itens pedidos, lidos do jogo; os que não existirem ficam de fora. */
+  equipmentIcons(ids: string[]): Promise<Record<string, string>>;
   /** Progresso das missões em cada reserva. */
   missions(): Promise<ReserveMissions[]>;
   /** Zonas, grupos, espécies e imagem de fundo de uma reserva. */
@@ -91,6 +96,8 @@ export const tauriApi: Api = {
   speciesEditor: (reserve, species) => invoke<SpeciesEditor>('species_editor', { reserve, species }),
   editAnimals: (request) => invoke<EditResult>('edit_animals', { request }),
   profile: () => invoke<Profile>('profile'),
+  equipment: () => invoke<Inventory>('equipment'),
+  equipmentIcons: (ids) => invoke<Record<string, string>>('equipment_icons', { ids }),
   missions: () => invoke<ReserveMissions[]>('missions'),
   reserveMap: (reserve) => invoke<ReserveMap>('reserve_map', { reserve }),
   zonesPreview: () => invoke<ZonesPreview>('zones_preview'),
