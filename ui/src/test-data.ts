@@ -2,7 +2,7 @@
 import type { Api } from './api';
 import type { License, SpeciesEditor, UnlockRequest } from './types';
 import type { AnimalReserve, Diagnostics, HistoryItem, MapReserve, Profile, ReserveMap, ReserveMissions, ZonesPreview } from './types';
-import { mockInventory } from './mock-data';
+import { mockAdvice, mockInventory } from './mock-data';
 
 export const foundDiagnostics: Diagnostics = {
   limitedMode: false,
@@ -305,6 +305,7 @@ export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[]; 
     profile: record('profile', sampleProfile),
     equipment: record('equipment', mockInventory()),
     equipmentIcons: record('equipmentIcons', {}),
+    gearAdvice: record('gearAdvice', mockAdvice()),
     editEquipment: (changes) => {
       calls.push(`editEquipment:${JSON.stringify(changes)}`);
       return Promise.resolve({ changes: changes.length, backup: 'C:\\Backups\\equipamentos' });

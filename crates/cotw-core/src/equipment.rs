@@ -61,9 +61,73 @@ pub enum WeaponClass {
     Archery,
 }
 
+/// Onde o jogo libera um item: nível do caçador ou de uma classe de arma.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Unlock {
+    /// De onde vem o nível: `character`, `rifle`, `handgun`, `shotgun` ou `archery`.
+    pub track: UnlockTrack,
+    /// Nível necessário.
+    pub level: u32,
+    /// Experiência ou pontos da classe de arma que o nível pede.
+    pub need: u32,
+}
+
+/// De onde vem o nível que libera um item.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum UnlockTrack {
+    /// Nível do caçador.
+    Character,
+    /// Nível dos rifles.
+    Rifle,
+    /// Nível das pistolas.
+    Handgun,
+    /// Nível das espingardas.
+    Shotgun,
+    /// Nível do arco.
+    Archery,
+}
+
+/// Atributos que o jogo mostra na loja para um item (todos opcionais: cada categoria tem os seus).
+#[derive(Debug, Clone, Default, PartialEq, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Attributes {
+    /// Precisão da arma (0 a 100).
+    #[serde(default)]
+    pub accuracy: Option<f64>,
+    /// Recuo da arma (0 a 100, menor é melhor).
+    #[serde(default)]
+    pub recoil: Option<f64>,
+    /// Velocidade de recarga da arma.
+    #[serde(default)]
+    pub reload: Option<f64>,
+    /// Alcance efetivo da munição, em metros.
+    #[serde(default)]
+    pub range: Option<f64>,
+    /// Penetração da munição.
+    #[serde(default)]
+    pub penetration: Option<f64>,
+    /// Expansão da munição.
+    #[serde(default)]
+    pub expansion: Option<f64>,
+    /// Classes de caça (1 a 9) para as quais a munição é recomendada.
+    #[serde(default)]
+    pub classes: Vec<u32>,
+    /// Aumento da mira ou do binóculo.
+    #[serde(default)]
+    pub zoom: Option<f64>,
+}
+
 /// Um item do catálogo do jogo.
 #[derive(Debug, Clone, Deserialize)]
 pub struct CatalogItem {
+    /// Atributos da loja.
+    #[serde(flatten)]
+    pub attributes: Attributes,
+    /// Onde o jogo libera o item.
+    #[serde(default)]
+    pub unlock: Option<Unlock>,
     /// Categoria.
     pub kind: Kind,
     /// Nome em inglês do jogo (pode vir vazio).
@@ -202,6 +266,10 @@ pub struct ItemView {
     pub sights: Vec<String>,
     /// Estatísticas, para armas com histórico.
     pub stats: Option<WeaponStats>,
+    /// Atributos da loja (precisão, recuo, alcance, classes de caça...).
+    pub attributes: Attributes,
+    /// Onde o jogo libera o item.
+    pub unlock: Option<Unlock>,
 }
 
 /// Um conjunto de equipamento salvo.
@@ -228,6 +296,8 @@ pub struct LoadoutView {
 pub struct Inventory {
     /// Dinheiro.
     pub cash: u64,
+    /// Nível do caçador.
+    pub level: u64,
     /// Nível de cada classe de arma (rifle, pistola, espingarda, arco).
     pub weapon_levels: [u64; 4],
     /// Itens do catálogo, em ordem de categoria e nome.
@@ -390,6 +460,8 @@ fn build(root: &Value, language: Language) -> Inventory {
                 ammo: item.ammo.clone(),
                 sights: item.sights.clone(),
                 stats: stats.get(&hash).cloned(),
+                attributes: item.attributes.clone(),
+                unlock: item.unlock,
             }
         })
         .collect();
@@ -417,6 +489,7 @@ fn build(root: &Value, language: Language) -> Inventory {
         .collect();
     Inventory {
         cash: unsigned(member(root, "Cash")),
+        level: unsigned(member(root, "Level")),
         weapon_levels: [
             levels.first().copied().unwrap_or(0),
             levels.get(1).copied().unwrap_or(0),

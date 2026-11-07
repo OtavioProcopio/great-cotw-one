@@ -46,6 +46,9 @@ pub struct SpeciesStats {
     /// Classe do animal no jogo (`deer`, `cat`, `wolf`, `duck`…; vazia se o jogo não informa).
     #[serde(default)]
     pub group: String,
+    /// Classe de caça (1 a 9); 0 se o jogo não informa.
+    #[serde(default)]
+    pub hunt_class: u32,
     /// Faixas por grupo: `Male_Scoring`, `Female_Scoring`, `Male_GreatOne_Scoring`, `Female_GreatOne_Scoring`.
     pub scoring: BTreeMap<String, Scoring>,
     /// Pelagens.

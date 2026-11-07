@@ -36,9 +36,21 @@ O app SHALL listar os loadouts salvos, marcar o ativo, mostrar os itens que falt
 - **WHEN** um loadout tem um item que o jogador não possui
 - **THEN** o item aparece na lista de faltantes daquele loadout
 
-### Requirement: Recomendação de arma e munição
-O app SHALL sugerir, para uma espécie escolhida, armas e munições adequadas com o motivo de cada sugestão, e SHALL marcar quais o jogador já possui.
+### Requirement: Montador de equipamento por animal
+O app SHALL sugerir, para uma reserva e um animal escolhidos, combinações de arma, munição e mira, usando a classe de caça do animal e as classes recomendadas de cada munição que o próprio jogo informa, separando o que o jogador já tem do que vale comprar.
 
-#### Scenario: Sugestão para um cervo
-- **WHEN** o jogador escolhe uma espécie de porte médio
-- **THEN** o app lista armas e munições adequadas à classe de animal, com o motivo e a indicação de posse
+#### Scenario: Animal grande
+- **WHEN** o jogador escolhe o alce (classe 8)
+- **THEN** só aparecem munições cuja faixa de classes inclui 8, cada uma com o motivo (faixa, precisão, alcance, penetração)
+
+#### Scenario: O que falta
+- **WHEN** a combinação pede uma arma ou munição que o jogador não tem
+- **THEN** o app mostra quanto falta gastar e o nível que libera o item, e marca como bloqueado se o jogador ainda não chegou nele
+
+#### Scenario: Premium entrega o conjunto
+- **WHEN** o usuário Premium aperta "Entregar este conjunto" numa sugestão a comprar
+- **THEN** o app pede confirmação e entrega a arma e a munição pelo editor de equipamentos, com backup
+
+#### Scenario: Sem classe de caça
+- **WHEN** o jogo não informa a classe do animal
+- **THEN** o app avisa que não há sugestão

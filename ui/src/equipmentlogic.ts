@@ -4,7 +4,7 @@ import type { EquipmentItem, EquipmentKind } from './types';
 export const KINDS: EquipmentKind[] = ['weapon', 'ammo', 'sight', 'optic', 'lure_caller', 'deployable', 'consumable', 'vehicle'];
 
 export type OwnFilter = 'all' | 'owned' | 'missing';
-export type EquipTab = 'arsenal' | 'ranking' | 'loadouts';
+export type EquipTab = 'arsenal' | 'ranking' | 'loadouts' | 'advisor';
 export type RankKey = 'kills' | 'accuracy' | 'record' | 'distance' | 'shots';
 
 export const RANK_KEYS: RankKey[] = ['kills', 'accuracy', 'record', 'distance', 'shots'];

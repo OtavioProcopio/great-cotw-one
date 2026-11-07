@@ -11,6 +11,7 @@ pub mod diagnostics;
 pub mod discovery;
 pub mod equipment;
 pub mod equipment_editor;
+pub mod gear_advice;
 pub mod history;
 pub mod language;
 pub mod license;

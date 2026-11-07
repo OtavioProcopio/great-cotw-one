@@ -345,6 +345,29 @@ export interface WeaponStats {
   purchasedAt: number | null;
 }
 
+export type UnlockTrack = 'character' | 'rifle' | 'handgun' | 'shotgun' | 'archery';
+
+/** Onde o jogo libera um item: nível do caçador ou de uma classe de arma. */
+export interface Unlock {
+  track: UnlockTrack;
+  level: number;
+  need: number;
+}
+
+/** Atributos que a loja do jogo mostra (cada categoria usa os seus). */
+export interface ItemAttributes {
+  accuracy: number | null;
+  recoil: number | null;
+  reload: number | null;
+  /** Metros. */
+  range: number | null;
+  penetration: number | null;
+  expansion: number | null;
+  /** Classes de caça (1 a 9) para as quais a munição é recomendada. */
+  classes: number[];
+  zoom: number | null;
+}
+
 export interface EquipmentItem {
   id: string;
   kind: EquipmentKind;
@@ -361,6 +384,8 @@ export interface EquipmentItem {
   ammo: string[];
   sights: string[];
   stats: WeaponStats | null;
+  attributes: ItemAttributes;
+  unlock: Unlock | null;
 }
 
 /** Mudança pedida ao editor de equipamentos (Premium). */
@@ -386,10 +411,35 @@ export interface Loadout {
 
 export interface Inventory {
   cash: number;
+  level: number;
   /** Rifle, pistola, espingarda, arco. */
   weaponLevels: [number, number, number, number];
   items: EquipmentItem[];
   loadouts: Loadout[];
+}
+
+/** Uma combinação sugerida de arma, munição e mira. */
+export interface AdvicePick {
+  weapon: string;
+  ammo: string;
+  sight: string | null;
+  hasWeapon: boolean;
+  hasAmmo: boolean;
+  /** Dinheiro que falta gastar. */
+  cost: number;
+  /** O jogador já alcançou o nível do que falta. */
+  available: boolean;
+  unlock: Unlock | null;
+  classRange: [number, number];
+  score: number;
+}
+
+export interface GearAdvice {
+  species: string;
+  name: string;
+  huntClass: number;
+  ready: AdvicePick[];
+  toBuy: AdvicePick[];
 }
 
 export interface RestoreResult {

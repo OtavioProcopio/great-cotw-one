@@ -3,7 +3,8 @@ import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey
 import { formatCount, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
-import type { EquipmentItem, EquipmentKind, Inventory, Loadout } from '../types';
+import type { AnimalReserve, EquipmentItem, EquipmentKind, GearAdvice, Inventory, Loadout } from '../types';
+import { type AdvisorState, initialAdvisorState, renderAdvisor } from './advisor';
 
 /** O que o usuário escolheu na página. */
 export interface EquipState {
@@ -13,10 +14,11 @@ export interface EquipState {
   rank: RankKey;
   /** Arma aberta na ficha. */
   open: string | null;
+  advisor: AdvisorState;
 }
 
 export function initialEquipState(): EquipState {
-  return { tab: 'arsenal', kind: 'weapon', own: 'all', rank: 'kills', open: null };
+  return { tab: 'arsenal', kind: 'weapon', own: 'all', rank: 'kills', open: null, advisor: initialAdvisorState() };
 }
 
 const KIND_ICON: Record<EquipmentKind, IconName> = {
@@ -42,7 +44,7 @@ function thumb(item: EquipmentItem, icons: Record<string, string>, size = 56): s
 function tabs(state: EquipState): string {
   const tab = (id: EquipTab): string =>
     `<button class="seg" data-action="equip-tab" data-tab="${id}" aria-pressed="${String(state.tab === id)}">${e(t(`equip.tab.${id}`))}</button>`;
-  return `<div class="segmented" role="group">${tab('arsenal')}${tab('ranking')}${tab('loadouts')}</div>`;
+  return `<div class="segmented" role="group">${tab('arsenal')}${tab('ranking')}${tab('loadouts')}${tab('advisor')}</div>`;
 }
 
 /** Ações do Premium de um item; quem não tem Premium vê o botão com cadeado que leva à tela do Premium. */
@@ -219,7 +221,13 @@ function loadouts(inv: Inventory, icons: Record<string, string>): string {
 }
 
 /** Página de equipamentos: arsenal, ranking das armas e conjuntos salvos. */
-export function renderEquipment(inv: Inventory, state: EquipState, icons: Record<string, string>, premium = false): string {
+export function renderEquipment(
+  inv: Inventory,
+  state: EquipState,
+  icons: Record<string, string>,
+  premium = false,
+  advisor: { animals: AnimalReserve[]; advice: GearAdvice | null } = { animals: [], advice: null },
+): string {
   const content =
     state.open !== null
       ? weaponSheet(inv, state.open, icons)
@@ -227,7 +235,9 @@ export function renderEquipment(inv: Inventory, state: EquipState, icons: Record
         ? arsenal(inv, state, icons, premium)
         : state.tab === 'ranking'
           ? ranking(inv, state, icons)
-          : loadouts(inv, icons);
+          : state.tab === 'advisor'
+            ? renderAdvisor(inv, advisor.animals, state.advisor, advisor.advice, premium)
+            : loadouts(inv, icons);
   return `<header><h1>${e(t('equip.title'))}</h1><p class="muted">${e(t('equip.subtitle'))}</p></header>
     ${state.open === null ? `${header(inv)}${cashForm(inv, premium)}${tabs(state)}` : ''}${content}`;
 }

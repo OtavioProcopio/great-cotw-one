@@ -2238,3 +2238,15 @@ button.eq-act {
 button.eq-act.locked {
   opacity: 0.75;
 }
+
+.eq-pick h3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.eq-pick h3 small {
+  color: var(--muted);
+  font-weight: 400;
+}

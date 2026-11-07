@@ -2,7 +2,7 @@ import { isCommandError, type Api } from './api';
 import { formatCount, formatStamp } from './format';
 import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } from './i18n';
 import { icon, type IconName } from './icons';
-import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, HistoryItem, Inventory, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
+import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, GearAdvice, HistoryItem, Inventory, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 import { renderDiagnostics } from './views/diagnostics';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
@@ -51,7 +51,7 @@ function parseOwn(value: string | undefined): OwnFilter {
 }
 
 function parseTab(value: string | undefined): EquipTab {
-  return value === 'ranking' || value === 'loadouts' ? value : 'arsenal';
+  return value === 'ranking' || value === 'loadouts' || value === 'advisor' ? value : 'arsenal';
 }
 
 function parseRank(value: string | undefined): RankKey {
@@ -78,6 +78,7 @@ export class Controller {
   private equipment: Inventory | null = null;
   private equipState: EquipState = initialEquipState();
   private equipIcons: Record<string, string> = {};
+  private advice: GearAdvice | null = null;
   private animals: AnimalReserve[] | null = null;
   private animalReserve: number | null = null;
   private animalSpecies: string | null = null;
@@ -237,7 +238,31 @@ export class Controller {
         break;
       case 'equip-tab':
         this.equipState = { ...this.equipState, tab: parseTab(button.dataset['tab']), open: null };
+        if (this.equipState.tab === 'advisor' && !this.animals) {
+          try {
+            this.animals = await this.api.animals();
+          } catch (error) {
+            this.notice = { kind: 'error', text: describeError(error) };
+          }
+        }
         this.render();
+        break;
+      case 'adv-reserve':
+        this.advice = null;
+        this.equipState = { ...this.equipState, advisor: { reserve: Number(reserve), species: null } };
+        this.render();
+        break;
+      case 'adv-species':
+        await this.pickAdvisorSpecies(button.dataset['species'] ?? '');
+        break;
+      case 'adv-give':
+        await this.editEquipment(
+          [
+            { action: 'give', id: button.dataset['weapon'] ?? '' },
+            { action: 'give', id: button.dataset['ammo'] ?? '' },
+          ],
+          'equip.confirmSet',
+        );
         break;
       case 'equip-kind':
         this.equipState = { ...this.equipState, kind: (button.dataset['kind'] as EquipState['kind'] | undefined) ?? 'weapon' };
@@ -257,10 +282,10 @@ export class Controller {
         window.scrollTo({ top: 0 });
         break;
       case 'equip-give':
-        await this.editEquipment({ action: 'give', id: button.dataset['id'] ?? '' }, 'equip.confirmGive');
+        await this.editEquipment([{ action: 'give', id: button.dataset['id'] ?? '' }], 'equip.confirmGive');
         break;
       case 'equip-unlock':
-        await this.editEquipment({ action: 'unlock', id: button.dataset['id'] ?? '' }, 'equip.confirmUnlock');
+        await this.editEquipment([{ action: 'unlock', id: button.dataset['id'] ?? '' }], 'equip.confirmUnlock');
         break;
       case 'equip-set-amount':
         await this.setEquipmentAmount(button.dataset['id'] ?? '');
@@ -525,23 +550,43 @@ export class Controller {
   }
 
   /** Grava uma mudança de equipamento depois de o usuário confirmar; o app faz o backup antes. */
-  private async editEquipment(change: EquipmentChange, confirmKey: 'equip.confirmGive' | 'equip.confirmUnlock' | 'equip.confirmAmount' | 'equip.confirmCash'): Promise<void> {
+  private async editEquipment(changes: EquipmentChange[], confirmKey: 'equip.confirmGive' | 'equip.confirmUnlock' | 'equip.confirmAmount' | 'equip.confirmCash' | 'equip.confirmSet'): Promise<void> {
     if (!this.license.premium) {
       await this.show('premium');
       return;
     }
-    const item = this.equipment?.items.find((i) => 'id' in change && i.id === change.id);
-    const params = { name: item?.name ?? '', amount: 'amount' in change ? String(change.amount) : '', cash: 'cash' in change ? formatCount(change.cash) : '' };
+    const change = changes[0];
+    if (!change) return;
+    const nameOf = (c: EquipmentChange | undefined): string => (c && 'id' in c ? (this.equipment?.items.find((i) => i.id === c.id)?.name ?? '') : '');
+    const params = {
+      name: nameOf(change),
+      second: nameOf(changes[1]),
+      amount: 'amount' in change ? String(change.amount) : '',
+      cash: 'cash' in change ? formatCount(change.cash) : '',
+    };
     if (!(await this.api.confirm(t(confirmKey, params), t('equip.confirmOk')))) return;
     try {
-      await this.api.editEquipment([change]);
+      await this.api.editEquipment(changes);
       this.notice = { kind: 'ok', text: t('equip.done') };
       this.equipment = await this.api.equipment();
+      if (this.equipState.advisor.species) this.advice = await this.api.gearAdvice(this.equipState.advisor.species);
     } catch (error) {
       this.notice = { kind: 'error', text: describeError(error) };
     }
     this.render();
     window.scrollTo({ top: 0 });
+  }
+
+  /** Escolhe a espécie do montador e pede as sugestões ao app. */
+  private async pickAdvisorSpecies(species: string): Promise<void> {
+    this.equipState = { ...this.equipState, advisor: { ...this.equipState.advisor, species } };
+    this.advice = null;
+    try {
+      this.advice = await this.api.gearAdvice(species);
+    } catch (error) {
+      this.notice = { kind: 'error', text: describeError(error) };
+    }
+    this.render();
   }
 
   private async setEquipmentAmount(id: string): Promise<void> {
@@ -553,7 +598,7 @@ export class Controller {
       this.render();
       return;
     }
-    await this.editEquipment({ action: 'setAmount', id, amount }, 'equip.confirmAmount');
+    await this.editEquipment([{ action: 'setAmount', id, amount }], 'equip.confirmAmount');
   }
 
   private async setEquipmentCash(): Promise<void> {
@@ -563,7 +608,7 @@ export class Controller {
       this.render();
       return;
     }
-    await this.editEquipment({ action: 'setCash', cash }, 'equip.confirmCash');
+    await this.editEquipment([{ action: 'setCash', cash }], 'equip.confirmCash');
   }
 
   private async restore(backup: string, at: string): Promise<void> {
@@ -671,7 +716,7 @@ export class Controller {
     if (this.view === 'map') return this.renderMap();
     if (this.view === 'profile') return this.profile ? renderProfile(this.profile) : '';
     if (this.view === 'equipment') {
-      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons, this.license.premium) : '';
+      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons, this.license.premium, { animals: this.animals ?? [], advice: this.advice }) : '';
     }
     if (this.view === 'premium') return renderPremium(this.license, this.purchase);
     if (this.view === 'animals') {

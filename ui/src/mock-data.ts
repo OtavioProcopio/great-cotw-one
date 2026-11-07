@@ -1,6 +1,6 @@
 // Dados e artes de exemplo para ver a interface (e tirar prints) sem o jogo. Nada aqui vem do jogo:
 // as capas e o mapa são desenhos simples feitos em SVG. Só em desenvolvimento.
-import type { AnimalReserve, EquipmentItem, Inventory, MapReserve, Profile, ReserveMissions } from './types';
+import type { AnimalReserve, EquipmentItem, GearAdvice, Inventory, MapReserve, Profile, ReserveMissions } from './types';
 
 function svgUrl(svg: string): string {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
@@ -181,6 +181,8 @@ function item(partial: Partial<EquipmentItem> & Pick<EquipmentItem, 'id' | 'kind
     ammo: [],
     sights: [],
     stats: null,
+    attributes: { accuracy: null, recoil: null, reload: null, range: null, penetration: null, expansion: null, classes: [], zoom: null },
+    unlock: null,
     ...partial,
   };
 }
@@ -189,6 +191,7 @@ function item(partial: Partial<EquipmentItem> & Pick<EquipmentItem, 'id' | 'kind
 export function mockInventory(): Inventory {
   return {
     cash: 300_618,
+    level: 60,
     weaponLevels: [30, 23, 25, 21],
     items: [
       item({
@@ -203,6 +206,7 @@ export function mockInventory(): Inventory {
         amount: 1,
         ammo: ['equipment_ammo_270_sp_01', 'equipment_ammo_270_pt_01'],
         sights: ['equipment_sight_rifle_scope_3_9x44mm_01'],
+        attributes: { accuracy: 55, recoil: 64, reload: 49, range: null, penetration: null, expansion: null, classes: [], zoom: null },
         stats: { shotsFired: 100, shotsMissed: 25, accuracy: 75, kills: 40, oneShotKills: 22, recordScore: 812.5, recordSpecies: 'Alce', furthestShot: 250.5, purchasedAt: 1_700_000_000 },
       }),
       item({
@@ -215,7 +219,7 @@ export function mockInventory(): Inventory {
         ammo: [],
         sights: [],
       }),
-      item({ id: 'equipment_ammo_270_sp_01', kind: 'ammo', name: '.270 Soft-Point Bullet', price: 440, weight: 0.03, boxSize: 10, owned: true, amount: 203 }),
+      item({ id: 'equipment_ammo_270_sp_01', kind: 'ammo', name: '.270 Soft-Point Bullet', price: 440, weight: 0.03, boxSize: 10, owned: true, amount: 203, attributes: { accuracy: null, recoil: null, reload: null, range: 150, penetration: 17, expansion: 24, classes: [4, 5, 6, 7, 8], zoom: null } }),
       item({ id: 'equipment_ammo_270_pt_01', kind: 'ammo', name: '.270 Polymer-Tip Bullet', price: 560, weight: 0.03, boxSize: 10 }),
       item({ id: 'equipment_sight_rifle_scope_3_9x44mm_01', kind: 'sight', name: '3-9x 44mm Rifle Scope', weight: 0.5, owned: true, amount: 1 }),
       item({ id: 'equipment_optics_binoculars_01', kind: 'optic', name: '8x42mm Binoculars', owned: true, amount: 1 }),
@@ -234,6 +238,21 @@ export function mockInventory(): Inventory {
         missing: ['equipment_weapon_longbow_01'],
       },
       { index: 1, name: '', unlocked: true, active: false, items: [], missing: [] },
+    ],
+  };
+}
+
+/** Sugestões de exemplo para um alce (classe 8). */
+export function mockAdvice(): GearAdvice {
+  return {
+    species: 'moose',
+    name: 'Alce',
+    huntClass: 8,
+    ready: [
+      { weapon: 'equipment_weapon_ba_rifle_270_01', ammo: 'equipment_ammo_270_sp_01', sight: 'equipment_sight_rifle_scope_3_9x44mm_01', hasWeapon: true, hasAmmo: true, cost: 0, available: true, unlock: null, classRange: [4, 8], score: 72.5 },
+    ],
+    toBuy: [
+      { weapon: 'equipment_weapon_longbow_01', ammo: 'equipment_ammo_270_pt_01', sight: null, hasWeapon: false, hasAmmo: false, cost: 12_560, available: true, unlock: { track: 'rifle', level: 7, need: 450 }, classRange: [4, 8], score: 64 },
     ],
   };
 }

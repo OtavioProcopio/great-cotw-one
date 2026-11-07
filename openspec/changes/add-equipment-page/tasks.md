@@ -2,7 +2,7 @@
 
 - [x] 1.1 Gerador `tools/gen-equipment` com id, categoria, nome em inglês, preço, peso, caixa, classe e ícone dos 437 itens (peles e suportes de troféu ficam de fora) em `equipment.json`
 - [x] 1.2 Decodificados preço (`cash_price`), peso (0x3d214106), classe da arma (0x765fbed2: rifle, pistola, espingarda, arco) e unidades por caixa (0xb19e6900); o nível de desbloqueio não está nesse arquivo (campo 0xb304f782 não decifrado, fica de fora)
-- [x] 1.3 Ligação arma↔munição e arma↔mira decodificada (nó filho 0x77c2b3ba); dano e balística NÃO estão em `equipment_data.bin` nem em `ammunition.bin` (este só tem multiplicadores), então o recomendador por dano depende de achar essa fonte
+- [x] 1.3 Ligação arma↔munição e arma↔mira decodificada (nó filho 0x77c2b3ba). Estatísticas da loja achadas em uma planilha do jogo (ADF `XLSBook`, hash 0x651d89a7): precisão, recuo e recarga das armas; alcance, penetração, expansão e classes de caça recomendadas das munições; aumento das miras. Nível que libera cada item em `settings/hp_settings/player_rewards.bin`. Classe do animal (1 a 9) em `global_animal_types.blo`
 - [ ] 1.4 Verificar nomes em português e espanhol nos textos de localização do jogo
 
 ## 2. Leitura (grátis)
@@ -16,8 +16,8 @@
 
 ## 3. Recomendador
 
-- [ ] 3.1 Pontuação de adequação por espécie (classe de arma, dano, distância) com o motivo
-- [ ] 3.2 Tela de recomendação com indicação de posse
+- [x] 3.1 `cotw-core::gear_advice`: só entra munição cuja faixa de classes inclui a do animal; nota 0 a 100 por precisão, alcance, penetração e expansão (pesos por porte); uma sugestão por arma e no máximo duas por tipo de arma; separa o que o jogador já tem do que vale comprar (custo, nível que libera)
+- [x] 3.2 Aba Montador: reserva, animal, sugestões com posse, custo e nível; Premium entrega o conjunto (arma e munição) de uma vez
 
 ## 4. Escrita (Premium)
 

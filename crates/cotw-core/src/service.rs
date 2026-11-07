@@ -19,6 +19,7 @@ use crate::discovery::saves::{SaveLocation, resolve_manual};
 use crate::discovery::steam::validate_game_dir;
 use crate::equipment::{self, Inventory};
 use crate::equipment_editor::{self, EquipmentChange, EquipmentError};
+use crate::gear_advice::{self, Advice};
 use crate::history::{History, HistoryError, HistoryKind};
 use crate::language::Language;
 use crate::license::{
@@ -664,6 +665,17 @@ impl AppService {
             Path::new(&account.path),
             self.language(),
         )?)
+    }
+
+    /// Sugestões de arma, munição e mira para uma espécie, com o que o jogador já tem e o que vale comprar.
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::NoSaveSelected`] sem save e [`ServiceError::Career`] se o perfil não puder ser
+    /// lido; `Ok(None)` se a espécie não existir ou o jogo não der classe de caça a ela.
+    pub fn gear_advice(&self, species: &str) -> Result<Option<Advice>, ServiceError> {
+        let inventory = self.equipment()?;
+        Ok(gear_advice::advise(&inventory, species, self.language()))
     }
 
     /// Ícones dos equipamentos pedidos, lidos do jogo do usuário (sem o jogo, a lista vem vazia).

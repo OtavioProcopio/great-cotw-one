@@ -803,6 +803,57 @@ describe('Controller: perfil e missões', () => {
     expect(root.querySelector('.notice-error')).not.toBeNull();
   });
 
+  it('picks a reserve and an animal in the gear advisor and shows the suggestions', async () => {
+    const api = fakeApi();
+    await openEquipment(api);
+    click('equip-tab', { tab: 'advisor' });
+    await settle();
+    expect(api.calls).toContain('animals');
+    expect(root.textContent).toContain('Escolha onde vai caçar');
+    click('adv-reserve', { reserve: '2' });
+    const species = root.querySelector<HTMLElement>('[data-action="adv-species"]');
+    if (!species) throw new Error('sem animais');
+    click('adv-species', { species: species.dataset['species'] ?? '' });
+    await settle();
+    expect(api.calls.some((c) => c.startsWith('gearAdvice:'))).toBe(true);
+    expect(root.textContent).toContain('Vale comprar');
+  });
+
+  it('gives the suggested set after the player confirms and refreshes the suggestions', async () => {
+    const api = fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE) });
+    await openEquipment(api);
+    click('equip-tab', { tab: 'advisor' });
+    await settle();
+    click('adv-reserve', { reserve: '2' });
+    click('adv-species', { species: 'moose' });
+    await settle();
+    click('adv-give', { weapon: 'equipment_weapon_longbow_01', ammo: 'equipment_ammo_270_pt_01' });
+    await settle();
+    expect(api.calls).toContain(
+      'editEquipment:[{"action":"give","id":"equipment_weapon_longbow_01"},{"action":"give","id":"equipment_ammo_270_pt_01"}]',
+    );
+    expect(api.calls.filter((c) => c === 'gearAdvice:moose')).toHaveLength(2);
+  });
+
+  it('shows an error when the suggestions cannot be read', async () => {
+    const api = fakeApi({ gearAdvice: () => commandError('noSaveSelected') });
+    await openEquipment(api);
+    click('equip-tab', { tab: 'advisor' });
+    await settle();
+    click('adv-reserve', { reserve: '2' });
+    click('adv-species', { species: 'moose' });
+    await settle();
+    expect(root.querySelector('.notice-error')).not.toBeNull();
+  });
+
+  it('keeps the advisor usable when the animals cannot be loaded', async () => {
+    const api = fakeApi({ animals: () => commandError('gameNotFound') });
+    await openEquipment(api);
+    click('equip-tab', { tab: 'advisor' });
+    await settle();
+    expect(root.querySelector('.notice-error')).not.toBeNull();
+  });
+
   it('keeps the equipment page working when the icons cannot be read', async () => {
     const api = fakeApi({ equipmentIcons: () => Promise.reject(new Error('sem jogo')) });
     await new Controller(root, api).start();

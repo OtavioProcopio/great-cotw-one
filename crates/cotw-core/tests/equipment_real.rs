@@ -70,3 +70,31 @@ fn icons_are_read_from_the_installed_game_and_cached() {
     let again = cotw_core::equipment::icons(None, cache.path(), &ids);
     assert_eq!(again, found);
 }
+
+#[test]
+fn the_advisor_suggests_owned_gear_that_fits_the_animal_class() {
+    use cotw_core::gear_advice::advise;
+    let Some(saves) = saves() else {
+        eprintln!("fixtures/saves ausente: teste ignorado");
+        return;
+    };
+    let inv = inventory(&saves, Language::PtBr).unwrap();
+    for (species, class) in [("moose", 8), ("red_fox", 2), ("whitetail_deer", 4)] {
+        let advice = advise(&inv, species, Language::PtBr).unwrap();
+        assert_eq!(advice.hunt_class, class);
+        assert_ne!(advice.ready.len(), 0, "{species}: nada do arsenal serve");
+        for pick in &advice.ready {
+            assert!(pick.has_weapon && pick.has_ammo && pick.cost == 0);
+            assert!(pick.class_range.0 <= class && class <= pick.class_range.1);
+        }
+        println!(
+            "{species} (classe {class}): {:?}",
+            advice
+                .ready
+                .iter()
+                .take(3)
+                .map(|p| format!("{} + {} = {:.0}", p.weapon, p.ammo, p.score))
+                .collect::<Vec<_>>()
+        );
+    }
+}

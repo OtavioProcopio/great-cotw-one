@@ -14,10 +14,10 @@ Registro vivo do que foi decidido e do que surgiu no caminho. Atualize quando al
 
 - **Equipamentos (07/11/2026):** o dono aprovou o plano completo: página grátis de leitura (arsenal, ficha da arma, ranking, loadouts, coleção), escritas Premium (itens, munição, veículos, loadouts, dinheiro) e recomendador de arma e munição por espécie. Proposta em `openspec/changes/add-equipment-page`. Reagrupar animais fica depois.
   - **Feito (grátis, só leitura):** catálogo decodificado e embutido (`equipment.json`, gerado por `tools/gen-equipment`), página Equipamentos com arsenal, ficha da arma, ranking e conjuntos, ícones lidos do jogo do usuário para um cache local.
-  - **Não achado:** dano e balística das munições (não estão em `equipment_data.bin` nem em `ammunition.bin`) e o nível de desbloqueio dos itens. O recomendador por dano depende de encontrar essa fonte.
+  - **Corrigido:** as estatísticas e o nível de desbloqueio ESTAVAM no jogo (planilhas ADF em `settings`, achadas varrendo os arquivos por nomes de itens). Só dano em pontos e balística detalhada continuam sem fonte.
   - **Feito (Premium):** entregar item, liberar na loja, ajustar quantidade de munição e consumíveis e o dinheiro (até 10.000.000, limite do app), sempre no mesmo tamanho, com backup e jogo fechado.
   - **Adiado:** montar conjuntos (listas de tamanho variável, risco de realocação) e veículos (campo vazio no save de teste).
-  - **Falta:** testar no jogo (item entregue, munição, dinheiro) e achar a fonte de dano para o recomendador.
+  - **Falta:** testar no jogo (item entregue, munição, dinheiro) e conferir as sugestões do Montador no jogo.
 
 ## Ideias em aberto
 
@@ -28,7 +28,7 @@ Registro vivo do que foi decidido e do que surgiu no caminho. Atualize quando al
 5. **Testes com saves sintéticos** para voltar a cobertura a 80 %.
 6. **Publicar a v0.1.0**, testar o instalador e subir o servidor de licenças na VPS.
 
-7. **Montador de equipamento por caça (ideia do dono, 07/11/2026):** escolher reserva e espécie e o app sugere arma, munição e mira do seu arsenal, e o que vale comprar. A classe do animal (1 a 9) já está decodificada do jogo; a faixa de classe de cada munição NÃO está nos arquivos lidos, então falta uma fonte (tabela da comunidade conferida no jogo ou um valor decodificado).
+7. **Montador de equipamento por caça (07/11/2026, feito):** o dono pediu para achar a classe das munições e estava certo: ela está numa planilha do jogo ("Stat Recommended Game Class", ex.: .270 = 4 a 8, .243 = 2 a 6, igual aos guias). Junto vêm precisão, recuo, alcance, penetração, expansão e o nível que libera cada item. A aba Montador usa isso; a nota é uma regra do app (pesos por porte do animal), não do jogo.
 
 ## Mercado (pesquisa de nov/2026)
 

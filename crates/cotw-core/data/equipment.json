@@ -14,1512 +14,2010 @@
  "items": {
   "equipment_ammo_10ga_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_shotgun_1887_01",
-    "equipment_weapon_la_shotgun_1887_02",
-    "equipment_weapon_la_shotgun_1887_03"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_brass_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA Bird Shot",
+   "penetration": 0.0,
    "price": 200,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_bp_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sbs_shotgun_10ga_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 1.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_bp_bird_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA BP Bird Shot",
+   "penetration": 1.0,
    "price": 200,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_bp_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sbs_shotgun_10ga_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_bp_buck_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA BP Buck Shot",
+   "penetration": 5.0,
    "price": 600,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_bp_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sbs_shotgun_10ga_01"
+   "classes": [
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 18.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_bp_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA BP Slug",
+   "penetration": 47.0,
    "price": 900,
+   "range": 40.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_shotgun_1887_01",
-    "equipment_weapon_la_shotgun_1887_02",
-    "equipment_weapon_la_shotgun_1887_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_brass_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA Buck Shot",
+   "penetration": 5.0,
    "price": 600,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_plastic_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ou_shotgun_10ga_01",
-    "equipment_weapon_sa_shotgun_10ga_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_plastic_bird_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA Plastic Bird Shot",
+   "penetration": 0.0,
    "price": 200,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_plastic_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ou_shotgun_10ga_01",
-    "equipment_weapon_sa_shotgun_10ga_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_plastic_buck_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA Plastic Buck Shot",
+   "penetration": 5.0,
    "price": 600,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_plastic_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ou_shotgun_10ga_01",
-    "equipment_weapon_sa_shotgun_10ga_01"
+   "classes": [
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 22.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_plastic_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA Plastic Slug",
+   "penetration": 45.0,
    "price": 950,
+   "range": 50.0,
    "weight": 0.05
   },
   "equipment_ammo_10ga_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_shotgun_1887_01",
-    "equipment_weapon_la_shotgun_1887_02",
-    "equipment_weapon_la_shotgun_1887_03"
+   "classes": [
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 22.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10ga_brass_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10 GA Slug",
+   "penetration": 45.0,
    "price": 950,
+   "range": 50.0,
    "weight": 0.05
   },
   "equipment_ammo_10mm_fn_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pistol_10mm_01",
-    "equipment_weapon_pistol_10mm_02"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 8.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10mm_fn_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10mm Auto Hard Cast Flat Nose Bullet",
+   "penetration": 50.0,
    "price": 350,
+   "range": 50.0,
    "weight": 0.01
   },
   "equipment_ammo_10mm_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pistol_10mm_01",
-    "equipment_weapon_pistol_10mm_02"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 36.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_10mm_jhp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "10mm Auto Jacketed Hollow Point Bullet",
+   "penetration": 12.0,
    "price": 280,
+   "range": 50.0,
    "weight": 0.01
   },
   "equipment_ammo_12ga_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03",
-    "equipment_weapon_pa_shotgun_12ga_01",
-    "equipment_weapon_rifle_br_combination_01",
-    "equipment_weapon_sa_shotgun_12ga_type2_01"
+   "classes": [
+    1
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_12ga_bird_01_alpha.ddsc",
    "kind": "ammo",
    "name": "12 GA Bird Shot",
+   "penetration": 0.0,
    "price": 180,
+   "range": 25.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "shotgun"
+   },
    "weight": 0.05
   },
   "equipment_ammo_12ga_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03",
-    "equipment_weapon_pa_shotgun_12ga_01",
-    "equipment_weapon_rifle_br_combination_01",
-    "equipment_weapon_sa_shotgun_12ga_type2_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_12ga_buck_01_alpha.ddsc",
    "kind": "ammo",
    "name": "12 GA Buck Shot",
+   "penetration": 5.0,
    "price": 530,
+   "range": 25.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "shotgun"
+   },
    "weight": 0.05
   },
   "equipment_ammo_12ga_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03",
-    "equipment_weapon_pa_shotgun_12ga_01",
-    "equipment_weapon_rifle_br_combination_01",
-    "equipment_weapon_sa_shotgun_12ga_type2_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 19.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_12ga_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": "12 GA Slug",
+   "penetration": 40.0,
    "price": 880,
+   "range": 50.0,
    "weight": 0.05
   },
   "equipment_ammo_16ga_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_drilling_combination_01",
-    "equipment_weapon_drilling_combination_02",
-    "equipment_weapon_drilling_combination_03",
-    "equipment_weapon_pa_shotgun_1897_16ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_02",
-    "equipment_weapon_pa_shotgun_1897_16ga_03"
+   "classes": [
+    1
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_16ga_bird_01_alpha.ddsc",
    "kind": "ammo",
    "name": "16 GA Bird Shot",
+   "penetration": 0.0,
    "price": 180,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_16ga_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_drilling_combination_01",
-    "equipment_weapon_drilling_combination_02",
-    "equipment_weapon_drilling_combination_03",
-    "equipment_weapon_pa_shotgun_1897_16ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_02",
-    "equipment_weapon_pa_shotgun_1897_16ga_03"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_16ga_buck_01_alpha.ddsc",
    "kind": "ammo",
    "name": "16 GA Buck Shot",
+   "penetration": 5.0,
    "price": 530,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_16ga_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_drilling_combination_01",
-    "equipment_weapon_drilling_combination_02",
-    "equipment_weapon_drilling_combination_03",
-    "equipment_weapon_pa_shotgun_1897_16ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_02",
-    "equipment_weapon_pa_shotgun_1897_16ga_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 16.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_16ga_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": "16 GA Slug",
+   "penetration": 37.0,
    "price": 880,
+   "range": 50.0,
    "weight": 0.05
   },
   "equipment_ammo_17mr_hp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_17mr_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 10.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_17mr_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".17mr Hollow-Point Bullet",
+   "penetration": 7.0,
    "price": 210,
+   "range": 125.0,
    "weight": 0.01
   },
   "equipment_ammo_17mr_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_17mr_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 4.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_17mr_fmj_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".17mr Jacketed Hollow-Point Bullet",
+   "penetration": 13.0,
    "price": 210,
+   "range": 125.0,
    "weight": 0.01
   },
   "equipment_ammo_20ga_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sa_shotgun_20ga_01",
-    "equipment_weapon_sa_shotgun_20ga_02",
-    "equipment_weapon_sa_shotgun_20ga_03",
-    "equipment_weapon_sa_shotgun_20ga_04",
-    "equipment_weapon_sa_shotgun_20ga_05",
-    "equipment_weapon_sa_shotgun_20ga_06",
-    "equipment_weapon_sbs_shotgun_20ga_01",
-    "equipment_weapon_sbs_shotgun_20ga_02",
-    "equipment_weapon_sbs_shotgun_20ga_03",
-    "equipment_weapon_sbs_shotgun_20ga_04"
+   "classes": [
+    1
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_20ga_bird_01_alpha.ddsc",
    "kind": "ammo",
    "name": "20 GA Bird Shot",
+   "penetration": 0.0,
    "price": 150,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_20ga_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sa_shotgun_20ga_01",
-    "equipment_weapon_sa_shotgun_20ga_02",
-    "equipment_weapon_sa_shotgun_20ga_03",
-    "equipment_weapon_sa_shotgun_20ga_04",
-    "equipment_weapon_sa_shotgun_20ga_05",
-    "equipment_weapon_sa_shotgun_20ga_06",
-    "equipment_weapon_sbs_shotgun_20ga_01",
-    "equipment_weapon_sbs_shotgun_20ga_02",
-    "equipment_weapon_sbs_shotgun_20ga_03",
-    "equipment_weapon_sbs_shotgun_20ga_04"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_20ga_buck_01_alpha.ddsc",
    "kind": "ammo",
    "name": "20 GA Buck Shot",
+   "penetration": 4.0,
    "price": 500,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_20ga_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sa_shotgun_20ga_01",
-    "equipment_weapon_sa_shotgun_20ga_02",
-    "equipment_weapon_sa_shotgun_20ga_03",
-    "equipment_weapon_sa_shotgun_20ga_04",
-    "equipment_weapon_sa_shotgun_20ga_05",
-    "equipment_weapon_sa_shotgun_20ga_06",
-    "equipment_weapon_sbs_shotgun_20ga_01",
-    "equipment_weapon_sbs_shotgun_20ga_02",
-    "equipment_weapon_sbs_shotgun_20ga_03",
-    "equipment_weapon_sbs_shotgun_20ga_04"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 16.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_20ga_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": "20 GA Slug",
+   "penetration": 33.0,
    "price": 800,
+   "range": 50.0,
    "weight": 0.05
   },
   "equipment_ammo_20ga_steelbird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sa_shotgun_20ga_01",
-    "equipment_weapon_sa_shotgun_20ga_02",
-    "equipment_weapon_sa_shotgun_20ga_03",
-    "equipment_weapon_sa_shotgun_20ga_04",
-    "equipment_weapon_sa_shotgun_20ga_05",
-    "equipment_weapon_sa_shotgun_20ga_06",
-    "equipment_weapon_sbs_shotgun_20ga_01",
-    "equipment_weapon_sbs_shotgun_20ga_02",
-    "equipment_weapon_sbs_shotgun_20ga_03",
-    "equipment_weapon_sbs_shotgun_20ga_04"
+   "classes": [
+    1
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_20ga_steelbird_01_alpha.ddsc",
    "kind": "ammo",
    "name": "20 GA Steel Birdshot",
+   "penetration": 0.0,
    "price": 150,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_223_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 3.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_223_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".223 Polymer-Tip Bullet Bullet",
+   "penetration": 20.0,
    "price": 350,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_223_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 12.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_223_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".223 Soft-Point Bullet Bullet",
+   "penetration": 10.0,
    "price": 220,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_22_250_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_22_250_01"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 3.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22_250_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": "22-250 Soft-Point Bullet",
+   "penetration": 25.0,
    "price": 375,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_22_250_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_22_250_01"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 15.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22_250_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "22-250 Soft-Point Bullet",
+   "penetration": 12.0,
    "price": 230,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_22h_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 3.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22h_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".22H Polymer-Tip Bullet",
+   "penetration": 15.0,
    "price": 300,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_22h_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 10.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22h_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".22H Soft Point Bullet",
+   "penetration": 7.0,
    "price": 200,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_22lr_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02"
+   "classes": [
+    1
    ],
+   "expansion": 10.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22lr_jhp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".22LR Hollow Point Bullet",
+   "penetration": 5.0,
    "price": 200,
+   "range": 100.0,
    "weight": 0.01
   },
   "equipment_ammo_22lr_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02"
+   "classes": [
+    1
    ],
+   "expansion": 1.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22lr_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".22LR Truncated Cone Bullet",
+   "penetration": 17.0,
    "price": 250,
+   "range": 100.0,
    "weight": 0.01
   },
   "equipment_ammo_22m_hp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_rifle_br_combination_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 9.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22m_hp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".22 Mag. Hollow Point Bullet",
+   "penetration": 8.0,
    "price": 200,
+   "range": 125.0,
    "weight": 0.01
   },
   "equipment_ammo_22m_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_rifle_br_combination_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 7.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_22m_jhp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".22 Mag. Jacketed Hollow Point Bullet",
+   "penetration": 10.0,
    "price": 220,
+   "range": 125.0,
    "weight": 0.01
   },
   "equipment_ammo_243_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 4.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_243_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".243 Polymer-Tip Bullet Bullet",
+   "penetration": 30.0,
    "price": 530,
+   "range": 150.0,
+   "unlock": {
+    "level": 2,
+    "need": 50,
+    "track": "rifle"
+   },
    "weight": 0.02
   },
   "equipment_ammo_243_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 17.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_243_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".243 Soft-Point Bullet",
+   "penetration": 15.0,
    "price": 0,
+   "range": 150.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "rifle"
+   },
    "weight": 0.02
   },
   "equipment_ammo_257_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pa_rifle_257_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 6.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_257_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".257 Polymer-Tip Bullet",
+   "penetration": 36.0,
    "price": 670,
+   "range": 200.0,
    "weight": 0.03
   },
   "equipment_ammo_257_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pa_rifle_257_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 20.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_257_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".257 Soft-Point Bullet",
+   "penetration": 17.0,
    "price": 490,
+   "range": 200.0,
    "weight": 0.03
   },
   "equipment_ammo_25_06_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_25_06_01"
+   "classes": [
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 8.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_25_06_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".25-06 Polymer-Tip Bullet Bullet",
+   "penetration": 35.0,
    "price": 600,
+   "range": 200.0,
    "weight": 0.03
   },
   "equipment_ammo_25_06_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_25_06_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 21.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_25_06_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".25-06 Soft-Point Bullet",
+   "penetration": 15.0,
    "price": 450,
+   "range": 200.0,
    "weight": 0.03
   },
   "equipment_ammo_270_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 5.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_270_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".270 Polymer-Tip Bullet Bullet",
+   "penetration": 35.0,
    "price": 700,
+   "range": 150.0,
+   "unlock": {
+    "level": 9,
+    "need": 700,
+    "track": "rifle"
+   },
    "weight": 0.03
   },
   "equipment_ammo_270_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 24.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_270_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".270 Soft-Point Bullet",
+   "penetration": 17.0,
    "price": 440,
+   "range": 150.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "rifle"
+   },
    "weight": 0.03
   },
   "equipment_ammo_3006_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 13.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_3006_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".30-06 Polymer-Tip Bullet",
+   "penetration": 45.0,
    "price": 850,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_3006_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 53.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_3006_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".30-06 Soft-Point Bullet",
+   "penetration": 19.0,
    "price": 590,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_300_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_300_01"
+   "classes": [
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 7.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_300_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".300 Soft-Point Bullet",
+   "penetration": 32.0,
    "price": 530,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_300_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_300_01"
+   "classes": [
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 21.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_300_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".300 Soft-Point Bullet",
+   "penetration": 15.0,
    "price": 350,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_300wby_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_sa_rifle_ar15_300_01"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 14.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_300_mag_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".300 Weatherby Magnum Polymer-Tip Bullet Bullet",
+   "penetration": 42.0,
    "price": 950,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_300wby_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_sa_rifle_ar15_300_01"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 60.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_300_mag_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".300 Weatherby Magnum Soft-Point Bullet",
+   "penetration": 21.0,
    "price": 720,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_3030_hp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_3030_01",
-    "equipment_weapon_la_rifle_3030_type2_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 17.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_3030_hp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".30-30 Hollow Point Bullet",
+   "penetration": 17.0,
    "price": 480,
+   "range": 75.0,
    "weight": 0.02
   },
   "equipment_ammo_3030_sprn_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_3030_01",
-    "equipment_weapon_la_rifle_3030_type2_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 4.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_3030_sprn_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".30-30 Soft Point Round Nose Bullet",
+   "penetration": 35.0,
    "price": 220,
+   "range": 75.0,
    "weight": 0.02
   },
   "equipment_ammo_303_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 12.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_303_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".303 Polymer-Tip Bullet",
+   "penetration": 40.0,
    "price": 880,
+   "range": 150.0,
    "weight": 0.04
   },
   "equipment_ammo_303_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 53.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_303_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".303 Soft-Point Bullet",
+   "penetration": 20.0,
    "price": 610,
+   "range": 150.0,
    "weight": 0.04
   },
   "equipment_ammo_308_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 13.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_308_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".308 Mag. Polymer-Tip Bullet Bullet",
+   "penetration": 44.0,
    "price": 850,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_308_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 52.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_308_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".308 Mag. Soft-Point Bullet",
+   "penetration": 19.0,
    "price": 690,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_338_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 16.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_338_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".338 Mag. Polymer-Tip Bullet Bullet",
+   "penetration": 45.0,
    "price": 1050,
+   "range": 150.0,
    "weight": 0.05
   },
   "equipment_ammo_338_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 68.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_338_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".338 Mag. Soft-Point Bullet",
+   "penetration": 22.0,
    "price": 790,
+   "range": 150.0,
    "weight": 0.05
   },
   "equipment_ammo_357m_fnhc_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_357m_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 4.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_357m_fnhc_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".357 Flat Nosed Hard-Cast Bullet",
+   "penetration": 50.0,
    "price": 350,
+   "range": 50.0,
+   "unlock": {
+    "level": 7,
+    "need": 450,
+    "track": "handgun"
+   },
    "weight": 0.01
   },
   "equipment_ammo_357m_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_357m_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 32.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_357m_jhp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".357 Jacketed Hollow Point Bullet",
+   "penetration": 12.0,
    "price": 220,
+   "range": 50.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "handgun"
+   },
    "weight": 0.01
   },
   "equipment_ammo_375_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_375_01"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 15.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_375_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".375 Mag. Polymer-Tip Bullet Bullet",
+   "penetration": 48.0,
    "price": 950,
+   "range": 200.0,
    "weight": 0.02
   },
   "equipment_ammo_375_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_375_01"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 28.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_375_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".375 Mag. Soft-Point Bullet",
+   "penetration": 19.0,
    "price": 720,
+   "range": 200.0,
    "weight": 0.02
   },
   "equipment_ammo_410ga_bird_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_410m_01",
-    "equipment_weapon_revolver_410m_02",
-    "equipment_weapon_revolver_410m_03",
-    "equipment_weapon_ss_shotgun_410_01"
+   "classes": [
+    1
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_410ga_bird_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".410 Bird Shot",
+   "penetration": 0.0,
    "price": 200,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_410ga_buck_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ss_shotgun_410_01"
+   "classes": [
+    2,
+    3
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_410ga_buck_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".410 Buck Shot",
+   "penetration": 4.0,
    "price": 200,
+   "range": 25.0,
    "weight": 0.05
   },
   "equipment_ammo_410ga_slug_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ss_shotgun_410_01"
+   "classes": [
+    3,
+    4,
+    5
    ],
+   "expansion": 7.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_410ga_slug_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".410 Slug Shot",
+   "penetration": 25.0,
    "price": 200,
+   "range": 40.0,
    "weight": 0.05
   },
   "equipment_ammo_44_40_bp_rnfp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_44_40_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5
    ],
+   "expansion": 31.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_44_40_bp_rnfp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".44-40 Black Powder Round Nose Flat Point",
+   "penetration": 36.0,
    "price": 420,
+   "range": 50.0,
    "weight": 0.02
   },
   "equipment_ammo_44_40_fmj_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_44_40_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5
    ],
+   "expansion": 6.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_44_40_fmj_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".44-40 Full Metal Jacket",
+   "penetration": 50.0,
    "price": 550,
+   "range": 50.0,
    "weight": 0.02
   },
   "equipment_ammo_44m_fnhc_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_revolver_44m_01",
-    "equipment_weapon_revolver_44m_02",
-    "equipment_weapon_revolver_44m_03"
+   "classes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 16.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_44m_fnhc_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".44 Flat Nosed Hard-Cast Bullet",
+   "penetration": 70.0,
    "price": 530,
+   "range": 50.0,
+   "unlock": {
+    "level": 18,
+    "need": 2500,
+    "track": "handgun"
+   },
    "weight": 0.02
   },
   "equipment_ammo_44m_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_revolver_44m_01",
-    "equipment_weapon_revolver_44m_02",
-    "equipment_weapon_revolver_44m_03"
+   "classes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 70.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_44m_jhp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".44 Jacketed Hollow Point Bullet",
+   "penetration": 17.0,
    "price": 260,
+   "range": 50.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "handgun"
+   },
    "weight": 0.02
   },
   "equipment_ammo_450_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_450_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 8.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_450_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".450 Polymer-Tip Bullet Bullet",
+   "penetration": 35.0,
    "price": 650,
+   "range": 150.0,
    "weight": 0.02
   },
   "equipment_ammo_450_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_450_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 29.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_450_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".450 Soft-Point Bullet",
+   "penetration": 16.0,
    "price": 400,
+   "range": 150.0,
    "weight": 0.02
   },
   "equipment_ammo_454_fnhc_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_454_01",
-    "equipment_weapon_revolver_454_02"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 23.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_454_fnhc_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".454 Flat Nosed Hard-Cast Bullet",
+   "penetration": 100.0,
    "price": 770,
+   "range": 50.0,
+   "unlock": {
+    "level": 25,
+    "need": 5300,
+    "track": "handgun"
+   },
    "weight": 0.03
   },
   "equipment_ammo_454_jhp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_454_01",
-    "equipment_weapon_revolver_454_02"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 100.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_454_jhp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".454 Jacketed Hollow Point Bullet",
+   "penetration": 25.0,
    "price": 440,
+   "range": 50.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "handgun"
+   },
    "weight": 0.03
   },
   "equipment_ammo_4570_hp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_4570_01",
-    "equipment_weapon_pistol_ss_4570_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 27.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_4570_hp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45-70 Hollow Point Bullet",
+   "penetration": 20.0,
    "price": 660,
+   "range": 75.0,
    "weight": 0.03
   },
   "equipment_ammo_4570_spfn_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_4570_01",
-    "equipment_weapon_pistol_ss_4570_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 6.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_4570_spfn_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45-70 Soft Point Flat Nose Bullet",
+   "penetration": 40.0,
    "price": 390,
+   "range": 75.0,
    "weight": 0.03
   },
   "equipment_ammo_45_90_bp_clfn_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_45_90_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 9.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_45_90_bp_clfn_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45-90 Black Powder Cast Lead Flat Nose",
+   "penetration": 46.0,
    "price": 550,
+   "range": 200.0,
    "weight": 0.01
   },
   "equipment_ammo_45_90_bp_sl_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_45_90_01"
+   "classes": [
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 43.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_45_90_bp_sl_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45-90 Black Powder Paper-Patched Soft Lead",
+   "penetration": 35.0,
    "price": 730,
+   "range": 125.0,
    "weight": 0.01
   },
   "equipment_ammo_45c_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_410m_01",
-    "equipment_weapon_revolver_410m_02",
-    "equipment_weapon_revolver_410m_03",
-    "equipment_weapon_revolver_45_01",
-    "equipment_weapon_revolver_45_02"
+   "classes": [
+    2,
+    3,
+    4,
+    5
    ],
+   "expansion": 70.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_45c_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45 Colt Flat Nose Hard-Cast Bullet",
+   "penetration": 17.0,
    "price": 530,
+   "range": 50.0,
    "weight": 0.02
   },
   "equipment_ammo_45c_fmj_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_revolver_410m_01",
-    "equipment_weapon_revolver_410m_02",
-    "equipment_weapon_revolver_410m_03",
-    "equipment_weapon_revolver_45_01",
-    "equipment_weapon_revolver_45_02"
+   "classes": [
+    2,
+    3,
+    4,
+    5
    ],
+   "expansion": 6.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_45c_fmj_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45 Colt Full Metal Jacket Bullet",
+   "penetration": 55.0,
    "price": 600,
+   "range": 50.0,
    "weight": 0.03
   },
   "equipment_ammo_45c_hp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 70.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_45_hp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45 Hollow Point Pellet",
+   "penetration": 15.0,
    "price": 200,
+   "range": 50.0,
    "weight": 0.01
   },
   "equipment_ammo_45c_rn_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01"
+   "classes": [
+    2,
+    3,
+    4
    ],
+   "expansion": 6.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_45_rn_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".45 Round Nose Pellet",
+   "penetration": 27.0,
    "price": 300,
+   "range": 50.0,
    "weight": 0.01
   },
   "equipment_ammo_470ne_fmj_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sxs_rifle_470ne_01",
-    "equipment_weapon_sxs_rifle_470ne_02",
-    "equipment_weapon_sxs_rifle_470ne_03"
+   "classes": [
+    9
    ],
+   "expansion": 23.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_470ne_fmj_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".470 Nitro Express Full Metal Jacket Bullet",
+   "penetration": 100.0,
    "price": 2660,
+   "range": 75.0,
+   "unlock": {
+    "level": 30,
+    "need": 6500,
+    "track": "rifle"
+   },
    "weight": 0.03
   },
   "equipment_ammo_470ne_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sxs_rifle_470ne_01",
-    "equipment_weapon_sxs_rifle_470ne_02",
-    "equipment_weapon_sxs_rifle_470ne_03"
+   "classes": [
+    9
    ],
+   "expansion": 100.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_470ne_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".470 Nitro Express Soft Point Bullet",
+   "penetration": 25.0,
    "price": 2000,
+   "range": 75.0,
+   "unlock": {
+    "level": 26,
+    "need": 5700,
+    "track": "rifle"
+   },
    "weight": 0.03
   },
   "equipment_ammo_500_sb_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_500_01"
+   "classes": [
+    8,
+    9
    ],
+   "expansion": 21.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_500_sd_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".500 Solid Bullet",
+   "penetration": 70.0,
    "price": 1600,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_500_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_500_01"
+   "classes": [
+    8,
+    9
    ],
+   "expansion": 75.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_500_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".500 Soft-Point Bullet",
+   "penetration": 26.0,
    "price": 1200,
+   "range": 150.0,
    "weight": 0.03
   },
   "equipment_ammo_50c_hp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_muzzleloader_50_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 60.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_50c_hp_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".50 cal Hollow Point Bullet",
+   "penetration": 20.0,
    "price": 450,
+   "range": 200.0,
    "weight": 0.01
   },
   "equipment_ammo_50c_lead_ball_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_caplock_muzzleloader_01",
-    "equipment_weapon_caplock_muzzleloader_02",
-    "equipment_weapon_caplock_muzzleloader_03"
+   "classes": [
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 30.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_caplock_30_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".50 Lead Balls",
+   "penetration": 30.0,
    "price": 300,
+   "range": 100.0,
    "weight": 0.01
   },
   "equipment_ammo_50c_minie_ball_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_caplock_muzzleloader_01",
-    "equipment_weapon_caplock_muzzleloader_02",
-    "equipment_weapon_caplock_muzzleloader_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 30.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_caplock_30_minie_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".50 Minie Balls",
+   "penetration": 40.0,
    "price": 450,
+   "range": 200.0,
    "weight": 0.01
   },
   "equipment_ammo_50c_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_muzzleloader_50_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 20.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_50c_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": ".50 cal Polymer-Tip Bullet",
+   "penetration": 42.0,
    "price": 500,
+   "range": 200.0,
    "weight": 0.01
   },
   "equipment_ammo_577_450_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_la_rifle_577_450_01"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 60.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_577_450_01_alpha.ddsc",
    "kind": "ammo",
    "name": "577-450 Bullet",
+   "penetration": 53.0,
    "price": 230,
+   "range": 200.0,
    "weight": 0.01
   },
   "equipment_ammo_6_5mm_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 4.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_6_5mm_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": "6.5mm Polymer-Tip Bullet Bullet",
+   "penetration": 40.0,
    "price": 650,
+   "range": 200.0,
+   "unlock": {
+    "level": 8,
+    "need": 550,
+    "track": "rifle"
+   },
    "weight": 0.03
   },
   "equipment_ammo_6_5mm_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8
    ],
+   "expansion": 20.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_6_5mm_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "6.5mm Soft-Point Bullet",
+   "penetration": 20.0,
    "price": 400,
+   "range": 200.0,
+   "unlock": {
+    "level": 6,
+    "need": 350,
+    "track": "rifle"
+   },
    "weight": 0.03
   },
   "equipment_ammo_762x54r_fmj_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03"
+   "classes": [
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 4.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_762x54r_fmj_01_alpha.ddsc",
    "kind": "ammo",
    "name": "7.62x54R Full Metal Jacket Bullet",
+   "penetration": 30.0,
    "price": 600,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_762x54r_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03"
+   "classes": [
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 17.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_762x54r_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "7.62x54R Soft Point Bullet",
+   "penetration": 15.0,
    "price": 380,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_7_62_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sa_rifle_7_62_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 5.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_7_62_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": "7.62x39 Polymer-Tip Bullet Bullet",
+   "penetration": 34.0,
    "price": 300,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_7_62_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_sa_rifle_7_62_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6
    ],
+   "expansion": 20.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_7_62_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "7.62x39 Soft-Point Bullet",
+   "penetration": 16.0,
    "price": 200,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_7mm_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 12.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_7mm_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": "7mm Mag. Polymer-Tip Bullet Bullet",
+   "penetration": 40.0,
    "price": 880,
+   "range": 150.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "rifle"
+   },
    "weight": 0.04
   },
   "equipment_ammo_7mm_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
+   "classes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 53.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_7mm_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "7mm Mag. Soft-Point Bullet",
+   "penetration": 20.0,
    "price": 610,
+   "range": 150.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "rifle"
+   },
    "weight": 0.04
   },
   "equipment_ammo_93x74r_pt_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_drilling_combination_01",
-    "equipment_weapon_drilling_combination_02",
-    "equipment_weapon_drilling_combination_03"
+   "classes": [
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 12.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_93x74r_pt_01_alpha.ddsc",
    "kind": "ammo",
    "name": "9.3x74R Polymer Tip Bullet",
+   "penetration": 40.0,
    "price": 880,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_93x74r_sp_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_drilling_combination_01",
-    "equipment_weapon_drilling_combination_02",
-    "equipment_weapon_drilling_combination_03"
+   "classes": [
+    5,
+    6,
+    7,
+    8,
+    9
    ],
+   "expansion": 53.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_93x74r_sp_01_alpha.ddsc",
    "kind": "ammo",
    "name": "9.3x74R Soft Point Bullet",
+   "penetration": 20.0,
    "price": 610,
+   "range": 150.0,
    "weight": 0.01
   },
   "equipment_ammo_bh_bow_arrow_420gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_bow_arrow_420gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "420 gr. Broadhead Arrow",
+   "penetration": 50.0,
    "price": 700,
+   "range": 40.0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "archery"
+   },
    "weight": 0.07
   },
   "equipment_ammo_bh_bow_arrow_600gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_bow_arrow_600gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "600 gr. Broadhead Arrow",
+   "penetration": 90.0,
    "price": 880,
+   "range": 40.0,
+   "unlock": {
+    "level": 21,
+    "need": 3500,
+    "track": "archery"
+   },
    "weight": 0.08
   },
   "equipment_ammo_bh_bow_tracer_arrow_420gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_bow_arrow_420gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "420 gr. Broadhead Arrow",
+   "penetration": 50.0,
    "price": 910,
+   "range": 40.0,
    "weight": 0.07
   },
   "equipment_ammo_bh_bow_tracer_arrow_600gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_bow_arrow_600gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "600 gr. Broadhead Arrow",
+   "penetration": 90.0,
    "price": 1140,
+   "range": 40.0,
    "weight": 0.08
   },
   "equipment_ammo_bh_crossbow_arrow_420gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_cb_arrow_420gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "420 gr. Broadhead Crossbow Arrow",
+   "penetration": 50.0,
    "price": 770,
+   "range": 40.0,
    "weight": 0.07
   },
   "equipment_ammo_bh_crossbow_arrow_600gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_cb_arrow_600gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "600 gr. Broadhead Crossbow Arrow",
+   "penetration": 90.0,
    "price": 950,
+   "range": 40.0,
    "weight": 0.08
   },
   "equipment_ammo_bh_crossbow_bolt_170gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pistol_crossbow_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_pcb_arrow_170gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "170 gr.Crossbow Bolt",
+   "penetration": 15.0,
    "price": 350,
+   "range": 45.0,
    "weight": 0.04
   },
   "equipment_ammo_bh_crossbow_bolt_395gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_pistol_crossbow_01"
+   "classes": [
+    2,
+    3,
+    4,
+    5
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_pcb_arrow_395gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "395 gr.Crossbow Bolt",
+   "penetration": 55.0,
    "price": 550,
+   "range": 30.0,
    "weight": 0.07
   },
   "equipment_ammo_bh_crossbow_tracer_arrow_420gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04"
+   "classes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_cb_arrow_420gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "420 gr. Broadhead Crossbow Arrow",
+   "penetration": 50.0,
    "price": 1000,
+   "range": 40.0,
    "weight": 0.07
   },
   "equipment_ammo_bh_crossbow_tracer_arrow_600gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04"
+   "classes": [
+    7,
+    8,
+    9
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_cb_arrow_600gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "600 gr. Broadhead Crossbow Arrow",
+   "penetration": 90.0,
    "price": 1200,
+   "range": 40.0,
    "weight": 0.08
   },
   "equipment_ammo_bh_longbow_arrow_350gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_longbow_01",
-    "equipment_weapon_longbow_02",
-    "equipment_weapon_longbow_03",
-    "equipment_weapon_longbow_04",
-    "equipment_weapon_traditional_longbow_01",
-    "equipment_weapon_traditional_longbow_02",
-    "equipment_weapon_traditional_longbow_03"
+   "classes": [
+    1,
+    2,
+    3
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_longbow_arrow_350gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "350 gr. longbow Arrow",
+   "penetration": 15.0,
    "price": 500,
+   "range": 40.0,
    "weight": 0.07
   },
   "equipment_ammo_bh_longbow_arrow_540gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_longbow_01",
-    "equipment_weapon_longbow_02",
-    "equipment_weapon_longbow_03",
-    "equipment_weapon_longbow_04",
-    "equipment_weapon_traditional_longbow_01",
-    "equipment_weapon_traditional_longbow_02",
-    "equipment_weapon_traditional_longbow_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_longbow_arrow_540gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "540 gr. longbow Arrow",
+   "penetration": 75.0,
    "price": 750,
+   "range": 40.0,
    "weight": 0.08
   },
   "equipment_ammo_bh_longbow_arrow_700gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_longbow_01",
-    "equipment_weapon_longbow_02",
-    "equipment_weapon_longbow_03",
-    "equipment_weapon_longbow_04",
-    "equipment_weapon_traditional_longbow_01",
-    "equipment_weapon_traditional_longbow_02",
-    "equipment_weapon_traditional_longbow_03"
+   "classes": [
+    8,
+    9
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_longbow_arrow_700gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "700 gr. longbow Arrow",
+   "penetration": 90.0,
    "price": 900,
+   "range": 40.0,
    "weight": 0.09
   },
   "equipment_ammo_bh_longbow_tracer_arrow_350gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_longbow_01",
-    "equipment_weapon_longbow_02",
-    "equipment_weapon_longbow_03",
-    "equipment_weapon_longbow_04",
-    "equipment_weapon_traditional_longbow_01",
-    "equipment_weapon_traditional_longbow_02",
-    "equipment_weapon_traditional_longbow_03"
+   "classes": [
+    1,
+    2,
+    3
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_longbow_arrow_350gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "350 gr. Tracer longbow Arrow",
+   "penetration": 15.0,
    "price": 750,
+   "range": 40.0,
    "weight": 0.07
   },
   "equipment_ammo_bh_longbow_tracer_arrow_540gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_longbow_01",
-    "equipment_weapon_longbow_02",
-    "equipment_weapon_longbow_03",
-    "equipment_weapon_longbow_04",
-    "equipment_weapon_traditional_longbow_01",
-    "equipment_weapon_traditional_longbow_02",
-    "equipment_weapon_traditional_longbow_03"
+   "classes": [
+    4,
+    5,
+    6,
+    7
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_bh_longbow_arrow_540gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "540 gr. longbow Arrow",
+   "penetration": 75.0,
    "price": 900,
+   "range": 40.0,
    "weight": 0.08
   },
   "equipment_ammo_bh_longbow_tracer_arrow_700gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_longbow_01",
-    "equipment_weapon_longbow_02",
-    "equipment_weapon_longbow_03",
-    "equipment_weapon_longbow_04",
-    "equipment_weapon_traditional_longbow_01",
-    "equipment_weapon_traditional_longbow_02",
-    "equipment_weapon_traditional_longbow_03"
+   "classes": [
+    8,
+    9
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_longbow_arrow_700gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "700 gr. Tracer longbow Arrow",
+   "penetration": 90.0,
    "price": 1100,
+   "range": 40.0,
    "weight": 0.09
   },
   "equipment_ammo_clay_pigeon_01": {
    "box": 10,
-   "fits": [
-    "equipment_ammo_clay_pigeon_01"
-   ],
    "icon": "textures/ui/items/ammo/equipment_ammo_longbow_arrow_700gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "Clay pigeon shooter ammo",
@@ -1528,64 +2026,67 @@
   },
   "equipment_ammo_jp_bow_arrow_300gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_jp_bow_arrow_300gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "300 gr. Judo Point Arrow",
+   "penetration": 10.0,
    "price": 530,
+   "range": 40.0,
+   "unlock": {
+    "level": 9,
+    "need": 700,
+    "track": "archery"
+   },
    "weight": 0.06
   },
   "equipment_ammo_jp_bow_tracer_arrow_300gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_jp_bow_arrow_300gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "300 gr. Judo Point Arrow",
+   "penetration": 10.0,
    "price": 690,
+   "range": 40.0,
    "weight": 0.06
   },
   "equipment_ammo_jp_crossbow_arrow_300gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_jp_cb_arrow_300gr_01_alpha.ddsc",
    "kind": "ammo",
    "name": "300 gr. Judo Point Crossbow Arrow",
+   "penetration": 10.0,
    "price": 600,
+   "range": 40.0,
    "weight": 0.06
   },
   "equipment_ammo_jp_crossbow_tracer_arrow_300gr_01": {
    "box": 10,
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04"
+   "classes": [
+    1,
+    2
    ],
+   "expansion": 0.0,
    "icon": "textures/ui/items/ammo/equipment_ammo_jp_cb_arrow_300gr_led_01_alpha.ddsc",
    "kind": "ammo",
    "name": "300 gr. Judo Point Crossbow Arrow",
+   "penetration": 10.0,
    "price": 780,
+   "range": 40.0,
    "weight": 0.06
   },
   "equipment_atv_01": {
@@ -1773,6 +2274,11 @@
    "kind": "consumable",
    "name": "First Aid Kit",
    "price": 1500,
+   "unlock": {
+    "level": 9,
+    "need": 10664,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_consumable_scent_eliminator_01": {
@@ -1968,6 +2474,11 @@
    "kind": "lure_caller",
    "name": "Antler Rattler",
    "price": 6000,
+   "unlock": {
+    "level": 5,
+    "need": 4256,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_axis_deer_screamer_01": {
@@ -1989,6 +2500,11 @@
    "kind": "lure_caller",
    "name": "Deer \"Bleat\" Call",
    "price": 0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_deer_grunt_01": {
@@ -1996,6 +2512,11 @@
    "kind": "lure_caller",
    "name": "Deer \"Grunt\" Call",
    "price": 6000,
+   "unlock": {
+    "level": 37,
+    "need": 133395,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_duck_long": {
@@ -2010,6 +2531,11 @@
    "kind": "lure_caller",
    "name": "Elk Caller",
    "price": 6000,
+   "unlock": {
+    "level": 15,
+    "need": 25015,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_eurasian_teal_01": {
@@ -2066,6 +2592,11 @@
    "kind": "lure_caller",
    "name": "Moose Caller",
    "price": 6000,
+   "unlock": {
+    "level": 35,
+    "need": 122096,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_northern_pintail_01": {
@@ -2080,6 +2611,11 @@
    "kind": "lure_caller",
    "name": "Predator \"Distressed Deer\" Caller",
    "price": 6000,
+   "unlock": {
+    "level": 25,
+    "need": 68853,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_predator_jackrabbit_01": {
@@ -2101,6 +2637,11 @@
    "kind": "lure_caller",
    "name": "Red Deer Caller",
    "price": 6000,
+   "unlock": {
+    "level": 27,
+    "need": 79082,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_roe_deer_01": {
@@ -2108,6 +2649,11 @@
    "kind": "lure_caller",
    "name": "Roe Deer Caller",
    "price": 0,
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_sambar_mouth_01": {
@@ -2150,6 +2696,11 @@
    "kind": "lure_caller",
    "name": "Wild Boar Caller",
    "price": 6000,
+   "unlock": {
+    "level": 13,
+    "need": 19088,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_caller_wood_duck_01": {
@@ -2164,6 +2715,11 @@
    "kind": "lure_caller",
    "name": "Blacktail Deer Scent",
    "price": 1500,
+   "unlock": {
+    "level": 23,
+    "need": 58825,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_scent_elk_deer_01": {
@@ -2171,6 +2727,11 @@
    "kind": "lure_caller",
    "name": "Elk Scent",
    "price": 1500,
+   "unlock": {
+    "level": 21,
+    "need": 49186,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_scent_moose_01": {
@@ -2178,6 +2739,11 @@
    "kind": "lure_caller",
    "name": "Moose Scent",
    "price": 1500,
+   "unlock": {
+    "level": 19,
+    "need": 40272,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_scent_mule_deer_01": {
@@ -2192,6 +2758,11 @@
    "kind": "lure_caller",
    "name": "Red Deer Scent",
    "price": 1500,
+   "unlock": {
+    "level": 17,
+    "need": 32186,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_scent_roe_deer_01": {
@@ -2199,6 +2770,11 @@
    "kind": "lure_caller",
    "name": "Roe Deer Scent",
    "price": 1500,
+   "unlock": {
+    "level": 7,
+    "need": 7389,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_scent_siberian_musk_deer_01": {
@@ -2213,6 +2789,11 @@
    "kind": "lure_caller",
    "name": "Whitetail Deer Scent",
    "price": 1500,
+   "unlock": {
+    "level": 31,
+    "need": 100161,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_lure_scent_wild_boar_01": {
@@ -2220,6 +2801,11 @@
    "kind": "lure_caller",
    "name": "Wild Boar Scent",
    "price": 1500,
+   "unlock": {
+    "level": 33,
+    "need": 111019,
+    "track": "character"
+   },
    "weight": 0.5
   },
   "equipment_magpie_goose_decoy_01": {
@@ -2262,35 +2848,55 @@
    "kind": "optic",
    "name": "8x42mm Binoculars",
    "price": 0,
-   "weight": 1.0
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "character"
+   },
+   "weight": 1.0,
+   "zoom": 1.8
   },
   "equipment_optics_camera_01": {
    "icon": "textures/ui/items/equipment/digicam_alpha.ddsc",
    "kind": "optic",
    "name": "NO note",
    "price": 0,
-   "weight": 1.0
+   "weight": 1.0,
+   "zoom": 1.6
   },
   "equipment_optics_night_vision_01": {
    "icon": "textures/ui/items/equipment/ir_binoculars_alpha.ddsc",
    "kind": "optic",
    "name": "8x42mm Night Vision",
    "price": 0,
-   "weight": 1.0
+   "weight": 1.0,
+   "zoom": 1.8
   },
   "equipment_optics_rangefinder_01": {
    "icon": "textures/ui/items/equipment/rangefinder_alpha.ddsc",
    "kind": "optic",
    "name": "5x30mm Rangefinder",
    "price": 12000,
-   "weight": 1.0
+   "unlock": {
+    "level": 11,
+    "need": 14291,
+    "track": "character"
+   },
+   "weight": 1.0,
+   "zoom": 1.5
   },
   "equipment_optics_rangefinder_binoculars_01": {
    "icon": "textures/ui/items/equipment/rangefinder_binoculars_alpha.ddsc",
    "kind": "optic",
    "name": "7x42mm Rangefinder Binoculars",
    "price": 24000,
-   "weight": 1.0
+   "unlock": {
+    "level": 29,
+    "need": 89517,
+    "track": "character"
+   },
+   "weight": 1.0,
+   "zoom": 1.7
   },
   "equipment_remote_caller_01": {
    "icon": "textures/ui/items/equipment/caller_placable_01_alpha.ddsc",
@@ -2300,977 +2906,449 @@
    "weight": 3.5
   },
   "equipment_scope_3-7x_33mm_01": {
-   "fits": [
-    "equipment_weapon_ou_shotgun_10ga_01",
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03",
-    "equipment_weapon_pa_shotgun_12ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_02",
-    "equipment_weapon_pa_shotgun_1897_16ga_03",
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03",
-    "equipment_weapon_revolver_357m_01",
-    "equipment_weapon_revolver_410m_01",
-    "equipment_weapon_revolver_410m_02",
-    "equipment_weapon_revolver_410m_03",
-    "equipment_weapon_revolver_44m_01",
-    "equipment_weapon_revolver_44m_02",
-    "equipment_weapon_revolver_44m_03",
-    "equipment_weapon_revolver_454_01",
-    "equipment_weapon_revolver_454_02",
-    "equipment_weapon_rifle_br_combination_01",
-    "equipment_weapon_sa_shotgun_10ga_01",
-    "equipment_weapon_sa_shotgun_12ga_type2_01",
-    "equipment_weapon_sa_shotgun_20ga_01",
-    "equipment_weapon_sa_shotgun_20ga_02",
-    "equipment_weapon_sa_shotgun_20ga_03",
-    "equipment_weapon_sa_shotgun_20ga_04",
-    "equipment_weapon_sa_shotgun_20ga_05",
-    "equipment_weapon_sa_shotgun_20ga_06",
-    "equipment_weapon_ss_shotgun_410_01"
-   ],
    "icon": "textures/ui/items/scopes/scope_3-7x_33mm_alpha.ddsc",
    "kind": "sight",
    "name": "Hermes 3-7x 33mm Handgun-Shotgun Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 3.7
   },
   "equipment_scope_muzzleloader_4-8x32_01": {
-   "fits": [
-    "equipment_weapon_caplock_muzzleloader_01",
-    "equipment_weapon_caplock_muzzleloader_02",
-    "equipment_weapon_caplock_muzzleloader_03"
-   ],
    "icon": "textures/ui/items/scopes/scope_caplock_01_alpha.ddsc",
    "kind": "sight",
    "name": "4-8x 32mm Muzzleloader Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 4.8
   },
   "equipment_sight_ba_rifle_6_5mm_illuminated_iron_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_weapon_ba_rifle_illum_h14_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 9,
+    "need": 700,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_compound_bow_1pin_01": {
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_compound_bow_illum_1pin_60lb_01_alpha.ddsc",
    "kind": "sight",
    "name": "1-Pin Bow Sight",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 1.0
   },
   "equipment_sight_compound_bow_1pin_illum_01": {
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_compound_bow_illum_1pin_60lb_01_alpha.ddsc",
    "kind": "sight",
    "name": "1-Pin Illuminated Bow Sight",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 5,
+    "need": 250,
+    "track": "archery"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_compound_bow_3pin_01": {
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_compound_bow_illum_3pin_60lb_01_alpha.ddsc",
    "kind": "sight",
    "name": "3-Pin Bow Sight",
    "price": 12000,
-   "weight": 0.5
+   "unlock": {
+    "level": 17,
+    "need": 2200,
+    "track": "archery"
+   },
+   "weight": 0.5,
+   "zoom": 1.0
   },
   "equipment_sight_compound_bow_5pin_01": {
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
-   ],
    "icon": "textures/ui/items/scopes/scope_bow_5pin_alpha.ddsc",
    "kind": "sight",
    "name": "5-Pin Bow Sight",
    "price": 24000,
-   "weight": 0.5
+   "unlock": {
+    "level": 25,
+    "need": 5300,
+    "track": "archery"
+   },
+   "weight": 0.5,
+   "zoom": 1.0
   },
   "equipment_sight_compound_bow_rangefinder_01": {
-   "fits": [
-    "equipment_weapon_compound_bow_60lb_01",
-    "equipment_weapon_compound_bow_60lb_02",
-    "equipment_weapon_compound_bow_70lb_01",
-    "equipment_weapon_compound_bow_orpheus_01",
-    "equipment_weapon_compound_bow_orpheus_02",
-    "equipment_weapon_compound_bow_orpheus_03",
-    "equipment_weapon_recurve_bow_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_compound_bow_rangefinder_01_alpha.ddsc",
    "kind": "sight",
    "name": "Rangefinder Bow Sight",
    "price": 0,
-   "weight": 2.0
+   "weight": 2.0,
+   "zoom": 1.0
   },
   "equipment_sight_crossbow_scope_1-5x_30mm_01": {
-   "fits": [
-    "equipment_weapon_crossbow_165lb_01",
-    "equipment_weapon_crossbow_165lb_02",
-    "equipment_weapon_crossbow_165lb_03",
-    "equipment_weapon_crossbow_165lb_04",
-    "equipment_weapon_pistol_crossbow_01"
-   ],
    "icon": "textures/ui/items/scopes/scope_crossbow_1-5x30_alpha.ddsc",
    "kind": "sight",
    "name": "1-5x 30mm Crossbow Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 5.0
   },
   "equipment_sight_handgun_illum_iron_re_22_01": {
-   "fits": [
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_pistol_22_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_handgun_illum_iron_re_357m_01": {
-   "fits": [
-    "equipment_weapon_revolver_357m_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_handgun_illum_iron_re_357m_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 3,
+    "need": 100,
+    "track": "handgun"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_handgun_illum_iron_re_44m_01": {
-   "fits": [
-    "equipment_weapon_revolver_44m_01",
-    "equipment_weapon_revolver_44m_02",
-    "equipment_weapon_revolver_44m_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_handgun_illum_iron_re_44m_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 12,
+    "need": 1150,
+    "track": "handgun"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_handgun_illum_iron_re_454_01": {
-   "fits": [
-    "equipment_weapon_revolver_454_01",
-    "equipment_weapon_revolver_454_02"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_handgun_illum_iron_re_454_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 22,
+    "need": 3900,
+    "track": "handgun"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_handgun_scope_2-4x_20mm_01": {
-   "fits": [
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03",
-    "equipment_weapon_revolver_357m_01",
-    "equipment_weapon_revolver_410m_01",
-    "equipment_weapon_revolver_410m_02",
-    "equipment_weapon_revolver_410m_03",
-    "equipment_weapon_revolver_44m_01",
-    "equipment_weapon_revolver_44m_02",
-    "equipment_weapon_revolver_44m_03",
-    "equipment_weapon_revolver_454_01",
-    "equipment_weapon_revolver_454_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_handgun_2-4x20_alpha.ddsc",
    "kind": "sight",
    "name": "2-4x 20mm Handgun Scope",
    "price": 12000,
-   "weight": 0.5
+   "unlock": {
+    "level": 15,
+    "need": 1700,
+    "track": "handgun"
+   },
+   "weight": 0.5,
+   "zoom": 2.4
   },
   "equipment_sight_reflex_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03",
-    "equipment_weapon_sbs_shotgun_20ga_01",
-    "equipment_weapon_sbs_shotgun_20ga_02",
-    "equipment_weapon_sbs_shotgun_20ga_03",
-    "equipment_weapon_sbs_shotgun_20ga_04",
-    "equipment_weapon_sxs_rifle_470ne_01",
-    "equipment_weapon_sxs_rifle_470ne_02",
-    "equipment_weapon_sxs_rifle_470ne_03"
-   ],
    "icon": "textures/ui/items/scopes/sight_reflex_alpha.ddsc",
    "kind": "sight",
    "name": "Reflex sight",
    "price": 8500,
-   "weight": 0.5
+   "unlock": {
+    "level": 28,
+    "need": 6200,
+    "track": "rifle"
+   },
+   "weight": 0.5,
+   "zoom": 1.0
   },
   "equipment_sight_reflex_02": {
-   "fits": [
-    "equipment_weapon_pistol_10mm_01",
-    "equipment_weapon_pistol_10mm_02"
-   ],
    "icon": "textures/ui/items/scopes/sight_reflex_alpha.ddsc",
    "kind": "sight",
    "name": "Reflex sight (For 10mm handgun)",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_airrifle_45_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_airrifle_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_223_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_223_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_rifle_223_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 5,
+    "need": 250,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_22_250_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_22_250_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_22_250_01_alpha.ddsc",
    "kind": "sight",
    "name": "22-250 BA Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_243_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_243_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_rifle_243_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 3,
+    "need": 100,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_270_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_rifle_270_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 10,
+    "need": 850,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_3006_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_handgun_illum_iron_ba_3006_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_308_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_308_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_308_01_alpha.ddsc",
    "kind": "sight",
    "name": "308 BA Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_338_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_338_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_338_01_alpha.ddsc",
    "kind": "sight",
    "name": "338 BA Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ba_rifle_7mm_01": {
-   "fits": [
-    "equipment_weapon_ba_rifle_7mm_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ba_7mm_01_alpha.ddsc",
    "kind": "sight",
    "name": "7mm BA Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_la_rifle_3030_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_3030_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_la_rifle_3030_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 12,
+    "need": 1150,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_la_rifle_44_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_44_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_weapon_la_rifle_illum_44_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_la_rifle_4570_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_4570_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_la_rifle_4570_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 20,
+    "need": 3100,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ss_rifle_338_01": {
-   "fits": [
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ss_rifle_338_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 24,
+    "need": 4800,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_illum_iron_ss_rifle_7mm_01": {
-   "fits": [
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_illum_iron_ss_rifle_7mm_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 16,
+    "need": 1900,
+    "track": "rifle"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_rifle_red_dot_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_ou_shotgun_10ga_01",
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pa_shotgun_12ga_01",
-    "equipment_weapon_pistol_crossbow_01",
-    "equipment_weapon_pistol_sa_22_01",
-    "equipment_weapon_pistol_sa_22_02",
-    "equipment_weapon_pistol_sa_22_03",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_revolver_357m_01",
-    "equipment_weapon_revolver_44m_01",
-    "equipment_weapon_revolver_44m_02",
-    "equipment_weapon_revolver_44m_03",
-    "equipment_weapon_revolver_454_01",
-    "equipment_weapon_revolver_454_02",
-    "equipment_weapon_rifle_br_combination_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_shotgun_10ga_01",
-    "equipment_weapon_sa_shotgun_12ga_type2_01",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02",
-    "equipment_weapon_ss_shotgun_410_01"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_red_dot_alpha.ddsc",
    "kind": "sight",
    "name": "Red Dot Sight",
    "price": 6000,
-   "weight": 0.5
+   "unlock": {
+    "level": 5,
+    "need": 250,
+    "track": "handgun"
+   },
+   "weight": 0.5,
+   "zoom": 1.0
   },
   "equipment_sight_rifle_scope_1-4x_24mm_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_muzzleloader_50_01",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_1-4x24_alpha.ddsc",
    "kind": "sight",
    "name": "1-4x 24mm Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 1.4
   },
   "equipment_sight_rifle_scope_3_9x44mm_01": {
-   "fits": [
-    "equipment_weapon_drilling_combination_01",
-    "equipment_weapon_drilling_combination_02",
-    "equipment_weapon_drilling_combination_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_rifle_scope_3_9x44mm_01_alpha.ddsc",
    "kind": "sight",
    "name": "3-9x 44mm Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 3.9
   },
   "equipment_sight_rifle_scope_4-12x_33mm_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_muzzleloader_50_01",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_scope_4-12x_33mm_alpha.ddsc",
    "kind": "sight",
    "name": "Odin 4-12x 33mm Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 4.12
   },
   "equipment_sight_rifle_scope_4-8x_32mm_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_3030_01",
-    "equipment_weapon_la_rifle_4570_01"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_4-8x32_alpha.ddsc",
    "kind": "sight",
    "name": "4-8x 32mm Rifle Scope",
    "price": 24000,
-   "weight": 0.5
+   "unlock": {
+    "level": 18,
+    "need": 2500,
+    "track": "rifle"
+   },
+   "weight": 0.5,
+   "zoom": 4.8
   },
   "equipment_sight_rifle_scope_4-8x_42mm_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_muzzleloader_50_01",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_4-8x42_alpha.ddsc",
    "kind": "sight",
    "name": "4-8x 42mm Rifle Scope",
    "price": 12000,
-   "weight": 0.5
+   "unlock": {
+    "level": 8,
+    "need": 550,
+    "track": "rifle"
+   },
+   "weight": 0.5,
+   "zoom": 4.8
   },
   "equipment_sight_rifle_scope_8-16x_50mm_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_muzzleloader_50_01",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_8-16x50_alpha.ddsc",
    "kind": "sight",
    "name": "8-16x 50mm Rifle Scope",
    "price": 36000,
-   "weight": 0.5
+   "unlock": {
+    "level": 22,
+    "need": 3900,
+    "track": "rifle"
+   },
+   "weight": 0.5,
+   "zoom": 8.16
   },
   "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_muzzleloader_50_01",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_night_vision_alpha.ddsc",
    "kind": "sight",
    "name": "GenZero 1-4x 20mm Night Vision Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 1.4
   },
   "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01": {
-   "fits": [
-    "equipment_weapon_ba_airrifle_45_01",
-    "equipment_weapon_ba_rifle_17mr_01",
-    "equipment_weapon_ba_rifle_223_01",
-    "equipment_weapon_ba_rifle_22_250_01",
-    "equipment_weapon_ba_rifle_22h_01",
-    "equipment_weapon_ba_rifle_22h_02",
-    "equipment_weapon_ba_rifle_22h_03",
-    "equipment_weapon_ba_rifle_243_01",
-    "equipment_weapon_ba_rifle_25_06_01",
-    "equipment_weapon_ba_rifle_270_01",
-    "equipment_weapon_ba_rifle_270_02",
-    "equipment_weapon_ba_rifle_270_03",
-    "equipment_weapon_ba_rifle_3006_01",
-    "equipment_weapon_ba_rifle_3006_02",
-    "equipment_weapon_ba_rifle_3006_03",
-    "equipment_weapon_ba_rifle_300_01",
-    "equipment_weapon_ba_rifle_300_wby_01",
-    "equipment_weapon_ba_rifle_300_wby_02",
-    "equipment_weapon_ba_rifle_300_wby_03",
-    "equipment_weapon_ba_rifle_300_wby_04",
-    "equipment_weapon_ba_rifle_303_01",
-    "equipment_weapon_ba_rifle_303_02",
-    "equipment_weapon_ba_rifle_303_03",
-    "equipment_weapon_ba_rifle_308_01",
-    "equipment_weapon_ba_rifle_338_01",
-    "equipment_weapon_ba_rifle_375_01",
-    "equipment_weapon_ba_rifle_450_01",
-    "equipment_weapon_ba_rifle_500_01",
-    "equipment_weapon_ba_rifle_6_5mm_01",
-    "equipment_weapon_ba_rifle_6_5mm_02",
-    "equipment_weapon_ba_rifle_6_5mm_03",
-    "equipment_weapon_ba_rifle_7mm_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_01",
-    "equipment_weapon_ba_rifle_mosin_nagant_02",
-    "equipment_weapon_ba_rifle_mosin_nagant_03",
-    "equipment_weapon_la_rifle_22m_01",
-    "equipment_weapon_la_rifle_3030_type2_01",
-    "equipment_weapon_la_rifle_44_01",
-    "equipment_weapon_muzzleloader_50_01",
-    "equipment_weapon_pa_rifle_257_01",
-    "equipment_weapon_pistol_ss_243_01",
-    "equipment_weapon_pistol_ss_243_02",
-    "equipment_weapon_pistol_ss_4570_01",
-    "equipment_weapon_sa_rifle_22lr_01",
-    "equipment_weapon_sa_rifle_22lr_02",
-    "equipment_weapon_sa_rifle_308_01",
-    "equipment_weapon_sa_rifle_30_06_01",
-    "equipment_weapon_sa_rifle_7_62_01",
-    "equipment_weapon_sa_rifle_ar10_308_01",
-    "equipment_weapon_sa_rifle_ar10_308_02",
-    "equipment_weapon_sa_rifle_ar15_223_01",
-    "equipment_weapon_sa_rifle_ar15_223_02",
-    "equipment_weapon_sa_rifle_ar15_22lr_01",
-    "equipment_weapon_sa_rifle_ar15_22lr_02",
-    "equipment_weapon_sa_rifle_ar15_300_01",
-    "equipment_weapon_sa_rifle_m1_garand_01",
-    "equipment_weapon_sa_rifle_m1_garand_02",
-    "equipment_weapon_sa_rifle_m1_garand_03",
-    "equipment_weapon_ss_rifle_338_01",
-    "equipment_weapon_ss_rifle_338_02",
-    "equipment_weapon_ss_rifle_7mm_01",
-    "equipment_weapon_ss_rifle_7mm_02"
-   ],
    "icon": "textures/ui/items/scopes/scope_rifle_night_vision_4-8x100mm_alpha.ddsc",
    "kind": "sight",
    "name": "Angler 4-8x 100mm Night Vision Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 4.8
   },
   "equipment_sight_rifle_scope_vintage_10x17mm_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_45_90_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_scope_rifle_vintage_10x17_alpha.ddsc",
    "kind": "sight",
    "name": "10x 17mm_01 Vintage Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 10.0
   },
   "equipment_sight_rifle_scope_vintage_6x17mm_01": {
-   "fits": [
-    "equipment_weapon_la_rifle_45_90_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_scope_rifle_vintage_6x17_alpha.ddsc",
    "kind": "sight",
    "name": "6x 17mm_01 Vintage Rifle Scope",
    "price": 0,
-   "weight": 0.5
+   "weight": 0.5,
+   "zoom": 6.0
   },
   "equipment_sight_shotgun_illum_iron_ou_12ga_01": {
-   "fits": [
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_shotgun_illum_iron_ou_12ga_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 8,
+    "need": 550,
+    "track": "shotgun"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_shotgun_illum_iron_pa_12ga_01": {
-   "fits": [
-    "equipment_weapon_pa_shotgun_12ga_01"
-   ],
    "icon": "textures/ui/items/scopes/equipment_sight_shotgun_illum_iron_pa_12ga_01_alpha.ddsc",
    "kind": "sight",
    "name": "Illuminated Iron Sights",
-   "price": 3000
+   "price": 3000,
+   "unlock": {
+    "level": 16,
+    "need": 1900,
+    "track": "shotgun"
+   },
+   "zoom": 1.0
   },
   "equipment_sight_shotgun_scope_1-4x_20mm_01": {
-   "fits": [
-    "equipment_weapon_ou_shotgun_10ga_01",
-    "equipment_weapon_ou_shotgun_12ga_01",
-    "equipment_weapon_ou_shotgun_12ga_02",
-    "equipment_weapon_ou_shotgun_12ga_03",
-    "equipment_weapon_pa_shotgun_12ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_01",
-    "equipment_weapon_pa_shotgun_1897_16ga_02",
-    "equipment_weapon_pa_shotgun_1897_16ga_03",
-    "equipment_weapon_rifle_br_combination_01",
-    "equipment_weapon_sa_shotgun_10ga_01",
-    "equipment_weapon_sa_shotgun_12ga_type2_01",
-    "equipment_weapon_sa_shotgun_20ga_01",
-    "equipment_weapon_sa_shotgun_20ga_02",
-    "equipment_weapon_sa_shotgun_20ga_03",
-    "equipment_weapon_sa_shotgun_20ga_04",
-    "equipment_weapon_sa_shotgun_20ga_05",
-    "equipment_weapon_sa_shotgun_20ga_06",
-    "equipment_weapon_ss_shotgun_410_01"
-   ],
    "icon": "textures/ui/items/scopes/scope_shotgun_1-4x20_alpha.ddsc",
    "kind": "sight",
    "name": "1-4x 20mm Shotgun Scope",
    "price": 12000,
-   "weight": 0.5
+   "unlock": {
+    "level": 25,
+    "need": 5300,
+    "track": "shotgun"
+   },
+   "weight": 0.5,
+   "zoom": 1.4
   },
   "equipment_snow_goose_decoy_01": {
    "icon": "textures/ui/items/equipment/snow_goose_decoy_03_alpha.ddsc",
@@ -3402,13 +3480,23 @@
    "icon": "textures/ui/items/equipment/backpack_large_orange_var_alpha.ddsc",
    "kind": "consumable",
    "name": "Summit Explorer 6000 Pack",
-   "price": 20000
+   "price": 20000,
+   "unlock": {
+    "level": 36,
+    "need": 127718,
+    "track": "character"
+   }
   },
   "equipment_upgrade_backpack_large_evergreen": {
    "icon": "textures/ui/items/equipment/backpack_large_camo_var_alpha.ddsc",
    "kind": "consumable",
    "name": "Summit Explorer 6000 Pack",
-   "price": 20000
+   "price": 20000,
+   "unlock": {
+    "level": 28,
+    "need": 84273,
+    "track": "character"
+   }
   },
   "equipment_upgrade_backpack_large_glacier": {
    "icon": "textures/ui/items/equipment/backpack_large_blue_var_alpha.ddsc",
@@ -3420,13 +3508,23 @@
    "icon": "textures/ui/items/equipment/backpack_medium_orange_var_alpha.ddsc",
    "kind": "consumable",
    "name": "ExoAdventurer 32 Light Daypack",
-   "price": 10000
+   "price": 10000,
+   "unlock": {
+    "level": 20,
+    "need": 44620,
+    "track": "character"
+   }
   },
   "equipment_upgrade_backpack_medium_evergreen": {
    "icon": "textures/ui/items/equipment/backpack_medium_camo_var_alpha.ddsc",
    "kind": "consumable",
    "name": "ExoAdventurer 32 Light Daypack",
-   "price": 10000
+   "price": 10000,
+   "unlock": {
+    "level": 14,
+    "need": 21910,
+    "track": "character"
+   }
   },
   "equipment_upgrade_backpack_medium_glacier": {
    "icon": "textures/ui/items/equipment/backpack_medium_blue_var_alpha.ddsc",
@@ -3438,13 +3536,23 @@
    "icon": "textures/ui/items/equipment/backpack_small_orange_var_alpha.ddsc",
    "kind": "consumable",
    "name": "TrailScout Mini Daypack - Evergreen",
-   "price": 5000
+   "price": 5000,
+   "unlock": {
+    "level": 8,
+    "need": 9010,
+    "track": "character"
+   }
   },
   "equipment_upgrade_backpack_small_evergreen": {
    "icon": "textures/ui/items/equipment/backpack_small_camo_var_alpha.ddsc",
    "kind": "consumable",
    "name": "TrailScout Mini Daypack - Evergreen",
-   "price": 5000
+   "price": 5000,
+   "unlock": {
+    "level": 4,
+    "need": 2800,
+    "track": "character"
+   }
   },
   "equipment_upgrade_backpack_small_glacier": {
    "icon": "textures/ui/items/equipment/backpack_small_blue_var_alpha.ddsc",
@@ -3481,6 +3589,7 @@
    "weight": 6.0
   },
   "equipment_weapon_ba_airrifle_45_01": {
+   "accuracy": 60.0,
    "ammo": [
     "equipment_ammo_45c_hp_01",
     "equipment_ammo_45c_rn_01"
@@ -3490,6 +3599,8 @@
    "kind": "weapon",
    "name": "45 Air Rifle Synthetic 01",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_airrifle_45_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3503,6 +3614,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_17mr_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_17mr_hp_01",
     "equipment_ammo_17mr_jhp_01"
@@ -3512,6 +3624,8 @@
    "kind": "weapon",
    "name": ".17mr Bolt-Action Rifle",
    "price": 0,
+   "recoil": 16.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3524,6 +3638,7 @@
    "weight": 2.5
   },
   "equipment_weapon_ba_rifle_223_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_223_pt_01",
     "equipment_ammo_223_sp_01"
@@ -3533,6 +3648,8 @@
    "kind": "weapon",
    "name": ".223 Bolt-Action Rifle (223 DOCENT)",
    "price": 6000,
+   "recoil": 28.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_223_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3543,9 +3660,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 4,
+    "need": 150,
+    "track": "rifle"
+   },
    "weight": 2.0
   },
   "equipment_weapon_ba_rifle_22_250_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22_250_pt_01",
     "equipment_ammo_22_250_sp_01"
@@ -3555,6 +3678,8 @@
    "kind": "weapon",
    "name": "22-250 Bolt-Action Rifle",
    "price": 7000,
+   "recoil": 30.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_22_250_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3568,6 +3693,7 @@
    "weight": 2.0
   },
   "equipment_weapon_ba_rifle_22h_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22h_pt_01",
     "equipment_ammo_22h_sp_01"
@@ -3577,6 +3703,8 @@
    "kind": "weapon",
    "name": ".22h BA Lightly colored wood",
    "price": 5500,
+   "recoil": 20.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -3588,6 +3716,7 @@
    "weight": 2.5
   },
   "equipment_weapon_ba_rifle_22h_02": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22h_pt_01",
     "equipment_ammo_22h_sp_01"
@@ -3597,6 +3726,8 @@
    "kind": "weapon",
    "name": ".22h BA Multicolor laminated wood",
    "price": 5500,
+   "recoil": 20.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -3608,6 +3739,7 @@
    "weight": 2.5
   },
   "equipment_weapon_ba_rifle_22h_03": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22h_pt_01",
     "equipment_ammo_22h_sp_01"
@@ -3617,6 +3749,8 @@
    "kind": "weapon",
    "name": ".22h BA Black polymer",
    "price": 5500,
+   "recoil": 20.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -3628,6 +3762,7 @@
    "weight": 2.5
   },
   "equipment_weapon_ba_rifle_243_01": {
+   "accuracy": 78.0,
    "ammo": [
     "equipment_ammo_243_pt_01",
     "equipment_ammo_243_sp_01"
@@ -3637,6 +3772,8 @@
    "kind": "weapon",
    "name": ".243 Bolt-Action Rifle (RANGER .243)",
    "price": 0,
+   "recoil": 46.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_243_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3647,9 +3784,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "rifle"
+   },
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_25_06_01": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_25_06_pt_01",
     "equipment_ammo_25_06_sp_01"
@@ -3659,6 +3802,8 @@
    "kind": "weapon",
    "name": ".25-06 Bolt-Action Rifle",
    "price": 0,
+   "recoil": 48.0,
+   "reload": 45.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3671,6 +3816,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_270_01": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_270_pt_01",
     "equipment_ammo_270_sp_01"
@@ -3680,6 +3826,8 @@
    "kind": "weapon",
    "name": ".270 Bolt-Action Rifle (.270 HUNTSMAN)",
    "price": 12000,
+   "recoil": 64.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_270_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3690,9 +3838,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 7,
+    "need": 450,
+    "track": "rifle"
+   },
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_270_02": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_270_pt_01",
     "equipment_ammo_270_sp_01"
@@ -3702,6 +3856,8 @@
    "kind": "weapon",
    "name": ".270 Bolt-Action Rifle Camo",
    "price": 12000,
+   "recoil": 64.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_270_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3715,6 +3871,7 @@
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_270_03": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_270_pt_01",
     "equipment_ammo_270_sp_01"
@@ -3724,6 +3881,8 @@
    "kind": "weapon",
    "name": ".270 Bolt-Action Rifle Stradivarius",
    "price": 12000,
+   "recoil": 64.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_270_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3734,9 +3893,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 7,
+    "need": 450,
+    "track": "rifle"
+   },
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_3006_01": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -3746,6 +3911,8 @@
    "kind": "weapon",
    "name": ".30-06 Bolt-Action Rifle 01",
    "price": 0,
+   "recoil": 80.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_3006_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3759,6 +3926,7 @@
    "weight": 4.5
   },
   "equipment_weapon_ba_rifle_3006_02": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -3768,6 +3936,8 @@
    "kind": "weapon",
    "name": ".30-06 Bolt-Action Rifle 02",
    "price": 0,
+   "recoil": 80.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_3006_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3781,6 +3951,7 @@
    "weight": 4.5
   },
   "equipment_weapon_ba_rifle_3006_03": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -3790,6 +3961,8 @@
    "kind": "weapon",
    "name": ".30-06 Bolt-Action Rifle 03",
    "price": 0,
+   "recoil": 80.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_3006_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3803,6 +3976,7 @@
    "weight": 4.5
   },
   "equipment_weapon_ba_rifle_300_01": {
+   "accuracy": 85.0,
    "ammo": [
     "equipment_ammo_300_pt_01",
     "equipment_ammo_300_sp_01"
@@ -3812,6 +3986,8 @@
    "kind": "weapon",
    "name": ".300 Bolt-Action Rifle",
    "price": 0,
+   "recoil": 40.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3824,6 +4000,7 @@
    "weight": 3.0
   },
   "equipment_weapon_ba_rifle_300_wby_01": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_300wby_pt_01",
     "equipment_ammo_300wby_sp_01"
@@ -3833,6 +4010,8 @@
    "kind": "weapon",
    "name": ".300 Bolt-Action Rifle wby 01",
    "price": 75000,
+   "recoil": 90.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3842,9 +4021,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 27,
+    "need": 6000,
+    "track": "rifle"
+   },
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_300_wby_02": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_300wby_pt_01",
     "equipment_ammo_300wby_sp_01"
@@ -3854,6 +4039,8 @@
    "kind": "weapon",
    "name": ".300 Bolt-Action Rifle wby 02",
    "price": 75000,
+   "recoil": 90.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3863,9 +4050,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 27,
+    "need": 6000,
+    "track": "rifle"
+   },
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_300_wby_03": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_300wby_pt_01",
     "equipment_ammo_300wby_sp_01"
@@ -3875,6 +4068,8 @@
    "kind": "weapon",
    "name": ".300 Bolt-Action Rifle wby 03",
    "price": 75000,
+   "recoil": 90.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3887,6 +4082,7 @@
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_300_wby_04": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_300wby_pt_01",
     "equipment_ammo_300wby_sp_01"
@@ -3896,6 +4092,8 @@
    "kind": "weapon",
    "name": ".300 Bolt-Action Rifle wby 04",
    "price": 75000,
+   "recoil": 90.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -3908,6 +4106,7 @@
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_303_01": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_303_pt_01",
     "equipment_ammo_303_sp_01"
@@ -3917,6 +4116,8 @@
    "kind": "weapon",
    "name": "equipment_weapon_ba_rifle_303_01_name",
    "price": 40000,
+   "recoil": 64.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -3928,6 +4129,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_303_02": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_303_pt_01",
     "equipment_ammo_303_sp_01"
@@ -3937,6 +4139,8 @@
    "kind": "weapon",
    "name": "equipment_weapon_ba_rifle_303_02_name",
    "price": 40000,
+   "recoil": 64.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -3948,6 +4152,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_303_03": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_303_pt_01",
     "equipment_ammo_303_sp_01"
@@ -3957,6 +4162,8 @@
    "kind": "weapon",
    "name": "equipment_weapon_ba_rifle_303_03_name",
    "price": 0,
+   "recoil": 64.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -3968,6 +4175,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_308_01": {
+   "accuracy": 40.0,
    "ammo": [
     "equipment_ammo_308_pt_01",
     "equipment_ammo_308_sp_01"
@@ -3977,6 +4185,8 @@
    "kind": "weapon",
    "name": "308 Bolt Action Rifle 01 (Model 21/OLSSON MODEL 23)",
    "price": 0,
+   "recoil": 79.0,
+   "reload": 40.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_308_01",
     "equipment_sight_rifle_red_dot_01",
@@ -3990,6 +4200,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_338_01": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_338_pt_01",
     "equipment_ammo_338_sp_01"
@@ -3999,6 +4210,8 @@
    "kind": "weapon",
    "name": ".338 Bolt Action Rifle 01 (SAKO TRG 42/TSURUGI LRR)",
    "price": 0,
+   "recoil": 100.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_338_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4012,6 +4225,7 @@
    "weight": 5.0
   },
   "equipment_weapon_ba_rifle_375_01": {
+   "accuracy": 95.0,
    "ammo": [
     "equipment_ammo_375_pt_01",
     "equipment_ammo_375_sp_01"
@@ -4021,6 +4235,8 @@
    "kind": "weapon",
    "name": ".375 Bolt Action Rifle",
    "price": 0,
+   "recoil": 100.0,
+   "reload": 45.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -4033,6 +4249,7 @@
    "weight": 4.0
   },
   "equipment_weapon_ba_rifle_450_01": {
+   "accuracy": 40.0,
    "ammo": [
     "equipment_ammo_450_pt_01",
     "equipment_ammo_450_sp_01"
@@ -4042,6 +4259,8 @@
    "kind": "weapon",
    "name": ".450 Bolt-Action Rifle",
    "price": 0,
+   "recoil": 50.0,
+   "reload": 40.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -4054,6 +4273,7 @@
    "weight": 3.0
   },
   "equipment_weapon_ba_rifle_500_01": {
+   "accuracy": 85.0,
    "ammo": [
     "equipment_ammo_500_sb_01",
     "equipment_ammo_500_sp_01"
@@ -4063,6 +4283,8 @@
    "kind": "weapon",
    "name": ".500 Bolt-Action Rifle",
    "price": 0,
+   "recoil": 95.0,
+   "reload": 45.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -4075,6 +4297,7 @@
    "weight": 4.5
   },
   "equipment_weapon_ba_rifle_6_5mm_01": {
+   "accuracy": 70.0,
    "ammo": [
     "equipment_ammo_6_5mm_pt_01",
     "equipment_ammo_6_5mm_sp_01"
@@ -4084,6 +4307,8 @@
    "kind": "weapon",
    "name": "6.5mm Bolt-Action B14 Rifle Var 01",
    "price": 10000,
+   "recoil": 50.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_ba_rifle_6_5mm_illuminated_iron_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4094,9 +4319,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 6,
+    "need": 350,
+    "track": "rifle"
+   },
    "weight": 3.0
   },
   "equipment_weapon_ba_rifle_6_5mm_02": {
+   "accuracy": 70.0,
    "ammo": [
     "equipment_ammo_6_5mm_pt_01",
     "equipment_ammo_6_5mm_sp_01"
@@ -4106,6 +4337,8 @@
    "kind": "weapon",
    "name": "6.5mm Bolt-Action B14 Rifle Var 02",
    "price": 10000,
+   "recoil": 50.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_ba_rifle_6_5mm_illuminated_iron_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4116,9 +4349,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 6,
+    "need": 350,
+    "track": "rifle"
+   },
    "weight": 3.0
   },
   "equipment_weapon_ba_rifle_6_5mm_03": {
+   "accuracy": 70.0,
    "ammo": [
     "equipment_ammo_6_5mm_pt_01",
     "equipment_ammo_6_5mm_sp_01"
@@ -4128,6 +4367,8 @@
    "kind": "weapon",
    "name": "6.5mm Bolt-Action B14 Rifle Var 03",
    "price": 0,
+   "recoil": 50.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_ba_rifle_6_5mm_illuminated_iron_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4141,6 +4382,7 @@
    "weight": 3.0
   },
   "equipment_weapon_ba_rifle_7mm_01": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_7mm_pt_01",
     "equipment_ammo_7mm_sp_01"
@@ -4150,6 +4392,8 @@
    "kind": "weapon",
    "name": "7mm Bolt Action Rifle 01 (700 SPS/MALMER)",
    "price": 0,
+   "recoil": 85.0,
+   "reload": 40.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ba_rifle_7mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4163,6 +4407,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_mosin_nagant_01": {
+   "accuracy": 64.0,
    "ammo": [
     "equipment_ammo_762x54r_fmj_01",
     "equipment_ammo_762x54r_sp_01"
@@ -4172,6 +4417,8 @@
    "kind": "weapon",
    "name": "Mosin Nagant MN1890 (VARIATION 01)",
    "price": 0,
+   "recoil": 58.0,
+   "reload": 60.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -4183,6 +4430,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_mosin_nagant_02": {
+   "accuracy": 64.0,
    "ammo": [
     "equipment_ammo_762x54r_fmj_01",
     "equipment_ammo_762x54r_sp_01"
@@ -4192,6 +4440,8 @@
    "kind": "weapon",
    "name": "Mosin Nagant MN1890 (VARIATION 02)",
    "price": 0,
+   "recoil": 58.0,
+   "reload": 60.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -4203,6 +4453,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ba_rifle_mosin_nagant_03": {
+   "accuracy": 64.0,
    "ammo": [
     "equipment_ammo_762x54r_fmj_01",
     "equipment_ammo_762x54r_sp_01"
@@ -4212,6 +4463,8 @@
    "kind": "weapon",
    "name": "Mosin Nagant MN1890 (VARIATION 03)",
    "price": 0,
+   "recoil": 58.0,
+   "reload": 60.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -4223,6 +4476,7 @@
    "weight": 3.5
   },
   "equipment_weapon_caplock_muzzleloader_01": {
+   "accuracy": 25.0,
    "ammo": [
     "equipment_ammo_50c_lead_ball_01",
     "equipment_ammo_50c_minie_ball_01"
@@ -4232,12 +4486,15 @@
    "kind": "weapon",
    "name": ".50 Caplock Muzzleloader 01",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 5.0,
    "sights": [
     "equipment_scope_muzzleloader_4-8x32_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_caplock_muzzleloader_02": {
+   "accuracy": 25.0,
    "ammo": [
     "equipment_ammo_50c_lead_ball_01",
     "equipment_ammo_50c_minie_ball_01"
@@ -4247,12 +4504,15 @@
    "kind": "weapon",
    "name": ".50 Caplock Muzzleloader 02",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 5.0,
    "sights": [
     "equipment_scope_muzzleloader_4-8x32_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_caplock_muzzleloader_03": {
+   "accuracy": 25.0,
    "ammo": [
     "equipment_ammo_50c_lead_ball_01",
     "equipment_ammo_50c_minie_ball_01"
@@ -4262,6 +4522,8 @@
    "kind": "weapon",
    "name": ".50 Caplock Muzzleloader 03",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 5.0,
    "sights": [
     "equipment_scope_muzzleloader_4-8x32_01"
    ],
@@ -4278,6 +4540,7 @@
    "weight": 2.5
   },
   "equipment_weapon_compound_bow_60lb_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -4287,10 +4550,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 60.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_compound_bow_60lb_01_alpha.ddsc",
    "kind": "weapon",
    "name": "60 lbs.Compound Bow (RAZORBACK LITE CB-60)",
    "price": 6000,
+   "recoil": 10.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -4298,9 +4564,15 @@
     "equipment_sight_compound_bow_5pin_01",
     "equipment_sight_compound_bow_rangefinder_01"
    ],
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "archery"
+   },
    "weight": 3.5
   },
   "equipment_weapon_compound_bow_60lb_02": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -4310,10 +4582,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 60.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_compound_bow_60lb_02_alpha.ddsc",
    "kind": "weapon",
    "name": "60 lbs.Compound Bow (BEARCLAW LITE CB-60)",
    "price": 6000,
+   "recoil": 10.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -4324,6 +4599,7 @@
    "weight": 4.0
   },
   "equipment_weapon_compound_bow_70lb_01": {
+   "accuracy": 10.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -4333,10 +4609,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 70.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_compound_bow_70lb_01_alpha.ddsc",
    "kind": "weapon",
    "name": "70 lbs.Compound Bow (HAWK EDGE CB-70)",
    "price": 48000,
+   "recoil": 28.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -4344,9 +4623,15 @@
     "equipment_sight_compound_bow_5pin_01",
     "equipment_sight_compound_bow_rangefinder_01"
    ],
+   "unlock": {
+    "level": 13,
+    "need": 1300,
+    "track": "archery"
+   },
    "weight": 4.0
   },
   "equipment_weapon_compound_bow_orpheus_01": {
+   "accuracy": 24.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -4356,10 +4641,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 65.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_compound_bow_cb65_01_alpha.ddsc",
    "kind": "weapon",
    "name": "Compound Bow Orpheus 01",
    "price": 0,
+   "recoil": 19.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -4370,6 +4658,7 @@
    "weight": 4.0
   },
   "equipment_weapon_compound_bow_orpheus_02": {
+   "accuracy": 24.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -4379,10 +4668,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 65.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_compound_bow_cb65_02_alpha.ddsc",
    "kind": "weapon",
    "name": "Compound Bow Orpheus 02",
    "price": 0,
+   "recoil": 19.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -4393,6 +4685,7 @@
    "weight": 4.0
   },
   "equipment_weapon_compound_bow_orpheus_03": {
+   "accuracy": 24.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -4402,10 +4695,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 65.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_compound_bow_cb65_02_alpha.ddsc",
    "kind": "weapon",
    "name": "Compound Bow Orpheus 03",
    "price": 0,
+   "recoil": 19.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -4416,6 +4712,7 @@
    "weight": 4.0
   },
   "equipment_weapon_crossbow_165lb_01": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_bh_crossbow_arrow_420gr_01",
     "equipment_ammo_bh_crossbow_arrow_600gr_01",
@@ -4425,16 +4722,20 @@
     "equipment_ammo_jp_crossbow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 165.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_crossbow_165lb_01_alpha.ddsc",
    "kind": "weapon",
    "name": "165 lbs.Crossbow (CROSSPOINT CB-165 CLASSIC)",
    "price": 0,
+   "recoil": 35.0,
+   "reload": 20.0,
    "sights": [
     "equipment_sight_crossbow_scope_1-5x_30mm_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_crossbow_165lb_02": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_bh_crossbow_arrow_420gr_01",
     "equipment_ammo_bh_crossbow_arrow_600gr_01",
@@ -4444,16 +4745,20 @@
     "equipment_ammo_jp_crossbow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 165.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_crossbow_165lb_02_alpha.ddsc",
    "kind": "weapon",
    "name": "165 lbs.Crossbow (CROSSPOINT CB-165 ARCTIC)",
    "price": 0,
+   "recoil": 35.0,
+   "reload": 20.0,
    "sights": [
     "equipment_sight_crossbow_scope_1-5x_30mm_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_crossbow_165lb_03": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_bh_crossbow_arrow_420gr_01",
     "equipment_ammo_bh_crossbow_arrow_600gr_01",
@@ -4463,16 +4768,20 @@
     "equipment_ammo_jp_crossbow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 165.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_crossbow_165lb_03_alpha.ddsc",
    "kind": "weapon",
    "name": "165 lbs.Crossbow (CROSSPOINT CB-165 WARDEN)",
    "price": 0,
+   "recoil": 35.0,
+   "reload": 20.0,
    "sights": [
     "equipment_sight_crossbow_scope_1-5x_30mm_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_crossbow_165lb_04": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_bh_crossbow_arrow_420gr_01",
     "equipment_ammo_bh_crossbow_arrow_600gr_01",
@@ -4482,16 +4791,20 @@
     "equipment_ammo_jp_crossbow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 165.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_crossbow_165lb_04_alpha.ddsc",
    "kind": "weapon",
    "name": "165 lbs.Crossbow (CROSSPOINT CB-165 DARK CLASSIC)",
    "price": 0,
+   "recoil": 35.0,
+   "reload": 20.0,
    "sights": [
     "equipment_sight_crossbow_scope_1-5x_30mm_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_drilling_combination_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_16ga_bird_01",
     "equipment_ammo_16ga_buck_01",
@@ -4504,12 +4817,15 @@
    "kind": "weapon",
    "name": "Drilling Combination Gun Var 01",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_rifle_scope_3_9x44mm_01"
    ],
    "weight": 5.0
   },
   "equipment_weapon_drilling_combination_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_16ga_bird_01",
     "equipment_ammo_16ga_buck_01",
@@ -4522,12 +4838,15 @@
    "kind": "weapon",
    "name": "Drilling Combination Gun Var 02",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_rifle_scope_3_9x44mm_01"
    ],
    "weight": 5.0
   },
   "equipment_weapon_drilling_combination_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_16ga_bird_01",
     "equipment_ammo_16ga_buck_01",
@@ -4540,12 +4859,15 @@
    "kind": "weapon",
    "name": "Drilling Combination Gun Var 03",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_rifle_scope_3_9x44mm_01"
    ],
    "weight": 5.0
   },
   "equipment_weapon_la_rifle_22m_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22m_hp_01",
     "equipment_ammo_22m_jhp_01"
@@ -4555,6 +4877,8 @@
    "kind": "weapon",
    "name": ".22 Magnum Lever-Action Rifle",
    "price": 0,
+   "recoil": 15.0,
+   "reload": 50.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -4567,6 +4891,7 @@
    "weight": 3.0
   },
   "equipment_weapon_la_rifle_3030_01": {
+   "accuracy": 78.0,
    "ammo": [
     "equipment_ammo_3030_hp_01",
     "equipment_ammo_3030_sprn_01"
@@ -4576,13 +4901,21 @@
    "kind": "weapon",
    "name": ".30-30 Lever Action Rifle (WHITLOCK MODEL 86)",
    "price": 24000,
+   "recoil": 46.0,
+   "reload": 57.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_la_rifle_3030_01",
     "equipment_sight_rifle_scope_4-8x_32mm_01"
    ],
+   "unlock": {
+    "level": 11,
+    "need": 1000,
+    "track": "rifle"
+   },
    "weight": 3.5
   },
   "equipment_weapon_la_rifle_3030_type2_01": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_3030_hp_01",
     "equipment_ammo_3030_sprn_01"
@@ -4592,6 +4925,8 @@
    "kind": "weapon",
    "name": ".30-30 Lever Action Rifle (Marlin 336)",
    "price": 5000,
+   "recoil": 44.0,
+   "reload": 58.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -4604,6 +4939,7 @@
    "weight": 3.0
   },
   "equipment_weapon_la_rifle_44_01": {
+   "accuracy": 80.0,
    "ammo": [
     "equipment_ammo_44m_fnhc_01",
     "equipment_ammo_44m_jhp_01"
@@ -4613,6 +4949,8 @@
    "kind": "weapon",
    "name": ".44 Magnum Lever Action Rifle",
    "price": 0,
+   "recoil": 43.0,
+   "reload": 57.0,
    "sights": [
     "equipment_sight_reflex_01",
     "equipment_sight_rifle_illum_iron_la_rifle_44_01",
@@ -4627,6 +4965,7 @@
    "weight": 3.0
   },
   "equipment_weapon_la_rifle_4570_01": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_4570_hp_01",
     "equipment_ammo_4570_spfn_01"
@@ -4636,13 +4975,21 @@
    "kind": "weapon",
    "name": ".45-70 Lever Action Rifle.(COACHMATE LEVER .45-70)",
    "price": 48000,
+   "recoil": 64.0,
+   "reload": 57.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_la_rifle_4570_01",
     "equipment_sight_rifle_scope_4-8x_32mm_01"
    ],
+   "unlock": {
+    "level": 19,
+    "need": 2800,
+    "track": "rifle"
+   },
    "weight": 4.0
   },
   "equipment_weapon_la_rifle_45_90_01": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_45_90_bp_clfn_01",
     "equipment_ammo_45_90_bp_sl_01"
@@ -4652,6 +4999,8 @@
    "kind": "weapon",
    "name": ".45-90 Lever-Action Buffalo Rifle",
    "price": 0,
+   "recoil": 80.0,
+   "reload": 72.0,
    "sights": [
     "equipment_sight_rifle_scope_vintage_10x17mm_01",
     "equipment_sight_rifle_scope_vintage_6x17mm_01"
@@ -4659,6 +5008,7 @@
    "weight": 4.0
   },
   "equipment_weapon_la_rifle_577_450_01": {
+   "accuracy": 30.0,
    "ammo": [
     "equipment_ammo_577_450_01"
    ],
@@ -4667,10 +5017,13 @@
    "kind": "weapon",
    "name": "Nepal 577 450 Rifle",
    "price": 36000,
+   "recoil": 70.0,
+   "reload": 70.0,
    "sights": [],
    "weight": 4.5
   },
   "equipment_weapon_la_shotgun_1887_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_10ga_bird_01",
     "equipment_ammo_10ga_buck_01",
@@ -4681,10 +5034,13 @@
    "kind": "weapon",
    "name": "1887 Lever Action Shotgun (Skin 1)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 69.0,
    "sights": [],
    "weight": 3.5
   },
   "equipment_weapon_la_shotgun_1887_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_10ga_bird_01",
     "equipment_ammo_10ga_buck_01",
@@ -4695,10 +5051,13 @@
    "kind": "weapon",
    "name": "1887 Lever Action Shotgun (Skin 2)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 69.0,
    "sights": [],
    "weight": 3.5
   },
   "equipment_weapon_la_shotgun_1887_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_10ga_bird_01",
     "equipment_ammo_10ga_buck_01",
@@ -4709,10 +5068,13 @@
    "kind": "weapon",
    "name": "1887 Lever Action Shotgun (Skin 3)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 69.0,
    "sights": [],
    "weight": 3.5
   },
   "equipment_weapon_longbow_01": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -4722,14 +5084,18 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 70.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_longbow_01_alpha.ddsc",
    "kind": "weapon",
    "name": "HOUYI Longbow Emperor",
    "price": 0,
+   "recoil": 20.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
   "equipment_weapon_longbow_02": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -4739,14 +5105,18 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 70.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_longbow_02_alpha.ddsc",
    "kind": "weapon",
    "name": "HOUYI Longbow Twilight",
    "price": 0,
+   "recoil": 20.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
   "equipment_weapon_longbow_03": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -4756,14 +5126,18 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 70.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_longbow_03_alpha.ddsc",
    "kind": "weapon",
    "name": "HOUYI Longbow Snakeskin",
    "price": 0,
+   "recoil": 20.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
   "equipment_weapon_longbow_04": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -4773,14 +5147,18 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 70.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_longbow_04_alpha.ddsc",
    "kind": "weapon",
    "name": "HOUYI Longbow Feilian",
    "price": 0,
+   "recoil": 20.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
   "equipment_weapon_muzzleloader_50_01": {
+   "accuracy": 30.0,
    "ammo": [
     "equipment_ammo_50c_hp_01",
     "equipment_ammo_50c_pt_01"
@@ -4790,6 +5168,8 @@
    "kind": "weapon",
    "name": "Modern Muzzleloader .50 cal",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 5.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -4801,6 +5181,7 @@
    "weight": 4.0
   },
   "equipment_weapon_ou_shotgun_10ga_01": {
+   "accuracy": 36.0,
    "ammo": [
     "equipment_ammo_10ga_plastic_bird_01",
     "equipment_ammo_10ga_plastic_buck_01",
@@ -4811,6 +5192,8 @@
    "kind": "weapon",
    "name": "10 GA O/U Shotgun",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 50.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4819,6 +5202,7 @@
    "weight": 3.5
   },
   "equipment_weapon_ou_shotgun_12ga_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_12ga_bird_01",
     "equipment_ammo_12ga_buck_01",
@@ -4829,15 +5213,23 @@
    "kind": "weapon",
    "name": "12 GA O/U Shotgun (CAVERSHAM STEWARD 12G)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 69.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_shotgun_illum_iron_ou_12ga_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
    ],
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "shotgun"
+   },
    "weight": 4.0
   },
   "equipment_weapon_ou_shotgun_12ga_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_12ga_bird_01",
     "equipment_ammo_12ga_buck_01",
@@ -4848,6 +5240,8 @@
    "kind": "weapon",
    "name": "12 GA O/U Shotgun (GAMEKEEPER 12G)",
    "price": 6000,
+   "recoil": 82.0,
+   "reload": 69.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4857,6 +5251,7 @@
    "weight": 4.0
   },
   "equipment_weapon_ou_shotgun_12ga_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_12ga_bird_01",
     "equipment_ammo_12ga_buck_01",
@@ -4867,6 +5262,8 @@
    "kind": "weapon",
    "name": "12 GA O/U Shotgun (GRANKIN'S SHOTGUN)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 69.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -4876,6 +5273,7 @@
    "weight": 4.0
   },
   "equipment_weapon_pa_rifle_257_01": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_257_pt_01",
     "equipment_ammo_257_sp_01"
@@ -4885,6 +5283,8 @@
    "kind": "weapon",
    "name": ".257 Pump-Action Rifle",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 52.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -4897,6 +5297,7 @@
    "weight": 3.0
   },
   "equipment_weapon_pa_shotgun_12ga_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_12ga_bird_01",
     "equipment_ammo_12ga_buck_01",
@@ -4907,15 +5308,23 @@
    "kind": "weapon",
    "name": "12 GA Pump-Action Shotgun (CACCIATORE 12G)",
    "price": 48000,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_shotgun_illum_iron_pa_12ga_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
    ],
+   "unlock": {
+    "level": 12,
+    "need": 1150,
+    "track": "shotgun"
+   },
    "weight": 3.5
   },
   "equipment_weapon_pa_shotgun_1897_16ga_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_16ga_bird_01",
     "equipment_ammo_16ga_buck_01",
@@ -4926,6 +5335,8 @@
    "kind": "weapon",
    "name": "16 GA PA Winchester 1897 01",
    "price": 45000,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -4933,6 +5344,7 @@
    "weight": 3.5
   },
   "equipment_weapon_pa_shotgun_1897_16ga_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_16ga_bird_01",
     "equipment_ammo_16ga_buck_01",
@@ -4943,6 +5355,8 @@
    "kind": "weapon",
    "name": "16 GA PA Winchester 1897 02",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -4950,6 +5364,7 @@
    "weight": 3.5
   },
   "equipment_weapon_pa_shotgun_1897_16ga_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_16ga_bird_01",
     "equipment_ammo_16ga_buck_01",
@@ -4960,6 +5375,8 @@
    "kind": "weapon",
    "name": "16 GA PA Winchester 1897 03",
    "price": 45000,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -4967,6 +5384,7 @@
    "weight": 3.5
   },
   "equipment_weapon_pistol_10mm_01": {
+   "accuracy": 85.0,
    "ammo": [
     "equipment_ammo_10mm_fn_01",
     "equipment_ammo_10mm_jhp_01"
@@ -4976,12 +5394,15 @@
    "kind": "weapon",
    "name": "Glock 10mm Var 01",
    "price": 0,
+   "recoil": 50.0,
+   "reload": 78.0,
    "sights": [
     "equipment_sight_reflex_02"
    ],
    "weight": 1.0
   },
   "equipment_weapon_pistol_10mm_02": {
+   "accuracy": 85.0,
    "ammo": [
     "equipment_ammo_10mm_fn_01",
     "equipment_ammo_10mm_jhp_01"
@@ -4991,21 +5412,27 @@
    "kind": "weapon",
    "name": "Glock 10mm Var 02",
    "price": 0,
+   "recoil": 50.0,
+   "reload": 78.0,
    "sights": [
     "equipment_sight_reflex_02"
    ],
    "weight": 1.0
   },
   "equipment_weapon_pistol_crossbow_01": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_bh_crossbow_bolt_170gr_01",
     "equipment_ammo_bh_crossbow_bolt_395gr_01"
    ],
    "class": "archery",
+   "draw": 150.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_pistol_crossbow_01_alpha.ddsc",
    "kind": "weapon",
    "name": "Pistol Crossbow",
    "price": 18000,
+   "recoil": 18.0,
+   "reload": 60.0,
    "sights": [
     "equipment_sight_crossbow_scope_1-5x_30mm_01",
     "equipment_sight_rifle_red_dot_01"
@@ -5013,6 +5440,7 @@
    "weight": 2.0
   },
   "equipment_weapon_pistol_sa_22_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5022,6 +5450,8 @@
    "kind": "weapon",
    "name": "22 Semi Auto Pistol Var 1",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 49.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_22_01",
@@ -5032,6 +5462,7 @@
    "weight": 1.0
   },
   "equipment_weapon_pistol_sa_22_02": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5041,6 +5472,8 @@
    "kind": "weapon",
    "name": "22 Semi Auto Pistol Var 2",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 49.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_22_01",
@@ -5051,6 +5484,7 @@
    "weight": 1.0
   },
   "equipment_weapon_pistol_sa_22_03": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5060,6 +5494,8 @@
    "kind": "weapon",
    "name": "22 Semi Auto Pistol Var 3",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 49.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_22_01",
@@ -5070,6 +5506,7 @@
    "weight": 1.0
   },
   "equipment_weapon_pistol_ss_243_01": {
+   "accuracy": 62.0,
    "ammo": [
     "equipment_ammo_243_pt_01",
     "equipment_ammo_243_sp_01"
@@ -5079,6 +5516,8 @@
    "kind": "weapon",
    "name": "Pistol Thompson Single-Shot",
    "price": 0,
+   "recoil": 48.0,
+   "reload": 50.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5091,6 +5530,7 @@
    "weight": 1.0
   },
   "equipment_weapon_pistol_ss_243_02": {
+   "accuracy": 62.0,
    "ammo": [
     "equipment_ammo_243_pt_01",
     "equipment_ammo_243_sp_01"
@@ -5100,6 +5540,8 @@
    "kind": "weapon",
    "name": "Pistol Thompson Var 02",
    "price": 0,
+   "recoil": 48.0,
+   "reload": 50.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5112,6 +5554,7 @@
    "weight": 1.0
   },
   "equipment_weapon_pistol_ss_4570_01": {
+   "accuracy": 75.0,
    "ammo": [
     "equipment_ammo_4570_hp_01",
     "equipment_ammo_4570_spfn_01"
@@ -5121,6 +5564,8 @@
    "kind": "weapon",
    "name": "4570 Pistol Thompson Single-Shot",
    "price": 0,
+   "recoil": 62.0,
+   "reload": 58.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5133,6 +5578,7 @@
    "weight": 1.0
   },
   "equipment_weapon_recurve_bow_01": {
+   "accuracy": 38.0,
    "ammo": [
     "equipment_ammo_bh_bow_arrow_420gr_01",
     "equipment_ammo_bh_bow_arrow_600gr_01",
@@ -5142,10 +5588,13 @@
     "equipment_ammo_jp_bow_tracer_arrow_300gr_01"
    ],
    "class": "archery",
+   "draw": 50.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_recurve_bow_01_alpha.ddsc",
    "kind": "weapon",
    "name": "Modern takedown recurve bow",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 100.0,
    "sights": [
     "equipment_sight_compound_bow_1pin_01",
     "equipment_sight_compound_bow_1pin_illum_01",
@@ -5156,6 +5605,7 @@
    "weight": 2.0
   },
   "equipment_weapon_revolver_357m_01": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_357m_fnhc_01",
     "equipment_ammo_357m_jhp_01"
@@ -5165,15 +5615,23 @@
    "kind": "weapon",
    "name": ".357 Mag. Revolver (FOCOSO 357)",
    "price": 0,
+   "recoil": 64.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_357m_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01",
     "equipment_sight_rifle_red_dot_01"
    ],
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "handgun"
+   },
    "weight": 1.0
   },
   "equipment_weapon_revolver_410m_01": {
+   "accuracy": 40.0,
    "ammo": [
     "equipment_ammo_410ga_bird_01",
     "equipment_ammo_45c_01",
@@ -5184,6 +5642,8 @@
    "kind": "weapon",
    "name": ".410 Mag. Revolver (Variiation 01)",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01"
@@ -5191,6 +5651,7 @@
    "weight": 1.5
   },
   "equipment_weapon_revolver_410m_02": {
+   "accuracy": 40.0,
    "ammo": [
     "equipment_ammo_410ga_bird_01",
     "equipment_ammo_45c_01",
@@ -5201,6 +5662,8 @@
    "kind": "weapon",
    "name": ".410 Mag. Revolver (Variiation 02)",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01"
@@ -5208,6 +5671,7 @@
    "weight": 1.5
   },
   "equipment_weapon_revolver_410m_03": {
+   "accuracy": 40.0,
    "ammo": [
     "equipment_ammo_410ga_bird_01",
     "equipment_ammo_45c_01",
@@ -5218,6 +5682,8 @@
    "kind": "weapon",
    "name": ".410 Mag. Revolver (Variation 03)",
    "price": 0,
+   "recoil": 70.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01"
@@ -5225,6 +5691,7 @@
    "weight": 1.5
   },
   "equipment_weapon_revolver_44_40_01": {
+   "accuracy": 52.0,
    "ammo": [
     "equipment_ammo_44_40_bp_rnfp_01",
     "equipment_ammo_44_40_fmj_01"
@@ -5234,10 +5701,13 @@
    "kind": "weapon",
    "name": ".44-40 Mag. Revolver",
    "price": 0,
+   "recoil": 65.0,
+   "reload": 58.0,
    "sights": [],
    "weight": 1.5
   },
   "equipment_weapon_revolver_44m_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_44m_fnhc_01",
     "equipment_ammo_44m_jhp_01"
@@ -5247,15 +5717,23 @@
    "kind": "weapon",
    "name": ".44 Mag. Revolver (.44 PANTHER MAGNUM)",
    "price": 24000,
+   "recoil": 82.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_44m_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01",
     "equipment_sight_rifle_red_dot_01"
    ],
+   "unlock": {
+    "level": 10,
+    "need": 850,
+    "track": "handgun"
+   },
    "weight": 1.5
   },
   "equipment_weapon_revolver_44m_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_44m_fnhc_01",
     "equipment_ammo_44m_jhp_01"
@@ -5265,6 +5743,8 @@
    "kind": "weapon",
    "name": ".44 Mag. Revolver (.44 WILDCAT MAGNUM)",
    "price": 24000,
+   "recoil": 82.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_44m_01",
@@ -5274,6 +5754,7 @@
    "weight": 1.5
   },
   "equipment_weapon_revolver_44m_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_44m_fnhc_01",
     "equipment_ammo_44m_jhp_01"
@@ -5283,15 +5764,23 @@
    "kind": "weapon",
    "name": ".44 Mag. Revolver (.44 PATAGONIA SKIN)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_44m_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01",
     "equipment_sight_rifle_red_dot_01"
    ],
+   "unlock": {
+    "level": 10,
+    "need": 850,
+    "track": "handgun"
+   },
    "weight": 1.5
   },
   "equipment_weapon_revolver_454_01": {
+   "accuracy": 10.0,
    "ammo": [
     "equipment_ammo_454_fnhc_01",
     "equipment_ammo_454_jhp_01"
@@ -5301,15 +5790,23 @@
    "kind": "weapon",
    "name": ".454 Revolver (RHINO 454)",
    "price": 48000,
+   "recoil": 100.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_454_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01",
     "equipment_sight_rifle_red_dot_01"
    ],
+   "unlock": {
+    "level": 20,
+    "need": 3100,
+    "track": "handgun"
+   },
    "weight": 2.0
   },
   "equipment_weapon_revolver_454_02": {
+   "accuracy": 10.0,
    "ammo": [
     "equipment_ammo_454_fnhc_01",
     "equipment_ammo_454_jhp_01"
@@ -5319,15 +5816,23 @@
    "kind": "weapon",
    "name": ".454 Revolver (RHINO 454) 5th Anniversary Skin",
    "price": 0,
+   "recoil": 100.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_handgun_illum_iron_re_454_01",
     "equipment_sight_handgun_scope_2-4x_20mm_01",
     "equipment_sight_rifle_red_dot_01"
    ],
+   "unlock": {
+    "level": 1,
+    "need": 0,
+    "track": "handgun"
+   },
    "weight": 2.0
   },
   "equipment_weapon_revolver_45_01": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_45c_01",
     "equipment_ammo_45c_fmj_01"
@@ -5337,10 +5842,13 @@
    "kind": "weapon",
    "name": "Peacemaker Revolver 45 Var 01",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 18.0,
    "sights": [],
    "weight": 1.0
   },
   "equipment_weapon_revolver_45_02": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_45c_01",
     "equipment_ammo_45c_fmj_01"
@@ -5350,10 +5858,13 @@
    "kind": "weapon",
    "name": "Peacemaker Revolver 45 Var 02",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 18.0,
    "sights": [],
    "weight": 1.0
   },
   "equipment_weapon_rifle_br_combination_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_12ga_bird_01",
     "equipment_ammo_12ga_buck_01",
@@ -5366,6 +5877,8 @@
    "kind": "weapon",
    "name": "BR Combination",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 18.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -5374,6 +5887,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_rifle_22lr_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5383,6 +5897,8 @@
    "kind": "weapon",
    "name": ".22LR Semi-Auto Rifle Plastic",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5395,6 +5911,7 @@
    "weight": 2.5
   },
   "equipment_weapon_sa_rifle_22lr_02": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5404,6 +5921,8 @@
    "kind": "weapon",
    "name": ".22LR Semi-Auto Rifle Wood",
    "price": 0,
+   "recoil": 10.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5416,6 +5935,7 @@
    "weight": 2.5
   },
   "equipment_weapon_sa_rifle_308_01": {
+   "accuracy": 40.0,
    "ammo": [
     "equipment_ammo_308_pt_01",
     "equipment_ammo_308_sp_01"
@@ -5425,6 +5945,8 @@
    "kind": "weapon",
    "name": "Semi Auto Rifle .308",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5437,6 +5959,7 @@
    "weight": 4.0
   },
   "equipment_weapon_sa_rifle_30_06_01": {
+   "accuracy": 43.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -5446,6 +5969,8 @@
    "kind": "weapon",
    "name": "Semi Automatic Rifle 30-06",
    "price": 0,
+   "recoil": 78.0,
+   "reload": 55.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5458,6 +5983,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_rifle_7_62_01": {
+   "accuracy": 85.0,
    "ammo": [
     "equipment_ammo_7_62_pt_01",
     "equipment_ammo_7_62_sp_01"
@@ -5467,6 +5993,8 @@
    "kind": "weapon",
    "name": "Semi Automatic Rifle 7.62",
    "price": 0,
+   "recoil": 43.0,
+   "reload": 60.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5479,6 +6007,7 @@
    "weight": 4.0
   },
   "equipment_weapon_sa_rifle_ar10_308_01": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_308_pt_01",
     "equipment_ammo_308_sp_01"
@@ -5488,6 +6017,8 @@
    "kind": "weapon",
    "name": "AR10 308 20GA Skin 1",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5500,6 +6031,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_rifle_ar10_308_02": {
+   "accuracy": 45.0,
    "ammo": [
     "equipment_ammo_308_pt_01",
     "equipment_ammo_308_sp_01"
@@ -5509,6 +6041,8 @@
    "kind": "weapon",
    "name": "AR10 308 20GA Skin 2",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5521,6 +6055,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_rifle_ar15_223_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_223_pt_01",
     "equipment_ammo_223_sp_01"
@@ -5530,6 +6065,8 @@
    "kind": "weapon",
    "name": "AR15 223 20GA Skin 1",
    "price": 0,
+   "recoil": 25.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5542,6 +6079,7 @@
    "weight": 3.0
   },
   "equipment_weapon_sa_rifle_ar15_223_02": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_223_pt_01",
     "equipment_ammo_223_sp_01"
@@ -5551,6 +6089,8 @@
    "kind": "weapon",
    "name": "AR15 223 20GA Skin 2",
    "price": 0,
+   "recoil": 25.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5563,6 +6103,7 @@
    "weight": 3.0
   },
   "equipment_weapon_sa_rifle_ar15_22lr_01": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5572,6 +6113,8 @@
    "kind": "weapon",
    "name": "AR15 22lr 16GA Skin 1",
    "price": 0,
+   "recoil": 8.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5584,6 +6127,7 @@
    "weight": 2.5
   },
   "equipment_weapon_sa_rifle_ar15_22lr_02": {
+   "accuracy": 100.0,
    "ammo": [
     "equipment_ammo_22lr_jhp_01",
     "equipment_ammo_22lr_pt_01"
@@ -5593,6 +6137,8 @@
    "kind": "weapon",
    "name": "AR15 22lr 16GA Skin 2",
    "price": 0,
+   "recoil": 8.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5605,6 +6151,7 @@
    "weight": 2.5
   },
   "equipment_weapon_sa_rifle_ar15_300_01": {
+   "accuracy": 90.0,
    "ammo": [
     "equipment_ammo_300wby_pt_01",
     "equipment_ammo_300wby_sp_01"
@@ -5614,6 +6161,8 @@
    "kind": "weapon",
    "name": "AR15 300 Skin 1",
    "price": 0,
+   "recoil": 75.0,
+   "reload": 59.0,
    "sights": [
     "equipment_sight_rifle_red_dot_01",
     "equipment_sight_rifle_scope_1-4x_24mm_01",
@@ -5626,6 +6175,7 @@
    "weight": 4.0
   },
   "equipment_weapon_sa_rifle_m1_garand_01": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -5635,6 +6185,8 @@
    "kind": "weapon",
    "name": "M1 Garand 3006 Semi Automatic (VARIATION 01)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -5646,6 +6198,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_rifle_m1_garand_02": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -5655,6 +6208,8 @@
    "kind": "weapon",
    "name": "M1 Garand 3006 Semi Automatic (VARIATION 02)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -5666,6 +6221,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_rifle_m1_garand_03": {
+   "accuracy": 35.0,
    "ammo": [
     "equipment_ammo_3006_pt_01",
     "equipment_ammo_3006_sp_01"
@@ -5675,6 +6231,8 @@
    "kind": "weapon",
    "name": "M1 Garand 3006 Semi Automatic (VARIATION 03)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 49.0,
    "sights": [
     "equipment_sight_rifle_scope_1-4x_24mm_01",
     "equipment_sight_rifle_scope_4-12x_33mm_01",
@@ -5686,6 +6244,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_10ga_01": {
+   "accuracy": 30.0,
    "ammo": [
     "equipment_ammo_10ga_plastic_bird_01",
     "equipment_ammo_10ga_plastic_buck_01",
@@ -5696,6 +6255,8 @@
    "kind": "weapon",
    "name": "10 GA Semi-Automatic Shotgun",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 25.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -5704,6 +6265,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_12ga_type2_01": {
+   "accuracy": 37.0,
    "ammo": [
     "equipment_ammo_12ga_bird_01",
     "equipment_ammo_12ga_buck_01",
@@ -5714,6 +6276,8 @@
    "kind": "weapon",
    "name": "12 GA sa Shotgun",
    "price": 12000,
+   "recoil": 70.0,
+   "reload": 67.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -5722,6 +6286,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_20ga_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5733,6 +6298,8 @@
    "kind": "weapon",
    "name": "20 GA Semi-Automatic Shotgun (Military)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -5740,6 +6307,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_20ga_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5751,6 +6319,8 @@
    "kind": "weapon",
    "name": "20 GA Semi-Automatic Shotgun (Camo)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -5758,6 +6328,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_20ga_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5769,6 +6340,8 @@
    "kind": "weapon",
    "name": "20 GA Semi-Automatic Shotgun (Wooden)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -5776,6 +6349,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_20ga_04": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5787,6 +6361,8 @@
    "kind": "weapon",
    "name": "20 GA Semi-Automatic Shotgun (Gold)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -5794,6 +6370,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_20ga_05": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5805,6 +6382,8 @@
    "kind": "weapon",
    "name": "20 GA Semi-Automatic Shotgun (Xmas)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -5812,6 +6391,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sa_shotgun_20ga_06": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5823,6 +6403,8 @@
    "kind": "weapon",
    "name": "20 GA Semi-Automatic Shotgun (Halloween)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 29.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_shotgun_scope_1-4x_20mm_01"
@@ -5830,6 +6412,7 @@
    "weight": 3.5
   },
   "equipment_weapon_sbs_shotgun_10ga_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_10ga_bp_bird_01",
     "equipment_ammo_10ga_bp_buck_01",
@@ -5840,10 +6423,13 @@
    "kind": "weapon",
    "name": "10GA Side-By-Side Coach Gun",
    "price": 0,
+   "recoil": 85.0,
+   "reload": 72.0,
    "sights": [],
    "weight": 3.5
   },
   "equipment_weapon_sbs_shotgun_20ga_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5855,12 +6441,15 @@
    "kind": "weapon",
    "name": "20 GA SXS (Scarlett)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_sbs_shotgun_20ga_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5872,12 +6461,15 @@
    "kind": "weapon",
    "name": "20 GA SXS Shotgun (Fiona)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_sbs_shotgun_20ga_03": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5889,12 +6481,15 @@
    "kind": "weapon",
    "name": "20 GA SXS Shotgun (Hazel)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_sbs_shotgun_20ga_04": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_20ga_bird_01",
     "equipment_ammo_20ga_buck_01",
@@ -5906,12 +6501,15 @@
    "kind": "weapon",
    "name": "20 GA SXS Shotgun (Raven)",
    "price": 0,
+   "recoil": 82.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
    "weight": 4.0
   },
   "equipment_weapon_ss_rifle_338_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_338_pt_01",
     "equipment_ammo_338_sp_01"
@@ -5921,6 +6519,8 @@
    "kind": "weapon",
    "name": ".338 Mag. Single Shot Rifle (RANGEMASTER 338)",
    "price": 60000,
+   "recoil": 100.0,
+   "reload": 81.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ss_rifle_338_01",
     "equipment_sight_rifle_red_dot_01",
@@ -5934,6 +6534,7 @@
    "weight": 5.0
   },
   "equipment_weapon_ss_rifle_338_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_338_pt_01",
     "equipment_ammo_338_sp_01"
@@ -5943,6 +6544,8 @@
    "kind": "weapon",
    "name": ".338 Mag. Single Shot Rifle Patagonia skin(RANGEMASTER 338)",
    "price": 0,
+   "recoil": 100.0,
+   "reload": 81.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ss_rifle_338_01",
     "equipment_sight_rifle_red_dot_01",
@@ -5956,6 +6559,7 @@
    "weight": 5.0
   },
   "equipment_weapon_ss_rifle_7mm_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_7mm_pt_01",
     "equipment_ammo_7mm_sp_01"
@@ -5965,6 +6569,8 @@
    "kind": "weapon",
    "name": "7mm Mag. Single Shot Rifle (7MM REGENT MAGNUM)",
    "price": 36000,
+   "recoil": 82.0,
+   "reload": 81.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ss_rifle_7mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -5975,9 +6581,15 @@
     "equipment_sight_rifle_scope_night_vision_1-4x_24mm_01",
     "equipment_sight_rifle_scope_night_vision_4-8x_100mm_01"
    ],
+   "unlock": {
+    "level": 14,
+    "need": 1500,
+    "track": "rifle"
+   },
    "weight": 4.5
   },
   "equipment_weapon_ss_rifle_7mm_02": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_7mm_pt_01",
     "equipment_ammo_7mm_sp_01"
@@ -5987,6 +6599,8 @@
    "kind": "weapon",
    "name": "7mm Mag. Single Shot Rifle (7MM EMPRESS MAGNUM)",
    "price": 36000,
+   "recoil": 82.0,
+   "reload": 81.0,
    "sights": [
     "equipment_sight_rifle_illum_iron_ss_rifle_7mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -6000,6 +6614,7 @@
    "weight": 4.5
   },
   "equipment_weapon_ss_shotgun_410_01": {
+   "accuracy": 33.0,
    "ammo": [
     "equipment_ammo_410ga_bird_01",
     "equipment_ammo_410ga_buck_01",
@@ -6010,6 +6625,8 @@
    "kind": "weapon",
    "name": ".410 Single-Shot Shotgun \"The Big Badger\"",
    "price": 0,
+   "recoil": 78.0,
+   "reload": 60.0,
    "sights": [
     "equipment_scope_3-7x_33mm_01",
     "equipment_sight_rifle_red_dot_01",
@@ -6018,6 +6635,7 @@
    "weight": 2.0
   },
   "equipment_weapon_sxs_rifle_470ne_01": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_470ne_fmj_01",
     "equipment_ammo_470ne_sp_01"
@@ -6027,12 +6645,20 @@
    "kind": "weapon",
    "name": ".470 NE Double-barreled Rifle (var 1)",
    "price": 90000,
+   "recoil": 100.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
+   "unlock": {
+    "level": 26,
+    "need": 5700,
+    "track": "rifle"
+   },
    "weight": 5.0
   },
   "equipment_weapon_sxs_rifle_470ne_02": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_470ne_fmj_01",
     "equipment_ammo_470ne_sp_01"
@@ -6042,12 +6668,20 @@
    "kind": "weapon",
    "name": ".470 NE Double-barreled Rifle (var 2)",
    "price": 90000,
+   "recoil": 100.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
+   "unlock": {
+    "level": 26,
+    "need": 5700,
+    "track": "rifle"
+   },
    "weight": 5.0
   },
   "equipment_weapon_sxs_rifle_470ne_03": {
+   "accuracy": 55.0,
    "ammo": [
     "equipment_ammo_470ne_fmj_01",
     "equipment_ammo_470ne_sp_01"
@@ -6057,12 +6691,15 @@
    "kind": "weapon",
    "name": ".470 NE Double-barreled Rifle (premium)",
    "price": 90000,
+   "recoil": 100.0,
+   "reload": 10.0,
    "sights": [
     "equipment_sight_reflex_01"
    ],
    "weight": 5.0
   },
   "equipment_weapon_traditional_longbow_01": {
+   "accuracy": 30.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -6072,14 +6709,18 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 60.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_traditional_longbow_01_alpha.ddsc",
    "kind": "weapon",
    "name": "Traditional Longbow 01",
    "price": 0,
+   "recoil": 15.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
   "equipment_weapon_traditional_longbow_02": {
+   "accuracy": 30.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -6089,14 +6730,18 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 60.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_traditional_longbow_02_alpha.ddsc",
    "kind": "weapon",
    "name": "Traditional Longbow 02",
    "price": 0,
+   "recoil": 15.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
   "equipment_weapon_traditional_longbow_03": {
+   "accuracy": 30.0,
    "ammo": [
     "equipment_ammo_bh_longbow_arrow_350gr_01",
     "equipment_ammo_bh_longbow_arrow_540gr_01",
@@ -6106,10 +6751,13 @@
     "equipment_ammo_bh_longbow_tracer_arrow_700gr_01"
    ],
    "class": "archery",
+   "draw": 60.0,
    "icon": "textures/ui/items/weapons/equipment_weapon_traditional_longbow_03_alpha.ddsc",
    "kind": "weapon",
    "name": "Traditional Longbow 03",
    "price": 0,
+   "recoil": 15.0,
+   "reload": 100.0,
    "sights": [],
    "weight": 2.5
   },
