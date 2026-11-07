@@ -1,4 +1,4 @@
-import { type EditForm, changeOf, formOf, limitsOf, suggestFor, validate } from '../editlogic';
+import { type EditForm, MEDALS, type Medal, changeOf, formOf, limitsOf, medalOf, scoreForMedal, suggestFor, validate } from '../editlogic';
 import { escapeHtml as e } from '../escape';
 import { formatCount } from '../format';
 import { t } from '../i18n';
@@ -91,6 +91,7 @@ export class AnimalEditPanel {
       <div class="field"><span>${e(t('edit.sex'))}</span><div class="segmented">${sex(true)}${sex(false)}</div></div>
       ${numberField('edit-weight', t('edit.weight'), this.form.weight, range1(range.minWeight, range.maxWeight, range.typicalWeight))}
       ${numberField('edit-score', t('edit.score'), this.form.score, range1(range.minScore, range.maxScore, range.typicalScore))}
+      ${this.medalBlock()}
       <label class="switch"><input type="checkbox" id="edit-go"${this.form.greatOne ? ' checked' : ''}${editor.greatOneAllowed ? '' : ' disabled'} /><span class="track" aria-hidden="true"></span>
         <span class="switch-text">${e(t('edit.greatOne'))}${editor.greatOneAllowed ? '' : ` <small class="muted">${e(t('edit.greatOneNo'))}</small>`}</span></label>
       <div class="field"><span>${e(t('edit.fur'))}</span><select disabled aria-label="${e(t('edit.fur'))}"><option>${e(t('home.soon'))}</option></select>
@@ -100,6 +101,20 @@ export class AnimalEditPanel {
         <button type="button" id="edit-cancel">${e(t('edit.cancel'))}</button></div>`;
     this.bind();
     this.refresh();
+  }
+
+  /** Medalhas da espécie: cada uma mostra a pontuação mínima e, ao tocar, preenche a pontuação. */
+  private medalBlock(): string {
+    const bands = this.editor?.medals;
+    if (!bands || !this.form.male) return '';
+    const buttons = MEDALS.map(
+      (medal) =>
+        `<button class="medal-btn medal-${medal}" type="button" data-edit-medal="${medal}" aria-pressed="false" title="${e(t('edit.medalUse', { name: t(`edit.medal.${medal}`) }))}">
+          ${icon('trophy', 18)}<strong>${e(t(`edit.medal.${medal}`))}</strong><small>${e(formatCount(Math.round(bands[medal])))}+</small></button>`,
+    ).join('');
+    return `<div class="field medals"><span>${e(t('edit.medals'))}</span>
+      <div class="medal-row">${buttons}</div>
+      <small class="muted" id="edit-medal-now"></small></div>`;
   }
 
   private input(id: string): HTMLInputElement {
@@ -127,6 +142,16 @@ export class AnimalEditPanel {
       };
       this.refresh();
     };
+    for (const medal of this.host.querySelectorAll<HTMLButtonElement>('[data-edit-medal]')) {
+      medal.addEventListener('click', () => {
+        const bands = this.editor?.medals;
+        if (!this.editor || !bands) return;
+        const range = limitsOf(this.editor.limits, true);
+        const kind = medal.dataset['editMedal'] as Medal;
+        this.input('edit-score').value = String(scoreForMedal(bands, kind, range.maxScore));
+        read();
+      });
+    }
     for (const id of ['edit-weight', 'edit-score', 'edit-go']) this.input(id).addEventListener('input', read);
     this.input('edit-go').addEventListener('change', read);
     this.host.querySelector('#edit-cancel')?.addEventListener('click', () => {
@@ -141,11 +166,24 @@ export class AnimalEditPanel {
   private refresh(): void {
     const { editor, animal } = this;
     if (!editor || !animal) return;
+    this.showMedal();
     const ok = validate(editor.limits, this.form);
     this.host.querySelector('#edit-weight-hint')?.classList.toggle('bad', !ok.weight);
     this.host.querySelector('#edit-score-hint')?.classList.toggle('bad', !ok.score);
     const save = this.host.querySelector<HTMLButtonElement>('#edit-save');
     if (save) save.disabled = !(ok.weight && ok.score) || changeOf(this.group, animal, this.form) === null;
+  }
+
+  /** Marca a medalha que a pontuação digitada dá. */
+  private showMedal(): void {
+    const bands = this.editor?.medals;
+    if (!bands || !this.form.male) return;
+    const now = medalOf(bands, this.form.score);
+    for (const button of this.host.querySelectorAll<HTMLButtonElement>('[data-edit-medal]')) {
+      button.setAttribute('aria-pressed', String(button.dataset['editMedal'] === now));
+    }
+    const label = this.host.querySelector('#edit-medal-now');
+    if (label) label.textContent = now ? t('edit.medalNow', { name: t(`edit.medal.${now}`) }) : '';
   }
 
   private async save(): Promise<void> {

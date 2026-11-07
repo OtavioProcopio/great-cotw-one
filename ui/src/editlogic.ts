@@ -1,4 +1,4 @@
-import type { AnimalChange, EditableAnimal, Limits, SexLimits } from './types';
+import type { AnimalChange, EditableAnimal, Limits, MedalBands, SexLimits } from './types';
 
 export interface EditForm {
   male: boolean;
@@ -51,4 +51,23 @@ export function changeOf(
   if (Math.abs(form.score - animal.score) > 0.05) change.score = form.score;
   if (form.greatOne !== animal.greatOne) change.greatOne = form.greatOne;
   return Object.keys(change).length === 2 ? null : change;
+}
+
+export type Medal = 'bronze' | 'silver' | 'gold' | 'diamond';
+
+export const MEDALS: Medal[] = ['bronze', 'silver', 'gold', 'diamond'];
+
+/** Medalha de uma pontuação de macho, pelas faixas da espécie. */
+export function medalOf(bands: MedalBands, score: number): Medal | null {
+  if (!Number.isFinite(score) || score < 0) return null;
+  if (score >= bands.diamond) return 'diamond';
+  if (score >= bands.gold) return 'gold';
+  if (score >= bands.silver) return 'silver';
+  return 'bronze';
+}
+
+/** Menor pontuação inteira que dá a medalha, sem passar do máximo que o app aceita. */
+export function scoreForMedal(bands: MedalBands, medal: Medal, maxAccepted: number): number {
+  const wanted = Math.ceil(bands[medal]);
+  return Math.min(wanted, Math.floor(maxAccepted));
 }

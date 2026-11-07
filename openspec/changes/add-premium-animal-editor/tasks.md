@@ -2,7 +2,8 @@
 
 - [x] 1.1 Localizar e editar no mesmo tamanho os campos do animal (sexo, peso, pontuação, Great One), reversível byte a byte e verificado nos saves reais
 - [x] 1.2 Regras de equilíbrio por espécie e sexo, tiradas dos próprios animais do save (faixa com 10% de folga e valores típicos)
-- [ ] 1.2b Atalhos de diamante e Great One por espécie (precisam das faixas de diamante do jogo)
+- [x] 1.2b Medalhas por espécie no editor (bronze, prata, ouro, diamante) com a pontuação mínima de cada uma, medalha atual da pontuação digitada e atalho que preenche a pontuação; a faixa aceita passa a incluir a faixa real do jogo para a espécie
+- [ ] 1.2c Atalho de Great One por espécie (peso e pontuação da faixa de Great One do jogo)
 - [x] 1.3 Painel de edição de um animal no rastreador do mapa, com trocar de sexo e faixas aceitas
 - [x] 1.3b Descartado por decisão do dono: sem ações em lote ("1 diamante por grupo", "todos os maiores"); a edição é sempre animal por animal, para não desequilibrar a caça
 - [x] 1.4 Ligação mapa ↔ editor: botão em cada animal do grupo rastreado (cadeado para quem é gratuito) e recarga do mapa depois de gravar

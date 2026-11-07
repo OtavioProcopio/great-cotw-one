@@ -120,6 +120,7 @@ export function installMock(): void {
             male: { minWeight: 90, maxWeight: 660, minScore: 0, maxScore: 330, typicalWeight: 400, typicalScore: 150 },
             female: { minWeight: 80, maxWeight: 500, minScore: 0, maxScore: 200, typicalWeight: 320, typicalScore: 90 },
           },
+          medals: { bronze: 32.3, silver: 86.2, gold: 140.1, diamond: 275, max: 301.96 },
           groups: [
             {
               number: 1,

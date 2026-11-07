@@ -16,6 +16,7 @@ use serde::{Deserialize, Serialize};
 use crate::discovery::reserve_name;
 use crate::language::Language;
 use crate::species::display_name;
+use crate::species_stats::{self, MedalBands, SpeciesStats};
 use crate::transaction::{FileChange, ItemChange};
 use crate::unlock::SpawnSource;
 use crate::zones::assign_species;
@@ -150,7 +151,46 @@ pub struct SexLimits {
     pub female: Limits,
 }
 
+/// Abre a faixa `[min, max]` para incluir `[lo, hi]`, se o jogo informa uma faixa de verdade.
+#[allow(clippy::cast_possible_truncation)] // pesos e pontos de uma partida cabem em f32
+fn widen(min: &mut f32, max: &mut f32, game: [f64; 2]) {
+    let [lo, hi] = game;
+    if hi > lo {
+        *min = min.min(lo as f32);
+        *max = max.max(hi as f32);
+    }
+}
+
 impl SexLimits {
+    /// O jogo pode gerar valores que ainda não existem no save (um diamante, por exemplo):
+    /// a faixa aceita passa a incluir a faixa real da espécie.
+    fn widen_to_game(&mut self, stats: &SpeciesStats) {
+        if let Some(male) = stats.scoring.get("Male_Scoring") {
+            widen(
+                &mut self.male.min_weight,
+                &mut self.male.max_weight,
+                male.weight,
+            );
+            widen(
+                &mut self.male.min_score,
+                &mut self.male.max_score,
+                male.score,
+            );
+        }
+        if let Some(female) = stats.scoring.get("Female_Scoring") {
+            widen(
+                &mut self.female.min_weight,
+                &mut self.female.max_weight,
+                female.weight,
+            );
+            widen(
+                &mut self.female.min_score,
+                &mut self.female.max_score,
+                female.score,
+            );
+        }
+    }
+
     fn of(&self, male: bool) -> &Limits {
         if male { &self.male } else { &self.female }
     }
@@ -193,6 +233,8 @@ pub struct SpeciesEditor {
     pub great_one_allowed: bool,
     /// O que o app aceita de peso e pontuação, por sexo.
     pub limits: SexLimits,
+    /// Pontuação de cada medalha do macho, se o app conhece a espécie.
+    pub medals: Option<MedalBands>,
     /// Grupos da espécie.
     pub groups: Vec<EditableGroup>,
 }
@@ -300,7 +342,12 @@ pub fn species_editor(
             animals,
         });
     }
-    let limits = sex_limits(&groups).ok_or_else(|| EditorError::NoSpecies(species.to_owned()))?;
+    let mut limits =
+        sex_limits(&groups).ok_or_else(|| EditorError::NoSpecies(species.to_owned()))?;
+    let stats = species_stats::lookup(species);
+    if let Some(stats) = stats {
+        limits.widen_to_game(stats);
+    }
     Ok(SpeciesEditor {
         reserve,
         reserve_name: reserve_name(reserve),
@@ -308,6 +355,7 @@ pub fn species_editor(
         name: display_name(species, language),
         great_one_allowed: loaded.great_one_field && any_great_one,
         limits,
+        medals: stats.and_then(SpeciesStats::medal_bands),
         groups,
     })
 }
@@ -486,6 +534,27 @@ pub fn build_edit(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn limits_open_up_to_the_range_the_game_really_generates() {
+        // Um save sem nenhum diamante de alce: o máximo observado é baixo, mas o jogo gera até 620 kg e 301 pontos.
+        let mut limits =
+            sex_limits(&[group(&[(true, 450.0, 100.0), (false, 350.0, 0.0)])]).unwrap();
+        assert!(limits.male.max_score < 200.0);
+        limits.widen_to_game(species_stats::get("moose").unwrap());
+        assert!(limits.male.max_score >= 301.9 && limits.male.min_score <= 32.3);
+        assert!(limits.male.max_weight >= 620.0);
+        // Fêmeas de alce não têm pontos: a faixa de pontos delas não abre.
+        assert!(limits.female.max_score < 1.0);
+    }
+
+    #[test]
+    fn the_editor_offers_the_medal_bands_of_the_species() {
+        let bands = species_stats::get("jaguar").unwrap().medal_bands().unwrap();
+        assert!(bands.bronze < bands.silver && bands.silver < bands.gold);
+        assert!(bands.gold < bands.diamond && bands.diamond < bands.max);
+        assert!((bands.diamond - 44.4).abs() < 0.1);
+    }
 
     fn group(animals: &[(bool, f32, f32)]) -> EditableGroup {
         EditableGroup {

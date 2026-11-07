@@ -127,6 +127,14 @@ export interface EditableGroup {
   animals: EditableAnimal[];
 }
 
+export interface MedalBands {
+  bronze: number;
+  silver: number;
+  gold: number;
+  diamond: number;
+  max: number;
+}
+
 export interface SpeciesEditor {
   reserve: number;
   reserveName: string;
@@ -134,6 +142,7 @@ export interface SpeciesEditor {
   name: string;
   greatOneAllowed: boolean;
   limits: SexLimits;
+  medals: MedalBands | null;
   groups: EditableGroup[];
 }
 

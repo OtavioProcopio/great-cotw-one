@@ -2046,3 +2046,35 @@ button.quick-win strong {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.medal-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.medal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.15));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.medal-btn small {
+  opacity: 0.75;
+}
+
+.medal-btn[aria-pressed='true'] {
+  border-width: 2px;
+  font-weight: 600;
+}
+
+.medal-bronze svg { color: #c98a4b; }
+.medal-silver svg { color: #b8c2cc; }
+.medal-gold svg { color: #f2c04a; }
+.medal-diamond svg { color: #5ad1ff; }

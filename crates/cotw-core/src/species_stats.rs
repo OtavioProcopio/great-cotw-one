@@ -52,6 +52,22 @@ pub struct SpeciesStats {
     pub furs: Vec<Fur>,
 }
 
+/// Pontuação mínima de cada medalha do macho de uma espécie.
+#[derive(Debug, Clone, Copy, PartialEq, serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MedalBands {
+    /// Começo do bronze (o mínimo que o jogo gera).
+    pub bronze: f64,
+    /// A partir de 20 % da faixa.
+    pub silver: f64,
+    /// A partir de 60 % da faixa.
+    pub gold: f64,
+    /// A partir de 90 % da faixa.
+    pub diamond: f64,
+    /// Máximo que o jogo gera.
+    pub max: f64,
+}
+
 /// Medalha de um troféu.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -144,6 +160,20 @@ impl SpeciesStats {
     #[must_use]
     pub fn diamond_min(&self) -> Option<f64> {
         self.threshold(0.9)
+    }
+
+    /// Pontuação mínima de cada medalha do macho (bronze, prata, ouro, diamante) e o máximo da
+    /// espécie; `None` se a espécie não tem faixa de pontos.
+    #[must_use]
+    pub fn medal_bands(&self) -> Option<MedalBands> {
+        let [lo, hi] = self.male()?.score;
+        (hi > lo).then_some(MedalBands {
+            bronze: lo,
+            silver: lo + 0.2 * (hi - lo),
+            gold: lo + 0.6 * (hi - lo),
+            diamond: lo + 0.9 * (hi - lo),
+            max: hi,
+        })
     }
 
     /// Medalha de uma pontuação de macho; `None` se a espécie não tem faixa de pontos.

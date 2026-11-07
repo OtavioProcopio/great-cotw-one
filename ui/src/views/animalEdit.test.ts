@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { changeOf, formOf, limitsOf, suggestFor, validate } from '../editlogic';
+import { changeOf, formOf, limitsOf, medalOf, scoreForMedal, suggestFor, validate } from '../editlogic';
 import { mapReserves, sampleEditor, sampleMap } from '../test-data';
 import type { EditRequest } from '../types';
 import { AnimalEditPanel, type EditorHooks, NO_EDITOR, type SaveOutcome } from './animalEdit';
@@ -45,6 +45,24 @@ describe('edit rules', () => {
       greatOne: false,
     });
     expect(changeOf(1, male, { ...form, weight: 560.04 })).toBeNull();
+  });
+});
+
+describe('medals', () => {
+  const bands = { bronze: 32.3, silver: 86.2, gold: 140.1, diamond: 275, max: 301.96 };
+
+  it('names the medal of a score from the species bands', () => {
+    expect(medalOf(bands, 40)).toBe('bronze');
+    expect(medalOf(bands, 100)).toBe('silver');
+    expect(medalOf(bands, 200)).toBe('gold');
+    expect(medalOf(bands, 275)).toBe('diamond');
+    expect(medalOf(bands, Number.NaN)).toBeNull();
+  });
+
+  it('suggests the lowest whole score of a medal without passing what the app accepts', () => {
+    expect(scoreForMedal(bands, 'diamond', 330)).toBe(275);
+    expect(scoreForMedal(bands, 'silver', 330)).toBe(87);
+    expect(scoreForMedal(bands, 'diamond', 250)).toBe(250);
   });
 });
 
@@ -117,6 +135,25 @@ describe('AnimalEditPanel', () => {
     expect(field('edit-weight').value).toBe('560');
     expect(field('edit-go').checked).toBe(true);
     expect(host.querySelector('#edit-save')).toHaveProperty('disabled', true);
+  });
+
+  it('offers the medals of the species and fills the score when one is chosen', async () => {
+    await new AnimalEditPanel(host, hooks()).open(2, 'moose', 1, 0);
+    const buttons = [...host.querySelectorAll<HTMLButtonElement>('[data-edit-medal]')];
+    expect(buttons.map((b) => b.dataset['editMedal'])).toEqual(['bronze', 'silver', 'gold', 'diamond']);
+    expect(host.textContent).toContain('Diamante');
+    expect(host.textContent).toContain('275+');
+    expect(host.querySelector('#edit-medal-now')?.textContent).toContain('Ouro');
+    buttons[3]?.click();
+    expect(field('edit-score').value).toBe('275');
+    expect(host.querySelector('#edit-medal-now')?.textContent).toContain('Diamante');
+    expect(buttons[3]?.getAttribute('aria-pressed')).toBe('true');
+    expect(host.querySelector('#edit-save')).toHaveProperty('disabled', false);
+  });
+
+  it('hides the medals for a female, who has no trophy score', async () => {
+    await new AnimalEditPanel(host, hooks()).open(2, 'moose', 1, 1);
+    expect(host.querySelector('[data-edit-medal]')).toBeNull();
   });
 
   it('explains that the fur is coming and cannot be changed yet', async () => {
