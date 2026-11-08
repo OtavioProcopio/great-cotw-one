@@ -201,7 +201,7 @@ export const sampleAnimals: AnimalReserve[] = [
 ];
 
 export const sampleProfile: Profile = {
-  steamId: '76561198125950350',
+  steamId: '76561198000000001',
   level: 60,
   xp: 293_384,
   cash: 300_618,

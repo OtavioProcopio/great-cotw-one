@@ -60,6 +60,9 @@ pub fn documents_candidates(
 }
 
 /// Mesmo que [`documents_candidates`], lendo `USERPROFILE` e `OneDrive*` do ambiente.
+///
+/// A pasta Documentos que o Windows informa vem primeiro: ela vale mesmo quando o usuário a moveu
+/// para outro disco ou usa o Windows em outro idioma (Dokumente, Documenti…).
 #[must_use]
 pub fn documents_candidates_from_env() -> Vec<PathBuf> {
     let profile = std::env::var_os("USERPROFILE").map(PathBuf::from);
@@ -67,7 +70,13 @@ pub fn documents_candidates_from_env() -> Vec<PathBuf> {
         .iter()
         .filter_map(|var| std::env::var_os(var).map(PathBuf::from))
         .collect();
-    documents_candidates(profile.as_deref(), &onedrive)
+    let mut out: Vec<PathBuf> = dirs::document_dir().into_iter().collect();
+    for candidate in documents_candidates(profile.as_deref(), &onedrive) {
+        if !out.contains(&candidate) {
+            out.push(candidate);
+        }
+    }
+    out
 }
 
 fn saves_dir_of(documents: &Path) -> PathBuf {

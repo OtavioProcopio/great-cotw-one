@@ -389,7 +389,7 @@ mod tests {
 
     #[test]
     fn the_account_number_is_the_steam_id_minus_the_base() {
-        assert_eq!(account_id("76561198125950350"), Some(165_684_622));
+        assert_eq!(account_id("76561198000000001"), Some(39_734_273));
         assert_eq!(account_id("12"), None);
         assert_eq!(account_id("abc"), None);
     }
@@ -462,7 +462,7 @@ mod tests {
     #[test]
     fn a_missing_steam_folder_means_no_achievements() {
         assert_eq!(
-            achievements(Path::new("não existe"), "76561198125950350", Language::PtBr),
+            achievements(Path::new("não existe"), "76561198000000001", Language::PtBr),
             None
         );
     }

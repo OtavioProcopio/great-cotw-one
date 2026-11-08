@@ -593,6 +593,7 @@ dependencies = [
  "base64 0.22.1",
  "chrono",
  "cotw-formats",
+ "dirs",
  "ed25519-dalek",
  "flate2",
  "jpeg-encoder",
