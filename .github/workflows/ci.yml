@@ -70,7 +70,7 @@ jobs:
       # Subir este mínimo conforme entrarem testes com dados sintéticos.
       - name: Tests e cobertura (mínimo de 70% das linhas)
         run: cargo llvm-cov --workspace --fail-under-lines 70 --lcov --output-path lcov.info
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: lcov
           path: lcov.info
