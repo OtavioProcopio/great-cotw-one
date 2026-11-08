@@ -609,7 +609,7 @@ dependencies = [
 name = "cotw-core"
 version = "0.1.0"
 dependencies = [
- "base64 0.22.1",
+ "base64 0.23.1",
  "chrono",
  "cotw-formats",
  "dirs",
@@ -2335,7 +2335,7 @@ dependencies = [
 name = "license-tool"
 version = "0.1.0"
 dependencies = [
- "base64 0.22.1",
+ "base64 0.23.1",
  "cotw-core",
  "ed25519-dalek",
  "rand_core",
