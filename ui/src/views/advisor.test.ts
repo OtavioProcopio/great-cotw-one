@@ -41,7 +41,8 @@ describe('renderAdvisor', () => {
     expect(text).toContain('Munição para classes 4 a 8');
     expect(text).toContain('Precisão 55');
     expect(text).toContain('Alcance 150 m');
-    expect(text).toContain('Mira que você tem: 3-9x 44mm Rifle Scope');
+    expect(text).toContain('3-9x 44mm Rifle Scope');
+    expect(root.querySelectorAll('.eq-part').length).toBeGreaterThanOrEqual(4);
     expect(text).toContain('Você tem arma e munição');
     expect(text).toContain('Falta gastar 12.560');
     expect(root.querySelectorAll('.eq-pick')).toHaveLength(2);

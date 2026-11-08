@@ -3,6 +3,7 @@ import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey
 import { formatCount, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
+import { thumb } from './thumb';
 import type { AnimalReserve, EquipmentItem, EquipmentKind, GearAdvice, Inventory, Loadout } from '../types';
 import { type AdvisorState, initialAdvisorState, renderAdvisor } from './advisor';
 
@@ -21,30 +22,15 @@ export function initialEquipState(): EquipState {
   return { tab: 'arsenal', kind: 'weapon', own: 'all', rank: 'kills', open: null, advisor: initialAdvisorState() };
 }
 
-const KIND_ICON: Record<EquipmentKind, IconName> = {
-  weapon: 'target',
-  ammo: 'list',
-  sight: 'fit',
-  optic: 'fit',
-  lure_caller: 'bird',
-  deployable: 'flag',
-  consumable: 'drop',
-  vehicle: 'map',
-};
+const TAB_ICON: Record<EquipTab, IconName> = { arsenal: 'backpack', ranking: 'trophy', loadouts: 'list', advisor: 'target' };
 
-/** Ícone do item: a imagem do jogo quando já foi carregada, senão o símbolo da categoria. */
-function thumb(item: EquipmentItem, icons: Record<string, string>, size = 56): string {
-  const url = icons[item.id];
-  const fallback = `<span class="eq-fallback" aria-hidden="true">${icon(KIND_ICON[item.kind], 26)}</span>`;
-  return `<span class="eq-thumb" style="--size:${String(size)}px">${
-    url ? `<img src="${e(url)}" alt="" />` : `${fallback}<img data-equip-icon="${e(item.id)}" alt="" hidden />`
-  }</span>`;
-}
-
+/** As quatro partes da página, cada uma com o que faz, para ficar claro o que o app oferece. */
 function tabs(state: EquipState): string {
   const tab = (id: EquipTab): string =>
-    `<button class="seg" data-action="equip-tab" data-tab="${id}" aria-pressed="${String(state.tab === id)}">${e(t(`equip.tab.${id}`))}</button>`;
-  return `<div class="segmented" role="group">${tab('arsenal')}${tab('ranking')}${tab('loadouts')}${tab('advisor')}</div>`;
+    `<button class="eq-tab" data-action="equip-tab" data-tab="${id}" aria-pressed="${String(state.tab === id)}">
+      <span class="eq-tab-icon" aria-hidden="true">${icon(TAB_ICON[id], 22)}</span>
+      <strong>${e(t(`equip.tab.${id}`))}</strong><small>${e(t(`equip.tabdesc.${id}`))}</small></button>`;
+  return `<div class="eq-tabs" role="group">${tab('arsenal')}${tab('advisor')}${tab('ranking')}${tab('loadouts')}</div>`;
 }
 
 /** Ações do Premium de um item; quem não tem Premium vê o botão com cadeado que leva à tela do Premium. */
@@ -76,14 +62,15 @@ function cashForm(inv: Inventory, premium: boolean): string {
     <small class="muted">${e(t('equip.cashLimit', { max: formatCount(MAX_CASH) }))}</small></div>`;
 }
 
-function header(inv: Inventory): string {
+function header(inv: Inventory, premium: boolean): string {
   const levels = (['rifle', 'handgun', 'shotgun', 'archery'] as const)
-    .map((name, i) => `<li class="metric"><span class="metric-icon" aria-hidden="true">${icon('target', 20)}</span>
-      <div><strong>${e(formatCount(inv.weaponLevels[i] ?? 0))}</strong><span>${e(t(`equip.level.${name}`))}</span></div></li>`)
+    .map((name, i) => `<li><span>${e(t(`equip.level.${name}`))}</span><strong>${e(formatCount(inv.weaponLevels[i] ?? 0))}</strong></li>`)
     .join('');
-  return `<ul class="metrics small">
-    <li class="metric"><span class="metric-icon" aria-hidden="true">${icon('star', 20)}</span>
-      <div><strong>${e(formatCount(inv.cash))}</strong><span>${e(t('equip.cash'))}</span></div></li>${levels}</ul>`;
+  return `<section class="eq-summary">
+    <div class="eq-money"><span class="metric-icon" aria-hidden="true">${icon('star', 22)}</span>
+      <div><strong>${e(formatCount(inv.cash))}</strong><span>${e(t('equip.cashHint'))}</span></div></div>
+    <ul class="eq-levels">${levels}</ul>
+    ${cashForm(inv, premium)}</section>`;
 }
 
 function itemBadges(item: EquipmentItem): string {
@@ -112,12 +99,12 @@ function itemMeta(item: EquipmentItem): string {
 }
 
 function itemCard(item: EquipmentItem, icons: Record<string, string>, premium: boolean): string {
-  const body = `${thumb(item, icons)}
-    <span class="eq-text"><strong>${e(item.name)}</strong><small>${e(itemMeta(item))}</small><span>${itemBadges(item)}</span></span>`;
+  const body = `${thumb(item, icons, 120)}
+    <span class="eq-text"><strong>${e(item.name)}</strong><small>${e(itemMeta(item))}</small><span class="eq-badges">${itemBadges(item)}</span></span>`;
   const search = e(`${item.name} ${item.id}`.toLowerCase());
   return item.kind === 'weapon'
-    ? `<li data-text="${search}"><button class="eq-card" data-action="equip-open" data-id="${e(item.id)}">${body}</button>${actions(item, premium)}</li>`
-    : `<li data-text="${search}"><div class="eq-card">${body}</div>${actions(item, premium)}</li>`;
+    ? `<li class="eq-tile" data-text="${search}"><button class="eq-card" data-action="equip-open" data-id="${e(item.id)}" title="${e(t('equip.openSheet'))}">${body}</button>${actions(item, premium)}</li>`
+    : `<li class="eq-tile" data-text="${search}"><div class="eq-card">${body}</div>${actions(item, premium)}</li>`;
 }
 
 function arsenal(inv: Inventory, state: EquipState, icons: Record<string, string>, premium: boolean): string {
@@ -145,7 +132,7 @@ function statLine(label: string, value: string): string {
 function related(label: string, ids: string[], inv: Inventory, icons: Record<string, string>): string {
   const found = itemsById(inv.items, ids);
   if (found.length === 0) return '';
-  const rows = found.map((item) => `<li class="eq-mini">${thumb(item, icons, 36)}<span><strong>${e(item.name)}</strong> ${itemBadges(item)}</span></li>`).join('');
+  const rows = found.map((item) => `<li class="eq-mini">${thumb(item, icons, 56)}<span><strong>${e(item.name)}</strong> ${itemBadges(item)}</span></li>`).join('');
   return `<section><h3>${e(label)}</h3><ul class="eq-list">${rows}</ul></section>`;
 }
 
@@ -189,7 +176,7 @@ function ranking(inv: Inventory, state: EquipState, icons: Record<string, string
   const rows = list
     .map(
       (item, i) => `<li><button class="eq-card eq-row" data-action="equip-open" data-id="${e(item.id)}">
-        <span class="eq-pos">${String(i + 1)}</span>${thumb(item, icons, 44)}
+        <span class="eq-pos">${String(i + 1)}</span>${thumb(item, icons, 64)}
         <span class="eq-text"><strong>${e(item.name)}</strong><small>${e(itemMeta(item))}</small></span>
         <strong class="eq-value">${e(rankingValue(item, state.rank))}</strong></button></li>`,
     )
@@ -205,7 +192,7 @@ function loadoutCard(loadout: Loadout, inv: Inventory, icons: Record<string, str
       : `<span class="badge badge-muted">${e(t('equip.loadout.locked'))}</span>`;
   const items = itemsById(inv.items, loadout.items);
   const missing = itemsById(inv.items, loadout.missing);
-  const chips = items.map((item) => `<li class="eq-chip">${thumb(item, icons, 28)}<span>${e(item.name)}</span></li>`).join('');
+  const chips = items.map((item) => `<li class="eq-chip">${thumb(item, icons, 44)}<span>${e(item.name)}</span></li>`).join('');
   const lost = missing.length
     ? `<p class="notice notice-warn">${e(t('equip.loadout.missing'))}: ${e(missing.map((m) => m.name).join(', '))}</p>`
     : '';
@@ -236,10 +223,10 @@ export function renderEquipment(
         : state.tab === 'ranking'
           ? ranking(inv, state, icons)
           : state.tab === 'advisor'
-            ? renderAdvisor(inv, advisor.animals, state.advisor, advisor.advice, premium)
+            ? renderAdvisor(inv, advisor.animals, state.advisor, advisor.advice, premium, icons)
             : loadouts(inv, icons);
   return `<header><h1>${e(t('equip.title'))}</h1><p class="muted">${e(t('equip.subtitle'))}</p></header>
-    ${state.open === null ? `${header(inv)}${cashForm(inv, premium)}${tabs(state)}` : ''}${content}`;
+    ${state.open === null ? `${header(inv, premium)}${tabs(state)}` : ''}${content}`;
 }
 
 /** Filtro por texto no arsenal, feito sem refazer a página (o campo mantém o foco). */

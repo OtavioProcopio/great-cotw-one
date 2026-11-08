@@ -18,6 +18,10 @@ describe('renderEquipment', () => {
     expect(text).toContain('300.618');
     expect(text).toContain('Nível dos rifles');
     expect(text).toContain('Ranking das armas');
+    expect(text).toContain('Meu arsenal');
+    expect(text).toContain('O que levar');
+    expect(text).toContain('Escolha o animal e veja a melhor arma, munição e mira.');
+    expect(root.querySelectorAll('.eq-tab')).toHaveLength(4);
     expect(text).toContain('.270 Bolt-Action Rifle');
     expect(text).toContain('Liberado para comprar');
     expect(root.querySelectorAll('.eq-card')).toHaveLength(2);

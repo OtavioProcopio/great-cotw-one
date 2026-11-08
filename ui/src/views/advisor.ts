@@ -2,6 +2,7 @@ import { escapeHtml as e } from '../escape';
 import { formatCount } from '../format';
 import { t } from '../i18n';
 import { icon } from '../icons';
+import { thumb } from './thumb';
 import type { AdvicePick, AnimalReserve, EquipmentItem, GearAdvice, Inventory, UnlockTrack } from '../types';
 
 /** O que o usuário escolheu no montador. */
@@ -18,10 +19,6 @@ function chip(action: string, data: string, label: string, pressed: boolean): st
   return `<button class="seg" data-action="${action}" ${data} aria-pressed="${String(pressed)}">${e(label)}</button>`;
 }
 
-function itemName(items: Map<string, EquipmentItem>, id: string): string {
-  return items.get(id)?.name ?? id.replace('equipment_', '').replaceAll('_', ' ');
-}
-
 function number(value: number | null, digits = 0): string {
   return value === null ? '-' : value.toLocaleString(undefined, { maximumFractionDigits: digits });
 }
@@ -34,16 +31,25 @@ function metrics(weapon: EquipmentItem | undefined, ammo: EquipmentItem | undefi
     t('adv.range', { value: number(ammo?.attributes.range ?? null) }),
     t('adv.penetration', { value: number(ammo?.attributes.penetration ?? null) }),
   ];
-  return parts.join(' · ');
+  return parts.map((p) => `<li>${e(p)}</li>`).join('');
+}
+
+/** Peça do conjunto: ícone grande com o nome e o papel dela (arma, munição ou mira). */
+function part(role: string, item: EquipmentItem | undefined, id: string, icons: Record<string, string>, have: boolean | null): string {
+  const label = item?.name ?? id.replace('equipment_', '').replaceAll('_', ' ');
+  const state = have === null ? '' : have ? `<span class="badge badge-ok">${e(t('equip.owned'))}</span>` : `<span class="badge badge-muted">${e(t('equip.notOwned'))}</span>`;
+  const picture = item ? thumb(item, icons, 96) : `<span class="eq-thumb" style="--size:96px"></span>`;
+  return `<li class="eq-part">${picture}<small>${e(role)}</small><strong>${e(label)}</strong>${state}</li>`;
 }
 
 function trackName(track: UnlockTrack): string {
   return t(`adv.track.${track}`);
 }
 
-function pickCard(pick: AdvicePick, items: Map<string, EquipmentItem>, premium: boolean): string {
+function pickCard(pick: AdvicePick, items: Map<string, EquipmentItem>, premium: boolean, icons: Record<string, string>): string {
   const weapon = items.get(pick.weapon);
   const ammo = items.get(pick.ammo);
+  const sightItem = pick.sight ? items.get(pick.sight) : undefined;
   const ready = pick.hasWeapon && pick.hasAmmo;
   const badges: string[] = [];
   if (ready) badges.push(`<span class="badge badge-ok">${e(t('adv.haveAll'))}</span>`);
@@ -53,21 +59,20 @@ function pickCard(pick: AdvicePick, items: Map<string, EquipmentItem>, premium: 
       badges.push(`<span class="badge badge-muted">${icon('lock', 12)} ${e(t('adv.unlockAt', { level: pick.unlock.level, track: trackName(pick.unlock.track) }))}</span>`);
     }
   }
-  const sight = pick.sight ? `<small>${e(t('adv.sight', { name: itemName(items, pick.sight) }))}</small>` : '';
   const action = ready
     ? ''
     : premium
       ? `<button class="eq-act" data-action="adv-give" data-weapon="${e(pick.weapon)}" data-ammo="${e(pick.ammo)}">${e(t('adv.giveSet'))}</button>`
       : `<button class="eq-act locked" data-action="show-premium" title="${e(t('equip.premiumOnly'))}">${icon('lock', 14)} ${e(t('adv.giveSet'))}</button>`;
+  const sight = pick.sight ? part(t('adv.partSight'), sightItem, pick.sight, icons, true) : '';
   return `<li class="card eq-pick">
-    <h3>${e(itemName(items, pick.weapon))} <small>+ ${e(itemName(items, pick.ammo))}</small>
-      <span class="badge badge-muted">${e(t('adv.score', { value: Math.round(pick.score) }))}</span></h3>
-    <p class="muted">${e(metrics(weapon, ammo, pick))}</p>${sight}
-    <p>${badges.join(' ')}</p>${action}</li>`;
+    <div class="eq-pick-head"><span class="badge badge-muted">${e(t('adv.score', { value: Math.round(pick.score) }))}</span>${badges.join(' ')}</div>
+    <ul class="eq-parts">${part(t('adv.partWeapon'), weapon, pick.weapon, icons, pick.hasWeapon)}${part(t('adv.partAmmo'), ammo, pick.ammo, icons, pick.hasAmmo)}${sight}</ul>
+    <ul class="eq-stats">${metrics(weapon, ammo, pick)}</ul>${action}</li>`;
 }
 
-function section(title: string, picks: AdvicePick[], empty: string, items: Map<string, EquipmentItem>, premium: boolean): string {
-  const body = picks.length === 0 ? `<p class="muted">${e(empty)}</p>` : `<ul class="eq-loadouts">${picks.map((p) => pickCard(p, items, premium)).join('')}</ul>`;
+function section(title: string, picks: AdvicePick[], empty: string, items: Map<string, EquipmentItem>, premium: boolean, icons: Record<string, string>): string {
+  const body = picks.length === 0 ? `<p class="muted">${e(empty)}</p>` : `<ul class="eq-loadouts eq-pick-list">${picks.map((p) => pickCard(p, items, premium, icons)).join('')}</ul>`;
   return `<section><h2>${e(title)}</h2>${body}</section>`;
 }
 
@@ -78,6 +83,7 @@ export function renderAdvisor(
   state: AdvisorState,
   advice: GearAdvice | null,
   premium: boolean,
+  icons: Record<string, string> = {},
 ): string {
   const played = animals.filter((r) => r.species.length > 0);
   const reserves = played.map((r) => chip('adv-reserve', `data-reserve="${String(r.id)}"`, r.name, state.reserve === r.id)).join('');
@@ -93,6 +99,6 @@ export function renderAdvisor(
   const items = new Map(inv.items.map((i) => [i.id, i]));
   return `${head}<div class="card"><strong>${e(advice.name)}</strong> · ${e(t('adv.huntClass', { value: advice.huntClass }))}
       <p class="muted">${e(t('adv.how'))}</p></div>
-    ${section(t('adv.ready'), advice.ready, t('adv.noneReady'), items, premium)}
-    ${section(t('adv.buy'), advice.toBuy, t('adv.noneBuy'), items, premium)}`;
+    ${section(t('adv.ready'), advice.ready, t('adv.noneReady'), items, premium, icons)}
+    ${section(t('adv.buy'), advice.toBuy, t('adv.noneBuy'), items, premium, icons)}`;
 }

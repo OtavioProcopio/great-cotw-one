@@ -2102,8 +2102,50 @@ button.quick-win strong {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.eq-rank {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* cada item é um bloco: ícone grande em cima, nome e situação embaixo, ações no pé */
+.eq-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.eq-tile .eq-card {
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.eq-tile .eq-thumb {
+  width: 100%;
+  height: 140px;
+}
+
+.eq-tile .eq-text strong {
+  font-size: 1.02rem;
+}
+
+.eq-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
 }
 
 .eq-card {
@@ -2122,6 +2164,10 @@ button.quick-win strong {
 
 button.eq-card {
   cursor: pointer;
+}
+
+button.eq-card:hover .eq-thumb {
+  outline: 2px solid var(--accent, #3b82f6);
 }
 
 .eq-text {
@@ -2146,14 +2192,178 @@ button.eq-card {
 }
 
 .eq-thumb img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 88%;
+  max-height: 88%;
   object-fit: contain;
 }
 
 .eq-fallback {
   color: var(--muted);
   display: grid;
+}
+
+/* faixa de resumo: dinheiro, níveis e o botão de ajustar */
+.eq-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  align-items: center;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.eq-money {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.eq-money strong {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.eq-money span:not(.metric-icon) {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.eq-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eq-levels li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.eq-levels strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.eq-summary .eq-cash {
+  margin: 0 0 0 auto;
+}
+
+/* as quatro partes da página, cada uma dizendo o que faz */
+.eq-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+button.eq-tab {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 2px;
+  align-items: center;
+  padding: 14px 16px;
+  text-align: left;
+  color: inherit;
+  background: var(--surface);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+button.eq-tab small {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+button.eq-tab[aria-pressed='true'] {
+  border-color: var(--accent, #3b82f6);
+}
+
+.eq-tab-icon {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--accent, #3b82f6);
+}
+
+/* o conjunto sugerido: arma, munição e mira lado a lado */
+.eq-pick-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.eq-parts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.eq-part {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.eq-part .eq-thumb {
+  width: 100%;
+  height: 110px;
+}
+
+.eq-part small {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+}
+
+.eq-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.eq-stats li {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.eq-loadouts.eq-picks,
+.eq-pick-list {
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
 }
 
 .eq-row .eq-pos {
@@ -2191,7 +2401,7 @@ button.eq-card {
 }
 
 .eq-chips {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
 .eq-chip {
@@ -2239,14 +2449,4 @@ button.eq-act.locked {
   opacity: 0.75;
 }
 
-.eq-pick h3 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: baseline;
-}
 
-.eq-pick h3 small {
-  color: var(--muted);
-  font-weight: 400;
-}
