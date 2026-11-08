@@ -819,6 +819,40 @@ describe('Controller: perfil e missões', () => {
     expect(root.textContent).toContain('Vale comprar');
   });
 
+  it('builds the kit for a whole reserve and remembers the weight limit the player types', async () => {
+    const api = fakeApi();
+    await openEquipment(api);
+    click('equip-tab', { tab: 'advisor' });
+    await settle();
+    click('adv-mode', { mode: 'reserve' });
+    click('adv-reserve', { reserve: '2' });
+    await settle();
+    expect(api.calls).toContain('reserveKit:2');
+    expect(root.textContent).toContain('Armas para levar');
+    const limit = root.querySelector<HTMLInputElement>('#kit-limit');
+    if (!limit) throw new Error('sem campo de limite');
+    limit.value = '30';
+    limit.dispatchEvent(new Event('input'));
+    expect(root.querySelector('#kit-limit-note')?.textContent).toContain('sobram');
+    expect(localStorage.getItem('gco.weightLimit')).toBe('30');
+    limit.value = '';
+    limit.dispatchEvent(new Event('input'));
+    expect(localStorage.getItem('gco.weightLimit')).toBeNull();
+    click('adv-mode', { mode: 'animal' });
+    expect(root.querySelector('[data-action="adv-mode"][aria-pressed="true"]')?.getAttribute('data-mode')).toBe('animal');
+  });
+
+  it('shows an error when the kit cannot be read', async () => {
+    const api = fakeApi({ reserveKit: () => commandError('noSaveSelected') });
+    await openEquipment(api);
+    click('equip-tab', { tab: 'advisor' });
+    await settle();
+    click('adv-mode', { mode: 'reserve' });
+    click('adv-reserve', { reserve: '2' });
+    await settle();
+    expect(root.querySelector('.notice-error')).not.toBeNull();
+  });
+
   it('gives the suggested set after the player confirms and refreshes the suggestions', async () => {
     const api = fakeApi({ license: () => Promise.resolve(ACTIVE_LICENSE) });
     await openEquipment(api);

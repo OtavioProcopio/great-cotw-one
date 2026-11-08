@@ -15,6 +15,7 @@ use cotw_core::diagnostics::{Diagnostics, SearchRoots};
 use cotw_core::equipment::Inventory;
 use cotw_core::equipment_editor::EquipmentChange;
 use cotw_core::gear_advice::Advice;
+use cotw_core::kit_advice::Kit;
 use cotw_core::license::LicenseStatus;
 use cotw_core::mapview::{MapReserve, ReserveMap};
 use cotw_core::paths::system_appdata;
@@ -130,6 +131,11 @@ async fn profile(service: Service<'_>) -> Result<ProfileView, CommandError> {
 #[tauri::command]
 async fn equipment(service: Service<'_>) -> Result<Inventory, CommandError> {
     blocking(&service, AppService::equipment).await
+}
+
+#[tauri::command]
+async fn reserve_kit(service: Service<'_>, reserve: u32) -> Result<Option<Kit>, CommandError> {
+    blocking(&service, move |s| s.reserve_kit(reserve)).await
 }
 
 #[tauri::command]
@@ -299,6 +305,7 @@ pub fn run() {
             equipment_icons,
             edit_equipment,
             gear_advice,
+            reserve_kit,
             missions,
             zones_preview,
             unlock_zones,

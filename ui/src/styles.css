@@ -2321,7 +2321,7 @@ button.eq-tab[aria-pressed='true'] {
   padding: 0;
   margin: 0 0 12px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 12px;
 }
 
@@ -2363,7 +2363,7 @@ button.eq-tab[aria-pressed='true'] {
 
 .eq-loadouts.eq-picks,
 .eq-pick-list {
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
 }
 
 .eq-row .eq-pos {
@@ -2596,4 +2596,34 @@ button.eq-kind[aria-pressed='true'] .eq-kind-bar i {
     flex: none;
     min-width: 150px;
   }
+}
+
+/* ===== kit da reserva ===== */
+.eq-covers {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.eq-weight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eq-weight p {
+  margin: 2px 0 0;
+}
+
+.eq-weight label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.eq-weight input {
+  width: 8em;
 }

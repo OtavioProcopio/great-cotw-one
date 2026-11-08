@@ -366,6 +366,14 @@ export interface ItemAttributes {
   /** Classes de caça (1 a 9) para as quais a munição é recomendada. */
   classes: number[];
   zoom: number | null;
+  /** Espécies que a isca ou o chamado atrai (nomes do jogo sem sublinhado). */
+  attracts?: string[];
+  /** Alcance do chamado, em metros. */
+  lureRange?: number | null;
+  /** Duração do efeito, em segundos. */
+  lureDuration?: number | null;
+  /** Chance de atrair (0 a 100). */
+  lureChance?: number | null;
 }
 
 export interface EquipmentItem {
@@ -440,6 +448,33 @@ export interface GearAdvice {
   huntClass: number;
   ready: AdvicePick[];
   toBuy: AdvicePick[];
+}
+
+export interface KitWeapon {
+  pick: AdvicePick;
+  /** Espécies da reserva que essa arma atende. */
+  covers: string[];
+}
+
+export interface KitLure {
+  id: string;
+  owned: boolean;
+  price: number;
+  /** Espécies da reserva que a isca atrai. */
+  covers: string[];
+}
+
+/** Kit para uma reserva inteira. */
+export interface Kit {
+  species: string[];
+  weapons: KitWeapon[];
+  toBuy: KitWeapon[];
+  uncovered: string[];
+  lures: KitLure[];
+  luresToBuy: KitLure[];
+  extras: string[];
+  /** Peso do que o jogador já tem no kit, em kg. */
+  weight: number;
 }
 
 export interface RestoreResult {

@@ -13,6 +13,7 @@ pub mod equipment;
 pub mod equipment_editor;
 pub mod gear_advice;
 pub mod history;
+pub mod kit_advice;
 pub mod language;
 pub mod license;
 pub mod mapview;

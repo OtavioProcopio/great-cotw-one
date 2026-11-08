@@ -54,3 +54,22 @@ O app SHALL sugerir, para uma reserva e um animal escolhidos, combinações de a
 #### Scenario: Sem classe de caça
 - **WHEN** o jogo não informa a classe do animal
 - **THEN** o app avisa que não há sugestão
+
+### Requirement: Kit para a reserva inteira
+O app SHALL montar, para uma reserva escolhida, o menor conjunto de armas do arsenal que cobre as classes de caça de todos os animais dela, indicar as iscas e chamados que atraem esses animais, listar extras úteis (telêmetro, primeiros socorros, eliminador de cheiro) e somar o peso do kit. O app SHALL deixar o jogador digitar o limite de peso que o jogo mostra e comparar com o total, sem inventar um limite.
+
+#### Scenario: Uma arma cobre toda a reserva
+- **WHEN** uma única arma e munição do jogador atende todas as classes dos animais da reserva
+- **THEN** o kit leva só essa arma e diz quais animais ela atende
+
+#### Scenario: Animal sem cobertura
+- **WHEN** nenhuma arma do arsenal atende um animal da reserva
+- **THEN** o app sugere a arma a comprar que o cobre, com custo e nível que libera, ou avisa que nem a loja o cobre
+
+#### Scenario: Iscas e chamados
+- **WHEN** o jogador tem um chamado que atrai espécies da reserva
+- **THEN** o kit o lista com as espécies que atrai, alcance e chance, e as iscas a comprar só trazem o que ainda falta
+
+#### Scenario: Limite de peso
+- **WHEN** o jogador digita o limite de peso
+- **THEN** o app mostra quanto sobra ou quanto passa, guarda o valor só neste computador e, sem limite digitado, só mostra o peso total

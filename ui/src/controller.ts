@@ -2,7 +2,7 @@ import { isCommandError, type Api } from './api';
 import { formatCount, formatStamp } from './format';
 import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } from './i18n';
 import { icon, type IconName } from './icons';
-import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, GearAdvice, HistoryItem, Inventory, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
+import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, GearAdvice, HistoryItem, Inventory, Kit, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 import { renderDiagnostics } from './views/diagnostics';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
@@ -16,7 +16,7 @@ import { renderPremium } from './views/premium';
 import { renderUnlock } from './views/unlock';
 import { type UnlockMode, type UnlockState, initialUnlockState, summarize, toRequest, toggled } from './unlocklogic';
 import { escapeHtml } from './escape';
-import { type EquipTab, MAX_CASH, type OwnFilter, type RankKey, maxAmount } from './equipmentlogic';
+import { type EquipTab, MAX_CASH, type OwnFilter, type RankKey, maxAmount, readLimit } from './equipmentlogic';
 
 export type View = 'home' | 'premium' | 'profile' | 'equipment' | 'animals' | 'map' | 'missions' | 'history' | 'diagnostics' | 'unlock';
 
@@ -79,6 +79,9 @@ export class Controller {
   private equipState: EquipState = initialEquipState();
   private equipIcons: Record<string, string> = {};
   private advice: GearAdvice | null = null;
+  private kit: Kit | null = null;
+  /** Limite de peso que o jogador digitou (kg), guardado só neste computador. */
+  private weightLimit: number | null = readLimit();
   private animals: AnimalReserve[] | null = null;
   private animalReserve: number | null = null;
   private animalSpecies: string | null = null;
@@ -247,9 +250,23 @@ export class Controller {
         }
         this.render();
         break;
+      case 'adv-mode':
+        this.advice = null;
+        this.kit = null;
+        this.equipState = { ...this.equipState, advisor: { reserve: null, species: null, mode: button.dataset['mode'] === 'reserve' ? 'reserve' : 'animal' } };
+        this.render();
+        break;
       case 'adv-reserve':
         this.advice = null;
-        this.equipState = { ...this.equipState, advisor: { reserve: Number(reserve), species: null } };
+        this.kit = null;
+        this.equipState = { ...this.equipState, advisor: { ...this.equipState.advisor, reserve: Number(reserve), species: null } };
+        if (this.equipState.advisor.mode === 'reserve') {
+          try {
+            this.kit = await this.api.reserveKit(Number(reserve));
+          } catch (error) {
+            this.notice = { kind: 'error', text: describeError(error) };
+          }
+        }
         this.render();
         break;
       case 'adv-species':
@@ -570,6 +587,7 @@ export class Controller {
       this.notice = { kind: 'ok', text: t('equip.done') };
       this.equipment = await this.api.equipment();
       if (this.equipState.advisor.species) this.advice = await this.api.gearAdvice(this.equipState.advisor.species);
+      if (this.equipState.advisor.mode === 'reserve' && this.equipState.advisor.reserve !== null) this.kit = await this.api.reserveKit(this.equipState.advisor.reserve);
     } catch (error) {
       this.notice = { kind: 'error', text: describeError(error) };
     }
@@ -716,7 +734,7 @@ export class Controller {
     if (this.view === 'map') return this.renderMap();
     if (this.view === 'profile') return this.profile ? renderProfile(this.profile) : '';
     if (this.view === 'equipment') {
-      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons, this.license.premium, { animals: this.animals ?? [], advice: this.advice }) : '';
+      return this.equipment ? renderEquipment(this.equipment, this.equipState, this.equipIcons, this.license.premium, { animals: this.animals ?? [], advice: this.advice, kit: this.kit, limit: this.weightLimit }) : '';
     }
     if (this.view === 'premium') return renderPremium(this.license, this.purchase);
     if (this.view === 'animals') {

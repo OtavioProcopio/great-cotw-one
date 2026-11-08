@@ -21,6 +21,7 @@ use crate::equipment::{self, Inventory};
 use crate::equipment_editor::{self, EquipmentChange, EquipmentError};
 use crate::gear_advice::{self, Advice};
 use crate::history::{History, HistoryError, HistoryKind};
+use crate::kit_advice::{self, Kit};
 use crate::language::Language;
 use crate::license::{
     ActivateError, FileLicense, LicenseCheck, LicenseStatus, default_license, now,
@@ -676,6 +677,30 @@ impl AppService {
     pub fn gear_advice(&self, species: &str) -> Result<Option<Advice>, ServiceError> {
         let inventory = self.equipment()?;
         Ok(gear_advice::advise(&inventory, species, self.language()))
+    }
+
+    /// Kit para uma reserva inteira: armas que cobrem todos os animais, iscas, extras e peso.
+    ///
+    /// # Errors
+    ///
+    /// [`ServiceError::NoSaveSelected`] sem save, [`ServiceError::GameNotFound`] sem o jogo (as
+    /// espécies da reserva vêm dele) e [`ServiceError::Career`] se o perfil não puder ser lido.
+    pub fn reserve_kit(&self, reserve: u32) -> Result<Option<Kit>, ServiceError> {
+        let inventory = self.equipment()?;
+        let species: Vec<String> = self
+            .animals()?
+            .into_iter()
+            .find(|r| r.id == reserve)
+            .map(|r| r.species.into_iter().map(|s| s.id).collect())
+            .unwrap_or_default();
+        if species.is_empty() {
+            return Ok(None);
+        }
+        Ok(Some(kit_advice::advise_reserve(
+            &inventory,
+            &species,
+            self.language(),
+        )))
     }
 
     /// Ícones dos equipamentos pedidos, lidos do jogo do usuário (sem o jogo, a lista vem vazia).

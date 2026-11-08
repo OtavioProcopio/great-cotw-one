@@ -1,30 +1,7 @@
 import { invoke } from '@tauri-apps/api/core';
 import { ask, open } from '@tauri-apps/plugin-dialog';
 
-import type {
-  AnimalReserve,
-  CommandError,
-  Diagnostics,
-  EditRequest,
-  EditResult,
-  EquipmentChange,
-  EquipmentEditResult,
-  GearAdvice,
-  HistoryItem,
-  Inventory,
-  License,
-  PurchaseStatus,
-  MapReserve,
-  Profile,
-  RestoreResult,
-  ReserveMissions,
-  SpeciesEditor,
-  ReserveMap,
-  RewriteResult,
-  UnlockRequest,
-  UnlockResult,
-  ZonesPreview,
-} from './types';
+import type { AnimalReserve, CommandError, Diagnostics, EditRequest, EditResult, EquipmentChange, EquipmentEditResult, GearAdvice, HistoryItem, Inventory, Kit, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, RestoreResult, RewriteResult, SpeciesEditor, UnlockRequest, UnlockResult, ZonesPreview } from './types';
 
 /** Tudo que a interface precisa do app; substituível nos testes. */
 export interface Api {
@@ -50,6 +27,7 @@ export interface Api {
   equipment(): Promise<Inventory>;
   /** Sugestões de arma, munição e mira para uma espécie; `null` se o jogo não der classe a ela. */
   gearAdvice(species: string): Promise<GearAdvice | null>;
+  reserveKit(reserve: number): Promise<Kit | null>;
   /** Entrega itens, ajusta quantidades e dinheiro, com backup antes. Exige Premium. */
   editEquipment(changes: EquipmentChange[]): Promise<EquipmentEditResult>;
   /** Ícones (`data:image/png`) dos itens pedidos, lidos do jogo; os que não existirem ficam de fora. */
@@ -105,6 +83,7 @@ export const tauriApi: Api = {
   profile: () => invoke<Profile>('profile'),
   equipment: () => invoke<Inventory>('equipment'),
   gearAdvice: (species) => invoke<GearAdvice | null>('gear_advice', { species }),
+  reserveKit: (reserve) => invoke<Kit | null>('reserve_kit', { reserve }),
   editEquipment: (changes) => invoke<EquipmentEditResult>('edit_equipment', { changes }),
   equipmentIcons: (ids) => invoke<Record<string, string>>('equipment_icons', { ids }),
   missions: () => invoke<ReserveMissions[]>('missions'),

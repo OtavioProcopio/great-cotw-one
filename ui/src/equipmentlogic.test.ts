@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
-import { KINDS, MAX_CASH, collection, groupItems, itemsById, maxAmount, ownCounts, rankValue, rankWeapons, visibleItems } from './equipmentlogic';
+import { KINDS, MAX_CASH, collection, groupItems, itemsById, maxAmount, ownCounts, readLimit, saveLimit, rankValue, rankWeapons, visibleItems } from './equipmentlogic';
 import { mockInventory } from './mock-data';
 import type { EquipmentItem, WeaponStats } from './types';
 
@@ -95,5 +95,27 @@ describe('browsing helpers', () => {
     const list = [make('b', 'consumable', null, false), make('a', 'consumable', null, true)];
     expect(groupItems(list)).toEqual([{ key: null, items: [list[1], list[0]] }]);
     expect(groupItems([])).toEqual([]);
+  });
+});
+
+describe('weight limit memory', () => {
+  it('stores a valid limit and forgets an empty or invalid one', () => {
+    saveLimit(30);
+    expect(readLimit()).toBe(30);
+    saveLimit(null);
+    expect(readLimit()).toBeNull();
+    saveLimit(-5);
+    expect(readLimit()).toBeNull();
+  });
+
+  it('does not break when the browser refuses to store', () => {
+    const spy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new Error('bloqueado');
+    });
+    try {
+      expect(readLimit()).toBeNull();
+    } finally {
+      spy.mockRestore();
+    }
   });
 });

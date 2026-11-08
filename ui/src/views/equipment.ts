@@ -1,11 +1,11 @@
 import { escapeHtml as e } from '../escape';
-import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey, collection, groupItems, itemsById, maxAmount, ownCounts, rankValue, rankWeapons, visibleItems } from '../equipmentlogic';
+import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey, collection, groupItems, itemsById, maxAmount, ownCounts, rankValue, rankWeapons, saveLimit, visibleItems } from '../equipmentlogic';
 import { formatCount, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
 import { KIND_ICON, thumb } from './thumb';
-import type { AnimalReserve, EquipmentItem, EquipmentKind, GearAdvice, Inventory, Loadout } from '../types';
-import { type AdvisorState, initialAdvisorState, renderAdvisor } from './advisor';
+import type { AnimalReserve, EquipmentItem, EquipmentKind, GearAdvice, Inventory, Kit, Loadout } from '../types';
+import { type AdvisorState, initialAdvisorState, limitNote, renderAdvisor } from './advisor';
 
 /** O que o usuário escolheu na página. */
 export interface EquipState {
@@ -228,7 +228,7 @@ export function renderEquipment(
   state: EquipState,
   icons: Record<string, string>,
   premium = false,
-  advisor: { animals: AnimalReserve[]; advice: GearAdvice | null } = { animals: [], advice: null },
+  advisor: { animals: AnimalReserve[]; advice: GearAdvice | null; kit?: Kit | null; limit?: number | null } = { animals: [], advice: null },
 ): string {
   const content =
     state.open !== null
@@ -238,7 +238,7 @@ export function renderEquipment(
         : state.tab === 'ranking'
           ? ranking(inv, state, icons)
           : state.tab === 'advisor'
-            ? renderAdvisor(inv, advisor.animals, state.advisor, advisor.advice, premium, icons)
+            ? renderAdvisor(inv, advisor.animals, state.advisor, advisor.advice, premium, icons, advisor.kit ?? null, advisor.limit ?? null)
             : loadouts(inv, icons);
   return `<header><h1>${e(t('equip.title'))}</h1><p class="muted">${e(t('equip.subtitle'))}</p></header>
     ${state.open === null ? `${header(inv, premium)}${tabs(state)}` : ''}${content}`;
@@ -246,6 +246,7 @@ export function renderEquipment(
 
 /** Filtro por texto no arsenal, feito sem refazer a página (o campo mantém o foco). */
 export function bindEquipment(root: HTMLElement): void {
+  bindLimit(root);
   const input = root.querySelector<HTMLInputElement>('#eq-search');
   const grid = root.querySelector<HTMLElement>('#eq-grid');
   if (!input || !grid) return;
@@ -258,5 +259,19 @@ export function bindEquipment(root: HTMLElement): void {
     for (const group of grid.querySelectorAll<HTMLElement>('.eq-group')) {
       group.hidden = [...group.querySelectorAll<HTMLElement>('li[data-text]')].every((li) => li.hidden);
     }
+  });
+}
+
+/** Campo do limite de peso do kit: compara com o peso e guarda o valor, sem refazer a tela. */
+function bindLimit(root: HTMLElement): void {
+  const field = root.querySelector<HTMLInputElement>('#kit-limit');
+  const note = root.querySelector<HTMLElement>('#kit-limit-note');
+  const weight = Number(root.querySelector<HTMLElement>('[data-weight]')?.dataset['weight'] ?? '0');
+  if (!field || !note) return;
+  field.addEventListener('input', () => {
+    const value = field.value.trim() === '' ? null : Number(field.value);
+    const limit = value !== null && value > 0 ? value : null;
+    saveLimit(limit);
+    note.textContent = limitNote(weight, limit);
   });
 }

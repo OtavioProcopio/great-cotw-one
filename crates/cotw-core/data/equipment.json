@@ -2108,78 +2108,158 @@
    "price": 0
   },
   "equipment_bait_feeder_bear_barrel_01": {
+   "attracts": [
+    "challengesanimalgroupbears",
+    "challengesanimalgrouppigs"
+   ],
    "icon": "textures/ui/items/equipment/equipment_bait_feeder_bear_barrel_01_alpha.ddsc",
    "kind": "deployable",
+   "lure_chance": -1.0,
+   "lure_duration": -1.0,
+   "lure_range": -1.0,
    "name": "Bear Barrel Game Feeder",
    "price": 10000,
    "weight": 10.0
   },
   "equipment_bait_feeder_box_01": {
+   "attracts": [
+    "challengesanimalgroupantelopes",
+    "challengesanimalgroupdeer"
+   ],
    "icon": "textures/ui/items/equipment/equipment_bait_feeder_box_01_alpha.ddsc",
    "kind": "deployable",
+   "lure_chance": -1.0,
+   "lure_duration": -1.0,
+   "lure_range": -1.0,
    "name": "Box Game Feeder",
    "price": 12000,
    "weight": 6.0
   },
   "equipment_bait_feeder_hanging_01": {
+   "attracts": [
+    "challengesanimalgrouppredators",
+    "challengesanimalgroupreptiles"
+   ],
    "icon": "textures/ui/items/equipment/equipment_bait_feeder_hanging_01_alpha.ddsc",
    "kind": "deployable",
+   "lure_chance": -1.0,
+   "lure_duration": -1.0,
+   "lure_range": -1.0,
    "name": "Hanging Carcass Feeder",
    "price": 12000,
    "weight": 6.0
   },
   "equipment_bait_feeder_hanging_02": {
+   "attracts": [
+    "challengesanimalgroupantelopes",
+    "challengesanimalgroupdeer",
+    "challengesanimalgrouphares",
+    "challengesanimalgrouppigs",
+    "challengesanimalgrouprabbits"
+   ],
    "icon": "textures/ui/items/equipment/equipment_bait_feeder_hanging_02_alpha.ddsc",
    "kind": "deployable",
+   "lure_chance": -1.0,
+   "lure_duration": -1.0,
+   "lure_range": -1.0,
    "name": "Hanging Game Feeder",
    "price": 12000,
    "weight": 8.0
   },
   "equipment_bait_feeder_ribcage_01": {
+   "attracts": [
+    "challengesanimalgroupcanines",
+    "challengesanimalgroupcarnivores",
+    "challengesanimalgroupscavengers"
+   ],
    "icon": "textures/ui/items/equipment/equipment_bait_feeder_ribcage_01_alpha.ddsc",
    "kind": "deployable",
+   "lure_chance": -1.0,
+   "lure_duration": -1.0,
+   "lure_range": -1.0,
    "name": "Ground Meat Game Feeder",
    "price": 12000,
    "weight": 6.0
   },
   "equipment_bait_feeder_salt_lick_01": {
+   "attracts": [
+    "challengesanimalgroupantelopes",
+    "challengesanimalgroupbison",
+    "challengesanimalgroupbuffalos",
+    "challengesanimalgroupdeer",
+    "challengesanimalgroupgoats",
+    "challengesanimalgroupsheep"
+   ],
    "icon": "textures/ui/items/equipment/equipment_bait_feeder_salt_lick_01_alpha.ddsc",
    "kind": "deployable",
+   "lure_chance": -1.0,
+   "lure_duration": -1.0,
+   "lure_range": -1.0,
    "name": "Mineral Lick Game Feeder",
    "price": 10000,
    "weight": 6.0
   },
   "equipment_bean_goose_decoy_01": {
+   "attracts": [
+    "tundrabeangoose"
+   ],
    "icon": "textures/ui/items/equipment/bean_goose_decoy_var_sentry_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_bean_goose_decoy_02": {
+   "attracts": [
+    "tundrabeangoose"
+   ],
    "icon": "textures/ui/items/equipment/bean_goose_decoy_var_searching_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_bean_goose_decoy_03": {
+   "attracts": [
+    "tundrabeangoose"
+   ],
    "icon": "textures/ui/items/equipment/bean_goose_decoy_var_feeding_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_cinnamon_teal_decoy_01": {
+   "attracts": [
+    "cinnamonteal"
+   ],
    "icon": "textures/ui/items/equipment/cinnamon_teal_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Cinnamon Teal Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_cinnamon_teal_decoy_02": {
+   "attracts": [
+    "cinnamonteal"
+   ],
    "icon": "textures/ui/items/equipment/cinnamon_teal_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Cinnamon Teal Decoy Hen",
    "price": 4000,
    "weight": 1.0
@@ -2295,141 +2375,261 @@
    "price": 0
   },
   "equipment_duck_decoy_01": {
+   "attracts": [
+    "mallard"
+   ],
    "icon": "textures/ui/items/equipment/mallard_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Mallard Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_duck_decoy_02": {
+   "attracts": [
+    "mallard"
+   ],
    "icon": "textures/ui/items/equipment/mallard_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Mallard Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_eurasian_teal_decoy_01": {
+   "attracts": [
+    "eurasianteal"
+   ],
    "icon": "textures/ui/items/equipment/eurasian_teal_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Eurasian Teal Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_eurasian_teal_decoy_02": {
+   "attracts": [
+    "eurasianteal"
+   ],
    "icon": "textures/ui/items/equipment/eurasian_teal_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Eurasian Teal  Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_eurasian_wigeon_decoy_01": {
+   "attracts": [
+    "eurasianwigeon"
+   ],
    "icon": "textures/ui/items/equipment/eurasian_wigeon_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Eurasian Teal Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_eurasian_wigeon_decoy_02": {
+   "attracts": [
+    "eurasianwigeon"
+   ],
    "icon": "textures/ui/items/equipment/eurasian_wigeon_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Eurasian Teal  Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_ferruginous_duck_decoy_01": {
+   "attracts": [
+    "ferruginousduck"
+   ],
    "icon": "textures/ui/items/equipment/ferruginous_duck_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Ferruginous Duck Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_ferruginous_duck_decoy_02": {
+   "attracts": [
+    "ferruginousduck"
+   ],
    "icon": "textures/ui/items/equipment/ferruginous_duck_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Ferruginous Duck Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_gadwall_decoy_01": {
+   "attracts": [
+    "gadwall"
+   ],
    "icon": "textures/ui/items/equipment/gadwall_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Gadwall Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_gadwall_decoy_02": {
+   "attracts": [
+    "gadwall"
+   ],
    "icon": "textures/ui/items/equipment/gadwall_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Gadwall Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_goldeneye_decoy_01": {
+   "attracts": [
+    "goldeneye"
+   ],
    "icon": "textures/ui/items/equipment/goldeneye_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Goldeneye Decoy Male",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_goldeneye_decoy_02": {
+   "attracts": [
+    "goldeneye"
+   ],
    "icon": "textures/ui/items/equipment/goldeneye_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Eurasian Teal  Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_goose_decoy_01": {
+   "attracts": [
+    "canadagoose"
+   ],
    "icon": "textures/ui/items/equipment/canada_goose_decoy_var_sentry_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_goose_decoy_02": {
+   "attracts": [
+    "canadagoose"
+   ],
    "icon": "textures/ui/items/equipment/canada_goose_decoy_var_searching_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_goose_decoy_03": {
+   "attracts": [
+    "canadagoose"
+   ],
    "icon": "textures/ui/items/equipment/canada_goose_decoy_var_feeding_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_green_wing_teal_decoy_01": {
+   "attracts": [
+    "greenwingteal"
+   ],
    "icon": "textures/ui/items/equipment/green_wing_teal_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Green Wing Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_green_wing_teal_decoy_02": {
+   "attracts": [
+    "greenwingteal"
+   ],
    "icon": "textures/ui/items/equipment/green_wing_teal_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Green Wing Teal Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_greylag_goose_decoy_01": {
+   "attracts": [
+    "greylaggoose"
+   ],
    "icon": "textures/ui/items/equipment/greylag_goose_decoy_var_sentry_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_greylag_goose_decoy_02": {
+   "attracts": [
+    "greylaggoose"
+   ],
    "icon": "textures/ui/items/equipment/greylag_goose_decoy_var_searching_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_greylag_goose_decoy_03": {
+   "attracts": [
+    "greylaggoose"
+   ],
    "icon": "textures/ui/items/equipment/greylag_goose_decoy_var_feeding_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
@@ -2449,15 +2649,27 @@
    "weight": 6.0
   },
   "equipment_harlequin_duck_decoy_01": {
+   "attracts": [
+    "harlequinduck"
+   ],
    "icon": "textures/ui/items/equipment/harlequin_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Harlequin Duck Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_harlequin_duck_decoy_02": {
+   "attracts": [
+    "harlequinduck"
+   ],
    "icon": "textures/ui/items/equipment/harlequin_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Harlequin Duck Decoy Hen",
    "price": 4000,
    "weight": 1.0
@@ -2470,8 +2682,21 @@
    "weight": 3.0
   },
   "equipment_lure_caller_antler_rattler_01": {
+   "attracts": [
+    "barasingha",
+    "blackbuck",
+    "caribou",
+    "fallowdeer",
+    "gemsbok",
+    "lesserkudu",
+    "reindeer",
+    "woodlandcaribou"
+   ],
    "icon": "textures/ui/items/equipment/rattler_antlers_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Antler Rattler",
    "price": 6000,
    "unlock": {
@@ -2482,22 +2707,43 @@
    "weight": 0.5
   },
   "equipment_lure_caller_axis_deer_screamer_01": {
+   "attracts": [
+    "axisdeer"
+   ],
    "icon": "textures/ui/items/equipment/caller_axis_deer_screamer_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Axis Deer Screamer Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_bean_goose_01": {
+   "attracts": [
+    "tundrabeangoose"
+   ],
    "icon": "textures/ui/items/equipment/caller_bean_goose_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Bean Goose Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_deer_bleat_01": {
+   "attracts": [
+    "blacktaildeer",
+    "muledeer",
+    "sikadeer",
+    "whitetaildeer"
+   ],
    "icon": "textures/ui/items/equipment/caller_deer_bleat_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 90.0,
+   "lure_range": 150.0,
    "name": "Deer \"Bleat\" Call",
    "price": 0,
    "unlock": {
@@ -2508,8 +2754,16 @@
    "weight": 0.5
   },
   "equipment_lure_caller_deer_grunt_01": {
+   "attracts": [
+    "blacktaildeer",
+    "sikadeer",
+    "whitetaildeer"
+   ],
    "icon": "textures/ui/items/equipment/equipment_lure_caller_deer_grunt_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 25.0,
+   "lure_duration": 90.0,
+   "lure_range": 250.0,
    "name": "Deer \"Grunt\" Call",
    "price": 6000,
    "unlock": {
@@ -2520,15 +2774,34 @@
    "weight": 0.5
   },
   "equipment_lure_caller_duck_long": {
+   "attracts": [
+    "cinnamonteal",
+    "ferruginousduck",
+    "goldeneye",
+    "harlequinduck",
+    "mallard",
+    "tuftedduck"
+   ],
    "icon": "textures/ui/items/equipment/caller_mallard_long_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Long Range Duck Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_elk_01": {
+   "attracts": [
+    "manitobanelk",
+    "rockymountainelk",
+    "rooseveltelk"
+   ],
    "icon": "textures/ui/items/equipment/equipment_lure_caller_elk_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Elk Caller",
    "price": 6000,
    "unlock": {
@@ -2539,57 +2812,106 @@
    "weight": 0.5
   },
   "equipment_lure_caller_eurasian_teal_01": {
+   "attracts": [
+    "eurasianteal",
+    "greenwingteal"
+   ],
    "icon": "textures/ui/items/equipment/caller_eurasian_teal_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Eurasian Teal Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_eurasian_wigeon_01": {
+   "attracts": [
+    "eurasianwigeon"
+   ],
    "icon": "textures/ui/items/equipment/caller_eurasian_wigeon_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Eurasian Wigeon Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_gadwall_01": {
+   "attracts": [
+    "gadwall"
+   ],
    "icon": "textures/ui/items/equipment/caller_gadwall_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Gadwall Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_goose_01": {
+   "attracts": [
+    "canadagoose"
+   ],
    "icon": "textures/ui/items/equipment/caller_canadagoose_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Canada Goose Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_greylag_goose_01": {
+   "attracts": [
+    "greylaggoose"
+   ],
    "icon": "textures/ui/items/equipment/caller_greylag_goose_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Greylag Goose Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_hazel_grouse": {
+   "attracts": [
+    "hazelgrouse"
+   ],
    "icon": "textures/ui/items/equipment/caller_hazelgrouse_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Hazel Grouse Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_magpie_goose_01": {
+   "attracts": [
+    "magpiegoose"
+   ],
    "icon": "textures/ui/items/equipment/caller_magpie_goose_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Magpie Goose Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_moose_01": {
+   "attracts": [
+    "moose"
+   ],
    "icon": "textures/ui/items/equipment/caller_moose_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Moose Caller",
    "price": 6000,
    "unlock": {
@@ -2600,15 +2922,33 @@
    "weight": 0.5
   },
   "equipment_lure_caller_northern_pintail_01": {
+   "attracts": [
+    "northernpintail"
+   ],
    "icon": "textures/ui/items/equipment/northen_pintail_caller_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Northern Pintail Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_predator_distressed_deer_01": {
+   "attracts": [
+    "bengaltiger",
+    "genericbear",
+    "graywolf",
+    "iberianwolf",
+    "jaguar",
+    "lion",
+    "puma"
+   ],
    "icon": "textures/ui/items/equipment/caller_distressed_deer_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Predator \"Distressed Deer\" Caller",
    "price": 6000,
    "unlock": {
@@ -2619,22 +2959,56 @@
    "weight": 0.5
   },
   "equipment_lure_caller_predator_jackrabbit_01": {
+   "attracts": [
+    "bobcat",
+    "collaredpeccary",
+    "coyote",
+    "eurasianlynx",
+    "grayfox",
+    "graywolf",
+    "greatergrison",
+    "iberianwolf",
+    "jaguar",
+    "mexicanbobcat",
+    "ocelot",
+    "raccoondog",
+    "redfox",
+    "sidestripedjackal",
+    "tibetanfox",
+    "westernmountaincoati"
+   ],
    "icon": "textures/ui/items/equipment/caller_jackrabbit_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Predator \"Jackrabbit\" Caller",
    "price": 0,
    "weight": 0.5
   },
   "equipment_lure_caller_raccoon": {
+   "attracts": [
+    "raccoon"
+   ],
    "icon": "textures/ui/items/equipment/caller_raccoon_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Raccoon Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_red_deer_01": {
+   "attracts": [
+    "reddeer",
+    "sikadeer"
+   ],
    "icon": "textures/ui/items/equipment/equipment_lure_caller_red_deer_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Red Deer Caller",
    "price": 6000,
    "unlock": {
@@ -2645,8 +3019,15 @@
    "weight": 0.5
   },
   "equipment_lure_caller_roe_deer_01": {
+   "attracts": [
+    "northernredmuntjac",
+    "roedeer"
+   ],
    "icon": "textures/ui/items/equipment/caller_roe_deer_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Roe Deer Caller",
    "price": 0,
    "unlock": {
@@ -2657,43 +3038,93 @@
    "weight": 0.5
   },
   "equipment_lure_caller_sambar_mouth_01": {
+   "attracts": [
+    "hogdeer",
+    "javanrusa",
+    "sambar"
+   ],
    "icon": "textures/ui/items/equipment/caller_sambar_mouth_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 500.0,
    "name": "Sambar Mouth Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_snort_wheeze_01": {
+   "attracts": [
+    "bluewildebeest",
+    "lesserkudu",
+    "nilgai",
+    "sikadeer",
+    "springbok",
+    "whitetaildeer"
+   ],
    "icon": "textures/ui/items/equipment/caller_snort_wheeze_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Snort Wheeze Caller",
    "price": 0,
    "weight": 0.5
   },
   "equipment_lure_caller_snow_goose_01": {
+   "attracts": [
+    "snowgoose"
+   ],
    "icon": "textures/ui/items/equipment/snow_goose_caller_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Snow Goose Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_turkey_locator_01": {
+   "attracts": [
+    "easternwildturkey",
+    "riograndeturkey",
+    "wildturkey"
+   ],
    "icon": "textures/ui/items/equipment/caller_turkey_locator_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Turkey Locator Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_turkey_mouth_01": {
+   "attracts": [
+    "easternwildturkey",
+    "riograndeturkey",
+    "wildturkey"
+   ],
    "icon": "textures/ui/items/equipment/caller_turkey_mouth_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Turkey Mouth Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_caller_wild_boar_01": {
+   "attracts": [
+    "collaredpeccary",
+    "feralpig",
+    "warthog",
+    "wildboar"
+   ],
    "icon": "textures/ui/items/equipment/equipment_lure_caller_wild_boar_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 90.0,
+   "lure_range": 200.0,
    "name": "Wild Boar Caller",
    "price": 6000,
    "unlock": {
@@ -2704,15 +3135,27 @@
    "weight": 0.5
   },
   "equipment_lure_caller_wood_duck_01": {
+   "attracts": [
+    "woodduck"
+   ],
    "icon": "textures/ui/items/equipment/wood_duck_caller_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": 25.0,
+   "lure_range": 500.0,
    "name": "Wood Duck Caller",
    "price": 6000,
    "weight": 0.5
   },
   "equipment_lure_scent_blacktail_deer_01": {
+   "attracts": [
+    "blacktaildeer"
+   ],
    "icon": "textures/ui/items/equipment/scent_black_tail_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Blacktail Deer Scent",
    "price": 1500,
    "unlock": {
@@ -2723,8 +3166,16 @@
    "weight": 0.5
   },
   "equipment_lure_scent_elk_deer_01": {
+   "attracts": [
+    "manitobanelk",
+    "rockymountainelk",
+    "rooseveltelk"
+   ],
    "icon": "textures/ui/items/equipment/scent_elk_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Elk Scent",
    "price": 1500,
    "unlock": {
@@ -2735,8 +3186,14 @@
    "weight": 0.5
   },
   "equipment_lure_scent_moose_01": {
+   "attracts": [
+    "moose"
+   ],
    "icon": "textures/ui/items/equipment/moose_scent_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Moose Scent",
    "price": 1500,
    "unlock": {
@@ -2747,15 +3204,28 @@
    "weight": 0.5
   },
   "equipment_lure_scent_mule_deer_01": {
+   "attracts": [
+    "muledeer"
+   ],
    "icon": "textures/ui/items/equipment/scent_mule_deer_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Mule Deer Scent",
    "price": 1500,
    "weight": 0.5
   },
   "equipment_lure_scent_red_deer_01": {
+   "attracts": [
+    "reddeer",
+    "sikadeer"
+   ],
    "icon": "textures/ui/items/equipment/scent_red_deer_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Red Deer Scent",
    "price": 1500,
    "unlock": {
@@ -2766,8 +3236,14 @@
    "weight": 0.5
   },
   "equipment_lure_scent_roe_deer_01": {
+   "attracts": [
+    "roedeer"
+   ],
    "icon": "textures/ui/items/equipment/roedeer_scent_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Roe Deer Scent",
    "price": 1500,
    "unlock": {
@@ -2778,15 +3254,27 @@
    "weight": 0.5
   },
   "equipment_lure_scent_siberian_musk_deer_01": {
+   "attracts": [
+    "muskdeer"
+   ],
    "icon": "textures/ui/items/equipment/scent_siberian_musk_deer_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Siberian Musk Deer Scent",
    "price": 1500,
    "weight": 0.5
   },
   "equipment_lure_scent_whitetail_deer_01": {
+   "attracts": [
+    "whitetaildeer"
+   ],
    "icon": "textures/ui/items/equipment/scent_whitetail_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Whitetail Deer Scent",
    "price": 1500,
    "unlock": {
@@ -2797,8 +3285,14 @@
    "weight": 0.5
   },
   "equipment_lure_scent_wild_boar_01": {
+   "attracts": [
+    "wildboar"
+   ],
    "icon": "textures/ui/items/equipment/scent_hog_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 50.0,
+   "lure_duration": 300.0,
+   "lure_range": 200.0,
    "name": "Wild Boar Scent",
    "price": 1500,
    "unlock": {
@@ -2809,36 +3303,66 @@
    "weight": 0.5
   },
   "equipment_magpie_goose_decoy_01": {
+   "attracts": [
+    "magpiegoose"
+   ],
    "icon": "textures/ui/items/equipment/magpie_goose_decoy_var_sentry_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_magpie_goose_decoy_02": {
+   "attracts": [
+    "magpiegoose"
+   ],
    "icon": "textures/ui/items/equipment/magpie_goose_decoy_var_searching_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_magpie_goose_decoy_03": {
+   "attracts": [
+    "magpiegoose"
+   ],
    "icon": "textures/ui/items/equipment/magpie_goose_decoy_var_feeding_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.5
   },
   "equipment_northern_pintail_decoy_01": {
+   "attracts": [
+    "northernpintail"
+   ],
    "icon": "textures/ui/items/equipment/nothern_pintail_male_decoy_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Northern Pintail Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_northern_pintail_decoy_02": {
+   "attracts": [
+    "northernpintail"
+   ],
    "icon": "textures/ui/items/equipment/nothern_pintail_female_decoy_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Northern Pintail Decoy Hen",
    "price": 4000,
    "weight": 1.0
@@ -2899,8 +3423,14 @@
    "zoom": 1.7
   },
   "equipment_remote_caller_01": {
+   "attracts": [
+    "equipmentstatsremotecalleraffectedspeciesvalue"
+   ],
    "icon": "textures/ui/items/equipment/caller_placable_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 40.0,
+   "lure_duration": -1.0,
+   "lure_range": 200.0,
    "name": "Placeable Remote Caller",
    "price": 0,
    "weight": 3.5
@@ -3351,22 +3881,40 @@
    "zoom": 1.4
   },
   "equipment_snow_goose_decoy_01": {
+   "attracts": [
+    "snowgoose"
+   ],
    "icon": "textures/ui/items/equipment/snow_goose_decoy_03_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_snow_goose_decoy_02": {
+   "attracts": [
+    "snowgoose"
+   ],
    "icon": "textures/ui/items/equipment/snow_goose_decoy_02_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_snow_goose_decoy_03": {
+   "attracts": [
+    "snowgoose"
+   ],
    "icon": "textures/ui/items/equipment/snow_goose_decoy_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Placeable Decoy",
    "price": 4000,
    "weight": 1.0
@@ -3449,29 +3997,57 @@
    "weight": 6.0
   },
   "equipment_tufted_duck_decoy_01": {
+   "attracts": [
+    "tuftedduck"
+   ],
    "icon": "textures/ui/items/equipment/tufted_duck_male_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Tufted Duck Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_tufted_duck_decoy_02": {
+   "attracts": [
+    "tuftedduck"
+   ],
    "icon": "textures/ui/items/equipment/tufted_duck_female_decoy_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Tufted Duck Decoy Hen",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_turkey_decoy_01": {
+   "attracts": [
+    "easternwildturkey",
+    "riograndeturkey",
+    "wildturkey"
+   ],
    "icon": "textures/ui/items/equipment/decoy_turkey_male_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 8.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Turkey Decoy male",
    "price": 3200,
    "weight": 1.5
   },
   "equipment_turkey_decoy_02": {
+   "attracts": [
+    "easternwildturkey",
+    "riograndeturkey",
+    "wildturkey"
+   ],
    "icon": "textures/ui/items/equipment/decoy_turkey_female_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 8.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Turkey Decoy Female",
    "price": 3200,
    "weight": 1.5
@@ -6762,15 +7338,27 @@
    "weight": 2.5
   },
   "equipment_wood_duck_decoy_01": {
+   "attracts": [
+    "woodduck"
+   ],
    "icon": "textures/ui/items/equipment/wood_duck_male_decoy_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Wood Duck Decoy Drake",
    "price": 4000,
    "weight": 1.0
   },
   "equipment_wood_duck_decoy_02": {
+   "attracts": [
+    "woodduck"
+   ],
    "icon": "textures/ui/items/equipment/wood_duck_female_decoy_01_alpha.ddsc",
    "kind": "lure_caller",
+   "lure_chance": 2.0,
+   "lure_duration": -1.0,
+   "lure_range": 500.0,
    "name": "Wood Duck Decoy Hen",
    "price": 4000,
    "weight": 1.0

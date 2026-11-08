@@ -1,6 +1,6 @@
 // Dados e artes de exemplo para ver a interface (e tirar prints) sem o jogo. Nada aqui vem do jogo:
 // as capas e o mapa são desenhos simples feitos em SVG. Só em desenvolvimento.
-import type { AnimalReserve, EquipmentItem, GearAdvice, Inventory, MapReserve, Profile, ReserveMissions } from './types';
+import type { AdvicePick, AnimalReserve, EquipmentItem, GearAdvice, Inventory, Kit, MapReserve, Profile, ReserveMissions } from './types';
 
 function svgUrl(svg: string): string {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
@@ -254,5 +254,36 @@ export function mockAdvice(): GearAdvice {
     toBuy: [
       { weapon: 'equipment_weapon_longbow_01', ammo: 'equipment_ammo_270_pt_01', sight: null, hasWeapon: false, hasAmmo: false, cost: 12_560, available: true, unlock: { track: 'rifle', level: 7, need: 450 }, classRange: [4, 8], score: 64 },
     ],
+  };
+}
+
+/** Exemplo de kit para uma reserva, usado no modo de demonstração e nos testes. */
+export function mockKit(): Kit {
+  const pick = (weapon: string, ammo: string, sight: string | null, score: number): AdvicePick => ({
+    weapon,
+    ammo,
+    sight,
+    hasWeapon: true,
+    hasAmmo: true,
+    cost: 0,
+    available: true,
+    unlock: null,
+    classRange: [4, 8],
+    score,
+  });
+  return {
+    species: ['Alce', 'Cervo-almiscarado', 'Lobo-cinzento'],
+    weapons: [{ pick: pick('equipment_weapon_ba_rifle_270_01', 'equipment_ammo_270_sp_01', 'equipment_sight_rifle_scope_3_9x44mm_01', 72.5), covers: ['Alce', 'Cervo-almiscarado'] }],
+    toBuy: [
+      {
+        pick: { ...pick('equipment_weapon_longbow_01', 'equipment_ammo_270_pt_01', null, 60), hasWeapon: false, hasAmmo: false, cost: 12_560, unlock: { track: 'archery', level: 7, need: 450 } },
+        covers: ['Lobo-cinzento'],
+      },
+    ],
+    uncovered: [],
+    lures: [{ id: 'equipment_lure_caller_moose_01', owned: true, price: 900, covers: ['Alce'] }],
+    luresToBuy: [{ id: 'equipment_lure_caller_predator_distressed_deer_01', owned: false, price: 1200, covers: ['Lobo-cinzento'] }],
+    extras: ['equipment_consumable_first_aid_kit_01'],
+    weight: 5.6,
   };
 }

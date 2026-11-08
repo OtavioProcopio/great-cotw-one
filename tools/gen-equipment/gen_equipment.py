@@ -118,6 +118,11 @@ def stats(folder):
         out[iid] = {"zoom": number(r.get("Stat Magnification"))}
     for iid, r in rows_by_item(book["optics"]).items():
         out[iid] = {"zoom": number(r.get("Stat Magnification"))}
+    for iid, r in rows_by_item(book["lures"]).items():
+        # Os nomes vêm como `animal_graywolf_name`; guardamos só `graywolf` (sem sublinhado nem "plural").
+        names = [n.strip().removeprefix("animal_").removesuffix("_name").removesuffix("_plural") for n in str(r.get("Stat Species Attracted") or "").split(",")]
+        e = {"lure_range": number(r.get("Stat Range")), "lure_duration": number(r.get("Stat Duration")), "lure_chance": number(r.get("Stat Attraction Chance"))}
+        out[iid] = {**{k: v for k, v in e.items() if v is not None}, "attracts": sorted({n.replace("_", "") for n in names if n})}
     return out
 
 

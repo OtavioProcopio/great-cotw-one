@@ -98,3 +98,34 @@ fn the_advisor_suggests_owned_gear_that_fits_the_animal_class() {
         );
     }
 }
+
+#[test]
+fn the_savanna_kit_covers_every_animal_with_what_the_real_profile_owns() {
+    use cotw_core::kit_advice::advise_reserve;
+    let Some(saves) = saves() else {
+        eprintln!("fixtures/saves ausente: teste ignorado");
+        return;
+    };
+    let inv = inventory(&saves, Language::PtBr).unwrap();
+    let species: Vec<String> = [
+        "african_buffalo",
+        "black_backed_jackal",
+        "bushpig",
+        "lion",
+        "springbok",
+        "blue_wildebeest",
+        "oryx",
+        "greater_kudu",
+        "scrub_hare",
+    ]
+    .map(str::to_owned)
+    .to_vec();
+    let kit = advise_reserve(&inv, &species, Language::PtBr);
+    assert_ne!(kit.species.len(), 0);
+    assert!(kit.weapons.len() <= 4, "{} armas", kit.weapons.len());
+    assert!(kit.weight > 0.0);
+    // O que o kit leva existe no arsenal do jogador.
+    for w in &kit.weapons {
+        assert!(w.pick.has_weapon && w.pick.has_ammo);
+    }
+}

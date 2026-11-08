@@ -117,6 +117,18 @@ pub struct Attributes {
     /// Aumento da mira ou do binóculo.
     #[serde(default)]
     pub zoom: Option<f64>,
+    /// Espécies que a isca ou o chamado atrai (nomes do jogo sem sublinhado, como `graywolf`).
+    #[serde(default)]
+    pub attracts: Vec<String>,
+    /// Alcance do chamado, em metros.
+    #[serde(default)]
+    pub lure_range: Option<f64>,
+    /// Duração do efeito, em segundos.
+    #[serde(default)]
+    pub lure_duration: Option<f64>,
+    /// Chance de atrair (0 a 100).
+    #[serde(default)]
+    pub lure_chance: Option<f64>,
 }
 
 /// Um item do catálogo do jogo.

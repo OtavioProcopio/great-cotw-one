@@ -113,3 +113,25 @@ export function itemsById(items: EquipmentItem[], ids: string[]): EquipmentItem[
     return item ? [item] : [];
   });
 }
+
+const LIMIT_KEY = 'gco.weightLimit';
+
+/** Limite de peso que o jogador digitou (kg); `null` se nunca digitou ou o navegador não guarda. */
+export function readLimit(): number | null {
+  try {
+    const value = Number(localStorage.getItem(LIMIT_KEY));
+    return value > 0 ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Guarda o limite de peso neste computador (valor vazio ou inválido apaga). */
+export function saveLimit(value: number | null): void {
+  try {
+    if (value !== null && value > 0) localStorage.setItem(LIMIT_KEY, String(value));
+    else localStorage.removeItem(LIMIT_KEY);
+  } catch {
+    // Sem armazenamento, o limite vale só até fechar a tela.
+  }
+}
