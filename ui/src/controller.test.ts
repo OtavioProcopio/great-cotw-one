@@ -31,7 +31,7 @@ describe('Controller', () => {
     await new Controller(root, api).start();
     expect(root.textContent).toContain('O jogo foi encontrado');
     expect(root.querySelector('.tab[aria-current="page"]')?.textContent).toBe('Início');
-    expect(api.calls).toEqual(['license', 'checkPurchase', 'diagnostics', 'mapReserves']);
+    expect(api.calls).toEqual(['license', 'checkPurchase', 'diagnostics', 'mapReserves', 'appVersion', 'checkUpdate']);
   });
 
   it('shows the reserves the app recognised and opens the one the player taps', async () => {
@@ -90,6 +90,76 @@ describe('Controller', () => {
     click('copy-report');
     await settle();
     expect(root.querySelector('.notice-error')?.textContent).toContain('Não foi possível copiar');
+  });
+
+  it('shows a banner when a new version exists and installs it after the player confirms', async () => {
+    const api = fakeApi({ checkUpdate: () => Promise.resolve({ version: '0.2.0', notes: 'Kit da reserva', date: null }) });
+    await new Controller(root, api).start();
+    await settle();
+    expect(root.querySelector('.update-banner')?.textContent).toContain('0.2.0');
+    click('update-install');
+    await settle();
+    expect(api.calls).toContain('installUpdate');
+  });
+
+  it('hides the banner when the player chooses later and keeps the offer in Settings', async () => {
+    const api = fakeApi({ checkUpdate: () => Promise.resolve({ version: '0.2.0', notes: 'Notas', date: null }) });
+    await new Controller(root, api).start();
+    await settle();
+    click('update-dismiss');
+    expect(root.querySelector('.update-banner')).toBeNull();
+    click('show-diagnostics');
+    await settle();
+    expect(root.textContent).toContain('Versão 0.2.0 disponível.');
+    expect(root.textContent).toContain('Versão instalada: 0.1.0');
+    expect(root.querySelector('.update-notes')?.textContent).toBe('Notas');
+  });
+
+  it('says when the app is up to date or when the check fails, only if the player asked', async () => {
+    let fail = false;
+    const api = fakeApi({ checkUpdate: () => (fail ? Promise.reject(new Error('offline')) : Promise.resolve(null)) });
+    await new Controller(root, api).start();
+    click('show-diagnostics');
+    await settle();
+    click('update-check');
+    await settle();
+    expect(root.textContent).toContain('Você já está na versão mais nova.');
+    fail = true;
+    click('update-check');
+    await settle();
+    expect(root.textContent).toContain('Não foi possível atualizar agora.');
+  });
+
+  it('does not look for updates on start when the player turned it off', async () => {
+    localStorage.setItem('gco.autoUpdate', 'off');
+    try {
+      const api = fakeApi();
+      await new Controller(root, api).start();
+      expect(api.calls).not.toContain('checkUpdate');
+      click('show-diagnostics');
+      await settle();
+      const box = root.querySelector<HTMLInputElement>('[data-action="update-auto"]');
+      expect(box?.checked).toBe(false);
+      if (!box) throw new Error('sem caixa');
+      box.click();
+      await settle();
+      expect(localStorage.getItem('gco.autoUpdate')).toBe('on');
+    } finally {
+      localStorage.removeItem('gco.autoUpdate');
+    }
+  });
+
+  it('keeps the offer and shows an error when the install fails', async () => {
+    const api = fakeApi({
+      checkUpdate: () => Promise.resolve({ version: '0.2.0', notes: '', date: null }),
+      installUpdate: () => Promise.reject(new Error('assinatura inválida')),
+    });
+    await new Controller(root, api).start();
+    await settle();
+    click('update-install');
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('Não foi possível atualizar');
+    expect(root.querySelector('.update-banner')).not.toBeNull();
   });
 
   it('refreshes the current screen', async () => {
@@ -233,7 +303,7 @@ describe('Controller', () => {
     root.click();
     click('acao-desconhecida');
     await settle();
-    expect(api.calls).toEqual(['license', 'checkPurchase', 'diagnostics', 'mapReserves']);
+    expect(api.calls).toEqual(['license', 'checkPurchase', 'diagnostics', 'mapReserves', 'appVersion', 'checkUpdate']);
   });
 });
 

@@ -165,12 +165,13 @@ export function supportReport(d: Diagnostics, language: string): string {
   return lines.join('\n');
 }
 
-export function renderDiagnostics(d: Diagnostics): string {
+export function renderDiagnostics(d: Diagnostics, extra = ''): string {
   return `<header class="view-header">
       <div><h1>${e(t('diag.title'))}</h1><p class="muted">${e(t('diag.intro'))}</p></div>
       <button data-action="refresh">${icon('refresh', 16)}<span>${e(t('common.refresh'))}</span></button>
     </header>
     ${renderLanguage()}
+    ${extra}
     ${renderSupport()}
     ${renderGame(d.game, d.limitedMode)}
     ${renderSave(d.save)}

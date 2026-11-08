@@ -624,7 +624,7 @@ mod tests {
         }
     }
 
-    /// Vetor compartilhado com `tools/license-issuer` (emissor em JavaScript do servidor do site):
+    /// Vetor compartilhado com o emissor em JavaScript do servidor de licenças (repositório `great-cotw-one-platform`, `license-server/src/issuer.mjs`):
     /// a assinatura Ed25519 é determinística, então o app tem de aceitar o texto que ele gera.
     #[test]
     fn accepts_the_key_issued_by_the_website_issuer() {

@@ -477,6 +477,15 @@ export interface Kit {
   weight: number;
 }
 
+/** Versão nova do app publicada para atualização automática. */
+export interface UpdateInfo {
+  version: string;
+  /** Notas da versão (texto simples). */
+  notes: string;
+  /** Data de publicação (ISO), se informada. */
+  date: string | null;
+}
+
 export interface RestoreResult {
   safetyBackup: string;
 }

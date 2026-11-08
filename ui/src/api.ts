@@ -1,7 +1,13 @@
 import { invoke } from '@tauri-apps/api/core';
+import { getVersion } from '@tauri-apps/api/app';
 import { ask, open } from '@tauri-apps/plugin-dialog';
+import { relaunch } from '@tauri-apps/plugin-process';
+import { type Update, check } from '@tauri-apps/plugin-updater';
 
-import type { AnimalReserve, CommandError, Diagnostics, EditRequest, EditResult, EquipmentChange, EquipmentEditResult, GearAdvice, HistoryItem, Inventory, Kit, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, RestoreResult, RewriteResult, SpeciesEditor, UnlockRequest, UnlockResult, ZonesPreview } from './types';
+import type { AnimalReserve, CommandError, Diagnostics, EditRequest, EditResult, EquipmentChange, EquipmentEditResult, GearAdvice, HistoryItem, Inventory, Kit, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, RestoreResult, RewriteResult, SpeciesEditor, UnlockRequest, UnlockResult, UpdateInfo, ZonesPreview } from './types';
+
+/** Atualização achada pela última procura (o objeto do plugin, que sabe baixar e instalar). */
+let found: Update | null = null;
 
 /** Tudo que a interface precisa do app; substituível nos testes. */
 export interface Api {
@@ -28,6 +34,12 @@ export interface Api {
   /** Sugestões de arma, munição e mira para uma espécie; `null` se o jogo não der classe a ela. */
   gearAdvice(species: string): Promise<GearAdvice | null>;
   reserveKit(reserve: number): Promise<Kit | null>;
+  /** Versão instalada do app. */
+  appVersion(): Promise<string>;
+  /** Procura uma versão nova assinada; `null` se já está na última. */
+  checkUpdate(): Promise<UpdateInfo | null>;
+  /** Baixa e instala a versão achada por `checkUpdate` e reabre o app; `progress` recebe de 0 a 100. */
+  installUpdate(progress: (percent: number) => void): Promise<void>;
   /** Entrega itens, ajusta quantidades e dinheiro, com backup antes. Exige Premium. */
   editEquipment(changes: EquipmentChange[]): Promise<EquipmentEditResult>;
   /** Ícones (`data:image/png`) dos itens pedidos, lidos do jogo; os que não existirem ficam de fora. */
@@ -84,6 +96,25 @@ export const tauriApi: Api = {
   equipment: () => invoke<Inventory>('equipment'),
   gearAdvice: (species) => invoke<GearAdvice | null>('gear_advice', { species }),
   reserveKit: (reserve) => invoke<Kit | null>('reserve_kit', { reserve }),
+  appVersion: () => getVersion(),
+  checkUpdate: async () => {
+    found = await check();
+    return found ? { version: found.version, notes: found.body ?? '', date: found.date ?? null } : null;
+  },
+  installUpdate: async (progress) => {
+    if (!found) throw new Error('nenhuma atualização encontrada');
+    let total = 0;
+    let done = 0;
+    await found.downloadAndInstall((event) => {
+      if (event.event === 'Started') total = event.data.contentLength ?? 0;
+      if (event.event === 'Progress') {
+        done += event.data.chunkLength;
+        progress(total > 0 ? Math.min(100, (done / total) * 100) : 0);
+      }
+      if (event.event === 'Finished') progress(100);
+    });
+    await relaunch();
+  },
   editEquipment: (changes) => invoke<EquipmentEditResult>('edit_equipment', { changes }),
   equipmentIcons: (ids) => invoke<Record<string, string>>('equipment_icons', { ids }),
   missions: () => invoke<ReserveMissions[]>('missions'),

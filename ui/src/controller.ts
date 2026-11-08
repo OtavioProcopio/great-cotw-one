@@ -4,6 +4,7 @@ import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } 
 import { icon, type IconName } from './icons';
 import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, GearAdvice, HistoryItem, Inventory, Kit, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
 import { renderDiagnostics, supportReport } from './views/diagnostics';
+import { type UpdateState, initialUpdateState, renderUpdateBanner, renderUpdatesCard, saveAutoUpdate } from './views/updates';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
 import { bindAnimals, renderAnimals } from './views/animals';
@@ -94,6 +95,7 @@ export class Controller {
   private mapView: MapView | null = null;
   private notice: Notice | null = null;
   private loading = false;
+  private update: UpdateState = initialUpdateState();
 
   constructor(
     private readonly root: HTMLElement,
@@ -111,6 +113,43 @@ export class Controller {
     this.license = await this.api.license().catch((): License => FREE);
     await this.resumePurchase();
     await this.show('home');
+    this.update = { ...this.update, current: await this.api.appVersion().catch(() => '') };
+    if (this.update.auto) await this.checkUpdate(false);
+  }
+
+  /** Procura versão nova. `manual`: o jogador pediu (mostra também "já está na última" e erros). */
+  private async checkUpdate(manual: boolean): Promise<void> {
+    if (this.update.phase === 'checking' || this.update.phase === 'downloading') return;
+    this.update = { ...this.update, phase: 'checking' };
+    if (manual) this.render();
+    try {
+      const info = await this.api.checkUpdate();
+      this.update = { ...this.update, phase: info ? 'available' : 'none', info, dismissed: false };
+    } catch {
+      // Sem internet ou sem o arquivo de versões: ao abrir, fica quieto; no pedido manual, avisa.
+      this.update = { ...this.update, phase: manual ? 'error' : 'idle' };
+    }
+    if (manual || this.update.phase === 'available') this.render();
+  }
+
+  /** Confirma, baixa, instala e reabre o app na versão nova. */
+  private async installUpdate(): Promise<void> {
+    const info = this.update.info;
+    if (!info || this.update.phase === 'downloading') return;
+    if (!(await this.api.confirm(t('update.confirm', { version: info.version }), t('update.confirmOk')))) return;
+    this.update = { ...this.update, phase: 'downloading', progress: 0 };
+    this.render();
+    try {
+      await this.api.installUpdate((percent) => {
+        this.update = { ...this.update, progress: percent };
+        const bar = this.root.querySelector<HTMLProgressElement>('.update-banner progress');
+        if (bar) bar.value = Math.round(percent);
+      });
+    } catch (error) {
+      this.update = { ...this.update, phase: 'available' };
+      this.notice = { kind: 'error', text: `${t('update.failed')} ${describeError(error)}` };
+      this.render();
+    }
   }
 
   /** Se o app foi fechado no meio de uma compra, volta a esperar o pagamento (ou ativa, se já saiu). */
@@ -408,6 +447,22 @@ export class Controller {
       case 'choose-game-folder':
         await this.chooseFolder(t('game.choose'), (chosen) => this.api.selectGameDir(chosen));
         break;
+      case 'update-check':
+        await this.checkUpdate(true);
+        break;
+      case 'update-install':
+        await this.installUpdate();
+        break;
+      case 'update-dismiss':
+        this.update = { ...this.update, dismissed: true };
+        this.render();
+        break;
+      case 'update-auto': {
+        const on = button instanceof HTMLInputElement && button.checked;
+        saveAutoUpdate(on);
+        this.update = { ...this.update, auto: on };
+        break;
+      }
       case 'copy-report':
         if (this.diagnostics) {
           try {
@@ -678,7 +733,7 @@ export class Controller {
         ${item('premium', 'star', t('nav.premium'), 'show-premium')}
         ${item('diagnostics', 'settings', t('nav.diagnostics'), 'show-diagnostics')}
       </nav>
-      <main class="${this.view === 'map' ? 'wide' : ''}" aria-busy="${String(this.loading)}">${notice}${body}</main>
+      <main class="${this.view === 'map' ? 'wide' : ''}" aria-busy="${String(this.loading)}">${renderUpdateBanner(this.update)}${notice}${body}</main>
     </div>`;
     this.mountMap();
     bindProfile(this.root);
@@ -757,6 +812,6 @@ export class Controller {
     if (!this.diagnostics) return '';
     return this.view === 'home'
       ? renderHome(this.diagnostics, this.homeReserves, this.license)
-      : renderDiagnostics(this.diagnostics);
+      : renderDiagnostics(this.diagnostics, renderUpdatesCard(this.update));
   }
 }

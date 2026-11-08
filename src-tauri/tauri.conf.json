@@ -27,11 +27,37 @@
   "bundle": {
     "active": true,
     "copyright": "© 2026 Otávio Procópio. Todos os direitos reservados.",
-    "targets": ["nsis"],
-    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
     "windows": {
-      "webviewInstallMode": { "type": "downloadBootstrapper" },
-      "nsis": { "installMode": "currentUser", "languages": ["PortugueseBR"] }
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "PortugueseBR"
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEU1NDNCQThCNEUyNkMxRjMKUldUendTWk9pN3BENWQwMkNLcmNnVWowZDNxQVJWRVRsSkdiVERoWktvUFRxMW44ajRJc05kS1YK",
+      "endpoints": [
+        "https://github.com/OtavioProcopio/great-cotw-one-site/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
     }
   }
 }

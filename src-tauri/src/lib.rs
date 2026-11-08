@@ -287,6 +287,10 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_opener::init())
+        // Atualização automática: o instalador novo só é aceito com a assinatura da nossa chave
+        // (a pública está em tauri.conf.json); depois de instalar, o app reabre sozinho.
+        .plugin(tauri_plugin_updater::Builder::new().build())
+        .plugin(tauri_plugin_process::init())
         .manage(service)
         .invoke_handler(tauri::generate_handler![
             diagnostics,

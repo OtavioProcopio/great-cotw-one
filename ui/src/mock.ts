@@ -139,6 +139,8 @@ export function installMock(): void {
         return mockInventory();
       case 'gear_advice':
         return mockAdvice();
+      case 'plugin:app|version':
+        return '0.1.0';
       case 'reserve_kit':
         return mockKit();
       case 'edit_equipment':

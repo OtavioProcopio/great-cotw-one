@@ -307,6 +307,13 @@ export function fakeApi(overrides: Partial<Api> = {}): Api & { calls: string[]; 
     equipmentIcons: record('equipmentIcons', {}),
     gearAdvice: record('gearAdvice', mockAdvice()),
     reserveKit: record('reserveKit', mockKit()),
+    appVersion: record('appVersion', '0.1.0'),
+    checkUpdate: record('checkUpdate', null),
+    installUpdate: (progress) => {
+      calls.push('installUpdate');
+      progress(50);
+      return Promise.resolve();
+    },
     editEquipment: (changes) => {
       calls.push(`editEquipment:${JSON.stringify(changes)}`);
       return Promise.resolve({ changes: changes.length, backup: 'C:\\Backups\\equipamentos' });

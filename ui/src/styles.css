@@ -2627,3 +2627,41 @@ button.eq-kind[aria-pressed='true'] .eq-kind-bar i {
 .eq-weight input {
   width: 8em;
 }
+
+/* ===== atualização automática ===== */
+.update-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  background: var(--ok-bg);
+  color: var(--ok-text);
+}
+
+.update-banner span {
+  flex: 1 1 240px;
+  font-weight: 600;
+}
+
+.update-banner progress {
+  flex: 1 1 200px;
+}
+
+.update-notes {
+  white-space: pre-line;
+  font-size: 0.9rem;
+}
+
+.switch-line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.small {
+  font-size: 0.82rem;
+}

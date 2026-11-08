@@ -125,7 +125,7 @@ no horário escolhido. Zonas que o app ainda não gravou aparecem com contorno t
 
 **Emitir chaves (vendedor):** `cargo run -p license-tool -- keygen <pasta>` gera `private.key` (**secreta, nunca vai para o repositório**) e `public.key` (copie para `crates/cotw-core/src/license_public.key` e recompile). Depois: `cargo run -p license-tool -- issue <private.key> <e-mail> monthly|yearly` imprime a chave para mandar ao comprador, e `inspect <public.key> <chave>` confere uma chave. A chave privada do desenvolvimento está em `%USERPROFILE%\.great-cotw-one\license-keys\`; faça uma cópia segura dela: sem ela não dá para emitir licenças que o app aceite (e, se trocar o par, as licenças já vendidas deixam de valer).
 
-**Emitir chaves pelo site:** o servidor da VPS (`tools/license-server`, com o emissor `tools/license-issuer`) cria o pagamento no Mercado Pago e assina a chave depois do webhook; instalação e decisões em [LICENCAS-SITE.md](LICENCAS-SITE.md).
+**Emitir chaves pelo site:** o servidor de licenças mora no repositório privado `great-cotw-one-platform` (`license-server/`), com deploy, operação e checklist de lançamento; resumo em [LICENCAS-SITE.md](LICENCAS-SITE.md).
 
 **Testar o Premium em desenvolvimento:** `GREAT_COTW_PREMIUM_DEV=1` (só em compilações de depuração) ou `?mock&premium` no navegador; os testes usam `FixedLicense` ou uma chave de teste (`AppService::with_license_file`).
 

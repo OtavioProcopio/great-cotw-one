@@ -1,4 +1,4 @@
-//! A loja de verdade: fala HTTPS com o servidor de licenças (`tools/license-server`).
+//! A loja de verdade: fala HTTPS com o servidor de licenças (repositório `great-cotw-one-platform`).
 //!
 //! A conversa é pequena: pedir o link de pagamento e perguntar se o pagamento já foi
 //! confirmado. Cartão e Pix passam só pela página do Mercado Pago, nunca pelo app.

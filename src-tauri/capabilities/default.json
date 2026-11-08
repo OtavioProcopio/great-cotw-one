@@ -1,7 +1,15 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Permissões da janela principal: comandos do app e diálogos de pasta/confirmação.",
-  "windows": ["main"],
-  "permissions": ["core:default", "dialog:allow-open", "dialog:allow-message"]
+  "description": "Permissões da janela principal: comandos do app, diálogos de pasta/confirmação e atualização automática (procurar, baixar, instalar e reabrir).",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open",
+    "dialog:allow-message",
+    "updater:default",
+    "process:allow-restart"
+  ]
 }
