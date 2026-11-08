@@ -1,6 +1,6 @@
 import { escapeHtml as e } from '../escape';
 import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey, collection, groupItems, itemsById, maxAmount, ownCounts, rankValue, rankWeapons, saveLimit, visibleItems } from '../equipmentlogic';
-import { formatCount, formatEpoch } from '../format';
+import { formatCount, formatDecimal, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
 import { KIND_ICON, thumb } from './thumb';
@@ -93,7 +93,7 @@ function itemMeta(item: EquipmentItem): string {
   const meta: string[] = [];
   if (item.class) meta.push(t(`equip.class.${item.class}`));
   if (item.price > 0) meta.push(t('equip.price', { value: formatCount(item.price) }));
-  if (item.weight !== null) meta.push(t('equip.weight', { value: item.weight.toLocaleString() }));
+  if (item.weight !== null) meta.push(t('equip.weight', { value: formatDecimal(item.weight) }));
   if (item.boxSize !== null) meta.push(t('equip.box', { count: item.boxSize }));
   return meta.join(' · ');
 }

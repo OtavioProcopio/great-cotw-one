@@ -352,6 +352,12 @@ export const ptBR = {
   'update.failed': 'Não foi possível atualizar agora. Tente de novo mais tarde.',
   'update.auto': 'Procurar atualizações ao abrir o app',
   'update.privacy': 'Para procurar, o app lê um arquivo público de versões no GitHub. Nada do seu save ou do seu computador é enviado. Só instalamos atualizações assinadas pela nossa chave.',
+  'history.fn.restore': 'Restaurar backup',
+  'history.sum.zones': '{zones} zonas liberadas em {reserves} reservas',
+  'history.sum.equipment': '{count} mudanças nos equipamentos',
+  'history.sum.animals': '{count} animais editados ({species})',
+  'history.sum.rewrite': '{file} regravado sem mudanças',
+  'history.sum.restore': 'Pasta do save restaurada a partir de {path}',
   'diag.title': 'Ajustes',
   'diag.intro':
     'Aqui você confere e muda onde o app procura o jogo e o seu progresso. Se está tudo funcionando, não precisa mexer em nada.',

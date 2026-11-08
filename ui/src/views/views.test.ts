@@ -4,7 +4,7 @@ import { foundDiagnostics, historyItems, zonesPreview } from '../test-data';
 import type { Diagnostics } from '../types';
 import { anonymizePath, renderDiagnostics, supportReport } from './diagnostics';
 import { defaultRewriteFile, renderHome } from './home';
-import { renderHistory } from './history';
+import { renderHistory, summaryText } from './history';
 import { type UnlockState, initialUnlockState } from '../unlocklogic';
 import { setLocale } from '../i18n';
 import { renderUnlock } from './unlock';
@@ -372,5 +372,21 @@ describe('support report', () => {
     expect(text).toContain('Jogo: não encontrado');
     expect(text).toContain('Modo limitado: sim');
     expect(text).toContain('Reservas com dados: nenhuma');
+  });
+});
+
+describe('history summaries', () => {
+  it('translates the summaries the app writes and keeps unknown ones as they are', () => {
+    setLocale('en');
+    try {
+      expect(summaryText('7330 zonas liberadas em 2 reservas')).toBe('7330 zones unlocked in 2 reserves');
+      expect(summaryText('3 mudanças nos equipamentos')).toBe('3 equipment changes');
+      expect(summaryText('2 animais editados (Moose)')).toBe('2 animals edited (Moose)');
+      expect(summaryText('animal_population_2 regravado sem mudanças')).toBe('animal_population_2 rewritten with no changes');
+      expect(summaryText('Pasta do save restaurada a partir de C:\b')).toBe('Save folder restored from C:\b');
+      expect(summaryText('algo novo')).toBe('algo novo');
+    } finally {
+      setLocale('pt-BR');
+    }
   });
 });

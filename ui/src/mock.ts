@@ -1,6 +1,8 @@
 // Dados de exemplo para ver a interface no navegador (`npm run dev` + `?mock`). Não vão para o app.
 import { mockIPC } from '@tauri-apps/api/mocks';
 
+import { localize } from './mock-i18n';
+
 import { mockAdvice, mockAnimals, mockKit, mockInventory, mockMapReserves, mockMissions, mockProfile, terrainArt } from './mock-data';
 import type { Diagnostics, HistoryItem, ReserveMap } from './types';
 
@@ -47,8 +49,8 @@ const history: HistoryItem[] = [
     id: 2,
     at: '2026-11-02_15-30-00',
     kind: 'change',
-    function: 'Liberar zonas',
-    summary: '12 zonas de necessidade adicionadas em 3 reservas',
+    function: 'Liberar o mapa',
+    summary: '12 zonas liberadas em 3 reservas',
     files: ['found_need_zones_adf'],
     backup: 'C:\\Users\\voce\\AppData\\Roaming\\Great COTW One\\backups\\2026-11-02_15-30-00',
     backupMissing: false,
@@ -57,8 +59,8 @@ const history: HistoryItem[] = [
     id: 1,
     at: '2026-10-28_21-04-10',
     kind: 'change',
-    function: 'Editor de animais',
-    summary: '1 diamante por grupo',
+    function: 'Editar animais',
+    summary: '3 animais editados (Alce)',
     files: ['animal_population_0', 'animal_population_2'],
     backup: 'C:\\Users\\voce\\AppData\\Roaming\\Great COTW One\\backups\\2026-10-28_21-04-10',
     backupMissing: true,
@@ -101,7 +103,11 @@ function mockMap(): ReserveMap {
 }
 
 export function installMock(): void {
-  mockIPC((command, args) => {
+  mockIPC((command, args) => localize(answer(command, args)));
+}
+
+function answer(command: string, args: unknown): unknown {
+  {
     switch (command) {
       case 'diagnostics':
         return diagnostics;
@@ -186,5 +192,5 @@ export function installMock(): void {
       default:
         return null;
     }
-  });
+  }
 }

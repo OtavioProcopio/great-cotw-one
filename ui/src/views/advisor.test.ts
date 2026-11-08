@@ -99,7 +99,7 @@ describe('whole-reserve kit', () => {
     const root = html(renderAdvisor(inv, sampleAnimals, state, null, false, {}, mockKit(), null));
     const text = root.textContent;
     expect(text).toContain('3 animais considerados');
-    expect(text).toContain(`Peso do kit: ${(5.6).toLocaleString()} kg`);
+    expect(text).toContain(`Peso do kit: 5,6 kg`);
     expect(text).toContain('Armas para levar');
     expect(text).toContain('Atende: Alce, Cervo-almiscarado');
     expect(text).toContain('Para cobrir o que falta');
@@ -123,11 +123,11 @@ describe('whole-reserve kit', () => {
   it('compares the kit weight with the limit the player typed', () => {
     expect(limitNote(5.6, null)).toContain('Digite o máximo');
     expect(limitNote(5.6, 0)).toContain('Digite o máximo');
-    expect(limitNote(5.6, 30)).toBe(`Cabe no seu limite: sobram ${(24.4).toLocaleString()} kg.`);
-    expect(limitNote(5.6, 5)).toContain(`Passa ${(0.6).toLocaleString()} kg do seu limite`);
+    expect(limitNote(5.6, 30)).toBe(`Cabe no seu limite: sobram 24,4 kg.`);
+    expect(limitNote(5.6, 5)).toContain(`Passa 0,6 kg do seu limite`);
     const root = html(renderAdvisor(inv, sampleAnimals, state, null, false, {}, mockKit(), 30));
     expect(root.querySelector<HTMLInputElement>('#kit-limit')?.value).toBe('30');
-    expect(root.textContent).toContain(`sobram ${(24.4).toLocaleString()} kg`);
+    expect(root.textContent).toContain(`sobram 24,4 kg`);
   });
 
   it('offers Premium users a button to give the missing set', () => {

@@ -50,3 +50,8 @@ export function formatMoney(value: number): string {
 export function formatCount(count: number): string {
   return new Intl.NumberFormat(getLocale()).format(count);
 }
+
+/** Número com casas decimais no idioma do app (não no do Windows): `5.6` → `5,6` em português, `5.6` em inglês. */
+export function formatDecimal(value: number, digits = 2): string {
+  return new Intl.NumberFormat(getLocale(), { maximumFractionDigits: digits }).format(value);
+}

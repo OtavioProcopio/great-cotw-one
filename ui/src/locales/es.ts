@@ -357,6 +357,12 @@ export const es: Record<MessageKey, string> = {
   'update.failed': 'No se pudo actualizar ahora. Inténtalo más tarde.',
   'update.auto': 'Buscar actualizaciones al abrir la app',
   'update.privacy': 'Para buscar, la app lee un archivo público de versiones en GitHub. No se envía nada de tu partida ni de tu computadora. Solo instalamos actualizaciones firmadas con nuestra clave.',
+  'history.fn.restore': 'Restaurar copia',
+  'history.sum.zones': '{zones} zonas liberadas en {reserves} reservas',
+  'history.sum.equipment': '{count} cambios en el equipamiento',
+  'history.sum.animals': '{count} animales editados ({species})',
+  'history.sum.rewrite': '{file} regrabado sin cambios',
+  'history.sum.restore': 'Carpeta de la partida restaurada desde {path}',
   'diag.title': 'Ajustes',
   'diag.intro':
     'Aquí compruebas y cambias dónde busca la app el juego y tu progreso. Si todo funciona, no hace falta tocar nada.',

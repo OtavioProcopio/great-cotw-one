@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { escapeHtml } from './escape';
-import { formatBytes, formatCount, formatDate, formatEpoch, formatMoney, formatStamp } from './format';
+import { formatBytes, formatCount, formatDate, formatDecimal, formatEpoch, formatMoney, formatStamp } from './format';
 import { setLocale } from './i18n';
 
 describe('formatBytes', () => {
@@ -54,5 +54,19 @@ describe('formats follow the language', () => {
     expect(formatDate(0, 'UTC')).toBe('1/1/70');
     setLocale('es');
     expect(formatMoney(15)).toMatch(/^15,00\s?R\$$/);
+  });
+});
+
+describe('formatDecimal', () => {
+  it('follows the app language, not the computer one', () => {
+    setLocale('en');
+    try {
+      expect(formatDecimal(5.6)).toBe('5.6');
+      expect(formatDecimal(1234.567)).toBe('1,234.57');
+    } finally {
+      setLocale('pt-BR');
+    }
+    expect(formatDecimal(5.6)).toBe('5,6');
+    expect(formatDecimal(2.5, 0)).toBe('3');
   });
 });

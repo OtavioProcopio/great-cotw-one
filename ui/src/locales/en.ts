@@ -357,6 +357,12 @@ export const en: Record<MessageKey, string> = {
   'update.failed': 'Could not update right now. Try again later.',
   'update.auto': 'Check for updates when the app opens',
   'update.privacy': 'To check, the app reads a public versions file on GitHub. Nothing from your save or your computer is sent. We only install updates signed with our key.',
+  'history.fn.restore': 'Restore backup',
+  'history.sum.zones': '{zones} zones unlocked in {reserves} reserves',
+  'history.sum.equipment': '{count} equipment changes',
+  'history.sum.animals': '{count} animals edited ({species})',
+  'history.sum.rewrite': '{file} rewritten with no changes',
+  'history.sum.restore': 'Save folder restored from {path}',
   'diag.title': 'Settings',
   'diag.intro':
     'Here you check and change where the app looks for the game and your progress. If everything works, you need not touch anything.',

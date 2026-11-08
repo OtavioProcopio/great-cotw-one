@@ -1,5 +1,5 @@
 import { escapeHtml as e } from '../escape';
-import { formatCount } from '../format';
+import { formatCount, formatDecimal } from '../format';
 import { t } from '../i18n';
 import { icon } from '../icons';
 import { thumb } from './thumb';
@@ -22,7 +22,7 @@ function chip(action: string, data: string, label: string, pressed: boolean): st
 }
 
 function number(value: number | null | undefined, digits = 0): string {
-  return value === null || value === undefined ? '-' : value.toLocaleString(undefined, { maximumFractionDigits: digits });
+  return value === null || value === undefined ? '-' : formatDecimal(value, digits);
 }
 
 function metrics(weapon: EquipmentItem | undefined, ammo: EquipmentItem | undefined, pick: AdvicePick): string {

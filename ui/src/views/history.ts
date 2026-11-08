@@ -9,7 +9,28 @@ const FUNCTIONS: Record<string, MessageKey> = {
   'Editar animais': 'history.fn.edit',
   'Editar equipamentos': 'history.fn.equipment',
   'Teste de gravação': 'history.fn.test',
+  'Restaurar backup': 'history.fn.restore',
 };
+
+/**
+ * O histórico guarda o resumo em português (é assim desde as primeiras versões, e o arquivo continua
+ * válido). Na hora de mostrar, os resumos conhecidos são traduzidos para o idioma atual.
+ */
+const SUMMARIES: [RegExp, (m: RegExpMatchArray) => string][] = [
+  [/^(\d+) zonas liberadas em (\d+) reservas$/, (m) => t('history.sum.zones', { zones: m[1] ?? '', reserves: m[2] ?? '' })],
+  [/^(\d+) mudanças nos equipamentos$/, (m) => t('history.sum.equipment', { count: m[1] ?? '' })],
+  [/^(\d+) animais editados \((.+)\)$/, (m) => t('history.sum.animals', { count: m[1] ?? '', species: m[2] ?? '' })],
+  [/^(.+) regravado sem mudanças$/, (m) => t('history.sum.rewrite', { file: m[1] ?? '' })],
+  [/^Pasta do save restaurada a partir de (.+)$/, (m) => t('history.sum.restore', { path: m[1] ?? '' })],
+];
+
+export function summaryText(summary: string): string {
+  for (const [pattern, text] of SUMMARIES) {
+    const match = pattern.exec(summary);
+    if (match) return text(match);
+  }
+  return summary;
+}
 
 function functionName(name: string): string {
   const key = FUNCTIONS[name];
@@ -27,7 +48,7 @@ function renderItem(item: HistoryItem): string {
       <strong>${e(functionName(item.function))}</strong>
       <time class="muted">${e(formatStamp(item.at))}</time>
     </div>
-    <p>${e(item.summary)}</p>
+    <p>${e(summaryText(item.summary))}</p>
     ${restore}
     <details class="details"><summary>${e(t('history.details'))}</summary>
       <p class="muted">${e(t('history.files', { files }))}</p>
