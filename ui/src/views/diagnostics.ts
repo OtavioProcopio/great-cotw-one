@@ -31,6 +31,14 @@ function renderGame(game: GameDiagnostic, limited: boolean): string {
   </section>`;
 }
 
+function renderSupport(): string {
+  return `<section class="card" aria-labelledby="support-title">
+    ${heading('support-title', 'shield', t('support.title'))}
+    <p class="muted">${e(t('support.body'))}</p>
+    <div class="actions"><button data-action="copy-report">${icon('save', 16)}<span>${e(t('support.copy'))}</span></button></div>
+  </section>`;
+}
+
 function accountLine(account: AccountDiagnostic): string {
   const modified =
     account.lastModified === null
@@ -133,12 +141,37 @@ function renderFiles(files: FileDiagnostic[]): string {
 }
 
 /** Detalhes técnicos: jogo, save, reservas e arquivos reconhecidos. */
+/** Troca o nome do usuário do Windows nos caminhos, para o relatório poder ser enviado sem expor quem você é. */
+export function anonymizePath(path: string): string {
+  return path.replace(/([A-Za-z]:[\\/]+Users[\\/]+)[^\\/]+/gi, '$1<usuario>');
+}
+
+/** Texto curto com o estado do app, para colar numa conversa de suporte. Não leva save, nome nem ID da Steam. */
+export function supportReport(d: Diagnostics, language: string): string {
+  const lines = [
+    'Great COTW One - relatório de suporte',
+    `Idioma: ${language}`,
+    `Jogo: ${d.game.found ? 'encontrado' : 'não encontrado'}${d.game.manual ? ' (pasta escolhida à mão)' : ''}`,
+    `Build do jogo: ${d.game.buildId ?? 'desconhecida'}`,
+    `Arquivos do jogo (.tab): ${String(d.game.tabFiles)}`,
+    `Modo limitado: ${d.limitedMode ? 'sim' : 'não'}`,
+    `Save: ${d.save.status}${d.save.manual ? ' (pasta escolhida à mão)' : ''}`,
+    `Contas de save encontradas: ${String(d.save.accounts.length)}`,
+    `Reservas com dados: ${d.reserves.map((r) => r.name).join(', ') || 'nenhuma'}`,
+    `Arquivos do save: ${String(d.files.length)} (${String(d.files.filter((f) => f.state !== 'ok').length)} com problema)`,
+  ];
+  if (d.game.root) lines.push(`Pasta do jogo: ${anonymizePath(d.game.root)}`);
+  if (d.save.account) lines.push(`Pasta do save: ${anonymizePath(d.save.account.path).replace(/[\\/][0-9]{17}$/, '/<id-steam>')}`);
+  return lines.join('\n');
+}
+
 export function renderDiagnostics(d: Diagnostics): string {
   return `<header class="view-header">
       <div><h1>${e(t('diag.title'))}</h1><p class="muted">${e(t('diag.intro'))}</p></div>
       <button data-action="refresh">${icon('refresh', 16)}<span>${e(t('common.refresh'))}</span></button>
     </header>
     ${renderLanguage()}
+    ${renderSupport()}
     ${renderGame(d.game, d.limitedMode)}
     ${renderSave(d.save)}
     ${d.save.status === 'found' ? renderReserves(d) + renderFiles(d.files) : ''}`;

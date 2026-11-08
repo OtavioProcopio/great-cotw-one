@@ -332,6 +332,11 @@ export const ptBR = {
   'missions.quickHint': 'As missões em andamento que estão mais perto de terminar, de todas as reservas.',
   'missions.quickLeft': '{done} de {total} objetivos feitos',
   'missions.loading': 'Lendo as missões…',
+  'support.title': 'Precisa de ajuda?',
+  'support.body': 'Copie um relatório curto com o estado do app (sem save, sem seu nome de usuário e sem ID da Steam) e cole na conversa com o suporte.',
+  'support.copy': 'Copiar relatório para o suporte',
+  'support.copied': 'Relatório copiado. É só colar na conversa com o suporte.',
+  'support.copyFailed': 'Não foi possível copiar. Tente de novo.',
   'diag.title': 'Ajustes',
   'diag.intro':
     'Aqui você confere e muda onde o app procura o jogo e o seu progresso. Se está tudo funcionando, não precisa mexer em nada.',

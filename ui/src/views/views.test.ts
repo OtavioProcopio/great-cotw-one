@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { foundDiagnostics, historyItems, zonesPreview } from '../test-data';
 import type { Diagnostics } from '../types';
-import { renderDiagnostics } from './diagnostics';
+import { anonymizePath, renderDiagnostics, supportReport } from './diagnostics';
 import { defaultRewriteFile, renderHome } from './home';
 import { renderHistory } from './history';
 import { type UnlockState, initialUnlockState } from '../unlocklogic';
@@ -330,5 +330,47 @@ describe('language card and history names', () => {
     setLocale('es');
     expect(html(renderHistory([item])).textContent).toContain('Liberar el mapa');
     expect(html(renderHistory([{ ...item, function: 'Outra função' }])).textContent).toContain('Outra função');
+  });
+});
+
+describe('support report', () => {
+  it('hides the Windows user name in paths', () => {
+    expect(anonymizePath(String.raw`C:\Users\maria\Documents\Saves`)).toBe(String.raw`C:\Users\<usuario>\Documents\Saves`);
+    expect(anonymizePath('D:/Users/joao/Docs')).toBe('D:/Users/<usuario>/Docs');
+    expect(anonymizePath(String.raw`C:\Steam\steamapps`)).toBe(String.raw`C:\Steam\steamapps`);
+  });
+
+  it('summarises the state without the save, the user name or the Steam ID', () => {
+    const d: Diagnostics = {
+      ...foundDiagnostics,
+      game: { ...foundDiagnostics.game, root: String.raw`C:\Users\maria\Steam\theHunterCotW` },
+      save: {
+        ...foundDiagnostics.save,
+        account: { steamId: '76561198000000001', path: String.raw`C:\Users\maria\Documents\Saves\76561198000000001`, lastModified: null },
+      },
+    };
+    const text = supportReport(d, 'pt-BR');
+    expect(text).toContain('Jogo: encontrado');
+    expect(text).toContain('Build do jogo: 26051119');
+    expect(text).toContain('Reservas com dados: Medved-Taiga, Reserva 99');
+    expect(text).toContain('2 com problema');
+    expect(text).not.toContain('maria');
+    expect(text).not.toContain('76561198000000001');
+    expect(text).toContain('<id-steam>');
+  });
+
+  it('says so when the game and the save are missing', () => {
+    const d: Diagnostics = {
+      ...foundDiagnostics,
+      limitedMode: true,
+      game: { found: false, root: null, archives: null, tabFiles: 0, buildId: null, manual: false },
+      save: { status: 'notFound', account: null, accounts: [], searched: [], manual: false },
+      reserves: [],
+      files: [],
+    };
+    const text = supportReport(d, 'en');
+    expect(text).toContain('Jogo: não encontrado');
+    expect(text).toContain('Modo limitado: sim');
+    expect(text).toContain('Reservas com dados: nenhuma');
   });
 });

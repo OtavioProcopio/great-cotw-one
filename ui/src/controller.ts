@@ -3,7 +3,7 @@ import { formatCount, formatStamp } from './format';
 import { LOCALES, type Locale, errorText, getLocale, saveLocale, setLocale, t } from './i18n';
 import { icon, type IconName } from './icons';
 import type { AnimalReserve, Diagnostics, EditRequest, EquipmentChange, GearAdvice, HistoryItem, Inventory, Kit, License, MapReserve, Profile, PurchaseStatus, ReserveMap, ReserveMissions, ZonesPreview } from './types';
-import { renderDiagnostics } from './views/diagnostics';
+import { renderDiagnostics, supportReport } from './views/diagnostics';
 import { defaultRewriteFile, renderHome } from './views/home';
 import { renderHistory } from './views/history';
 import { bindAnimals, renderAnimals } from './views/animals';
@@ -407,6 +407,17 @@ export class Controller {
         break;
       case 'choose-game-folder':
         await this.chooseFolder(t('game.choose'), (chosen) => this.api.selectGameDir(chosen));
+        break;
+      case 'copy-report':
+        if (this.diagnostics) {
+          try {
+            await navigator.clipboard.writeText(supportReport(this.diagnostics, getLocale()));
+            this.notice = { kind: 'ok', text: t('support.copied') };
+          } catch {
+            this.notice = { kind: 'error', text: t('support.copyFailed') };
+          }
+          this.render();
+        }
         break;
       case 'reset-choices':
         await this.run(() => this.api.resetChoices());

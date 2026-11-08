@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
 
+# O CI só lê o repositório; nada aqui precisa de escrita.
+permissions:
+  contents: read
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -91,3 +95,21 @@ jobs:
       - run: npm run lint
       - name: Tests e cobertura (limites em vite.config.ts)
         run: npm run coverage
+
+  # Dependências com falha de segurança conhecida derrubam o CI.
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/install-action@cargo-audit
+      - name: Rust (RustSec)
+        run: cargo audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+      - run: npm --prefix ui ci
+      - name: Interface (só o que vai no app)
+        run: npm --prefix ui audit --omit=dev --audit-level=high

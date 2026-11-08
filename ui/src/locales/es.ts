@@ -337,6 +337,11 @@ export const es: Record<MessageKey, string> = {
   'missions.quickHint': 'Las misiones en curso más cerca de terminar, de todas las reservas.',
   'missions.quickLeft': '{done} de {total} objetivos hechos',
   'missions.loading': 'Leyendo las misiones…',
+  'support.title': '¿Necesitas ayuda?',
+  'support.body': 'Copia un informe corto con el estado de la app (sin partida, sin tu nombre de usuario y sin ID de Steam) y pégalo en la conversación con soporte.',
+  'support.copy': 'Copiar informe para soporte',
+  'support.copied': 'Informe copiado. Solo pégalo en la conversación con soporte.',
+  'support.copyFailed': 'No se pudo copiar. Inténtalo de nuevo.',
   'diag.title': 'Ajustes',
   'diag.intro':
     'Aquí compruebas y cambias dónde busca la app el juego y tu progreso. Si todo funciona, no hace falta tocar nada.',

@@ -70,6 +70,28 @@ describe('Controller', () => {
     expect(root.textContent).toContain('Bem-vindo, caçador!');
   });
 
+  it('copies the support report to the clipboard and tells the player', async () => {
+    const written: string[] = [];
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: (text: string) => (written.push(text), Promise.resolve()) }, configurable: true });
+    await new Controller(root, fakeApi()).start();
+    click('show-diagnostics');
+    await settle();
+    click('copy-report');
+    await settle();
+    expect(written[0]).toContain('relatório de suporte');
+    expect(root.textContent).toContain('Relatório copiado');
+  });
+
+  it('shows an error when the clipboard refuses', async () => {
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: () => Promise.reject(new Error('negado')) }, configurable: true });
+    await new Controller(root, fakeApi()).start();
+    click('show-diagnostics');
+    await settle();
+    click('copy-report');
+    await settle();
+    expect(root.querySelector('.notice-error')?.textContent).toContain('Não foi possível copiar');
+  });
+
   it('refreshes the current screen', async () => {
     const api = fakeApi();
     await new Controller(root, api).start();

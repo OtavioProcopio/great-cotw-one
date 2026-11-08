@@ -18,8 +18,12 @@ impl HttpStore {
     /// `base` é o endereço do servidor (`https://licencas.exemplo.com`); a barra final é ignorada.
     #[must_use]
     pub fn new(base: &str) -> Self {
+        // Só HTTPS, para nunca mandar a chave de ativação em texto aberto; servidor local de teste
+        // (`http://localhost` ou `127.0.0.1`) é a única exceção.
+        let local = base.starts_with("http://localhost") || base.starts_with("http://127.0.0.1");
         let agent = ureq::Agent::config_builder()
             .timeout_global(Some(Duration::from_secs(20)))
+            .https_only(!local)
             .build()
             .into();
         Self {
@@ -125,6 +129,16 @@ mod tests {
         ] {
             assert!(matches!(parse_claim(&bad), Err(StoreError::Rejected)));
         }
+    }
+
+    #[test]
+    fn a_plain_http_server_that_is_not_local_is_never_contacted() {
+        let store = HttpStore::new("http://licencas.exemplo.com");
+        assert!(matches!(store.claim("x"), Err(StoreError::Offline(_))));
+        assert!(matches!(
+            store.checkout("monthly", "x"),
+            Err(StoreError::Offline(_))
+        ));
     }
 
     #[test]
