@@ -38,7 +38,7 @@ jobs:
           if ($tag -ne $conf) { throw "A tag v$tag não bate com a versão $conf do tauri.conf.json" }
           $cargo = (Select-String -Path Cargo.toml -Pattern '^version = "(.+)"').Matches[0].Groups[1].Value
           if ($tag -ne $cargo) { throw "A tag v$tag não bate com a versão $cargo do Cargo.toml" }
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
