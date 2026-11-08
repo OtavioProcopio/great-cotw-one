@@ -5,7 +5,7 @@
 **Your hunting companion for _theHunter: Call of the Wild_.**
 See where every animal group goes and when, plus your whole progress, in your own language and with nothing technical to learn.
 
-[**⬇️ Download for Windows**](https://github.com/OtavioProcopio/great-cotw-one/releases/latest) · [How to install](#-how-to-install) · [For developers](#-for-developers) · [Português](README.md)
+[**⬇️ Download for Windows**](https://otavioprocopio.github.io/great-cotw-one-site/) · [How to install](#-how-to-install) · [For developers](#-for-developers) · [Português](README.md)
 
 ![Following an animal group on the zone map](docs/img/mapa.png)
 
@@ -57,7 +57,7 @@ Every change keeps a full copy first. If something isn't how you wanted, go back
 
 ## 📥 How to install
 
-1. Open the [**Releases**](https://github.com/OtavioProcopio/great-cotw-one/releases/latest) page and download `Great COTW One_x.y.z_x64-setup.exe`.
+1. Open the [**website**](https://otavioprocopio.github.io/great-cotw-one-site/) page and download `Great COTW One_x.y.z_x64-setup.exe`.
 2. Double-click it. It installs for your user only and **asks for no administrator password**.
 3. Open **Great COTW One**. It finds your save and game by itself; if it can't, **Settings** has a button to point to the folder.
 
@@ -110,3 +110,7 @@ cargo test --workspace; cd ui; npm test         # tests
 cargo lint; cargo fmt-check                     # quality
 cd ui; npm run tauri build                      # builds the installer
 ```
+
+## 📄 License
+
+**Proprietary, private** source code. All rights reserved (see `LICENSE`). The app is distributed only as an installer, through the website: https://otavioprocopio.github.io/great-cotw-one-site/

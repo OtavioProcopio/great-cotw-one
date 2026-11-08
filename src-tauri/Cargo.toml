@@ -4,7 +4,7 @@ description = "App para Windows que lê o save do theHunter: Call of the Wild e 
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
-license.workspace = true
+license-file.workspace = true
 publish.workspace = true
 default-run = "great-cotw-one"
 

@@ -4,7 +4,7 @@ description = "Ferramenta do vendedor: gera o par de chaves e emite as licenças
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
-license.workspace = true
+license-file.workspace = true
 publish.workspace = true
 
 [lints]

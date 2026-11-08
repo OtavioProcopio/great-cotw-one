@@ -6,7 +6,7 @@ members = ["crates/*", "src-tauri"]
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.88"
-license = "MIT"
+license-file = "LICENSE"
 publish = false
 
 # Lints compartilhados: cada crate herda com `[lints] workspace = true`.

@@ -5,7 +5,7 @@
 **Seu parceiro de caça para o _theHunter: Call of the Wild_.**
 Veja onde cada grupo de animais passa, a que horas, e o seu progresso inteiro, em português, English ou Español e sem mexer em nada técnico.
 
-[**⬇️ Baixar para Windows**](https://github.com/OtavioProcopio/great-cotw-one/releases/latest) · [Como instalar](#-como-instalar) · [Para quem desenvolve](#-para-quem-desenvolve) · [English](README.en.md)
+[**⬇️ Baixar para Windows**](https://otavioprocopio.github.io/great-cotw-one-site/) · [Como instalar](#-como-instalar) · [Para quem desenvolve](#-para-quem-desenvolve) · [English](README.en.md)
 
 ![O mapa de zonas com a rota de um grupo de animais](docs/img/mapa.png)
 
@@ -58,7 +58,7 @@ Cada mudança guarda antes uma cópia completa. Se algo não ficou como você qu
 
 ## 📥 Como instalar
 
-1. Abra a página de [**Releases**](https://github.com/OtavioProcopio/great-cotw-one/releases/latest) e baixe o arquivo `Great COTW One_x.y.z_x64-setup.exe`.
+1. Abra o [**site**](https://otavioprocopio.github.io/great-cotw-one-site/) e baixe o arquivo `Great COTW One_x.y.z_x64-setup.exe`.
 2. Dê dois cliques. A instalação é só para o seu usuário e **não pede senha de administrador**.
 3. Abra o **Great COTW One**. Ele acha sozinho o seu save e o jogo; se não achar, a tela de **Ajustes** tem um botão para indicar a pasta.
 
@@ -140,3 +140,7 @@ Os testes com saves e jogo reais usam a pasta `fixtures/` (que **nunca** é vers
 - `openspec/changes/` — o que está sendo construído e o estado de cada tarefa. Validar: `openspec validate --all`.
 - `.claude/skills/cotw-save-knowledge/SKILL.md` — formatos do save e do jogo, hashes e o que é seguro editar.
 - `research/reference/` — implementações de referência usadas como oráculo dos testes.
+
+## 📄 Licença
+
+Código **proprietário e privado**. Todos os direitos reservados (veja `LICENSE`). O app é distribuído só como instalador, pelo site: https://otavioprocopio.github.io/great-cotw-one-site/
