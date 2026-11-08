@@ -41,6 +41,35 @@ export function visibleItems(items: EquipmentItem[], kind: EquipmentKind, own: O
   });
 }
 
+/** Quantos itens de uma categoria cabem em cada filtro de posse (mostrados ao lado dos botões). */
+export function ownCounts(items: EquipmentItem[], kind: EquipmentKind): Record<OwnFilter, number> {
+  const list = items.filter((item) => item.kind === kind);
+  const owned = list.filter((item) => item.owned).length;
+  return { all: list.length, owned, missing: list.length - owned };
+}
+
+export interface ItemGroup {
+  /** Classe de arma que o grupo representa; `null` quando a categoria não se divide. */
+  key: EquipmentItem['class'];
+  items: EquipmentItem[];
+}
+
+const CLASS_ORDER = ['rifle', 'handgun', 'shotgun', 'archery'];
+
+/**
+ * Divide os itens por classe de arma (rifles, pistolas, espingardas e arcos) nas categorias em que isso existe.
+ * Dentro de cada grupo, o que o jogador tem vem primeiro.
+ */
+export function groupItems(items: EquipmentItem[]): ItemGroup[] {
+  const byOwned = (a: EquipmentItem, b: EquipmentItem): number => Number(b.owned) - Number(a.owned) || a.name.localeCompare(b.name);
+  if (!items.some((item) => item.class)) return items.length === 0 ? [] : [{ key: null, items: [...items].sort(byOwned) }];
+  const groups = new Map<EquipmentItem['class'], EquipmentItem[]>();
+  for (const item of items) groups.set(item.class, [...(groups.get(item.class) ?? []), item]);
+  return [...groups.entries()]
+    .sort(([a], [b]) => CLASS_ORDER.indexOf(a ?? '') - CLASS_ORDER.indexOf(b ?? ''))
+    .map(([key, list]) => ({ key, items: list.sort(byOwned) }));
+}
+
 /** Quantos itens o jogador tem em cada categoria. */
 export function collection(items: EquipmentItem[]): Record<EquipmentKind, Progress> {
   const progress = Object.fromEntries(KINDS.map((kind) => [kind, { owned: 0, total: 0 }])) as Record<EquipmentKind, Progress>;

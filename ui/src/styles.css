@@ -2450,3 +2450,150 @@ button.eq-act.locked {
 }
 
 
+
+/* ===== arsenal: categorias à esquerda, itens agrupados à direita ===== */
+.eq-browser {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.eq-rail {
+  position: sticky;
+  top: 12px;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+button.eq-kind {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 5px;
+  padding: 9px 10px;
+  text-align: left;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+}
+
+button.eq-kind:hover {
+  background: var(--surface-2);
+}
+
+button.eq-kind[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.eq-kind-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--accent);
+}
+
+button.eq-kind[aria-pressed='true'] .eq-kind-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+}
+
+.eq-kind-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+button.eq-kind small {
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+
+.eq-kind-bar {
+  grid-column: 1 / -1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(127, 127, 127, 0.22);
+  overflow: hidden;
+}
+
+.eq-kind-bar i {
+  display: block;
+  height: 100%;
+  background: var(--ok);
+}
+
+button.eq-kind[aria-pressed='true'] .eq-kind-bar i {
+  background: #fff;
+}
+
+.eq-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.eq-toolbar input[type='search'] {
+  flex: 1 1 220px;
+  max-width: 360px;
+}
+
+.eq-toolbar .segmented {
+  margin: 0;
+}
+
+.eq-toolbar .seg small {
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+.eq-group + .eq-group {
+  margin-top: 26px;
+}
+
+.eq-group-title {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.eq-group-title small {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.eq-empty {
+  padding: 36px 0;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .eq-browser {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-rail {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  button.eq-kind {
+    flex: none;
+    min-width: 150px;
+  }
+}

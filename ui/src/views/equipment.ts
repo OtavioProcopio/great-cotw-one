@@ -1,9 +1,9 @@
 import { escapeHtml as e } from '../escape';
-import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey, collection, itemsById, maxAmount, rankValue, rankWeapons, visibleItems } from '../equipmentlogic';
+import { type EquipTab, KINDS, MAX_CASH, type OwnFilter, RANK_KEYS, type RankKey, collection, groupItems, itemsById, maxAmount, ownCounts, rankValue, rankWeapons, visibleItems } from '../equipmentlogic';
 import { formatCount, formatEpoch } from '../format';
 import { t } from '../i18n';
 import { icon, type IconName } from '../icons';
-import { thumb } from './thumb';
+import { KIND_ICON, thumb } from './thumb';
 import type { AnimalReserve, EquipmentItem, EquipmentKind, GearAdvice, Inventory, Loadout } from '../types';
 import { type AdvisorState, initialAdvisorState, renderAdvisor } from './advisor';
 
@@ -107,22 +107,37 @@ function itemCard(item: EquipmentItem, icons: Record<string, string>, premium: b
     : `<li class="eq-tile" data-text="${search}"><div class="eq-card">${body}</div>${actions(item, premium)}</li>`;
 }
 
+/** Arsenal: lista de categorias à esquerda, busca e filtro no alto, itens agrupados por tipo de arma. */
 function arsenal(inv: Inventory, state: EquipState, icons: Record<string, string>, premium: boolean): string {
   const progress = collection(inv.items);
-  const chips = KINDS.map((kind) => {
+  const rail = KINDS.map((kind) => {
     const p = progress[kind];
-    return `<button class="seg" data-action="equip-kind" data-kind="${kind}" aria-pressed="${String(state.kind === kind)}">${e(t(`equip.kind.${kind}`))} <small>${e(t('equip.count', { owned: p.owned, total: p.total }))}</small></button>`;
+    const pct = p.total === 0 ? 0 : Math.round((p.owned / p.total) * 100);
+    return `<button class="eq-kind" data-action="equip-kind" data-kind="${kind}" aria-pressed="${String(state.kind === kind)}">
+      <span class="eq-kind-icon" aria-hidden="true">${icon(KIND_ICON[kind], 18)}</span>
+      <span class="eq-kind-name">${e(t(`equip.kind.${kind}`))}</span>
+      <small>${e(t('equip.count', { owned: p.owned, total: p.total }))}</small>
+      <span class="eq-kind-bar" aria-hidden="true"><i style="width:${String(pct)}%"></i></span></button>`;
   }).join('');
+  const counts = ownCounts(inv.items, state.kind);
   const own = (id: OwnFilter): string =>
-    `<button class="seg" data-action="equip-own" data-own="${id}" aria-pressed="${String(state.own === id)}">${e(t(`equip.filter.${id}`))}</button>`;
-  const list = visibleItems(inv.items, state.kind, state.own);
+    `<button class="seg" data-action="equip-own" data-own="${id}" aria-pressed="${String(state.own === id)}">${e(t(`equip.filter.${id}`))} <small>${String(counts[id])}</small></button>`;
+  const groups = groupItems(visibleItems(inv.items, state.kind, state.own));
   const body =
-    list.length === 0
-      ? `<p class="muted">${e(t('equip.empty'))}</p>`
-      : `<ul class="eq-grid" id="eq-grid">${list.map((item) => itemCard(item, icons, premium)).join('')}</ul>`;
-  return `<div class="eq-kinds segmented">${chips}</div>
-    <div class="eq-tools"><div class="segmented">${own('all')}${own('owned')}${own('missing')}</div>
-      <input type="search" id="eq-search" placeholder="${e(t('equip.search'))}" aria-label="${e(t('equip.search'))}" /></div>${body}`;
+    groups.length === 0
+      ? `<p class="eq-empty muted">${e(t('equip.empty'))}</p>`
+      : `<div id="eq-grid">${groups
+          .map(
+            (g) => `<section class="eq-group">${
+              g.key ? `<h3 class="eq-group-title">${e(t(`equip.group.${g.key}`))} <small>${String(g.items.length)}</small></h3>` : ''
+            }<ul class="eq-grid">${g.items.map((item) => itemCard(item, icons, premium)).join('')}</ul></section>`,
+          )
+          .join('')}</div>`;
+  return `<div class="eq-browser">
+    <nav class="eq-rail" aria-label="${e(t('equip.categories'))}">${rail}</nav>
+    <div class="eq-main">
+      <div class="eq-toolbar"><input type="search" id="eq-search" placeholder="${e(t('equip.search'))}" aria-label="${e(t('equip.search'))}" />
+        <div class="segmented">${own('all')}${own('owned')}${own('missing')}</div></div>${body}</div></div>`;
 }
 
 function statLine(label: string, value: string): string {
@@ -238,6 +253,10 @@ export function bindEquipment(root: HTMLElement): void {
     const needle = input.value.trim().toLowerCase();
     for (const card of grid.querySelectorAll<HTMLElement>('li[data-text]')) {
       card.hidden = needle !== '' && !(card.dataset['text'] ?? '').includes(needle);
+    }
+    // Um grupo sem nenhum item à vista some junto com o título.
+    for (const group of grid.querySelectorAll<HTMLElement>('.eq-group')) {
+      group.hidden = [...group.querySelectorAll<HTMLElement>('li[data-text]')].every((li) => li.hidden);
     }
   });
 }

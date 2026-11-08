@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { KINDS, MAX_CASH, collection, itemsById, maxAmount, rankValue, rankWeapons, visibleItems } from './equipmentlogic';
+import { KINDS, MAX_CASH, collection, groupItems, itemsById, maxAmount, ownCounts, rankValue, rankWeapons, visibleItems } from './equipmentlogic';
 import { mockInventory } from './mock-data';
 import type { EquipmentItem, WeaponStats } from './types';
 
@@ -66,5 +66,34 @@ describe('maxAmount', () => {
     expect(maxAmount('weapon')).toBe(1);
     expect(maxAmount('sight')).toBe(1);
     expect(MAX_CASH).toBe(10_000_000);
+  });
+});
+
+describe('browsing helpers', () => {
+  const make = (id: string, kind: EquipmentItem['kind'], cls: EquipmentItem['class'], owned: boolean): EquipmentItem => ({
+    ...(mockInventory().items[0] as EquipmentItem),
+    id,
+    name: id,
+    kind,
+    class: cls,
+    owned,
+  });
+
+  it('counts how many items of a category fit each ownership filter', () => {
+    const list = [make('a', 'ammo', 'rifle', true), make('b', 'ammo', 'rifle', false), make('c', 'ammo', 'handgun', false), make('d', 'weapon', 'rifle', true)];
+    expect(ownCounts(list, 'ammo')).toEqual({ all: 3, owned: 1, missing: 2 });
+  });
+
+  it('groups by weapon class in a fixed order with the owned items first', () => {
+    const list = [make('z', 'weapon', 'archery', false), make('b', 'weapon', 'rifle', false), make('a', 'weapon', 'rifle', true), make('p', 'weapon', 'handgun', true)];
+    const groups = groupItems(list);
+    expect(groups.map((g) => g.key)).toEqual(['rifle', 'handgun', 'archery']);
+    expect(groups[0]?.items.map((i) => i.id)).toEqual(['a', 'b']);
+  });
+
+  it('keeps a single group when the category has no weapon class and nothing when it is empty', () => {
+    const list = [make('b', 'consumable', null, false), make('a', 'consumable', null, true)];
+    expect(groupItems(list)).toEqual([{ key: null, items: [list[1], list[0]] }]);
+    expect(groupItems([])).toEqual([]);
   });
 });

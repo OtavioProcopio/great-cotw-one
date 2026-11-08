@@ -2,7 +2,7 @@ import { escapeHtml as e } from '../escape';
 import { icon, type IconName } from '../icons';
 import type { EquipmentItem, EquipmentKind } from '../types';
 
-const KIND_ICON: Record<EquipmentKind, IconName> = {
+export const KIND_ICON: Record<EquipmentKind, IconName> = {
   weapon: 'target',
   ammo: 'list',
   sight: 'fit',
