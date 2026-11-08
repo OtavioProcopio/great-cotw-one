@@ -77,7 +77,7 @@ jobs:
           $latest | ConvertTo-Json -Depth 5 | Set-Content out/latest.json -Encoding utf8NoBOM
           Get-Content out/latest.json
       - name: Publicar no repositório do site
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           repository: ${{ env.SITE_REPO }}
           token: ${{ secrets.SITE_RELEASES_TOKEN }}
