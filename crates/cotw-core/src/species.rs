@@ -4,11 +4,24 @@ use crate::language::Language;
 
 /// (`id` do jogo, nome em português, em inglês e em espanhol), em ordem alfabética do `id`.
 const NAMES: &[(&str, &str, &str, &str)] = &[
+    // Nome que o mapa de aparição de Te Awaroa usa para a cabra-selvagem.
+    (
+        "alpine_goat",
+        "Cabra-selvagem",
+        "Feral Goat",
+        "Cabra asilvestrada",
+    ),
     (
         "american_alligator",
         "Jacaré-americano",
         "American Alligator",
         "Aligátor americano",
+    ),
+    (
+        "american_mink",
+        "Vison-americano",
+        "American Mink",
+        "Visón americano",
     ),
     (
         "antelope_jackrabbit",
@@ -51,6 +64,7 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Bisonte europeo",
     ),
     ("black_bear", "Urso-negro", "Black Bear", "Oso negro"),
+    ("black_caiman", "Jacaré-açu", "Black Caiman", "Caimán negro"),
     ("black_grouse", "Galo-lira", "Black Grouse", "Gallo lira"),
     (
         "blackbuck",
@@ -98,7 +112,9 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Western Capercaillie",
         "Urogallo común",
     ),
+    ("capybara", "Capivara", "Capybara", "Capibara"),
     ("caribou", "Caribu", "Caribou", "Caribú"),
+    ("chamois", "Camurça", "Chamois", "Rebeco"),
     (
         "cinnamon_teal",
         "Marreca-canela",
@@ -112,6 +128,12 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Pecarí de collar",
     ),
     ("coyote", "Coiote", "Coyote", "Coyote"),
+    (
+        "dusky_grouse",
+        "Tetraz-sombrio",
+        "Dusky Grouse",
+        "Gallo oscuro",
+    ),
     (
         "eastern_cottontail_rabbit",
         "Coelho-de-cauda-de-algodão",
@@ -138,6 +160,12 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Conejo europeo",
     ),
     (
+        "eurasian_pine_marten",
+        "Marta-europeia",
+        "Eurasian Pine Marten",
+        "Marta europea",
+    ),
+    (
         "eurasian_teal",
         "Marrequinha",
         "Eurasian Teal",
@@ -148,6 +176,18 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Piadeira",
         "Eurasian Wigeon",
         "Silbón europeo",
+    ),
+    (
+        "eurasian_woodcock",
+        "Galinhola",
+        "Eurasian Woodcock",
+        "Chocha perdiz",
+    ),
+    (
+        "european_badger",
+        "Texugo-europeu",
+        "European Badger",
+        "Tejón europeo",
     ),
     (
         "european_bison",
@@ -175,11 +215,19 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Feral Pig",
         "Cerdo asilvestrado",
     ),
+    (
+        "ferruginous_duck",
+        "Zarro-castanho",
+        "Ferruginous Duck",
+        "Porrón pardo",
+    ),
     ("fox", "Raposa-vermelha", "Red Fox", "Zorro rojo"),
+    ("gadwall", "Frisada", "Gadwall", "Ánade friso"),
     ("gemsbok", "Órix", "Gemsbok", "Órice"),
     ("goldeneye", "Olho-dourado", "Goldeneye", "Porrón osculado"),
     ("gray_fox", "Raposa-cinzenta", "Gray Fox", "Zorro gris"),
     ("gray_wolf", "Lobo-cinzento", "Gray Wolf", "Lobo gris"),
+    ("greater_grison", "Furão-grande", "Greater Grison", "Grisón"),
     (
         "gredos_ibex",
         "Íbex de Gredos",
@@ -232,6 +280,7 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "White-tailed Jackrabbit",
         "Liebre de cola blanca",
     ),
+    ("jaguar", "Onça-pintada", "Jaguar", "Jaguar"),
     (
         "javan_rusa",
         "Rusa-de-java",
@@ -248,6 +297,12 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
     ),
     ("magpie_goose", "Ganso-pega", "Magpie Goose", "Ganso urraca"),
     ("mallard", "Pato-real", "Mallard", "Ánade real"),
+    (
+        "manitoban_elk",
+        "Uapiti-de-manitoba",
+        "Manitoban Elk",
+        "Uapití de Manitoba",
+    ),
     ("moose", "Alce", "Moose", "Alce"),
     (
         "mountain_goat",
@@ -270,10 +325,22 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
     ),
     ("nilgai", "Nilgai", "Nilgai", "Nilgó"),
     (
+        "north_american_beaver",
+        "Castor-americano",
+        "North American Beaver",
+        "Castor americano",
+    ),
+    (
         "northern_bobwhite_quail",
         "Codorna-colinus",
         "Northern Bobwhite Quail",
         "Codorniz bobwhite",
+    ),
+    (
+        "northern_pintail",
+        "Arrábio",
+        "Northern Pintail",
+        "Ánade rabudo",
     ),
     (
         "northern_red_muntjac",
@@ -281,6 +348,7 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Northern Red Muntjac",
         "Muntíaco rojo",
     ),
+    ("ocelot", "Jaguatirica", "Ocelot", "Ocelote"),
     ("peccary", "Caititu", "Collared Peccary", "Pecarí de collar"),
     (
         "pheasant",
@@ -305,6 +373,12 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
     ),
     ("red_deer", "Cervo-vermelho", "Red Deer", "Ciervo rojo"),
     ("red_fox", "Raposa-vermelha", "Red Fox", "Zorro rojo"),
+    (
+        "red_grouse",
+        "Lagópode-escocês",
+        "Red Grouse",
+        "Lagópodo escocés",
+    ),
     ("reindeer", "Rena", "Mountain Reindeer", "Reno"),
     (
         "rio_grande_turkey",
@@ -369,11 +443,19 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Side-striped Jackal",
         "Chacal rayado",
     ),
+    ("sika_deer", "Cervo-sika", "Sika Deer", "Ciervo sika"),
+    ("snow_goose", "Ganso-das-neves", "Snow Goose", "Ánsar nival"),
     (
         "snow_leopard",
         "Leopardo-das-neves",
         "Snow Leopard",
         "Leopardo de las nieves",
+    ),
+    (
+        "south_american_tapir",
+        "Anta",
+        "South American Tapir",
+        "Tapir amazónico",
     ),
     (
         "southeastern_ibex",
@@ -386,6 +468,12 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Íbex do sudeste",
         "Southeastern Spanish Ibex",
         "Cabra montés del sudeste",
+    ),
+    (
+        "spectacled_bear",
+        "Urso-de-óculos",
+        "Spectacled Bear",
+        "Oso de anteojos",
     ),
     ("springbok", "Springbok", "Springbok", "Springbok"),
     (
@@ -400,6 +488,7 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Himalayan Tahr",
         "Tahr del Himalaya",
     ),
+    ("taruca", "Taruca", "Taruca", "Taruca"),
     (
         "tibetan_fox",
         "Raposa-tibetana",
@@ -412,6 +501,7 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Tufted Duck",
         "Porrón moñudo",
     ),
+    ("vicuna", "Vicunha", "Vicuña", "Vicuña"),
     ("warthog", "Javali-africano", "Warthog", "Facóquero"),
     (
         "water_buffalo",
@@ -424,6 +514,12 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
         "Tetraz-grande",
         "Western Capercaillie",
         "Urogallo común",
+    ),
+    (
+        "western_mountain_coati",
+        "Quati-da-montanha",
+        "Western Mountain Coati",
+        "Coatí de montaña",
     ),
     (
         "whitetail",
@@ -439,19 +535,32 @@ const NAMES: &[(&str, &str, &str, &str)] = &[
     ),
     ("wild_boar", "Javali", "Wild Boar", "Jabalí"),
     (
+        "wild_haggis",
+        "Haggis-selvagem",
+        "Wild Haggis",
+        "Haggis salvaje",
+    ),
+    (
         "wild_turkey",
         "Peru-selvagem",
         "Wild Turkey",
         "Pavo salvaje",
     ),
     ("wild_yak", "Iaque-selvagem", "Wild Yak", "Yak salvaje"),
-    ("wildhog", "Porco-selvagem", "Wild Hog", "Cerdo salvaje"),
+    ("wildhog", "Porco-asselvajado", "Wild Hog", "Cerdo salvaje"),
     (
         "willow_ptarmigan",
-        "Lagópode-escocês",
+        "Lagópode-dos-salgueiros",
         "Willow Ptarmigan",
         "Lagópodo común",
     ),
+    (
+        "wood_bison",
+        "Bisão-da-floresta",
+        "Wood Bison",
+        "Bisonte de bosque",
+    ),
+    ("wood_duck", "Pato-carolino", "Wood Duck", "Pato joyuyo"),
     (
         "woolly_hare",
         "Lebre-lanosa",

@@ -107,6 +107,10 @@ pub fn get(species: &str) -> Option<&'static SpeciesStats> {
 
 /// Nomes que o mapa de aparição usa e que diferem dos da tabela de espécies (apelido, nome na tabela).
 const ALIASES: &[(&str, &str)] = &[
+    ("alpine_goat", "feral_goat"),
+    ("bear", "black_bear"),
+    ("fox", "red_fox"),
+    ("lynx", "eurasian_lynx"),
     ("bean_goose", "tundra_bean_goose"),
     ("bison_upper", "eu_bison"),
     ("european_bison", "eu_bison"),
@@ -133,7 +137,9 @@ const ALIASES: &[(&str, &str)] = &[
 /// Como [`get`], mas aceita também os apelidos que o mapa de aparição usa para algumas espécies.
 #[must_use]
 pub fn lookup(species: &str) -> Option<&'static SpeciesStats> {
-    get(species).or_else(|| {
+    // A tabela tem entradas vazias com o nome do grupo (`fox`, `bear`, `lynx`); elas não servem.
+    let filled = |s: &&SpeciesStats| s.hunt_class > 0 || !s.scoring.is_empty();
+    get(species).filter(filled).or_else(|| {
         ALIASES
             .iter()
             .find(|(alias, _)| *alias == species)
@@ -287,6 +293,15 @@ mod tests {
         for (id, stats) in all() {
             let total: f64 = stats.fur_chances().iter().map(|(_, c)| c).sum();
             assert!(total == 0.0 || near(total, 1.0), "{id}: {total}");
+        }
+    }
+
+    #[test]
+    fn spawn_names_that_match_an_empty_group_entry_find_the_real_species() {
+        for (spawn, class) in [("fox", 2), ("bear", 7), ("lynx", 3), ("alpine_goat", 3)] {
+            let stats = lookup(spawn).unwrap();
+            assert_eq!(stats.hunt_class, class, "{spawn}");
+            assert!(stats.diamond_min().is_some(), "{spawn}");
         }
     }
 }
